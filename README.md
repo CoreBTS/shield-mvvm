@@ -1,7 +1,7 @@
 # ShieldMVVM
 ## _Protects you with type-safety, everywhere_
 
-CoreBTS' ShieldMVVM is a .NET MAUI MVVM framework that provides type-safety for navigation, bindable properties, converters, behaviors, dialogs, data templates, and more in a way that enables developers to code faster, safer, and with less lines.
+CoreBTS's ShieldMVVM is a .NET MAUI MVVM framework that provides type-safety for navigation, bindable properties, converters, behaviors, dialogs, data templates, and more in a way that enables developers to code faster, safer, and with less lines.
 
 ### Navigation
 By wrapping Microsoft MAUI's navigation, developers can do ViewModel-to-ViewModel navigation. Developers can also pass typed arguments to send data to the next ViewModel and even a typed result back when the user navigates back. The code can await where the navigation took place and the result will come back to that spot in code.
@@ -13,7 +13,7 @@ With the help of the MAUI CommunityToolkit, developers can create dialog ViewMod
 In MAUI, Bindable Properties are how all the one-way and two-way bindings get hooked up, but they are not type-safe. ShieldMVVM wraps them in a type-safe/generic version of BindableProperty to guarantee the developer is binding the correct types. All the "Bind" methods will show up in intellisense that only apply to the control you are binding and can be chained together. If a developer attempts to bind a different type, the code will not compile. However, a converter can be used inline where intellisense shows only the possible combinations for the given types.
 
 ### Converters
-Converters allow a developer to convert a value from a ViewModel into a more UI friendly version. ShieldMVVM comes with type-safe/generic converters to speed up development. The basic implementation allows callbacks to be used, so developers don't have to create new classes everytime. Since they are generic, they can be used to support intellisense in code-behind bindings by making them extension methods. Finally, since these are callbacks, developers can send any number of type-safe parameters into the call in order to do the conversion - developers are not limited to just one parameter of type object.
+Converters allow a developer to convert a value from a ViewModel into a more UI friendly version. ShieldMVVM comes with type-safe/generic converters to speed up development. The basic implementation allows callbacks to be used, so developers don't have to create new classes every time. Since they are generic, they can be used to support intellisense in code-behind bindings by making them extension methods. Finally, since these are callbacks, developers can send any number of type-safe parameters into the call in order to do the conversion - developers are not limited to just one parameter of type object.
 
 ### Behaviors
 Similar to converters, Behaviors are also made type-safe/generic. They can be chained with the Bindable Properties in order to add additional functionality. Intellisense will only show you the behaviors that apply to the control you are binding to.
