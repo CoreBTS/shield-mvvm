@@ -91,10 +91,9 @@ public class AboutPageViewModel : PageViewModelBase<AboutPageArgs, AboutPageResu
     public ICommand DoneCommand { get; }
     public int Counter { get; protected set; }
 
-    public override Task PrepareAsync(AboutPageArgs parameters, CancellationToken token = default)
+    public override void Prepare(AboutPageArgs parameters)
     {
         Counter = parameters.Counter;
-        return Task.CompletedTask;
     }
 
     public override Task InitializeAsync(CancellationToken token = default)
