@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<base:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:base="clr-namespace:CoreBTS.Maui.ShieldMVVM.Pages;assembly=CoreBTS.Maui.ShieldMVVM"
+    x:Class="MauiSample.Features.About.AboutPage"
+    xmlns:m="clr-namespace:MauiSample.Features.About"
+    x:TypeArguments="m:AboutPageViewModel">
+    
+    <VerticalStackLayout
+        HorizontalOptions="Center"
+        >
+        
+        <Label
+            Text="Previous counter value" 
+            />
+        
+        <Label 
+            x:Name="Counter" />
+
+        <Label 
+            Margin="0,10,0,0" 
+            Text="About Text:" 
+            />
+        
+        <Label
+            x:Name="MyText"
+            />
+
+        <Button
+            Text="Done"
+            x:Name="DoneButton"
+            />
+
+    </VerticalStackLayout>
+    
+</base:ContentPageBase>

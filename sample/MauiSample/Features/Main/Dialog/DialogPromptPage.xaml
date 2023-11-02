@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:DialogPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:base="clr-namespace:CoreBTS.Maui.ShieldMVVM.Pages;assembly=CoreBTS.Maui.ShieldMVVM"
+    x:Class="MauiSample.Features.Main.Dialog.DialogPromptPage"
+    xmlns:m="clr-namespace:MauiSample.Features.Main.Dialog"
+    x:TypeArguments="m:DialogPromptPageViewModel">
+
+    <VerticalStackLayout
+        Margin="20"
+        >
+
+        <Label
+            x:Name="MyLabel"
+            />
+
+        <Entry
+            x:Name="Counter" 
+            />
+
+        <Button
+            x:Name="CloseButton"
+            />
+
+    </VerticalStackLayout>
+
+</base:DialogPageBase>

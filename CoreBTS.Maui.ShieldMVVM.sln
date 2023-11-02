@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreBTS.Maui.ShieldMVVM", "src\ShieldMVVM\CoreBTS.Maui.ShieldMVVM.csproj", "{F0653C5C-3A05-45A4-BF92-072E9F04449F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{F4842957-4787-4429-A2CE-EBD3BCC9F08C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiSample", "sample\MauiSample\MauiSample.csproj", "{E9917A49-1D21-40A3-B022-00205E71A8F7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{FF175A64-E7D5-4742-8022-9745B6F7D9CE}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+		docs\view-models.md = docs\view-models.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F0653C5C-3A05-45A4-BF92-072E9F04449F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0653C5C-3A05-45A4-BF92-072E9F04449F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0653C5C-3A05-45A4-BF92-072E9F04449F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0653C5C-3A05-45A4-BF92-072E9F04449F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9917A49-1D21-40A3-B022-00205E71A8F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9917A49-1D21-40A3-B022-00205E71A8F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9917A49-1D21-40A3-B022-00205E71A8F7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E9917A49-1D21-40A3-B022-00205E71A8F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9917A49-1D21-40A3-B022-00205E71A8F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9917A49-1D21-40A3-B022-00205E71A8F7}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E9917A49-1D21-40A3-B022-00205E71A8F7} = {F4842957-4787-4429-A2CE-EBD3BCC9F08C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4398F386-F731-43A7-847A-A198EF06C327}
+	EndGlobalSection
+EndGlobal
