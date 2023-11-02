@@ -16,7 +16,7 @@ In MAUI, Bindable Properties are how all the one-way and two-way bindings get ho
 Converters allow a developer to convert a value from a ViewModel into a more UI friendly version. ShieldMVVM comes with type-safe/generic converters to speed up development. The basic implementation allows callbacks to be used, so developers don't have to create new classes everytime. Since they are generic, they can be used to support intellisense in code-behind bindings by making them extension methods. Finally, since these are callbacks, developers can send any number of type-safe parameters into the call in order to do the conversion - developers are not limited to just one parameter of type object.
 
 ### Behaviors
-Similar to converters, Behaviors are also made type-safe/generic. They can be chained with the Bindable Properties in order to add additional functionality. Intellisense will only show you the behvariors that apply to the control you are binding to.
+Similar to converters, Behaviors are also made type-safe/generic. They can be chained with the Bindable Properties in order to add additional functionality. Intellisense will only show you the behaviors that apply to the control you are binding to.
 
 ### Data Templates
 TODO
