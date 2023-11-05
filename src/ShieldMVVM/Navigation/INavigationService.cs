@@ -11,7 +11,7 @@ public interface INavigationService
     /// Shows a popup dialog over the top of the current page without leaving.
     /// </summary>
     /// <typeparam name="TViewModel">The type of ViewModel being popped up.</typeparam>
-    /// <param name="viewModel">Instanace of the view model to use directly, if available.</param>
+    /// <param name="viewModel">Instance of the view model to use directly, if available.</param>
     /// <param name="token">
     /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
     /// </param>
@@ -92,7 +92,7 @@ public interface INavigationService
         where TViewModel : IPageViewModel<TParameter>;
 
     /// <summary>
-    /// Navigates to another ViewModel with setup parameters and expeecting a result.
+    /// Navigates to another ViewModel with setup parameters and expecting a result.
     /// </summary>
     /// <typeparam name="TViewModel">The type of ViewModel being navigated to.</typeparam>
     /// <typeparam name="TParameter">The type of setup parameter being sent.</typeparam>
@@ -159,4 +159,9 @@ public interface INavigationService
         TResult result, 
         bool isAnimated = true, 
         CancellationToken token = default);
+
+    /// <summary>
+    /// Clears the entire navigation stack.
+    /// </summary>
+    void ClearNavigation();
 }
