@@ -40,6 +40,26 @@ public static class MauiAppBuilderExtensionMethods
     }
 
     /// <summary>
+    /// Does NOT configure the built in INavigationService to navigate between pages. Only registers 
+    /// ViewModels, ContentPageBase, and DialogPageBase types.
+    /// </summary>
+    /// <param name="builder">A builder for .NET MAUI cross-platform applications and services.</param>
+    /// <param name="assembliesToScan">
+    /// The list of assemblies to scan for IViewModelBase, ContentPageBase, and DialogPageBase types.
+    /// </param>
+    /// <returns>The same builder that was sent in for chaining.</returns>
+    public static MauiAppBuilder UseShieldMVVMNoNavigation(
+        this MauiAppBuilder builder,
+        params Assembly[] assembliesToScan)
+    {
+        ConfigureViewModels(builder, assembliesToScan);
+        ConfigurePages(builder, assembliesToScan);
+        ConfigureDialogs(builder, assembliesToScan);
+
+        return builder;
+    }
+
+    /// <summary>
     /// Scans all the given assemblies for any classes that implement IViewModelBase interface and registers them with
     /// the Services IoC container.
     /// </summary>
