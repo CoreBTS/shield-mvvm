@@ -25,7 +25,7 @@ public static class MauiAppBuilderExtensionMethods
     /// The list of assemblies to scan for IViewModelBase, ContentPageBase, and DialogPageBase types.
     /// </param>
     /// <returns>The same builder that was sent in for chaining.</returns>
-    public static MauiAppBuilder ConfigureShieldMVVM(
+    public static MauiAppBuilder UseShieldMVVM(
         this MauiAppBuilder builder, 
         Func<Type, dynamic> typeResolverCallback, 
         params Assembly[] assembliesToScan)

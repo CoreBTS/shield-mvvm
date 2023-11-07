@@ -14,7 +14,7 @@ namespace MauiSample
             builder
                 .UseMauiCommunityToolkit()
                 .UseMauiApp<App>()
-                .ConfigureShieldMVVM(t => ServiceProvider.GetService(t), typeof(MauiProgram).Assembly)
+                .UseShieldMVVM(t => ServiceProvider.GetService(t), typeof(MauiProgram).Assembly)
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
