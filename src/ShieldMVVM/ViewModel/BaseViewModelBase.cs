@@ -8,6 +8,11 @@ namespace CoreBTS.Maui.ShieldMVVM.ViewModel;
 /// </summary>
 public abstract partial class BaseViewModelBase : ObservableObject
 {
+    /// <summary>
+    /// This event fires whenever the IsBusy property changes.
+    /// </summary>
+    protected event EventHandler IsBusyChanged;
+
     protected BaseViewModelBase(INavigationService navigationService) =>
         NavigationService = navigationService;
 
@@ -19,8 +24,16 @@ public abstract partial class BaseViewModelBase : ObservableObject
     /// <summary>
     /// Gets or sets whether the ViewModel is busy with something that the UI should alert the user about.
     /// </summary>
-    [ObservableProperty]
     private bool _isBusy;
+    public bool IsBusy
+    {
+        get => _isBusy;
+        set
+        {
+            if (SetProperty(ref _isBusy, value))
+                IsBusyChanged?.Invoke(this, EventArgs.Empty);
+        }
+    }
 
     /// <summary>
     /// This method only fires once when the ViewModel is first created and before the page is created.
