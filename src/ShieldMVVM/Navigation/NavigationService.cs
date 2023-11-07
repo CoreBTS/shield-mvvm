@@ -18,14 +18,13 @@ public class NavigationService : INavigationService
     private static readonly ConcurrentDictionary<Type, ConstructorInfo> DialogPageConstructorLookup = new();
 
     private static INavigation Navigation => Application.Current.MainPage.Navigation;
+    private static Page Page => Application.Current.MainPage;
 
     private static readonly Type _viewModelBaseType = typeof(IViewModelBase);
     private static readonly Type _pageBaseType = typeof(ContentPageBase<>);
     private static readonly Type _dialogPageBaseType = typeof(DialogPageBase<>);
 
     private readonly Func<Type, dynamic> _typeResolverCallback;
-
-    private static Page Page => Application.Current.MainPage;
 
     /// <summary>
     /// Constructor that takes a callback to resolve types.
