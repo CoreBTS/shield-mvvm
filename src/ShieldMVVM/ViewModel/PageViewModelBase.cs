@@ -12,7 +12,7 @@ public abstract class BasePageViewModelBase : BaseViewModelBase
     }
 
     /// <summary>
-    /// Gets whether the InitializeAsyc method is called before page is created (default - true) or after (false).
+    /// Gets whether the InitializeAsync method is called before page is created (default - true) or after (false).
     /// </summary>
     public virtual bool IsInitializeCalledBeforePageIsCreated => true;
 

@@ -76,7 +76,7 @@ public abstract class ContentPageBase<TViewModel> : ContentPage
     }
 
     /// <summary>
-    /// A method that fires whenever thet page is disappearing from the user from a visible state.
+    /// A method that fires whenever the page is disappearing from the user from a visible state.
     /// </summary>
     protected sealed override async void OnDisappearing()
     {

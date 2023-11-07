@@ -15,7 +15,7 @@ public static class BindingHelper
     /// specify the generic directly.
     /// </summary>
     /// <typeparam name="TViewModel">The type of ViewModel being bound to.</typeparam>
-    /// <param name="viewModel">The ViweModel being bound to.</param>
+    /// <param name="viewModel">The ViewModel being bound to.</param>
     /// <returns>A new instance of a type-specific BindingHelper.</returns>
     public static BindingHelper<TViewModel> Create<TViewModel>(TViewModel viewModel) =>
         BindingHelper<TViewModel>.Create(viewModel);
@@ -65,7 +65,7 @@ public class BindingHelper<TViewModel>
 }
 
 /// <summary>
-/// A class that allows chaining diffent types of binding for a specific control type and the ability to add a
+/// A class that allows chaining different types of binding for a specific control type and the ability to add a
 /// type-safe converter.
 /// </summary>
 /// <typeparam name="TViewModel">The type of ViewModel being bound to.</typeparam>
@@ -90,7 +90,7 @@ public class BindingControl<TViewModel, TControl>
     /// <summary>
     /// Binds a ViewModel property to a control's BindableProperty.
     /// </summary>
-    /// <typeparam name="TPropertyType">The type of property coming from the ViewModel anf going to the BindableProperty.</typeparam>
+    /// <typeparam name="TPropertyType">The type of property coming from the ViewModel and going to the BindableProperty.</typeparam>
     /// <param name="bindablePropertyExpression">An expression to get the BindableProperty to use.</param>
     /// <param name="viewModelPropertyExpression">An expression to get the ViewModel property to use.</param>
     /// <returns>A reference to this instance to allow chaining.</returns>
@@ -259,7 +259,7 @@ public class BindingControl<TViewModel, TControl>
     /// <summary>
     /// Binds a behavior to a control.
     /// </summary>
-    /// <param name="behaviorExpression">The experssion that sets up the behavior to add to the control</param>
+    /// <param name="behaviorExpression">The expression that sets up the behavior to add to the control</param>
     /// <returns>A reference to this instance to allow chaining.</returns>
     public BindingControl<TViewModel, TControl> Behavior(
         Func<BindableBehavior<TControl>, Behavior<TControl>> behaviorExpression)
@@ -276,7 +276,7 @@ public class BindingControl<TViewModel, TControl>
     /// <summary>
     /// Binds a behavior to a control.
     /// </summary>
-    /// <param name="behaviorExpression">The experssion that sets up the behavior to add to the control</param>
+    /// <param name="behaviorExpression">The expression that sets up the behavior to add to the control</param>
     /// <returns>A reference to this instance to allow chaining.</returns>
     public BindingControl<TViewModel, TControl> Behavior(
         Func<BindableBehavior<TControl>, TViewModel, Behavior<TControl>> behaviorExpression)
@@ -317,10 +317,10 @@ public class BindingControl<TViewModel, TControl>
         if (propertyExpression.Body is MemberExpression me)
             return GetMemberExpressionMemberName(me);
 
-        if (propertyExpression.Body is UnaryExpression ue && ue.Operand is MemberExpression ueme)
-            return GetMemberExpressionMemberName(ueme);
+        if (propertyExpression.Body is UnaryExpression ue && ue.Operand is MemberExpression ueMe)
+            return GetMemberExpressionMemberName(ueMe);
 
-        throw new NotSupportedException("Given expression is not currently supproted.");
+        throw new NotSupportedException("Given expression is not currently supported.");
     }
 
     private static string GetMemberExpressionMemberName(MemberExpression me)

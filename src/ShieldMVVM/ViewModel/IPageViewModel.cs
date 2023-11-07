@@ -6,7 +6,7 @@
 public interface IPageViewModelBase : IViewModelBase
 {
     /// <summary>
-    /// Gets whether the InitializeAsyc method is called before page is created (true) or after (false).
+    /// Gets whether the InitializeAsync method is called before page is created (true) or after (false).
     /// </summary>
     bool IsInitializeCalledBeforePageIsCreated { get; }
 
