@@ -174,7 +174,7 @@ public class BindingControl<TViewModel, TControl>
     }
 
     /// <summary>
-    /// Sets a ViewModel property to a control's BindableProperty only once.
+    /// Sets a ViewModel property to a control's value directly, only once.
     /// </summary>
     /// <typeparam name="TFrom">The type of property coming from the ViewModel.</typeparam>
     /// <typeparam name="TTo">The type of property going to the BindableProperty.</typeparam>
@@ -197,7 +197,7 @@ public class BindingControl<TViewModel, TControl>
     }
 
     /// <summary>
-    /// Sets a ViewModel property to a control's BindableProperty only once.
+    /// Sets a ViewModel property to a control's value directly, only once.
     /// </summary>
     /// <typeparam name="TFrom">The type of property coming from the ViewModel.</typeparam>
     /// <typeparam name="TTo">The type of property going to the BindableProperty.</typeparam>
@@ -227,7 +227,7 @@ public class BindingControl<TViewModel, TControl>
     }
 
     /// <summary>
-    /// Sets a ViewModel property to a control's BindableProperty only once.
+    /// Sets a ViewModel property to a control's value directly, only once.
     /// </summary>
     /// <typeparam name="TFrom">The type of property coming from the ViewModel.</typeparam>
     /// <typeparam name="TTo">The type of property going to the BindableProperty.</typeparam>
