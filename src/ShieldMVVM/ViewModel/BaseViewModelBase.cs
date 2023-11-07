@@ -21,10 +21,10 @@ public abstract partial class BaseViewModelBase : ObservableObject
     /// </summary>
     protected INavigationService NavigationService { get; }
 
+    private bool _isBusy;
     /// <summary>
     /// Gets or sets whether the ViewModel is busy with something that the UI should alert the user about.
     /// </summary>
-    private bool _isBusy;
     public bool IsBusy
     {
         get => _isBusy;
