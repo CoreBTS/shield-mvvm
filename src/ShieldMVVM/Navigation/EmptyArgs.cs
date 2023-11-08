@@ -2,4 +2,5 @@
 
 public class EmptyArgs
 {
+    public static EmptyArgs Create() => new();
 }
