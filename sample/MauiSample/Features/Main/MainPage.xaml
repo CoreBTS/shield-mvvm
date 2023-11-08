@@ -1,10 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <base:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:base="clr-namespace:CoreBTS.Maui.ShieldMVVM.Pages;assembly=CoreBTS.Maui.ShieldMVVM"
-             x:Class="MauiSample.Features.Main.MainPage"
-             xmlns:m="clr-namespace:MauiSample.Features.Main"
-             x:TypeArguments="m:MainPageViewModel">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:base="clr-namespace:CoreBTS.Maui.ShieldMVVM.Pages;assembly=CoreBTS.Maui.ShieldMVVM"
+    x:Class="MauiSample.Features.Main.MainPage"
+    xmlns:m="clr-namespace:MauiSample.Features.Main"
+    x:TypeArguments="m:MainPageViewModel"
+    x:DataType="m:MainPageViewModel"
+    >
 
     <ScrollView>
         
@@ -48,9 +50,9 @@
                 />
 
             <Label
-             HorizontalOptions="Center"
-             x:Name="SecondaryLabel"
-             />
+                 HorizontalOptions="Center"
+                 x:Name="SecondaryLabel"
+                />
 
             <HorizontalStackLayout>
 

@@ -9,7 +9,7 @@ namespace CoreBTS.Maui.ShieldMVVM.Pages;
 /// </summary>
 /// <typeparam name="TViewModel">The type of ViewModel the dialog is tied to.</typeparam>
 public abstract class DialogPageBase<TViewModel> : Popup
-    where TViewModel : IViewModelBase
+    where TViewModel : IDialogViewModelBase
 {
     protected DialogPageBase(TViewModel viewModel)
     {

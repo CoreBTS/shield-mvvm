@@ -15,12 +15,11 @@ public partial class DialogPromptPageViewModel : DialogViewModelBase<DialogPromp
 
     public virtual string MyLabel => "Counter Value";
 
-    public override DialogPromptPageResult Result => new(Counter);
+    public override Task<DialogPromptPageResult> GetResultAsync() => 
+        Task.FromResult(new DialogPromptPageResult(Counter));
 
-    public override void Prepare(DialogPromptPageArg parameters)
-    {
+    public override void Prepare(DialogPromptPageArg parameters) =>
         Counter = parameters.Counter;
-    }
 
     public override Task InitializeAsync(CancellationToken token = default) =>
         Task.CompletedTask;

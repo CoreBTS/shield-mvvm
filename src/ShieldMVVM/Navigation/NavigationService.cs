@@ -122,7 +122,7 @@ public class NavigationService : INavigationService
 
         await viewModel.OnViewCreated(token);
 
-        viewModel.Close += async (sender, e) => await popup.CloseAsync(e);
+        viewModel.Close += async (sender, e) => await popup.CloseAsync(await viewModel.GetResultAsync());
 
         var result = (TResult)await Page.ShowPopupAsync(popup);
 

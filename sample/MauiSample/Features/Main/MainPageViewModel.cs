@@ -11,12 +11,6 @@ namespace MauiSample.Features.Main;
 
 public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
 {
-    public IRelayCommand ClickCommand { get; }
-    public IAsyncRelayCommand AboutPageCommand { get; }
-    public IAsyncRelayCommand AboutAlternatePageCommand { get; }
-    public IAsyncRelayCommand Dialog1Command { get; }
-    public IAsyncRelayCommand Dialog2Command { get; }
-
     public SecondaryViewModel Secondary { get; }
 
     public string ButtonText => $"Clicked {Counter} time{(Counter != 1 ? "s" : "")}";
@@ -27,47 +21,51 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
 
     public MainPageViewModel(INavigationService navigationService) : base(navigationService)
     {
-        ClickCommand = new RelayCommand(OnClickCommand);
-        AboutPageCommand = new AsyncRelayCommand(OnAboutPageCommand);
-        AboutAlternatePageCommand = new AsyncRelayCommand(OnAlternateAboutPageCommand);
-        Dialog1Command = new AsyncRelayCommand(DoDialog1Command);
-        Dialog2Command = new AsyncRelayCommand(DoDialog2Command);
-
         Secondary = new SecondaryViewModel(NavigationService) { MyLabel = "Secondary Test" };
     }
 
-    protected virtual void OnClickCommand()
+    [RelayCommand]
+    protected virtual void Click()
     {
         GenerateBindingText();
         GenerateBindingToolkitText();
         GenerateBindingClickableControlText();
         Counter++;
         RaisePropertyChanged(nameof(ButtonText));
-        Secondary.MyLabel = $"Secondary {Counter}";
+        UpdateSecondary();
     }
 
-    protected virtual async Task OnAboutPageCommand()
+    private void UpdateSecondary() =>
+        Secondary.MyLabel = $"Secondary {Counter}";
+
+    [RelayCommand]
+    protected virtual async Task AboutPage()
     {
         var result = 
             await NavigationService.NavigateToAsync<AboutPageViewModel, AboutPageArgs, AboutPageResult>(
                 new AboutPageArgs(Counter));
 
         Counter = result.Counter;
+        UpdateSecondary();
     }
 
-    protected virtual async Task OnAlternateAboutPageCommand()
+    [RelayCommand]
+    protected virtual async Task AboutAlternatePage()
     {
         var result = 
             await NavigationService.NavigateToAsync<AlternateAboutPageViewModel, AboutPageArgs, AboutPageResult>(
                 new AboutPageArgs(Counter));
 
         Counter = result.Counter;
+        UpdateSecondary();
     }
 
-    public async Task DoDialog1Command() =>
+    [RelayCommand]
+    public async Task Dialog1() =>
         await NavigationService.ShowDialogPopupAsync<DialogPageViewModel>();
 
-    public async Task DoDialog2Command()
+    [RelayCommand]
+    public async Task Dialog2()
     {
         var result = 
             await NavigationService.ShowDialogPopupAsync<DialogPromptPageViewModel, DialogPromptPageArg, DialogPromptPageResult>(

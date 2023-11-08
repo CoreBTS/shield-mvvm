@@ -8,6 +8,11 @@ namespace CoreBTS.Maui.ShieldMVVM.ViewModel;
 /// </summary>
 public abstract class BaseDialogViewModelBase : BaseViewModelBase
 {
+    /// <summary>
+    /// This event fires when the dialog should be closed.
+    /// </summary>
+    public event EventHandler Close;
+
     protected BaseDialogViewModelBase(INavigationService navigationService) : base(navigationService)
     {
         CloseCommand = new RelayCommand(CloseDialog);
@@ -21,7 +26,8 @@ public abstract class BaseDialogViewModelBase : BaseViewModelBase
     /// <summary>
     /// Closes the dialog.
     /// </summary>
-    protected abstract void CloseDialog();
+    protected virtual void CloseDialog() =>
+        Close?.Invoke(this, EventArgs.Empty);
 }
 
 /// <summary>
@@ -29,20 +35,9 @@ public abstract class BaseDialogViewModelBase : BaseViewModelBase
 /// </summary>
 public abstract class DialogViewModelBase : BaseDialogViewModelBase, IDialogViewModel
 {
-    /// <summary>
-    /// This event fires when the dialog should be closed.
-    /// </summary>
-    public event EventHandler Close;
-
     protected DialogViewModelBase(INavigationService navigationService) : base(navigationService)
     {
     }
-
-    /// <summary>
-    /// Closes the dialog.
-    /// </summary>
-    protected override void CloseDialog() =>
-        Close?.Invoke(this, EventArgs.Empty);
 }
 
 /// <summary>
@@ -51,11 +46,6 @@ public abstract class DialogViewModelBase : BaseDialogViewModelBase, IDialogView
 /// <typeparam name="TParameter">The type of parameter the ViewModel uses to set itself up.</typeparam>
 public abstract class DialogViewModelBase<TParameter> : BaseDialogViewModelBase, IDialogViewModel<TParameter>
 {
-    /// <summary>
-    /// This event fires when the dialog should be closed.
-    /// </summary>
-    public event EventHandler Close;
-
     protected DialogViewModelBase(INavigationService navigationService) : base(navigationService)
     {
     }
@@ -65,12 +55,6 @@ public abstract class DialogViewModelBase<TParameter> : BaseDialogViewModelBase,
     /// </summary>
     /// <param name="parameters">The arg data used by the ViewModel.</param>
     public abstract void Prepare(TParameter parameters);
-
-    /// <summary>
-    /// Closes the dialog.
-    /// </summary>
-    protected override void CloseDialog() =>
-        Close?.Invoke(this, EventArgs.Empty);
 }
 
 /// <summary>
@@ -80,19 +64,9 @@ public abstract class DialogViewModelBase<TParameter> : BaseDialogViewModelBase,
 /// <typeparam name="TResult">The type of result the ViewModel returns.</typeparam>
 public abstract class DialogViewModelBase<TParameter, TResult> : BaseDialogViewModelBase, IDialogViewModel<TParameter, TResult>
 {
-    /// <summary>
-    /// This event fires when the dialog should be closed.
-    /// </summary>
-    public event EventHandler<TResult> Close;
-
     protected DialogViewModelBase(INavigationService navigationService) : base(navigationService)
     {
     }
-
-    /// <summary>
-    /// Gets the result of the dialog.
-    /// </summary>
-    public abstract TResult Result { get; }
 
     /// <summary>
     /// A method that only fires once and sets up any initial data the ViewModel requires to function.
@@ -101,8 +75,8 @@ public abstract class DialogViewModelBase<TParameter, TResult> : BaseDialogViewM
     public abstract void Prepare(TParameter parameters);
 
     /// <summary>
-    /// Closes the dialog.
+    /// Returns the result of the dialog.
     /// </summary>
-    protected override void CloseDialog() =>
-        Close?.Invoke(this, Result);
+    /// <returns>An awaitable task with the result to return to the caller.</returns>
+    public abstract Task<TResult> GetResultAsync();
 }
