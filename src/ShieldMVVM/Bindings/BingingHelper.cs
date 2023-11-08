@@ -335,6 +335,9 @@ public class BindingControl<TViewModel, TControl>
             current = current.Expression as MemberExpression;
         }
 
+        if (propertyNames.Count == 1)
+            return propertyNames[0];
+
         return string.Join(".", propertyNames);
     }
 }

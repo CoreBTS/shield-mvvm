@@ -17,6 +17,8 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
     public IAsyncRelayCommand Dialog1Command { get; }
     public IAsyncRelayCommand Dialog2Command { get; }
 
+    public SecondaryViewModel Secondary { get; }
+
     public string ButtonText => $"Clicked {Counter} time{(Counter != 1 ? "s" : "")}";
 
     [ObservableProperty]
@@ -30,6 +32,8 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
         AboutAlternatePageCommand = new AsyncRelayCommand(OnAlternateAboutPageCommand);
         Dialog1Command = new AsyncRelayCommand(DoDialog1Command);
         Dialog2Command = new AsyncRelayCommand(DoDialog2Command);
+
+        Secondary = new SecondaryViewModel(NavigationService) { MyLabel = "Secondary Test" };
     }
 
     protected virtual void OnClickCommand()
@@ -39,6 +43,7 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
         GenerateBindingClickableControlText();
         Counter++;
         RaisePropertyChanged(nameof(ButtonText));
+        Secondary.MyLabel = $"Secondary {Counter}";
     }
 
     protected virtual async Task OnAboutPageCommand()
@@ -203,5 +208,20 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
         }
 
         return $"{type.Name}<{string.Join(", ", generics)}>";
+    }
+}
+
+public partial class SecondaryViewModel : BaseViewModelBase
+{
+    public SecondaryViewModel(INavigationService navigationService) : base(navigationService)
+    {
+    }
+
+    [ObservableProperty]
+    private string _myLabel;
+
+    public override Task InitializeAsync(CancellationToken token = default)
+    {
+        return Task.CompletedTask;
     }
 }

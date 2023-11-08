@@ -15,6 +15,9 @@ public partial class MainPage : ContentPageBase<MainPageViewModel>
         Binder.WithControl(NumberCounter)
             .For(c => c.BindText(), vm => vm.Counter, c => c.ConvertToString());
 
+        Binder.WithControl(SecondaryLabel)
+            .For(c => c.BindText(), vm => vm.Secondary.MyLabel);
+
         Binder.WithControl(AboutPageButton)
             .Once(c => c.BindClick(), vm => vm.AboutPageCommand);
 

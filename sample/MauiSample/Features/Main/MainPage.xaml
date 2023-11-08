@@ -47,6 +47,11 @@
                 x:Name="NumberCounter"
                 />
 
+            <Label
+             HorizontalOptions="Center"
+             x:Name="SecondaryLabel"
+             />
+
             <HorizontalStackLayout>
 
                 <Button
