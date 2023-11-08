@@ -1,4 +1,5 @@
-﻿using CoreBTS.Maui.ShieldMVVM.Navigation;
+﻿using CommunityToolkit.Mvvm.Input;
+using CoreBTS.Maui.ShieldMVVM.Navigation;
 
 namespace CoreBTS.Maui.ShieldMVVM.ViewModel;
 
@@ -49,13 +50,12 @@ public abstract class PageViewModelBase : BasePageViewModelBase, IPageViewModel
     /// <summary>
     /// Navigates the user back to the previous page.
     /// </summary>
-    /// <param name="isAnimated">True if the transition back is animated; false otherwise.</param>
     /// <param name="token">
     /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
     /// </param>
     /// <returns>An awaitable task.</returns>
-    protected Task GoBackAsync(bool isAnimated = true, CancellationToken token = default) =>
-        NavigationService.NavigateBackAsync(this, isAnimated, token);
+    protected virtual Task GoBackAsync(CancellationToken token = default) =>
+        NavigationService.NavigateBackAsync(this, true, token);
 }
 
 /// <summary>
@@ -77,13 +77,12 @@ public abstract class PageViewModelBase<TParameter> : BasePageViewModelBase, IPa
     /// <summary>
     /// Navigates the user back to the previous page.
     /// </summary>
-    /// <param name="isAnimated">True if the transition back is animated; false otherwise.</param>
     /// <param name="token">
     /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
     /// </param>
     /// <returns>An awaitable task.</returns>
-    protected Task GoBackAsync(bool isAnimated = true, CancellationToken token = default) =>
-        NavigationService.NavigateBackAsync(this, isAnimated, token);
+    protected virtual Task GoBackAsync(CancellationToken token = default) =>
+        NavigationService.NavigateBackAsync(this, true, token);
 }
 
 /// <summary>
@@ -93,13 +92,13 @@ public abstract class PageViewModelBase<TParameter> : BasePageViewModelBase, IPa
 /// <typeparam name="TResult">The type of result the ViewModel returns.</typeparam>
 public abstract class PageViewModelBase<TParameter, TResult> : BasePageViewModelBase, IPageViewModel<TParameter, TResult>
 {
+    protected PageViewModelBase(INavigationService navigationService) : base(navigationService) =>
+        TaskCompletionSource = new TaskCompletionSource<TResult>();
+
     /// <summary>
     /// Gets a TaskCompletionSource that allows a Navigation call to return a result.
     /// </summary>
     public TaskCompletionSource<TResult> TaskCompletionSource { get; }
-
-    protected PageViewModelBase(INavigationService navigationService) : base(navigationService) =>
-        TaskCompletionSource = new TaskCompletionSource<TResult>();
 
     /// <summary>
     /// A method that only fires once and sets up any initial data the ViewModel requires to function.
@@ -111,11 +110,10 @@ public abstract class PageViewModelBase<TParameter, TResult> : BasePageViewModel
     /// Navigates the user back to the previous page.
     /// </summary>
     /// <param name="result">The result of the page navigation.</param>
-    /// <param name="isAnimated">True if the transition back is animated; false otherwise.</param>
     /// <param name="token">
     /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
     /// </param>
     /// <returns>An awaitable task.</returns>
-    protected Task GoBackAsync(TResult result, bool isAnimated = true, CancellationToken token = default) =>
-        NavigationService.NavigateBackAsync(this, result, isAnimated, token);
+    protected Task GoBackAsync(TResult result, CancellationToken token = default) =>
+        NavigationService.NavigateBackAsync(this, result, true, token);
 }

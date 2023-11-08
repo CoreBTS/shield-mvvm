@@ -311,7 +311,10 @@ public class NavigationService : INavigationService
         CancellationToken token = default)
     {
         await Navigation.PopAsync(isAnimated);
-        viewModel.TaskCompletionSource.TrySetResult(result);
+
+        if (!viewModel.TaskCompletionSource.TrySetResult(result))
+            viewModel.TaskCompletionSource.SetCanceled(token);
+
         await viewModel.OnViewDestroying(token);
     }
 
@@ -440,7 +443,8 @@ public class NavigationService : INavigationService
         }
 
         if (pageCheck == null)
-            throw new InvalidOperationException($"No {pageBaseType.FullName} exists for ViewModel '{viewModelType.FullName}'.");
+            throw new InvalidOperationException(
+                $"No {pageBaseType.FullName} exists for ViewModel '{viewModelType.FullName}'.");
 
         var pageType = pageCheck.GetType();
 
