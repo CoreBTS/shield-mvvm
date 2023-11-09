@@ -29,4 +29,13 @@ public interface IViewModelBase : INotifyPropertyChanging, INotifyPropertyChange
     /// </param>
     /// <returns>An awaitable task.</returns>
     Task OnViewCreated(CancellationToken token = default);
+
+    /// <summary>
+    /// A method that only fires once when the ViewModel is being destroyed.
+    /// </summary>
+    /// <param name="token">
+    /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
+    /// </param>
+    /// <returns>An awaitable task.</returns>
+    Task OnViewDestroying(CancellationToken token = default);
 }

@@ -4,6 +4,6 @@ public class MainPageArgs
 {
     public int InitialCounter { get; }
 
-    public MainPageArgs(int intialCounter) =>
-        InitialCounter = intialCounter;
+    public MainPageArgs(int initialCounter) =>
+        InitialCounter = initialCounter;
 }

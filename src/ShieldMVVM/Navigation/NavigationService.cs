@@ -62,6 +62,8 @@ public class NavigationService : INavigationService
         viewModel.Close += async (sender, e) => await popup.CloseAsync();
 
         await Page.ShowPopupAsync(popup);
+
+        await viewModel.OnViewDestroying(token);
     }
 
     /// <summary>
@@ -93,6 +95,8 @@ public class NavigationService : INavigationService
         viewModel.Close += async (sender, e) => await popup.CloseAsync();
 
         await Page.ShowPopupAsync(popup);
+
+        await viewModel.OnViewDestroying(token);
     }
 
     /// <summary>
@@ -125,6 +129,8 @@ public class NavigationService : INavigationService
         viewModel.Close += async (sender, e) => await popup.CloseAsync(await viewModel.GetResultAsync());
 
         var result = (TResult)await Page.ShowPopupAsync(popup);
+
+        await viewModel.OnViewDestroying(token);
 
         return result;
     }
