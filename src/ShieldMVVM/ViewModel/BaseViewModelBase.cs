@@ -11,7 +11,7 @@ public abstract partial class BaseViewModelBase : ObservableObject
     /// <summary>
     /// This event fires whenever the IsBusy property changes.
     /// </summary>
-    public event EventHandler IsBusyChanged;
+    public event EventHandler<bool> IsBusyChanged;
 
     protected BaseViewModelBase(INavigationService navigationService) =>
         NavigationService = navigationService;
@@ -31,7 +31,7 @@ public abstract partial class BaseViewModelBase : ObservableObject
         set
         {
             if (SetProperty(ref _isBusy, value))
-                IsBusyChanged?.Invoke(this, EventArgs.Empty);
+                IsBusyChanged?.Invoke(this, value);
         }
     }
 
