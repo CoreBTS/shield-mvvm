@@ -98,21 +98,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Include="..\..\icon.png">
-	    <Pack>True</Pack>
-	    <PackagePath>\</PackagePath>
-	  </None>
-	  <None Include="..\..\LICENSE">
-	    <Pack>True</Pack>
-	    <PackagePath>\</PackagePath>
-	  </None>
-	  <None Include="..\..\README.md">
-	    <Pack>True</Pack>
-	    <PackagePath>\</PackagePath>
-	  </None>
-	</ItemGroup>
-
-	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Maui" Version="6.1.0" />
 	  <PackageReference Include="CommunityToolkit.Maui.Core" Version="6.1.0" />
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
