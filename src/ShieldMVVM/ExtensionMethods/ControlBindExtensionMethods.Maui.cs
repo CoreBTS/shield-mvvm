@@ -14,7 +14,7 @@ namespace CoreBTS.Maui.ShieldMVVM;
 /// </summary>
 public static partial class ControlBindExtensionMethods
 {
-    // ClickableControl Bindings
+    // ***** ClickableControl Bindings *****
 
     /// <summary>
     /// Allows binding to the CommandProperty as BindClick for the AbsoluteLayout control.
@@ -192,6 +192,13 @@ public static partial class ControlBindExtensionMethods
     public static Bindings.BindableProperty<ICommand> BindClick(this Image _) => new(Controls.ClickableControl<Image>.CommandProperty);
 
     /// <summary>
+    /// Allows binding to the CommandProperty as BindClick for the ImageButton control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ICommand.</returns>
+    public static Bindings.BindableProperty<ICommand> BindClick(this ImageButton _) => new(Controls.ClickableControl<ImageButton>.CommandProperty);
+
+    /// <summary>
     /// Allows binding to the CommandProperty as BindClick for the IndicatorView control.
     /// </summary>
     /// <param name="_">Extension parameter.</param>
@@ -305,6 +312,13 @@ public static partial class ControlBindExtensionMethods
     public static Bindings.BindableProperty<ICommand> BindClick(this Rectangle _) => new(Controls.ClickableControl<Rectangle>.CommandProperty);
 
     /// <summary>
+    /// Allows binding to the CommandProperty as BindClick for the RefreshView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ICommand.</returns>
+    public static Bindings.BindableProperty<ICommand> BindClick(this RefreshView _) => new(Controls.ClickableControl<RefreshView>.CommandProperty);
+
+    /// <summary>
     /// Allows binding to the CommandProperty as BindClick for the Microsoft.Maui.Controls.Compatibility.RelativeLayout control.
     /// </summary>
     /// <param name="_">Extension parameter.</param>
@@ -401,6 +415,13 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ICommand.</returns>
     public static Bindings.BindableProperty<ICommand> BindClick(this StructuredItemsView _) => new(Controls.ClickableControl<StructuredItemsView>.CommandProperty);
+
+    /// <summary>
+    /// Allows binding to the CommandProperty as BindClick for the SwipeItemView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ICommand.</returns>
+    public static Bindings.BindableProperty<ICommand> BindClick(this SwipeItemView _) => new(Controls.ClickableControl<SwipeItemView>.CommandProperty);
 
     /// <summary>
     /// Allows binding to the CommandProperty as BindClick for the SwipeView control.

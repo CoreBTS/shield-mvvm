@@ -96,9 +96,6 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
             if (!type.IsPublic || !type.IsAssignableTo(typeof(BindableObject)) || !type.IsAssignableTo(typeof(IGestureRecognizers)) || type.ContainsGenericParameters || type.IsNotPublic)
                 continue;
 
-            if (type.GetProperties().Any(a => a.Name == "Command") && type != typeof(Button))
-                continue;
-
             var typeName = GetTypeName(type);
 
             output.Add($@"    /// <summary>
