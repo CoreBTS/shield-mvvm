@@ -43,10 +43,18 @@ public interface IDialogViewModel<in TParameter, TResult> : IDialogViewModelBase
     /// </summary>
     /// <param name="parameters">The arg data used by the ViewModel.</param>
     void Prepare(TParameter parameters);
+    
+    /// <summary>
+    /// Gets or sets the result of the dialog running.
+    /// </summary>
+    TResult? Result { get; set; }
 
     /// <summary>
-    /// Returns the result of the dialog.
+    /// Allows the result to be calculated and set before the dialog is fully closed.
     /// </summary>
-    /// <returns>An awaitable task with the result to return to the caller.</returns>
-    public abstract Task<TResult> GetResultAsync();
+    /// <param name="token">
+    /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
+    /// </param>
+    /// <returns>An awaitable task.</returns>
+    Task SetResultAsync(CancellationToken token = default);
 }
