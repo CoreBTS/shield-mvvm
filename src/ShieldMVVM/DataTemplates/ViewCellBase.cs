@@ -9,6 +9,9 @@ namespace CoreBTS.Maui.ShieldMVVM.DataTemplates;
 /// <typeparam name="TCell">The inheriting class.</typeparam>
 public abstract class ViewCellBase<TModel, TCell> : ContentView
 {
+    /// <summary>
+    /// Default constructor that calls CreateControls.
+    /// </summary>
     protected ViewCellBase() =>
         CreateControls();
 
@@ -25,7 +28,7 @@ public abstract class ViewCellBase<TModel, TCell> : ContentView
     /// <summary>
     /// Gets the BindingHelper to add control bindings from the Model.
     /// </summary>
-    protected BindingHelper<TModel> Binder { get; private set; }
+    protected BindingHelper<TModel>? Binder { get; private set; }
 
     /// <summary>
     /// Calls InitializeComponent.

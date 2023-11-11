@@ -10,6 +10,9 @@ namespace CoreBTS.Maui.ShieldMVVM.Controls;
 public class ClickableControl<T>
     where T : BindableObject, IGestureRecognizers
 {
+    /// <summary>
+    /// Gets the bindable property to hook up to click events.
+    /// </summary>
     public static readonly BindableProperty CommandProperty =
         BindableProperty.Create(
             nameof(ClickableControl<T>), 

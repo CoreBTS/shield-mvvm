@@ -1,7 +1,7 @@
 # ShieldMVVM
 ## _Protects you with type-safety, everywhere_
 
-CoreBTS's ShieldMVVM is a .NET MAUI MVVM framework that provides type-safety for navigation, bindable properties, converters, behaviors, dialogs, data templates, and more in a way that enables developers to code faster, safer, and with less lines.
+Core BTS's ShieldMVVM is a .NET MAUI MVVM framework that provides type-safety for navigation, bindable properties, converters, behaviors, dialogs, data templates, and more in a way that enables developers to code faster, safer, and with less lines.
 
 ### Navigation
 By wrapping Microsoft MAUI's navigation, developers can do ViewModel-to-ViewModel navigation. Developers can also pass typed arguments to send data to the next ViewModel and even a typed result back when the user navigates back. The code can await where the navigation took place and the result will come back to that spot in code.

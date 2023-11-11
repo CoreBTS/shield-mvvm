@@ -17,7 +17,7 @@ public interface INavigationService
     /// </param>
     /// <returns>An awaitable task with the created ViewModel.</returns>
     Task ShowDialogPopupAsync<TViewModel>(
-        TViewModel viewModel = null,
+        TViewModel? viewModel = null,
         CancellationToken token = default)
         where TViewModel : class, IDialogViewModel;
 
@@ -47,7 +47,7 @@ public interface INavigationService
     /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
     /// </param>
     /// <returns>An awaitable task that returns the view model and result of the dialog.</returns>
-    Task<TResult> ShowDialogPopupAsync<TViewModel, TParameter, TResult>(
+    Task<TResult?> ShowDialogPopupAsync<TViewModel, TParameter, TResult>(
         TParameter parameter,
         CancellationToken token = default)
         where TViewModel : class, IDialogViewModel<TParameter, TResult>;
@@ -106,7 +106,7 @@ public interface INavigationService
     /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
     /// </param>
     /// <returns>An awaitable task that returns the view model and result of the page.</returns>
-    Task<TResult> NavigateToAsync<TViewModel, TParameter, TResult>(
+    Task<TResult?> NavigateToAsync<TViewModel, TParameter, TResult>(
         TParameter parameter,
         bool isAnimated = true,
         bool mustClearNavigationStack = false,

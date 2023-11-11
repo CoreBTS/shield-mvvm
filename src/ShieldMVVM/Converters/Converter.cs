@@ -19,13 +19,13 @@ public static partial class Converter
     public static GenericConverter<TFrom, TTo> Create<TFrom, TTo>(
         BindingConverter<TFrom, TTo> _, // Used for type inference only
         Func<TFrom, TTo> convertTo,
-        Func<TTo, TFrom> convertBack = null) =>
+        Func<TTo, TFrom>? convertBack = null) =>
         GenericConverter<TFrom, TTo>.Create(convertTo, convertBack);
 
     private static readonly ColorTypeConverter ColorTypeConverter = new();
 
-    private static Color GetColor(string value) =>
+    private static Color? GetColor(string value) =>
         string.IsNullOrWhiteSpace(value)
             ? Colors.Transparent
-            : (Color)ColorTypeConverter.ConvertFromInvariantString(value);
+            : ColorTypeConverter.ConvertFromInvariantString(value) as Color;
 }

@@ -3,6 +3,9 @@ using System.Reflection;
 
 namespace CoreBTS.Maui.ShieldMVVM;
 
+/// <summary>
+/// This stores extension methods adding to VisualElement.
+/// </summary>
 public static class VisualElementExtensions
 {
     /// <summary>
@@ -24,14 +27,14 @@ public static class VisualElementExtensions
     /// <summary>
     /// Calls InitializeComponent via reflection.
     /// </summary>
-    /// <param name="ve">The visual element being intialized.</param>
+    /// <param name="ve">The visual element being initialized.</param>
     public static void CallInitializeComponent(this VisualElement ve) =>
         ve.GetType().GetMethod("InitializeComponent", BindingFlags.Instance | BindingFlags.NonPublic)?.Invoke(ve, null);
 
     /// <summary>
     /// Calls InitializeComponent via reflection.
     /// </summary>
-    /// <param name="p">The popup being intialized..</param>
+    /// <param name="p">The popup being initialized..</param>
     public static void CallInitializeComponent(this Popup p) =>
         p.GetType().GetMethod("InitializeComponent", BindingFlags.Instance | BindingFlags.NonPublic)?.Invoke(p, null);
 }

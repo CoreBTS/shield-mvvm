@@ -11,8 +11,12 @@ public abstract class BaseDialogViewModelBase : BaseViewModelBase
     /// <summary>
     /// This event fires when the dialog should be closed.
     /// </summary>
-    public event EventHandler Close;
+    public event EventHandler? Close;
 
+    /// <summary>
+    /// Constructor that takes the NavigationService in order to navigate between View Models.
+    /// </summary>
+    /// <param name="navigationService">The service used for navigation.</param>
     protected BaseDialogViewModelBase(INavigationService navigationService) : base(navigationService)
     {
         CloseCommand = new RelayCommand(CloseDialog);
@@ -35,6 +39,10 @@ public abstract class BaseDialogViewModelBase : BaseViewModelBase
 /// </summary>
 public abstract class DialogViewModelBase : BaseDialogViewModelBase, IDialogViewModel
 {
+    /// <summary>
+    /// Constructor that takes the NavigationService in order to navigate between View Models.
+    /// </summary>
+    /// <param name="navigationService">The service used for navigation.</param>
     protected DialogViewModelBase(INavigationService navigationService) : base(navigationService)
     {
     }
@@ -46,6 +54,10 @@ public abstract class DialogViewModelBase : BaseDialogViewModelBase, IDialogView
 /// <typeparam name="TParameter">The type of parameter the ViewModel uses to set itself up.</typeparam>
 public abstract class DialogViewModelBase<TParameter> : BaseDialogViewModelBase, IDialogViewModel<TParameter>
 {
+    /// <summary>
+    /// Constructor that takes the NavigationService in order to navigate between View Models.
+    /// </summary>
+    /// <param name="navigationService">The service used for navigation.</param>
     protected DialogViewModelBase(INavigationService navigationService) : base(navigationService)
     {
     }
@@ -64,6 +76,10 @@ public abstract class DialogViewModelBase<TParameter> : BaseDialogViewModelBase,
 /// <typeparam name="TResult">The type of result the ViewModel returns.</typeparam>
 public abstract class DialogViewModelBase<TParameter, TResult> : BaseDialogViewModelBase, IDialogViewModel<TParameter, TResult>
 {
+    /// <summary>
+    /// Constructor that takes the NavigationService in order to navigate between View Models.
+    /// </summary>
+    /// <param name="navigationService">The service used for navigation.</param>
     protected DialogViewModelBase(INavigationService navigationService) : base(navigationService)
     {
     }

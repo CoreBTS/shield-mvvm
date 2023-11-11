@@ -9,13 +9,13 @@ namespace CoreBTS.Maui.ShieldMVVM.Behaviors;
 public class GenericBehavior<TControl> : Behavior<TControl>
     where TControl : BindableObject
 {
-    private readonly Func<TControl, EventHandler> _eventHandlerCallback;
-    private readonly Action<TControl, EventHandler> _attachCallback;
-    private readonly Action<TControl, EventHandler> _detachCallback;
-    private readonly Action<string> _propertyChangingCallback;
-    private readonly Action<string> _propertyChangedCallback;
+    private readonly Func<TControl, EventHandler?> _eventHandlerCallback;
+    private readonly Action<TControl, EventHandler?>? _attachCallback;
+    private readonly Action<TControl, EventHandler?>? _detachCallback;
+    private readonly Action<string>? _propertyChangingCallback;
+    private readonly Action<string>? _propertyChangedCallback;
 
-    private EventHandler _eventHandler;
+    private EventHandler? _eventHandler;
     
     /// <summary>
     /// Constructor that handles all the callbacks to invoke a behavior.
@@ -26,11 +26,11 @@ public class GenericBehavior<TControl> : Behavior<TControl>
     /// <param name="propertyChangingCallback">Fires when the bound property is about to change.</param>
     /// <param name="propertyChangedCallback">Fires after the bound property changes.</param>
     public GenericBehavior(
-        Func<TControl, EventHandler> eventHandlerCallback,
-        Action<TControl, EventHandler> attachCallback = null,
-        Action<TControl, EventHandler> detachCallback = null,
-        Action<string> propertyChangingCallback = null,
-        Action<string> propertyChangedCallback = null)
+        Func<TControl, EventHandler?> eventHandlerCallback,
+        Action<TControl, EventHandler?>? attachCallback = null,
+        Action<TControl, EventHandler?>? detachCallback = null,
+        Action<string>? propertyChangingCallback = null,
+        Action<string>? propertyChangedCallback = null)
     {
         _eventHandlerCallback = eventHandlerCallback;
         _attachCallback = attachCallback;
@@ -69,21 +69,21 @@ public class GenericBehavior<TControl> : Behavior<TControl>
     /// Fires when the bound property value is about to change.
     /// </summary>
     /// <param name="propertyName">The name of the property about to change.</param>
-    protected override void OnPropertyChanging([CallerMemberName] string propertyName = null)
+    protected override void OnPropertyChanging([CallerMemberName] string? propertyName = null)
     {
         base.OnPropertyChanging(propertyName);
 
-        _propertyChangingCallback?.Invoke(propertyName);
+        _propertyChangingCallback?.Invoke(propertyName ?? string.Empty);
     }
 
     /// <summary>
     /// Fires when the bound property value has changed.
     /// </summary>
     /// <param name="propertyName">The name of the property that changed.</param>
-    protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
+    protected override void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
         base.OnPropertyChanged(propertyName);
 
-        _propertyChangedCallback?.Invoke(propertyName);
+        _propertyChangedCallback?.Invoke(propertyName ?? string.Empty);
     }
 }

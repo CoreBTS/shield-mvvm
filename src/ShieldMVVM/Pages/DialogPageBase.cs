@@ -11,6 +11,10 @@ namespace CoreBTS.Maui.ShieldMVVM.Pages;
 public abstract class DialogPageBase<TViewModel> : Popup
     where TViewModel : IDialogViewModelBase
 {
+    /// <summary>
+    /// Constructor that takes the ViewModel to assign to the BindingContext.
+    /// </summary>
+    /// <param name="viewModel">The ViewModel the dialog is bound to.</param>
     protected DialogPageBase(TViewModel viewModel)
     {
         CanBeDismissedByTappingOutsideOfPopup = false;

@@ -17,8 +17,8 @@ public class NavigationService : INavigationService
     private static readonly ConcurrentDictionary<Type, ConstructorInfo> PageConstructorLookup = new();
     private static readonly ConcurrentDictionary<Type, ConstructorInfo> DialogPageConstructorLookup = new();
 
-    private static INavigation Navigation => Application.Current.MainPage.Navigation;
-    private static Page Page => Application.Current.MainPage;
+    private static INavigation? Navigation => Application.Current?.MainPage?.Navigation;
+    private static Page? Page => Application.Current?.MainPage;
 
     private static readonly Type _viewModelBaseType = typeof(IViewModelBase);
     private static readonly Type _pageBaseType = typeof(ContentPageBase<>);
@@ -43,7 +43,7 @@ public class NavigationService : INavigationService
     /// </param>
     /// <returns>An awaitable task with the created ViewModel.</returns>
     public async Task ShowDialogPopupAsync<TViewModel>(
-        TViewModel viewModel = null,
+        TViewModel? viewModel = null,
         CancellationToken token = default)
         where TViewModel : class, IDialogViewModel
     {
@@ -61,7 +61,8 @@ public class NavigationService : INavigationService
 
         viewModel.Close += async (sender, e) => await popup.CloseAsync();
 
-        await Page.ShowPopupAsync(popup);
+        if (Page != null)
+            await Page.ShowPopupAsync(popup);
 
         await viewModel.OnViewDestroying(token);
     }
@@ -94,7 +95,8 @@ public class NavigationService : INavigationService
 
         viewModel.Close += async (sender, e) => await popup.CloseAsync();
 
-        await Page.ShowPopupAsync(popup);
+        if (Page != null)
+            await Page.ShowPopupAsync(popup);
 
         await viewModel.OnViewDestroying(token);
     }
@@ -110,7 +112,7 @@ public class NavigationService : INavigationService
     /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
     /// </param>
     /// <returns>An awaitable task that returns the view model and result of the dialog.</returns>
-    public async Task<TResult> ShowDialogPopupAsync<TViewModel, TParameter, TResult>(
+    public async Task<TResult?> ShowDialogPopupAsync<TViewModel, TParameter, TResult>(
         TParameter parameter,
         CancellationToken token = default)
         where TViewModel : class, IDialogViewModel<TParameter, TResult>
@@ -128,7 +130,13 @@ public class NavigationService : INavigationService
 
         viewModel.Close += async (sender, e) => await popup.CloseAsync(await viewModel.GetResultAsync());
 
-        var result = (TResult)await Page.ShowPopupAsync(popup);
+        TResult? result = default;
+        if (Page != null)
+        {
+            var pageResult = await Page.ShowPopupAsync(popup);
+            if (pageResult != null)
+                result = (TResult)pageResult;
+        }
 
         await viewModel.OnViewDestroying(token);
 
@@ -166,7 +174,8 @@ public class NavigationService : INavigationService
         if (mustClearNavigationStack)
             ClearNavigation();
 
-        await Navigation.PushAsync(page, isAnimated);
+        if (Navigation != null)
+            await Navigation.PushAsync(page, isAnimated);
 
         if (!viewModel.IsInitializeCalledBeforePageIsCreated)
             await InitializeViewModel(viewModel, token);
@@ -208,7 +217,8 @@ public class NavigationService : INavigationService
         if (mustClearNavigationStack)
             ClearNavigation();
 
-        await Navigation.PushAsync(page, isAnimated);
+        if (Navigation != null)
+            await Navigation.PushAsync(page, isAnimated);
 
         if (!viewModel.IsInitializeCalledBeforePageIsCreated)
             await InitializeViewModel(viewModel, token);
@@ -229,7 +239,7 @@ public class NavigationService : INavigationService
     /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
     /// </param>
     /// <returns>An awaitable task that returns the view model and result of the page.</returns>
-    public async Task<TResult> NavigateToAsync<TViewModel, TParameter, TResult>(
+    public async Task<TResult?> NavigateToAsync<TViewModel, TParameter, TResult>(
         TParameter parameter,
         bool isAnimated = true,
         bool mustClearNavigationStack = false,
@@ -251,7 +261,8 @@ public class NavigationService : INavigationService
         if (mustClearNavigationStack)
             ClearNavigation();
 
-        await Navigation.PushAsync(page, isAnimated);
+        if (Navigation != null)
+            await Navigation.PushAsync(page, isAnimated);
 
         if (!viewModel.IsInitializeCalledBeforePageIsCreated)
             await InitializeViewModel(viewModel, token);
@@ -275,7 +286,9 @@ public class NavigationService : INavigationService
        bool isAnimated = true,
        CancellationToken token = default)
     {
-        await Navigation.PopAsync(isAnimated);
+        if (Navigation != null)
+            await Navigation.PopAsync(isAnimated);
+
         await viewModel.OnViewDestroying(token);
     }
 
@@ -294,7 +307,9 @@ public class NavigationService : INavigationService
        bool isAnimated = true,
        CancellationToken token = default)
     {
-        await Navigation.PopAsync(isAnimated);
+        if (Navigation != null)
+            await Navigation.PopAsync(isAnimated);
+
         await viewModel.OnViewDestroying(token);
     }
 
@@ -316,7 +331,8 @@ public class NavigationService : INavigationService
         bool isAnimated = true,
         CancellationToken token = default)
     {
-        await Navigation.PopAsync(isAnimated);
+        if (Navigation != null)
+            await Navigation.PopAsync(isAnimated);
 
         if (!viewModel.TaskCompletionSource.TrySetResult(result))
             viewModel.TaskCompletionSource.SetCanceled(token);
@@ -329,6 +345,9 @@ public class NavigationService : INavigationService
     /// </summary>
     public virtual void ClearNavigation()
     {
+        if (Navigation == null)
+            return;
+
         for (var i = Navigation.NavigationStack.Count - 1; i >= 0; i--)
         {
             var page = Navigation.NavigationStack[i];
@@ -361,7 +380,9 @@ public class NavigationService : INavigationService
 
         var constructorInfo = GetPageConstructor(PageConstructorLookup, pageType, viewModelType);
         var parameters = GetConstructorParameters(viewModel, constructorInfo);
-        var result = constructorInfo.Invoke(parameters.ToArray()) as Page;
+
+        if (constructorInfo.Invoke(parameters.ToArray()) is not Page result)
+            throw new InvalidOperationException($"Cannot create page bound to ViewModel type '{viewModelType.FullName}'.");
 
         var baseVM = (IPageViewModelBase)viewModel;
 
@@ -377,7 +398,9 @@ public class NavigationService : INavigationService
 
         var constructorInfo = GetPageConstructor(DialogPageConstructorLookup, pageType, viewModelType);
         var parameters = GetConstructorParameters(viewModel, constructorInfo);
-        var result = constructorInfo.Invoke(parameters.ToArray()) as Popup;
+
+        if (constructorInfo.Invoke(parameters.ToArray()) is not Popup result)
+            throw new InvalidOperationException($"Cannot create dialog bound to ViewModel type '{viewModelType.FullName}'.");
 
         return result;
     }
@@ -408,7 +431,7 @@ public class NavigationService : INavigationService
         return constructorInfo;
     }
 
-    private static ConstructorInfo GetPageConstructorByType(Type page, Type viewModelType) =>
+    private static ConstructorInfo? GetPageConstructorByType(Type page, Type viewModelType) =>
         page.GetConstructors().OrderByDescending(a => a.GetParameters().Length)
                 .FirstOrDefault(a => a.GetParameters().Any(a => a.ParameterType.IsAssignableTo(viewModelType)));
 
@@ -440,11 +463,14 @@ public class NavigationService : INavigationService
         if (pageLookup.TryGetValue(viewModelType, out var page))
             return page;
 
-        Type currentType = viewModelType;
+        Type? currentType = viewModelType;
         dynamic pageCheck = _typeResolverCallback(pageBaseType.MakeGenericType(currentType));
         while (pageCheck == null && currentType != null)
         {
-            currentType = viewModelType.BaseType;
+            currentType = currentType?.BaseType;
+            if (currentType == null)
+                break;
+
             pageCheck = _typeResolverCallback(pageBaseType.MakeGenericType(currentType));
         }
 

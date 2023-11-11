@@ -10,14 +10,14 @@ namespace CoreBTS.Maui.ShieldMVVM.Converters;
 public class GenericConverter<TFrom, TTo> : ValueConverterBase<TFrom, TTo>
 {
     private readonly Func<TFrom, TTo> _convertTo;
-    private readonly Func<TTo, TFrom> _convertBack;
+    private readonly Func<TTo, TFrom>? _convertBack;
 
     /// <summary>
     /// Constructor that defines the callback methods to convert and convert back.
     /// </summary>
     /// <param name="convertTo">A callback method to convert from a value to a target type.</param>
     /// <param name="convertBack">A callback method to convert from the target type back to the original type.</param>
-    private GenericConverter(Func<TFrom, TTo> convertTo, Func<TTo, TFrom> convertBack = null)
+    private GenericConverter(Func<TFrom, TTo> convertTo, Func<TTo, TFrom>? convertBack = null)
     {
         _convertTo = convertTo;
         _convertBack = convertBack;
@@ -31,7 +31,7 @@ public class GenericConverter<TFrom, TTo> : ValueConverterBase<TFrom, TTo>
     /// <returns>A GenericConverter.</returns>
     public static GenericConverter<TFrom, TTo> Create(
         Func<TFrom, TTo> convertTo, 
-        Func<TTo, TFrom> convertBack = null) =>
+        Func<TTo, TFrom>? convertBack = null) =>
         new(convertTo, convertBack);
 
     /// <summary>
@@ -42,7 +42,7 @@ public class GenericConverter<TFrom, TTo> : ValueConverterBase<TFrom, TTo>
     /// <param name="parameter">Any optional data used to help convert the value.</param>
     /// <param name="culture">The user's culture.</param>
     /// <returns>Converted value.</returns>
-    public override TTo Convert(TFrom value, Type targetType, object parameter, CultureInfo culture) =>
+    public override TTo Convert(TFrom value, Type targetType, object? parameter, CultureInfo culture) =>
         _convertTo(value);
 
     /// <summary>
@@ -53,6 +53,11 @@ public class GenericConverter<TFrom, TTo> : ValueConverterBase<TFrom, TTo>
     /// <param name="parameter">Any optional data used to help convert the value back.</param>
     /// <param name="culture">The user's culture.</param>
     /// <returns>Converted back to original value.</returns>
-    public override TFrom ConvertBack(TTo value, Type targetType, object parameter, CultureInfo culture) =>
-        _convertBack(value);
+    public override TFrom? ConvertBack(TTo value, Type targetType, object? parameter, CultureInfo culture)
+    {
+        if (_convertBack == null)
+            return default;
+
+        return _convertBack(value);
+    }
 }

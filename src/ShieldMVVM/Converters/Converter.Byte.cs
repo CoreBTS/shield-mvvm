@@ -13,7 +13,7 @@ public static partial class Converter
     /// <returns>An IValueConverter.</returns>
     public static IValueConverter<byte, string> ConvertToString(this BindingConverter<byte, string> _,
         NumberStyles style = NumberStyles.Any,
-        IFormatProvider formatProvider = null) =>
+        IFormatProvider? formatProvider = null) =>
         Create(_,
             value => value.ToString(formatProvider),
             value => byte.TryParse(value, style, formatProvider, out var val) ? val : default);
@@ -25,9 +25,9 @@ public static partial class Converter
     /// <param name="style">The style to convert the value to.</param>
     /// <param name="formatProvider">A way to convert the value to a string.</param>
     /// <returns>An IValueConverter.</returns>
-    public static IValueConverter<byte?, string> ConvertToString(this BindingConverter<byte?, string> _,
+    public static IValueConverter<byte?, string?> ConvertToString(this BindingConverter<byte?, string?> _,
        NumberStyles style = NumberStyles.Any,
-       IFormatProvider formatProvider = null) =>
+       IFormatProvider? formatProvider = null) =>
        Create(_,
            value => value?.ToString(formatProvider),
            value => byte.TryParse(value, style, formatProvider, out var val) ? val : null);

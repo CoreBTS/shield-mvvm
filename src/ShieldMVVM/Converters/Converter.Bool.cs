@@ -26,6 +26,7 @@ public static partial class Converter
     /// A converter that converts the given nullable value to a bool value.
     /// </summary>
     /// <param name="_"></param>
+    /// <param name="defaultValue">The value to use if the given value is null.</param>
     /// <returns>An IValueConverter.</returns>
     public static IValueConverter<bool?, bool> ConvertToBool(this BindingConverter<bool?, bool> _, bool defaultValue = false) =>
         Create(_,

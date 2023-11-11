@@ -1,4 +1,5 @@
-﻿using CommunityToolkit.Maui.Views;
+﻿using CommunityToolkit.Maui.Behaviors;
+using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CoreBTS.Maui.ShieldMVVM.Navigation;
@@ -72,6 +73,7 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
                 new DialogPromptPageArg(Counter));
 
         Counter = result.Counter;
+        UpdateSecondary();
     }
 
     public override void Prepare(MainPageArgs parameters)
@@ -91,15 +93,29 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
 
         foreach (var type in typeof(Button).Assembly.GetTypes().OrderBy(a => a.Name))
         {
-            if (!type.IsAssignableTo(typeof(IGestureRecognizers)) || type.ContainsGenericParameters || type.IsNotPublic)
+            if (!type.IsPublic || !type.IsAssignableTo(typeof(BindableObject)) || !type.IsAssignableTo(typeof(IGestureRecognizers)) || type.ContainsGenericParameters || type.IsNotPublic)
                 continue;
 
-            if (type.GetProperties().Any(a => a.Name == "Command"))
+            if (type.GetProperties().Any(a => a.Name == "Command") && type != typeof(Button))
                 continue;
 
-            output.Add($"            public static Bindings.BindableProperty<ICommand> BindClick(this {type.Name} _) => new(Controls.ClickableControl<{type.Name}>.CommandProperty);");
+            var typeName = GetTypeName(type);
+
+            output.Add($@"    /// <summary>
+    /// Allows binding to the CommandProperty as BindClick for the {typeName} control.
+    /// </summary>
+    /// <param name=""_"">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ICommand.</returns>");
+
+            if (type.GetCustomAttributes(true).FirstOrDefault(a => a is ObsoleteAttribute) is ObsoleteAttribute obsolete)
+            {
+                output.Add($"    [Obsolete(\"{obsolete.Message}\")]");
+            }
+
+            output.Add($"    public static Bindings.BindableProperty<ICommand> BindClick(this {typeName} _) => new(Controls.ClickableControl<{typeName}>.CommandProperty);");
+            output.Add("");
         }
-        var text = string.Join(Environment.NewLine, output.Distinct());
+        var text = string.Join(Environment.NewLine, output);
     }
 
     public static void GenerateBindingToolkitText()
@@ -113,26 +129,48 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
             if (!type.IsAssignableTo(typeof(BindableObject)) || type.ContainsGenericParameters || type.IsNotPublic)
                 continue;
 
+            if (type == typeof(StatusBarBehavior)) // Version issues
+                continue;
+
             var members = type.GetFields(System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public).OrderBy(a => a.Name);
             if (!members.Any())
                 continue;
 
-            output.AppendLine($"    // {type.Name} Bindings");
-            output.AppendLine("");
+            var typeName = GetTypeName(type);
+
+            var hasCreatedHeader = false;
 
             foreach (var member in members)
             {
                 if (member.FieldType == bp)
                 {
+                    if (!hasCreatedHeader)
+                    {
+                        output.AppendLine($"    // ***** {typeName} Bindings *****");
+                        output.AppendLine("");
+                        hasCreatedHeader = true;
+                    }
+
                     var bpValue = member.GetValue(null) as BindableProperty;
                     if (bpValue.ReturnType.IsNotPublic)
                         continue;
+                    var genericType = GetProperTypeName(bpValue.ReturnType, bpValue.ReturnType.GenericTypeArguments);
+                    var bindableType = $"BindableProperty{genericType}";
 
-                    var bindableType = $"BindableProperty{GetProperTypeName(bpValue.ReturnType.Name, bpValue.ReturnType.GenericTypeArguments)}";
-                    output.AppendLine($"        public static Bindings.{bindableType} Bind{member.Name.Replace("Property", "")}(this {type.Name} _) => {bindableType}.Create({type.Name}.{member.Name});");
+                    output.AppendLine($@"    /// <summary>
+    /// Allows binding to the {member.Name} as Bind{member.Name.Replace("Property", "")} for the {typeName} control.
+    /// </summary>
+    /// <param name=""_"">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type {typeName}.</returns>");
+                    
+                    if (type.GetCustomAttributes(true).FirstOrDefault(a => a is ObsoleteAttribute) is ObsoleteAttribute obsolete)
+                    {
+                        output.AppendLine($"    [Obsolete(\"{obsolete.Message}\")]");
+                    }
+                    output.AppendLine($"    public static Bindings.{bindableType} Bind{member.Name.Replace("Property", "")}(this {typeName} _) => Bindings.{bindableType}.Create({typeName}.{member.Name});");
+                    output.AppendLine("");
                 }
             }
-            output.AppendLine("");
         }
 
         var text = output.ToString();
@@ -153,30 +191,60 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
             if (!members.Any())
                 continue;
 
-            output.AppendLine($"    // {type.Name} Bindings");
-            output.AppendLine("");
+            var typeName = GetTypeName(type);
+
+            var hasCreatedHeader = false;
 
             foreach (var member in members)
             {
                 if (member.FieldType == bp)
                 {
+                    if (!hasCreatedHeader)
+                    {
+                        output.AppendLine($"    // ***** {typeName} Bindings *****");
+                        output.AppendLine("");
+                        hasCreatedHeader = true;
+                    }
+
                     var bpValue = member.GetValue(null) as BindableProperty;
                     if (bpValue.ReturnType.IsNotPublic)
                         continue;
 
-                    var bindableType = $"BindableProperty{GetProperTypeName(bpValue.ReturnType.Name, bpValue.ReturnType.GenericTypeArguments)}";
-                    output.AppendLine($"        public static {bindableType} Bind{member.Name.Replace("Property", "")}(this {type.Name} _) => {bindableType}.Create({type.Name}.{member.Name});");
+                    var genericType = GetProperTypeName(bpValue.ReturnType, bpValue.ReturnType.GenericTypeArguments);
+                    var bindableType = $"BindableProperty{genericType}";
+
+                    output.AppendLine($@"    /// <summary>
+    /// Allows binding to the {member.Name} as Bind{member.Name.Replace("Property", "")} for the {typeName} control.
+    /// </summary>
+    /// <param name=""_"">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type {typeName}.</returns>");
+                    
+                    if (type.GetCustomAttributes(true).FirstOrDefault(a => a is ObsoleteAttribute) is ObsoleteAttribute obsolete)
+                    {
+                        output.AppendLine($"    [Obsolete(\"{obsolete.Message}\")]");
+                    }
+
+                    output.AppendLine($"    public static Bindings.{bindableType} Bind{member.Name.Replace("Property", "")}(this {typeName} _) => Bindings.{bindableType}.Create({typeName}.{member.Name});");
+                    output.AppendLine("");
                 }
             }
-            output.AppendLine("");
         }
 
         var text = output.ToString();
     }
 
-    private static string GetProperTypeName(string val, Type[] genericTypes)
+    private static string GetTypeName(Type type)
     {
-        var result = NameFix($"<{val}>");
+        if (type.FullName.Contains("Compatibility"))
+            return type.FullName.Trim();
+
+        return type.Name;
+    }
+
+    private static string GetProperTypeName(Type val, Type[] genericTypes)
+    {
+        var typeName = val.FullName.Contains("Compatibility") ? val.FullName.Trim() : val.Name;
+        var result = NameFix($"<{typeName}>");
 
         if (genericTypes == null || genericTypes.Length == 0)
             return result;
@@ -185,6 +253,8 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
         {
             result = result.Replace($"`{i + 1}", $"<{GetGenericName(genericTypes[i])}>");
         }
+
+        result = result.Replace("`1", "");
 
         return NameFix(result);
     }
@@ -204,7 +274,7 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
         {
             generics.Add(GetGenericName(t));
         }
-
+     
         return $"{type.Name}<{string.Join(", ", generics)}>";
     }
 }

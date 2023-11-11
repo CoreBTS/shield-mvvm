@@ -83,12 +83,12 @@ public class BindablePropertyKey<TPropertyType>
     public static BindablePropertyKey<TPropertyType> CreateReadOnly<TControl>(
        Expression<Func<TControl, TPropertyType>> propertyTarget,
        BindingMode bindingMode = BindingMode.OneWayToSource,
-       TPropertyType defaultValue = default,
-       Func<TControl, TPropertyType, bool> validateValue = null,
-       Action<TControl, TPropertyType, TPropertyType> propertyChanged = null,
-       Action<TControl, TPropertyType, TPropertyType> propertyChanging = null,
-       Func<TControl, TPropertyType, TPropertyType> coerceValue = null,
-       Func<TControl, TPropertyType> defaultValueCreator = null)
+       TPropertyType? defaultValue = default,
+       Func<TControl, TPropertyType, bool>? validateValue = null,
+       Action<TControl, TPropertyType, TPropertyType>? propertyChanged = null,
+       Action<TControl, TPropertyType, TPropertyType>? propertyChanging = null,
+       Func<TControl, TPropertyType, TPropertyType>? coerceValue = null,
+       Func<TControl, TPropertyType>? defaultValueCreator = null)
            where TControl : BindableObject =>
      new(
          BindableProperty.CreateReadOnly(
@@ -134,12 +134,12 @@ public class BindablePropertyKey<TPropertyType>
     public static BindablePropertyKey<TPropertyType> CreateAttachedReadOnly<TControl>(
         Expression<Func<TControl, TPropertyType>> propertyTarget,
         BindingMode bindingMode = BindingMode.OneWayToSource,
-        TPropertyType defaultValue = default,
-        Func<TControl, TPropertyType, bool> validateValue = null,
-        Action<TControl, TPropertyType, TPropertyType> propertyChanged = null,
-        Action<TControl, TPropertyType, TPropertyType> propertyChanging = null,
-        Func<TControl, TPropertyType, TPropertyType> coerceValue = null,
-        Func<TControl, TPropertyType> defaultValueCreator = null)
+        TPropertyType? defaultValue = default,
+        Func<TControl, TPropertyType, bool>? validateValue = null,
+        Action<TControl, TPropertyType, TPropertyType>? propertyChanged = null,
+        Action<TControl, TPropertyType, TPropertyType>? propertyChanging = null,
+        Func<TControl, TPropertyType, TPropertyType>? coerceValue = null,
+        Func<TControl, TPropertyType>? defaultValueCreator = null)
             where TControl : BindableObject =>
       new(
           BindableProperty.CreateAttachedReadOnly(

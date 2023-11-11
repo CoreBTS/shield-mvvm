@@ -10,6 +10,10 @@ namespace CoreBTS.Maui.ShieldMVVM.Pages;
 public abstract class ContentPageBase<TViewModel> : ContentPage
     where TViewModel : IPageViewModelBase
 {
+    /// <summary>
+    /// Constructor that takes the ViewModel to assign to the BindingContext.
+    /// </summary>
+    /// <param name="viewModel">The ViewModel the page is bound to.</param>
     protected ContentPageBase(TViewModel viewModel)
     {
         SetControlTemplate();

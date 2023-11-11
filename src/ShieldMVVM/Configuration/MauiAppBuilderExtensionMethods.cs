@@ -189,6 +189,9 @@ public static class MauiAppBuilderExtensionMethods
         if (page.IsGenericType)
             return page.GetGenericArguments().First();
 
+        if (page.BaseType == null)
+            throw new InvalidOperationException($"The given page '{page.FullName}' does not inherit from required ContentPageBase<>");
+
         return GetPageGenericType(page.BaseType);
     }
 
@@ -197,7 +200,7 @@ public static class MauiAppBuilderExtensionMethods
         if (givenType.IsGenericType && givenType.GetGenericTypeDefinition() == genericType)
             return true;
 
-        Type baseType = givenType.BaseType;
+        Type? baseType = givenType.BaseType;
         if (baseType == null) 
             return false;
 

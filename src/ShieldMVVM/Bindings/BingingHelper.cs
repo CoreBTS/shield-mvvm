@@ -125,7 +125,7 @@ public class BindingControl<TViewModel, TControl>
     public BindingControl<TViewModel, TControl> For<TFrom, TTo>(
        Func<TControl, BindableProperty<TTo>> bindablePropertyExpression,
        Expression<Func<TViewModel, TFrom>> viewModelPropertyExpression,
-       Func<BindingConverter<TFrom, TTo>, IValueConverter<TFrom, TTo>> converter)
+       Func<BindingConverter<TFrom, TTo>?, IValueConverter<TFrom, TTo>> converter)
     {
         foreach (var control in _controls)
         {
@@ -155,7 +155,7 @@ public class BindingControl<TViewModel, TControl>
     public BindingControl<TViewModel, TControl> For<TFrom, TTo>(
        Func<TControl, BindableProperty<TTo>> bindablePropertyExpression,
        Expression<Func<TViewModel, TFrom>> viewModelPropertyExpression,
-       Func<BindingConverter<TFrom, TTo>, TViewModel, IValueConverter<TFrom, TTo>> converter)
+       Func<BindingConverter<TFrom, TTo>?, TViewModel, IValueConverter<TFrom, TTo>> converter)
     {
         foreach (var control in _controls)
         {
@@ -208,7 +208,7 @@ public class BindingControl<TViewModel, TControl>
     public BindingControl<TViewModel, TControl> Once<TFrom, TTo>(
        Func<TControl, BindableProperty<TTo>> bindablePropertyExpression,
        Func<TViewModel, TFrom> viewModelPropertyExpression,
-       Func<BindingConverter<TFrom, TTo>, IValueConverter<TFrom, TTo>> converter)
+       Func<BindingConverter<TFrom, TTo>?, IValueConverter<TFrom, TTo>> converter)
     {
         foreach (var control in _controls)
         {
@@ -238,7 +238,7 @@ public class BindingControl<TViewModel, TControl>
     public BindingControl<TViewModel, TControl> Once<TFrom, TTo>(
        Func<TControl, BindableProperty<TTo>> bindablePropertyExpression,
        Func<TViewModel, TFrom> viewModelPropertyExpression,
-       Func<BindingConverter<TFrom, TTo>, TViewModel, IValueConverter<TFrom, TTo>> converter)
+       Func<BindingConverter<TFrom, TTo>?, TViewModel, IValueConverter<TFrom, TTo>> converter)
     {
         foreach (var control in _controls)
         {
@@ -262,7 +262,7 @@ public class BindingControl<TViewModel, TControl>
     /// <param name="behaviorExpression">The expression that sets up the behavior to add to the control</param>
     /// <returns>A reference to this instance to allow chaining.</returns>
     public BindingControl<TViewModel, TControl> Behavior(
-        Func<BindableBehavior<TControl>, Behavior<TControl>> behaviorExpression)
+        Func<BindableBehavior<TControl>?, Behavior<TControl>> behaviorExpression)
     {
         foreach (var control in _controls)
         {
@@ -279,7 +279,7 @@ public class BindingControl<TViewModel, TControl>
     /// <param name="behaviorExpression">The expression that sets up the behavior to add to the control</param>
     /// <returns>A reference to this instance to allow chaining.</returns>
     public BindingControl<TViewModel, TControl> Behavior(
-        Func<BindableBehavior<TControl>, TViewModel, Behavior<TControl>> behaviorExpression)
+        Func<BindableBehavior<TControl>?, TViewModel, Behavior<TControl>> behaviorExpression)
     {
         foreach (var control in _controls)
         {

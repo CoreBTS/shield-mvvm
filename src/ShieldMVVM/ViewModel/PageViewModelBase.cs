@@ -1,5 +1,4 @@
-﻿using CommunityToolkit.Mvvm.Input;
-using CoreBTS.Maui.ShieldMVVM.Navigation;
+﻿using CoreBTS.Maui.ShieldMVVM.Navigation;
 
 namespace CoreBTS.Maui.ShieldMVVM.ViewModel;
 
@@ -8,6 +7,10 @@ namespace CoreBTS.Maui.ShieldMVVM.ViewModel;
 /// </summary>
 public abstract class BasePageViewModelBase : BaseViewModelBase
 {
+    /// <summary>
+    /// Constructor that takes the NavigationService in order to navigate between View Models.
+    /// </summary>
+    /// <param name="navigationService">The service used for navigation.</param>
     protected BasePageViewModelBase(INavigationService navigationService) : base(navigationService)
     {
     }
@@ -43,6 +46,10 @@ public abstract class BasePageViewModelBase : BaseViewModelBase
 /// </summary>
 public abstract class PageViewModelBase : BasePageViewModelBase, IPageViewModel
 {
+    /// <summary>
+    /// Constructor that takes the NavigationService in order to navigate between View Models.
+    /// </summary>
+    /// <param name="navigationService">The service used for navigation.</param>
     protected PageViewModelBase(INavigationService navigationService) : base(navigationService) 
     {
     }
@@ -64,6 +71,10 @@ public abstract class PageViewModelBase : BasePageViewModelBase, IPageViewModel
 /// <typeparam name="TParameter">The type of parameter the ViewModel uses to set itself up.</typeparam>
 public abstract class PageViewModelBase<TParameter> : BasePageViewModelBase, IPageViewModel<TParameter>
 {
+    /// <summary>
+    /// Constructor that takes the NavigationService in order to navigate between View Models.
+    /// </summary>
+    /// <param name="navigationService">The service used for navigation.</param>
     protected PageViewModelBase(INavigationService navigationService) : base(navigationService)
     {
     }
@@ -92,6 +103,10 @@ public abstract class PageViewModelBase<TParameter> : BasePageViewModelBase, IPa
 /// <typeparam name="TResult">The type of result the ViewModel returns.</typeparam>
 public abstract class PageViewModelBase<TParameter, TResult> : BasePageViewModelBase, IPageViewModel<TParameter, TResult>
 {
+    /// <summary>
+    /// Constructor that takes the NavigationService in order to navigate between View Models.
+    /// </summary>
+    /// <param name="navigationService">The service used for navigation.</param>
     protected PageViewModelBase(INavigationService navigationService) : base(navigationService) =>
         TaskCompletionSource = new TaskCompletionSource<TResult>();
 

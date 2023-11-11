@@ -17,7 +17,7 @@ public interface IValueConverter<TFrom, TTo> : IValueConverter
     /// <param name="parameter">Any optional data used to help convert the value.</param>
     /// <param name="culture">The user's culture.</param>
     /// <returns>Converted value.</returns>
-    TTo Convert(TFrom value, Type targetType, object parameter, CultureInfo culture);
+    TTo Convert(TFrom value, Type targetType, object? parameter, CultureInfo culture);
 
     /// <summary>
     /// Converts a given value to back to its original value based on the given parameters.
@@ -27,5 +27,5 @@ public interface IValueConverter<TFrom, TTo> : IValueConverter
     /// <param name="parameter">Any optional data used to help convert the value back.</param>
     /// <param name="culture">The user's culture.</param>
     /// <returns>Converted back to original value.</returns>
-    TFrom ConvertBack(TTo value, Type targetType, object parameter, CultureInfo culture);
+    TFrom? ConvertBack(TTo value, Type targetType, object? parameter, CultureInfo culture);
 }

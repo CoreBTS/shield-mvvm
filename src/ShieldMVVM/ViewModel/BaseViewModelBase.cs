@@ -11,8 +11,12 @@ public abstract partial class BaseViewModelBase : ObservableObject
     /// <summary>
     /// This event fires whenever the IsBusy property changes.
     /// </summary>
-    public event EventHandler<bool> IsBusyChanged;
+    public event EventHandler<bool>? IsBusyChanged;
 
+    /// <summary>
+    /// Constructor that takes the NavigationService in order to navigate between View Models.
+    /// </summary>
+    /// <param name="navigationService">The service used for navigation.</param>
     protected BaseViewModelBase(INavigationService navigationService) =>
         NavigationService = navigationService;
 
