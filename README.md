@@ -35,8 +35,8 @@ XAML
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:base="clr-namespace:CoreBTS.Maui.Shield MVVM.Pages;assembly=CoreBTS.Maui.Shield MVVM"
     x:Class="MauiSample.Features.About.AboutPage"
-    xmlns:m="clr-namespace:MauiSample.Features.About"
-    x:TypeArguments="m:AboutPageViewModel">
+    xmlns:vm="clr-namespace:MauiSample.Features.About"
+    x:TypeArguments="vm:AboutPageViewModel">
     
     <VerticalStackLayout
         HorizontalOptions="Center"
