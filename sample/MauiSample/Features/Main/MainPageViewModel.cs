@@ -31,6 +31,7 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
         GenerateBindingText();
         GenerateBindingToolkitText();
         GenerateBindingClickableControlText();
+        GenerateToolkitBindingClickableControlText();
         Counter++;
         RaisePropertyChanged(nameof(ButtonText));
         UpdateSecondary();
@@ -92,6 +93,35 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
         var output = new List<string>();
 
         foreach (var type in typeof(Button).Assembly.GetTypes().OrderBy(a => a.Name))
+        {
+            if (!type.IsPublic || !type.IsAssignableTo(typeof(BindableObject)) || !type.IsAssignableTo(typeof(IGestureRecognizers)) || type.ContainsGenericParameters || type.IsNotPublic)
+                continue;
+
+            var typeName = GetTypeName(type);
+
+            output.Add($@"    /// <summary>
+    /// Allows binding to the CommandProperty as BindClick for the {typeName} control.
+    /// </summary>
+    /// <param name=""_"">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ICommand.</returns>");
+
+            if (type.GetCustomAttributes(true).FirstOrDefault(a => a is ObsoleteAttribute) is ObsoleteAttribute obsolete)
+            {
+                output.Add($"    [Obsolete(\"{obsolete.Message}\")]");
+            }
+
+            output.Add($"    public static Bindings.BindableProperty<ICommand> BindClick(this {typeName} _) => new(Controls.ClickableControl<{typeName}>.CommandProperty);");
+            output.Add("");
+        }
+        var text = string.Join(Environment.NewLine, output);
+    }
+
+    public static void GenerateToolkitBindingClickableControlText()
+    {
+        var bp = typeof(IGestureRecognizers);
+        var output = new List<string>();
+
+        foreach (var type in typeof(Popup).Assembly.GetTypes().OrderBy(a => a.Name))
         {
             if (!type.IsPublic || !type.IsAssignableTo(typeof(BindableObject)) || !type.IsAssignableTo(typeof(IGestureRecognizers)) || type.ContainsGenericParameters || type.IsNotPublic)
                 continue;

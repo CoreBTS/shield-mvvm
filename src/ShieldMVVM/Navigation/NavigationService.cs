@@ -437,7 +437,7 @@ public class NavigationService : INavigationService
 
     private static ConstructorInfo? GetPageConstructorByType(Type page, Type viewModelType) =>
         page.GetConstructors().OrderByDescending(a => a.GetParameters().Length)
-                .FirstOrDefault(a => a.GetParameters().Any(a => a.ParameterType.IsAssignableTo(viewModelType)));
+            .FirstOrDefault(a => a.GetParameters().Any(a => a.ParameterType.IsAssignableTo(viewModelType)));
 
     private List<object> GetConstructorParameters(
         dynamic viewModel,

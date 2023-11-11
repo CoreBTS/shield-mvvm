@@ -16,6 +16,57 @@ namespace CoreBTS.Maui.ShieldMVVM.ExtensionMethods;
 /// </summary>
 public static partial class ControlBindExtensionMethods
 {
+    // ***** ClickableControl Bindings *****
+
+    /// <summary>
+    /// Allows binding to the CommandProperty as BindClick for the AvatarView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ICommand.</returns>
+    public static Bindings.BindableProperty<ICommand> BindClick(this AvatarView _) => new(Controls.ClickableControl<AvatarView>.CommandProperty);
+
+    /// <summary>
+    /// Allows binding to the CommandProperty as BindClick for the DockLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ICommand.</returns>
+    public static Bindings.BindableProperty<ICommand> BindClick(this DockLayout _) => new(Controls.ClickableControl<DockLayout>.CommandProperty);
+
+    /// <summary>
+    /// Allows binding to the CommandProperty as BindClick for the DrawingView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ICommand.</returns>
+    public static Bindings.BindableProperty<ICommand> BindClick(this DrawingView _) => new(Controls.ClickableControl<DrawingView>.CommandProperty);
+
+    /// <summary>
+    /// Allows binding to the CommandProperty as BindClick for the Expander control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ICommand.</returns>
+    public static Bindings.BindableProperty<ICommand> BindClick(this Expander _) => new(Controls.ClickableControl<Expander>.CommandProperty);
+
+    /// <summary>
+    /// Allows binding to the CommandProperty as BindClick for the LazyView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ICommand.</returns>
+    public static Bindings.BindableProperty<ICommand> BindClick(this LazyView _) => new(Controls.ClickableControl<LazyView>.CommandProperty);
+
+    /// <summary>
+    /// Allows binding to the CommandProperty as BindClick for the SemanticOrderView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ICommand.</returns>
+    public static Bindings.BindableProperty<ICommand> BindClick(this SemanticOrderView _) => new(Controls.ClickableControl<SemanticOrderView>.CommandProperty);
+
+    /// <summary>
+    /// Allows binding to the CommandProperty as BindClick for the UniformItemsLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ICommand.</returns>
+    public static Bindings.BindableProperty<ICommand> BindClick(this UniformItemsLayout _) => new(Controls.ClickableControl<UniformItemsLayout>.CommandProperty);
+
     // ***** AnimationBehavior Bindings *****
 
     /// <summary>
