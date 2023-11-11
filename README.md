@@ -50,7 +50,6 @@ XAML
             x:Name="Counter" />
 
         <Button
-            Text="Done"
             x:Name="DoneButton"
             />
 
@@ -73,11 +72,12 @@ public partial class AboutPage : ContentPageBase<AboutPageViewModel>
             .For(c => c.BindText(), vm => vm.Counter, c => c.ConvertToString());
 
         Binder.WithControl(DoneButton)
+            .Once(c => c.BindText(), vm => "Done");
             .For(c => c.BindCommand(), vm => vm.DoneCommand);
     }
 }
 ```
-This binds Counter (an int) to the text of the label (a string) named Counter via a converter call. It also binds the Done Button to the click (Command) event and calls DoneCommand on the View Model.
+This binds Counter (an int) to the text of the label (a string) named Counter via a converter call. It also binds the Done Button to the click (Command) event and calls DoneCommand on the View Model. With .Once, a value can be set once without actually binding, so any value can be used if wanted.
 
 View Model:
 ```csharp
@@ -110,7 +110,7 @@ public class AboutPageViewModel : PageViewModelBase<AboutPageArgs, AboutPageResu
 
 Navigating to the View Model:
 ```csharp
-    protected virtual async Task OnAboutPageCommand()
+    private async Task OnAboutPageCommand()
     {
         var result = 
             await NavigationService.NavigateToAsync<AboutPageViewModel, AboutPageArgs, AboutPageResult>(
