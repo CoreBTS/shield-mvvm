@@ -3,9 +3,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:base="clr-namespace:CoreBTS.Maui.ShieldMVVM.Pages;assembly=CoreBTS.Maui.ShieldMVVM"
     x:Class="MauiSample.Features.Main.MainPage"
-    xmlns:m="clr-namespace:MauiSample.Features.Main"
-    x:TypeArguments="m:MainPageViewModel"
-    x:DataType="m:MainPageViewModel"
+    xmlns:vm="clr-namespace:MauiSample.Features.Main"
+    x:TypeArguments="vm:MainPageViewModel"
+    x:DataType="vm:MainPageViewModel"
     >
 
     <ScrollView>
@@ -40,6 +40,7 @@
 
             <Button
                 x:Name="CounterBtn"
+                Text="{Binding ButtonText}"
                 SemanticProperties.Hint="Counts the number of times you click"
                 HorizontalOptions="Center" 
                 />
