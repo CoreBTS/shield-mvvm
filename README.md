@@ -10,10 +10,10 @@ By wrapping Microsoft MAUI's navigation, developers can do ViewModel-to-ViewMode
 With the help of the MAUI CommunityToolkit, developers can create dialog ViewModels and show them from a page ViewModel via the Navigation service. These dialogs can have full XAML support with full bindings as if they were a normal page. They can be built just like any other page and you can get a result back from showing them in a similar way to normal pages inside Shield MVVM.
 
 ### Bindable Properties
-In MAUI, Bindable Properties are how all the one-way and two-way bindings get hooked up, but they are not type-safe. Shield MVVM wraps them in a type-safe/generic version of BindableProperty to guarantee the developer is binding the correct types. All the "Bind" methods will show up in intellisense that only apply to the control you are binding and can be chained together. If a developer attempts to bind a different type, the code will not compile. However, a converter can be used inline where intellisense shows only the possible combinations for the given types.
+In MAUI, Bindable Properties are how all the one-way and two-way bindings get hooked up, but they are not type-safe. Shield MVVM wraps them in a type-safe/generic version of BindableProperty to guarantee the developer is binding the correct types. All the "Bind" methods will show up in Intellisense that only apply to the control you are binding and can be chained together. If a developer attempts to bind a different type, the code will not compile. However, a converter can be used inline where Intellisense shows only the possible combinations for the given types.
 
 ### Converters
-Converters allow a developer to convert a value from a ViewModel into a more UI friendly version. Shield MVVM comes with type-safe/generic converters to speed up development. The basic implementation allows callbacks to be used, so developers don't have to create new classes every time. Since they are generic, they can be used to support intellisense in code-behind bindings by making them extension methods. Finally, since these are callbacks, developers can send any number of type-safe parameters into the call in order to do the conversion - developers are not limited to just one parameter of type object.
+Converters allow a developer to convert a value from a ViewModel into a more UI friendly version. Shield MVVM comes with type-safe/generic converters to speed up development. The basic implementation allows callbacks to be used, so developers don't have to create new classes every time. Since they are generic, they can be used to support Intellisense in code-behind bindings by making them extension methods. Finally, since these are callbacks, developers can send any number of type-safe parameters into the call in order to do the conversion - developers are not limited to just one parameter of type object.
 
 ### Behaviors
 Similar to converters, Behaviors are also made type-safe/generic. They can be chained with the Bindable Properties in order to add additional functionality. Intellisense will only show you the behaviors that apply to the control you are binding to.
@@ -35,8 +35,8 @@ XAML
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:base="clr-namespace:CoreBTS.Maui.Shield MVVM.Pages;assembly=CoreBTS.Maui.Shield MVVM"
     x:Class="MauiSample.Features.About.AboutPage"
-    xmlns:m="clr-namespace:MauiSample.Features.About"
-    x:TypeArguments="m:AboutPageViewModel">
+    xmlns:vm="clr-namespace:MauiSample.Features.About"
+    x:TypeArguments="vm:AboutPageViewModel">
     
     <VerticalStackLayout
         HorizontalOptions="Center"
