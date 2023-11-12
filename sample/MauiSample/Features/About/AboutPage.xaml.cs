@@ -1,3 +1,6 @@
+using CoreBTS.Maui.ShieldMVVM.Bindings;
+using MauiSample.Features.About.Cells;
+
 namespace MauiSample.Features.About;
 
 public partial class AboutPage : ContentPageBase<AboutPageViewModel>
@@ -17,5 +20,12 @@ public partial class AboutPage : ContentPageBase<AboutPageViewModel>
 
         Binder.WithControl(MyText)
             .Once(c => c.BindText(), vm => vm.GetType().FullName);
+
+        Binder.WithControl(AddButton)
+            .For(c => c.BindCommand(), vm => vm.AddCommand);
+
+        Binder.WithControl(List)
+            .ForTemplate(vm => vm.AboutItems, AboutCell.ItemTemplate)
+            .ForSingleSelection(vm => vm.SelectedCommand);
     }
 }

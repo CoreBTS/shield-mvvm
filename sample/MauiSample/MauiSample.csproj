@@ -90,6 +90,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<MauiXaml Update="Features\About\Cells\AboutCell.xaml">
+		  <Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 		<MauiXaml Update="Features\Main\Dialog\DialogPage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>

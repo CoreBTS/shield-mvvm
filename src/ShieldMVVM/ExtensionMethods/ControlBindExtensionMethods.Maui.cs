@@ -14,6 +14,15 @@ namespace CoreBTS.Maui.ShieldMVVM;
 /// </summary>
 public static partial class ControlBindExtensionMethods
 {
+    // ***** Custom Bindings *****
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the ItemsView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ItemsView.</returns>
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this ItemsView _) => Bindings.BindableProperty<IEnumerable<T>>.Create(ItemsView.ItemsSourceProperty);
+
     // ***** ClickableControl Bindings *****
 
     /// <summary>

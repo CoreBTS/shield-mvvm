@@ -1,7 +1,10 @@
 ﻿using CoreBTS.Maui.ShieldMVVM.Behaviors;
 using CoreBTS.Maui.ShieldMVVM.Converters;
+using CoreBTS.Maui.ShieldMVVM.DataTemplates;
+using System.Collections;
 using System.Globalization;
 using System.Linq.Expressions;
+using System.Windows.Input;
 
 namespace CoreBTS.Maui.ShieldMVVM.Bindings;
 
@@ -340,4 +343,90 @@ public class BindingControl<TViewModel, TControl>
 
         return string.Join(".", propertyNames);
     }
+}
+
+/// <summary>
+/// Extension methods to add specific functionality for specific controls
+/// </summary>
+public static class BindingHelperExtensions
+{
+    /// <summary>
+    /// Adds generic type-safety for binding to lists that bind to ViewCellBase.
+    /// </summary>
+    /// <typeparam name="TViewModel">The type of ViewModel being bound to.</typeparam>
+    /// <typeparam name="TControl">The type of control being bound to.</typeparam>
+    /// <typeparam name="TCellModel">The model type the cell is bound to.</typeparam>
+    /// <param name="self">Extension parameter.</param>
+    /// <param name="dataPropertyExpression">An expression to the list being bound to.</param>
+    /// <param name="dataTemplate">The ItemTemplate to use.</param>
+    /// <returns>A reference to this instance to allow chaining.</returns>
+    public static BindingControl<TViewModel, TControl> ForTemplate<TViewModel, TControl, TCellModel>(
+        this BindingControl<TViewModel, TControl> self,
+        Expression<Func<TViewModel, IEnumerable<TCellModel>>> dataPropertyExpression,
+        DataTemplate<TCellModel> dataTemplate
+        )
+        where TControl : ItemsView =>
+        self.For(c => c.BindItemsSource<TCellModel>(), dataPropertyExpression)
+            .Once(c => c.BindItemTemplate(), vm => dataTemplate);
+
+    /// <summary>
+    /// Adds generic type-safety for binding to lists that bind to ViewCellBase.
+    /// </summary>
+    /// <typeparam name="TViewModel">The type of ViewModel being bound to.</typeparam>
+    /// <typeparam name="TControl">The type of control being bound to.</typeparam>
+    /// <typeparam name="TCellModel">The model type the cell is bound to.</typeparam>
+    /// <param name="self">Extension parameter.</param>
+    /// <param name="dataPropertyExpression">An expression to the list being bound to.</param>
+    /// <param name="dataTemplateSelector">The DataTemplateSelector to use.</param>
+    /// <returns>A reference to this instance to allow chaining.</returns>
+    public static BindingControl<TViewModel, TControl> ForTemplate<TViewModel, TControl, TCellModel>(
+       this BindingControl<TViewModel, TControl> self,
+       Expression<Func<TViewModel, IEnumerable<TCellModel>>> dataPropertyExpression,
+       DataTemplateSelector dataTemplateSelector
+       )
+       where TControl : ItemsView =>
+       self.For(c => c.BindItemsSource<TCellModel>(), dataPropertyExpression)
+           .Once(c => c.BindItemTemplate(), vm => dataTemplateSelector);
+
+    /// <summary>
+    /// Adds short-hand way to hookup Selection Changed events.
+    /// </summary>
+    /// <typeparam name="TViewModel">The type of ViewModel being bound to.</typeparam>
+    /// <typeparam name="TControl">The type of control being bound to.</typeparam>
+    /// <param name="self">Extension parameter.</param>
+    /// <param name="commandPropertyExpression">The command to run when a selection is made</param>
+    /// <returns>A reference to this instance to allow chaining.</returns>
+    public static BindingControl<TViewModel, TControl> ForSingleSelection<TViewModel, TControl>(
+        this BindingControl<TViewModel, TControl> self,
+        Expression<Func<TViewModel, ICommand>> commandPropertyExpression
+        )
+        where TControl : SelectableItemsView =>
+        self.For(c => c.BindSelectionChangedCommand(), commandPropertyExpression)
+            .For(c => c.BindSelectionChangedCommandParameter(),
+                new Binding(
+                    SelectableItemsView.SelectedItemProperty.PropertyName,
+                    source: new RelativeBindingSource(RelativeBindingSourceMode.Self)
+                    )
+            );
+
+    /// <summary>
+    /// Adds short-hand way to hookup Selection Changed events.
+    /// </summary>
+    /// <typeparam name="TViewModel">The type of ViewModel being bound to.</typeparam>
+    /// <typeparam name="TControl">The type of control being bound to.</typeparam>
+    /// <param name="self">Extension parameter.</param>
+    /// <param name="commandPropertyExpression">The command to run when a selection is made</param>
+    /// <returns>A reference to this instance to allow chaining.</returns>
+    public static BindingControl<TViewModel, TControl> ForMultiSelection<TViewModel, TControl>(
+        this BindingControl<TViewModel, TControl> self,
+        Expression<Func<TViewModel, ICommand>> commandPropertyExpression
+        )
+        where TControl : SelectableItemsView =>
+        self.For(c => c.BindSelectionChangedCommand(), commandPropertyExpression)
+            .For(c => c.BindSelectionChangedCommandParameter(),
+                new Binding(
+                    SelectableItemsView.SelectedItemsProperty.PropertyName,
+                    source: new RelativeBindingSource(RelativeBindingSourceMode.Self)
+                    )
+            );
 }

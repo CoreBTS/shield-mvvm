@@ -16,7 +16,8 @@
             />
         
         <Label 
-            x:Name="Counter" />
+            x:Name="Counter" 
+            />
 
         <Label 
             Margin="0,10,0,0" 
@@ -31,6 +32,18 @@
             Text="Done"
             x:Name="DoneButton"
             />
+
+        <Button
+          Text="Add"
+          x:Name="AddButton"
+          />
+        
+        <CollectionView
+            SelectionMode="Single"
+            x:Name="List"
+            >
+            
+        </CollectionView>
 
     </VerticalStackLayout>
     
