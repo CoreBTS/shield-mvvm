@@ -18,9 +18,6 @@ Converters allow a developer to convert a value from a ViewModel into a more UI 
 ### Behaviors
 Similar to converters, Behaviors are also made type-safe/generic. They can be chained with the Bindable Properties in order to add additional functionality. Intellisense will only show you the behaviors that apply to the control you are binding to.
 
-### Data Templates
-TODO
-
 ### ClickableControl
 Some controls, like labels, don't have the ability to bind clicks out of the box. Shield MVVM exposes a generic bind method to easily wrap any control that allows for gestures. This way, developers can add BindClick to almost any control directly.
 
