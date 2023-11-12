@@ -11,7 +11,7 @@ public static class VisualElementExtensions
     /// <summary>
     /// Returns the control height in independent units.
     /// </summary>
-    /// <param name="_"></param>
+    /// <param name="_">Extension parameter.</param>
     /// <returns>Control height in independent units.</returns>
     public static double DeviceScreenHeight(this Element _) =>
         DeviceDisplay.MainDisplayInfo.Height / DeviceDisplay.MainDisplayInfo.Density;
@@ -19,7 +19,7 @@ public static class VisualElementExtensions
     /// <summary>
     /// Returns the control width as independent units.
     /// </summary>
-    /// <param name="_"></param>
+    /// <param name="_">Extension parameter.</param>
     /// <returns>Control width in independent units.</returns>
     public static double DeviceScreenWidth(this Element _) =>
        DeviceDisplay.MainDisplayInfo.Width / DeviceDisplay.MainDisplayInfo.Density;

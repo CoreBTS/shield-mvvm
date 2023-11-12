@@ -1,4 +1,6 @@
-﻿namespace MauiSample.Features.Main.Dialog;
+﻿using CoreBTS.Maui.ShieldMVVM.Behaviors;
+
+namespace MauiSample.Features.Main.Dialog;
 
 [XamlCompilation(XamlCompilationOptions.Compile)]
 public partial class DialogPromptPage : DialogPageBase<DialogPromptPageViewModel>
@@ -15,6 +17,7 @@ public partial class DialogPromptPage : DialogPageBase<DialogPromptPageViewModel
             .Once(c => c.BindText(), vm => vm.MyLabel);
 
         Binder.WithControl(Counter)
+            .Behavior(c => c.ApplyColorForValue(Colors.Red, Colors.Black, val => val?.Length > 2))
             .For(c => c.BindText(), vm => vm.Counter, c => c.ConvertToString());
 
         Binder.WithControl(CloseButton)

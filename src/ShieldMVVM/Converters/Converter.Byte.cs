@@ -7,7 +7,7 @@ public static partial class Converter
     /// <summary>
     /// A converter that converts the given value to its string representation.
     /// </summary>
-    /// <param name="_"></param>
+    /// <param name="_">Extension parameter.</param>
     /// <param name="style">The style to convert the value to.</param>
     /// <param name="formatProvider">A way to convert the value to a string.</param>
     /// <returns>An IValueConverter.</returns>
@@ -21,7 +21,7 @@ public static partial class Converter
     /// <summary>
     /// A converter that converts the given value to its string representation.
     /// </summary>
-    /// <param name="_"></param>
+    /// <param name="_">Extension parameter.</param>
     /// <param name="style">The style to convert the value to.</param>
     /// <param name="formatProvider">A way to convert the value to a string.</param>
     /// <returns>An IValueConverter.</returns>

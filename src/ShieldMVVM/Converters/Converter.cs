@@ -12,7 +12,7 @@ public static partial class Converter
     /// </summary>
     /// <typeparam name="TFrom">The type of value being converted from.</typeparam>
     /// <typeparam name="TTo">The type of value being converted to.</typeparam>
-    /// <param name="_"></param>
+    /// <param name="_">Extension parameters.</param>
     /// <param name="convertTo">A function that converts from the source to the target.</param>
     /// <param name="convertBack">A function that converts back from the target to the source.</param>
     /// <returns>A new instance of a converter.</returns>

@@ -3,19 +3,21 @@
 namespace CoreBTS.Maui.ShieldMVVM.Behaviors;
 
 /// <summary>
-/// This class allows for creating converters in a type-safe way with callback functions.
+/// This class allows for creating behaviors in a type-safe way with callback functions.
 /// </summary>
 /// <typeparam name="TControl">The type of control the behavior applies to.</typeparam>
-public class GenericBehavior<TControl> : Behavior<TControl>
+/// <typeparam name="TEventHandler">The type of control the behavior applies to.</typeparam>
+public class GenericBehavior<TControl, TEventHandler> : Behavior<TControl>
     where TControl : BindableObject
 {
-    private readonly Func<TControl, EventHandler?> _eventHandlerCallback;
-    private readonly Action<TControl, EventHandler?>? _attachCallback;
-    private readonly Action<TControl, EventHandler?>? _detachCallback;
+    private readonly Func<TControl, TEventHandler?> _eventHandlerCallback;
+    private readonly Action<TControl, TEventHandler?>? _attachCallback;
+    private readonly Action<TControl, TEventHandler?>? _detachCallback;
+
     private readonly Action<string>? _propertyChangingCallback;
     private readonly Action<string>? _propertyChangedCallback;
 
-    private EventHandler? _eventHandler;
+    private TEventHandler? _eventHandler;
     
     /// <summary>
     /// Constructor that handles all the callbacks to invoke a behavior.
@@ -25,10 +27,10 @@ public class GenericBehavior<TControl> : Behavior<TControl>
     /// <param name="detachCallback">Callback to remove the behavior.</param>
     /// <param name="propertyChangingCallback">Fires when the bound property is about to change.</param>
     /// <param name="propertyChangedCallback">Fires after the bound property changes.</param>
-    public GenericBehavior(
-        Func<TControl, EventHandler?> eventHandlerCallback,
-        Action<TControl, EventHandler?>? attachCallback = null,
-        Action<TControl, EventHandler?>? detachCallback = null,
+    private GenericBehavior(
+        Func<TControl, TEventHandler?> eventHandlerCallback,
+        Action<TControl, TEventHandler?>? attachCallback = null,
+        Action<TControl, TEventHandler?>? detachCallback = null,
         Action<string>? propertyChangingCallback = null,
         Action<string>? propertyChangedCallback = null)
     {
@@ -38,6 +40,27 @@ public class GenericBehavior<TControl> : Behavior<TControl>
         _propertyChangingCallback = propertyChangingCallback;
         _propertyChangedCallback = propertyChangedCallback;
     }
+
+    /// <summary>
+    /// Returns an instance of a behavior that uses callback to do the work.
+    /// </summary>
+    /// <param name="eventHandlerCallback">The event to fire when attaching/detaching.</param>
+    /// <param name="attachCallback">Callback to attach the behavior.</param>
+    /// <param name="detachCallback">Callback to remove the behavior.</param>
+    /// <param name="propertyChangingCallback">Fires when the bound property is about to change.</param>
+    /// <param name="propertyChangedCallback">Fires after the bound property changes.</param>
+    /// <returns>A GenericBehavior.</returns>
+    public static GenericBehavior<TControl, TEventHandler> Create(
+        Func<TControl, TEventHandler?> eventHandlerCallback,
+        Action<TControl, TEventHandler?>? attachCallback = null,
+        Action<TControl, TEventHandler?>? detachCallback = null,
+        Action<string>? propertyChangingCallback = null,
+        Action<string>? propertyChangedCallback = null) =>
+        new(eventHandlerCallback, 
+            attachCallback, 
+            detachCallback, 
+            propertyChangingCallback, 
+            propertyChangedCallback);
 
     /// <summary>
     /// Application developers override this method to implement the behaviors that will

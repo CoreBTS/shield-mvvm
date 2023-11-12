@@ -9,7 +9,8 @@ public partial class AboutPage : ContentPageBase<AboutPageViewModel>
     protected override void SetupBindings()
     {
         Binder.WithControl(Counter)
-            .For(c => c.BindText(), vm => vm.Counter, c => c.ConvertToString());
+            .For(c => c.BindText(), vm => vm.Counter, 
+                c => GenericConverter<int, string>.Create(value => value.ToString()));
 
         Binder.WithControl(DoneButton)
             .For(c => c.BindCommand(), vm => vm.DoneCommand);
