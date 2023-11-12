@@ -27,14 +27,16 @@ public class ClickableControl<T>
         var control = (T)bindable;
         var command = (ICommand)newValue;
 
-        var gestureRecognizer = new TapGestureRecognizer();
+        var classId = nameof(ClickableControl<T>);
+        var gestureRecognizer = new TapGestureRecognizer() { ClassId = classId };
         gestureRecognizer.Tapped += (s, e) =>
         {
             if (command != null && command.CanExecute(null))
                 command.Execute(null);
         };
 
-        foreach (var gesture in control.GestureRecognizers.Where(a => a is TapGestureRecognizer))
+        foreach (var gesture in control.GestureRecognizers
+            .Where(a => a is TapGestureRecognizer tap && tap.ClassId == classId))
         {
             control.GestureRecognizers.Remove(gesture);
         }
