@@ -18,6 +18,9 @@ Converters allow a developer to convert a value from a ViewModel into a more UI 
 ### Behaviors
 Similar to converters, Behaviors are also made type-safe/generic. They can be chained with the Bindable Properties in order to add additional functionality. Intellisense will only show you the behaviors that apply to the control you are binding to.
 
+### Data Templates
+Normally, DataTemplates aren't type safe so there could be issues if the wrong ones are assigned. With Shield MVVM, a generic DataTemplate is available to use in conjunction with a ViewCellBase class that all Cells need to inherit from. Then a BindingHelper method called .ForTemplate can be used to bind an ItemsView to a template/data with type safety - or a DataTemplateSelector. Developers can also use the built in .ForSingleSelection or .ForMultiSelection methods off of SelectableItemsView (e.g. CollectionView) to bind selections in an easier fashion.
+
 ### ClickableControl
 Some controls, like labels, don't have the ability to bind clicks out of the box. Shield MVVM exposes a generic bind method to easily wrap any control that allows for gestures. This way, developers can add BindClick to almost any control directly.
 
