@@ -263,6 +263,7 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type ICommand.</returns>
     public static Bindings.BindableProperty<ICommand> BindClick(this ListView _) => new(Controls.ClickableControl<ListView>.CommandProperty);
 
+#if NET7_0
     /// <summary>
     /// Allows binding to the CommandProperty as BindClick for the OpenGLView control.
     /// </summary>
@@ -270,6 +271,7 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type ICommand.</returns>
     [Obsolete("OpenGLView is obsolete as of .NET 7. To enable this view you will need to call `builder.UseMauiCompatibility` but it is currently untested and unsupported.")]
     public static Bindings.BindableProperty<ICommand> BindClick(this OpenGLView _) => new(Controls.ClickableControl<OpenGLView>.CommandProperty);
+#endif
 
     /// <summary>
     /// Allows binding to the CommandProperty as BindClick for the Path control.
@@ -1101,6 +1103,9 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ClickGestureRecognizer.</returns>
+#if NET8_0
+  [Obsolete("ClickGestureRecognizer is obsolete. Please use TapGestureRecognizer or PointerGestureRecognizer instead.")]
+#endif
     public static Bindings.BindableProperty<ButtonsMask> BindButtons(this ClickGestureRecognizer _) => Bindings.BindableProperty<ButtonsMask>.Create(ClickGestureRecognizer.ButtonsProperty);
 
     /// <summary>
@@ -1108,6 +1113,9 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ClickGestureRecognizer.</returns>
+#if NET8_0
+    [Obsolete("ClickGestureRecognizer is obsolete. Please use TapGestureRecognizer or PointerGestureRecognizer instead.")]
+#endif
     public static Bindings.BindableProperty<object> BindCommandParameter(this ClickGestureRecognizer _) => Bindings.BindableProperty<object>.Create(ClickGestureRecognizer.CommandParameterProperty);
 
     /// <summary>
@@ -1115,6 +1123,9 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ClickGestureRecognizer.</returns>
+#if NET8_0
+    [Obsolete("ClickGestureRecognizer is obsolete. Please use TapGestureRecognizer or PointerGestureRecognizer instead.")]
+#endif
     public static Bindings.BindableProperty<ICommand> BindCommand(this ClickGestureRecognizer _) => Bindings.BindableProperty<ICommand>.Create(ClickGestureRecognizer.CommandProperty);
 
     /// <summary>
@@ -1122,6 +1133,9 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ClickGestureRecognizer.</returns>
+#if NET8_0
+    [Obsolete("ClickGestureRecognizer is obsolete. Please use TapGestureRecognizer or PointerGestureRecognizer instead.")]
+#endif
     public static Bindings.BindableProperty<int> BindNumberOfClicksRequired(this ClickGestureRecognizer _) => Bindings.BindableProperty<int>.Create(ClickGestureRecognizer.NumberOfClicksRequiredProperty);
 
     // ***** ColumnDefinition Bindings *****
@@ -3018,6 +3032,9 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type MenuItem.</returns>
+#if NET8_0
+    [Obsolete("Use KeyboardAccelerator instead.")]
+#endif
     public static Bindings.BindableProperty<Accelerator> BindAccelerator(this MenuItem _) => Bindings.BindableProperty<Accelerator>.Create(MenuItem.AcceleratorProperty);
 
     /// <summary>
@@ -3159,6 +3176,7 @@ public static partial class ControlBindExtensionMethods
 
     // ***** OpenGLView Bindings *****
 
+#if NET7_0
     /// <summary>
     /// Allows binding to the HasRenderLoopProperty as BindHasRenderLoop for the OpenGLView control.
     /// </summary>
@@ -3166,6 +3184,7 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type OpenGLView.</returns>
     [Obsolete("OpenGLView is obsolete as of .NET 7. To enable this view you will need to call `builder.UseMauiCompatibility` but it is currently untested and unsupported.")]
     public static Bindings.BindableProperty<bool> BindHasRenderLoop(this OpenGLView _) => Bindings.BindableProperty<bool>.Create(OpenGLView.HasRenderLoopProperty);
+#endif
 
     // ***** OrientationStateTrigger Bindings *****
 
