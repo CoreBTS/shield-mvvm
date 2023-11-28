@@ -3,13 +3,16 @@
 
 Core BTS's Shield MVVM is a .NET MAUI MVVM framework that provides type-safety for navigation, bindable properties, converters, behaviors, dialogs, data templates, and more in a way that enables developers to code faster, safer, and with less lines.
 
-Make sure to check out the wiki for more details!
+_Make sure to check out the wiki for more details!_
+
+### Type-Safety
+In order to add type-safety everywhere, the bindings/converters must be defined in the code-behind instead of the XAML. There are many advantages to this approach, but it is different than what is normally done. Shield MVVM is done in a way to ensure the code-behind will not have any UI logic defined in the code-behind, so the code will look clean and consistant throughout all the pages/dialogs.
 
 ### Navigation
 By wrapping Microsoft MAUI's navigation, developers can do ViewModel-to-ViewModel navigation. Developers can also pass typed arguments to send data to the next ViewModel and even a typed result back when the user navigates back. The code can await where the navigation took place and the result will come back to that spot in code.
 
 ### Dialogs
-With the help of the MAUI CommunityToolkit, developers can create dialog ViewModels and show them from a page ViewModel via the Navigation service. These dialogs can have full XAML support with full bindings as if they were a normal page. They can be built just like any other page and you can get a result back from showing them in a similar way to normal pages inside Shield MVVM.
+With the help of the MAUI CommunityToolkit, developers can create dialog ViewModels and show them from a dialog ViewModel via the Navigation service. These dialogs can have full XAML support with full bindings as if they were a normal page. They can be built just like any other page and you can get a result back from showing them in a similar way to normal pages inside Shield MVVM.
 
 ### Bindable Properties
 In MAUI, Bindable Properties are how all the one-way and two-way bindings get hooked up, but they are not type-safe. Shield MVVM wraps them in a type-safe/generic version of BindableProperty to guarantee the developer is binding the correct types. All the "Bind" methods will show up in Intellisense that only apply to the control you are binding and can be chained together. If a developer attempts to bind a different type, the code will not compile. However, a converter can be used inline where Intellisense shows only the possible combinations for the given types.
