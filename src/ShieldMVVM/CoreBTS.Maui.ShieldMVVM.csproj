@@ -19,7 +19,7 @@
 		<DelaySign>True</DelaySign>
 		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
 		<Title>CoreBTS MAUI Shield MVVM</Title>
-		<Authors>Daniel Lorenz,Joshua Rhodes,Chris Pearson</Authors>
+		<Authors>Daniel Lorenz, Joshua Rhodes, Chris Pearson</Authors>
 		<Company>Core BTS</Company>
 		<Description>Core BTS's ShieldMVVM is a .NET MAUI MVVM framework that provides type-safety for navigation, bindable properties, converters, behaviors, dialogs, data templates, and more in a way that enables developers to code faster, safer, and with less lines.</Description>
 		<PackageProjectUrl>https://github.com/CoreBTS/shield-mvvm</PackageProjectUrl>
@@ -29,7 +29,8 @@
 		<RepositoryUrl>https://github.com/CoreBTS/shield-mvvm</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>MAUI;MVVM;FrameWork</PackageTags>
-		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+		<IncludeContentInPack>true</IncludeContentInPack>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0|AnyCPU'">
@@ -110,5 +111,11 @@
 	  <Folder Include="Platforms\Tizen\" />
 	  <Folder Include="Platforms\Windows\" />
 	</ItemGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE.md" Pack="true" PackagePath="" />
+	<None Include="README.md" Pack="true" PackagePath="" />
+	<None Include="icon.png" Pack="true" PackagePath="" />
+  </ItemGroup>
 
 </Project>
