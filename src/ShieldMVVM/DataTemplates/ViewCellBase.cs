@@ -12,8 +12,10 @@ public abstract class ViewCellBase<TModel, TCell> : ContentView
     /// <summary>
     /// Default constructor that calls CreateControls.
     /// </summary>
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable. - Guaranteed to exist when finally used
     protected ViewCellBase() =>
         CreateControls();
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
 
     /// <summary>
     /// Gets the ItemTemplate that is type-safe.
@@ -28,7 +30,7 @@ public abstract class ViewCellBase<TModel, TCell> : ContentView
     /// <summary>
     /// Gets the BindingHelper to add control bindings from the Model.
     /// </summary>
-    protected BindingHelper<TModel>? Binder { get; private set; }
+    protected BindingHelper<TModel> Binder { get; private set; }
 
     /// <summary>
     /// Calls InitializeComponent.

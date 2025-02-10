@@ -6,7 +6,11 @@ namespace CoreBTS.Maui.ShieldMVVM.ViewModel;
 /// <summary>
 /// This class defines common logic amongst all ViewModel types.
 /// </summary>
-public abstract partial class BaseViewModelBase : ObservableObject
+/// <remarks>
+/// Constructor that takes the NavigationService in order to navigate between View Models.
+/// </remarks>
+/// <param name="navigationService">The service used for navigation.</param>
+public abstract partial class BaseViewModelBase(INavigationService navigationService) : ObservableObject
 {
     /// <summary>
     /// This event fires whenever the IsBusy property changes.
@@ -14,16 +18,9 @@ public abstract partial class BaseViewModelBase : ObservableObject
     public event EventHandler<bool>? IsBusyChanged;
 
     /// <summary>
-    /// Constructor that takes the NavigationService in order to navigate between View Models.
-    /// </summary>
-    /// <param name="navigationService">The service used for navigation.</param>
-    protected BaseViewModelBase(INavigationService navigationService) =>
-        NavigationService = navigationService;
-
-    /// <summary>
     /// Gets the NavigationService.
     /// </summary>
-    protected INavigationService NavigationService { get; }
+    protected INavigationService NavigationService { get; } = navigationService;
 
     private bool _isBusy;
     /// <summary>

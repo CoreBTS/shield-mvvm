@@ -22,7 +22,11 @@ namespace CoreBTS.Maui.ShieldMVVM.Bindings;
 ///       }
 ///     }
 /// </remarks>
-public class BindablePropertyKey<TPropertyType>
+/// <remarks>
+/// Creates a new instance of the type-safe BindablePropertyKey class.
+/// </remarks>
+/// <param name="bindablePropertyKeyValue">The BindablePropertyKey being wrapped.</param>
+public class BindablePropertyKey<TPropertyType>(BindablePropertyKey bindablePropertyKeyValue)
 {
     private static readonly ConcurrentDictionary<BindablePropertyKey, BindablePropertyKey<TPropertyType>> cache = new();
 
@@ -43,16 +47,9 @@ public class BindablePropertyKey<TPropertyType>
     }
 
     /// <summary>
-    /// Creates a new instance of the type-safe BindablePropertyKey class.
-    /// </summary>
-    /// <param name="bindablePropertyKeyValue">The BindablePropertyKey being wrapped.</param>
-    public BindablePropertyKey(BindablePropertyKey bindablePropertyKeyValue) =>
-        BindablePropertyKeyValue = bindablePropertyKeyValue;
-
-    /// <summary>
     /// Gets the wrapped BindablePropertyKey.
     /// </summary>
-    public BindablePropertyKey BindablePropertyKeyValue { get; }
+    public BindablePropertyKey BindablePropertyKeyValue { get; } = bindablePropertyKeyValue;
 
     /// <summary>
     /// Creates a new instance of the type-safe BindablePropertyKey class for an attached property.

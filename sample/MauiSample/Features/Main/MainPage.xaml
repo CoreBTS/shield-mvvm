@@ -8,8 +8,8 @@
     x:DataType="vm:MainPageViewModel"
     >
 
-    <ScrollView>
-        
+    <ScrollView VerticalOptions="Fill">
+
         <VerticalStackLayout
             Spacing="25"
             Padding="30,0"
@@ -55,7 +55,7 @@
                  x:Name="SecondaryLabel"
                 />
 
-            <HorizontalStackLayout>
+            <HorizontalStackLayout >
 
                 <Button
                     x:Name="AboutPageButton"
@@ -64,7 +64,7 @@
 
                 <Button
                      x:Name="AboutAlternatePageButton"
-                     Text="About Alternate"
+                     Text="About Alt"
                      />
 
                 <Button

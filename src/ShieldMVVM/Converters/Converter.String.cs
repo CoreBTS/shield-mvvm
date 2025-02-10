@@ -28,4 +28,13 @@ public static partial class Converter
     public static IValueConverter<string, string> ConvertToUpperCase(this BindingConverter<string, string> _) =>
         Create(_,
             value => value?.ToUpperInvariant());
+
+    /// <summary>
+    /// A converter that converts a nullable string to a non-nullable string.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>An IValueConverter.</returns>
+    public static IValueConverter<string?, string> ConvertToNonNullString(this BindingConverter<string?, string> _) =>
+        Create(_,
+            value => value ?? string.Empty);
 }

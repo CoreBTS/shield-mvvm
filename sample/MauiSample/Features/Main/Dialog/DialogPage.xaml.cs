@@ -1,12 +1,8 @@
 ﻿namespace MauiSample.Features.Main.Dialog;
 
 [XamlCompilation(XamlCompilationOptions.Compile)]
-public partial class DialogPage : DialogPageBase<DialogPageViewModel>
+public partial class DialogPage(DialogPageViewModel viewModel) : DialogPageBase<DialogPageViewModel>(viewModel)
 {
-    public DialogPage(DialogPageViewModel viewModel) : base(viewModel)
-    {
-    }
-
     protected override void SetupBindings()
     {
         Binder.WithControl(MyLabel)

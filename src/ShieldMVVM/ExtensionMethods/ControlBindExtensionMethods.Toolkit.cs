@@ -5,11 +5,10 @@ using CommunityToolkit.Maui.ImageSources;
 using CommunityToolkit.Maui.Layouts;
 using CommunityToolkit.Maui.Views;
 using System.Collections;
-using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
 using System.Windows.Input;
 
-namespace CoreBTS.Maui.ShieldMVVM.ExtensionMethods;
+namespace CoreBTS.Maui.ShieldMVVM;
 
 /// <summary>
 /// This class stores all the Bind* extension methods for generic BindableProperty.
@@ -66,6 +65,8 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ICommand.</returns>
     public static Bindings.BindableProperty<ICommand> BindClick(this UniformItemsLayout _) => new(Controls.ClickableControl<UniformItemsLayout>.CommandProperty);
+
+    // ***** Start of Generated Bindings *****
 
     // ***** AnimationBehavior Bindings *****
 
@@ -216,55 +217,6 @@ public static partial class ControlBindExtensionMethods
     public static Bindings.BindableProperty<double> BindVerticalSpacing(this DockLayout _) => Bindings.BindableProperty<double>.Create(DockLayout.VerticalSpacingProperty);
 
     // ***** DrawingView Bindings *****
-
-    /// <summary>
-    /// Allows binding to the DrawActionProperty as BindDrawAction for the DrawingView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DrawingView.</returns>
-    public static Bindings.BindableProperty<Action<RectF>> BindDrawAction(this DrawingView _) => Bindings.BindableProperty<Action<RectF>>.Create(DrawingView.DrawActionProperty);
-
-    /// <summary>
-    /// Allows binding to the DrawingLineCompletedCommandProperty as BindDrawingLineCompletedCommand for the DrawingView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DrawingView.</returns>
-    public static Bindings.BindableProperty<ICommand> BindDrawingLineCompletedCommand(this DrawingView _) => Bindings.BindableProperty<ICommand>.Create(DrawingView.DrawingLineCompletedCommandProperty);
-
-    /// <summary>
-    /// Allows binding to the IsMultiLineModeEnabledProperty as BindIsMultiLineModeEnabled for the DrawingView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DrawingView.</returns>
-    public static Bindings.BindableProperty<bool> BindIsMultiLineModeEnabled(this DrawingView _) => Bindings.BindableProperty<bool>.Create(DrawingView.IsMultiLineModeEnabledProperty);
-
-    /// <summary>
-    /// Allows binding to the LineColorProperty as BindLineColor for the DrawingView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DrawingView.</returns>
-    public static Bindings.BindableProperty<Color> BindLineColor(this DrawingView _) => Bindings.BindableProperty<Color>.Create(DrawingView.LineColorProperty);
-
-    /// <summary>
-    /// Allows binding to the LinesProperty as BindLines for the DrawingView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DrawingView.</returns>
-    public static Bindings.BindableProperty<ObservableCollection<IDrawingLine>> BindLines(this DrawingView _) => Bindings.BindableProperty<ObservableCollection<IDrawingLine>>.Create(DrawingView.LinesProperty);
-
-    /// <summary>
-    /// Allows binding to the LineWidthProperty as BindLineWidth for the DrawingView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DrawingView.</returns>
-    public static Bindings.BindableProperty<float> BindLineWidth(this DrawingView _) => Bindings.BindableProperty<float>.Create(DrawingView.LineWidthProperty);
-
-    /// <summary>
-    /// Allows binding to the ShouldClearOnFinishProperty as BindShouldClearOnFinish for the DrawingView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DrawingView.</returns>
-    public static Bindings.BindableProperty<bool> BindShouldClearOnFinish(this DrawingView _) => Bindings.BindableProperty<bool>.Create(DrawingView.ShouldClearOnFinishProperty);
 
     // ***** EventToCommandBehavior Bindings *****
 

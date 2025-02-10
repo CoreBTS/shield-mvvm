@@ -106,7 +106,7 @@ public interface INavigationService
     /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
     /// </param>
     /// <returns>An awaitable task that returns the view model and result of the page.</returns>
-    Task<TResult?> NavigateToAsync<TViewModel, TParameter, TResult>(
+    Task<TResult> NavigateToAsync<TViewModel, TParameter, TResult>(
         TParameter parameter,
         bool isAnimated = true,
         bool mustClearNavigationStack = false,
@@ -164,4 +164,117 @@ public interface INavigationService
     /// Clears the entire navigation stack.
     /// </summary>
     void ClearNavigation();
+
+    /// <summary>
+    /// Navigates entire window to another ViewModel with no parameters/results.
+    /// </summary>
+    /// <typeparam name="TViewModel">The type of ViewModel being navigated to.</typeparam>
+    /// <param name="isAnimated">True if the transition is animated; false otherwise.</param>
+    /// <param name="mustClearNavigationStack">
+    /// True if the navigation stack should be cleared after navigating; false otherwise.
+    /// </param>
+    /// <param name="token">
+    /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
+    /// </param>
+    /// <returns>An awaitable task with the created ViewModel.</returns>
+    Task NavigateWindowToAsync<TViewModel>(
+       bool isAnimated = true,
+       bool mustClearNavigationStack = false,
+       CancellationToken token = default)
+       where TViewModel : IPageViewModel;
+
+    /// <summary>
+    /// Navigates entire window to another ViewModel with setup parameters and no result.
+    /// </summary>
+    /// <typeparam name="TViewModel">The type of ViewModel being navigated to.</typeparam>
+    /// <typeparam name="TParameter">The type of setup parameter being sent.</typeparam>
+    /// <param name="parameter">The setup parameter value.</param>
+    /// <param name="isAnimated">True if the transition is animated; false otherwise.</param>
+    /// <param name="mustClearNavigationStack">
+    /// True if the navigation stack should be cleared after navigating; false otherwise.
+    /// </param>
+    /// <param name="token">
+    /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
+    /// </param>
+    /// <returns>An awaitable task with the created ViewModel.</returns>
+    Task NavigateWindowToAsync<TViewModel, TParameter>(
+        TParameter parameter,
+        bool isAnimated = true,
+        bool mustClearNavigationStack = false,
+        CancellationToken token = default)
+        where TViewModel : IPageViewModel<TParameter>;
+
+    /// <summary>
+    /// Navigates entire window to another ViewModel with setup parameters and expecting a result.
+    /// </summary>
+    /// <typeparam name="TViewModel">The type of ViewModel being navigated to.</typeparam>
+    /// <typeparam name="TParameter">The type of setup parameter being sent.</typeparam>
+    /// <typeparam name="TResult">The type of result being returned.</typeparam>
+    /// <param name="parameter">The setup parameter value.</param>
+    /// <param name="isAnimated">True if the transition is animated; false otherwise.</param>
+    /// <param name="mustClearNavigationStack">
+    /// True if the navigation stack should be cleared after navigating; false otherwise.
+    /// </param>
+    /// <param name="token">
+    /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
+    /// </param>
+    /// <returns>An awaitable task that returns the view model and result of the page.</returns>
+    Task<TResult> NavigateWindowToAsync<TViewModel, TParameter, TResult>(
+        TParameter parameter,
+        bool isAnimated = true,
+        bool mustClearNavigationStack = false,
+        CancellationToken token = default)
+        where TViewModel : IPageViewModel<TParameter, TResult>;
+
+    /// <summary>
+    /// Navigates entire window to the previous page and returns the page navigated from.
+    /// </summary>
+    /// <param name="viewModel">The ViewModel of the page navigating from.</param>
+    /// <param name="isAnimated">True if the transition is animated; false otherwise.</param>
+    /// <param name="token">
+    /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
+    /// </param>
+    /// <returns>An awaitable task.</returns>
+    Task NavigateWindowBackAsync(
+        IPageViewModel viewModel,
+        bool isAnimated = true,
+        CancellationToken token = default);
+
+    /// <summary>
+    /// Navigates entire window to the previous page and returns the page navigated from.
+    /// </summary>
+    /// <typeparam name="TParameter">The type of setup parameter being sent.</typeparam>
+    /// <param name="viewModel">The ViewModel of the page navigating from.</param>
+    /// <param name="isAnimated">True if the transition is animated; false otherwise.</param>
+    /// <param name="token">
+    /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
+    /// </param>
+    /// <returns>An awaitable task.</returns>
+    Task NavigateWindowBackAsync<TParameter>(
+        IPageViewModel<TParameter> viewModel,
+        bool isAnimated = true,
+        CancellationToken token = default);
+
+    /// <summary>
+    /// Navigates entire window to the previous page and returns the page navigated from.
+    /// </summary>
+    /// <typeparam name="TParameter">The type of setup parameter being sent.</typeparam>
+    /// <typeparam name="TResult">The type of result being returned.</typeparam>
+    /// <param name="viewModel">The ViewModel of the page navigating from.</param>
+    /// <param name="result"></param>
+    /// <param name="isAnimated">True if the transition is animated; false otherwise.</param>
+    /// <param name="token">
+    /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
+    /// </param>
+    /// <returns>An awaitable task.</returns>
+    Task NavigateWindowBackAsync<TParameter, TResult>(
+        IPageViewModel<TParameter, TResult> viewModel,
+        TResult result,
+        bool isAnimated = true,
+        CancellationToken token = default);
+
+    /// <summary>
+    /// Clears the entire window navigation stack.
+    /// </summary>
+    void ClearWindowNavigation();
 }

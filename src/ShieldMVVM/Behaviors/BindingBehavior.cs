@@ -7,5 +7,5 @@
 public class BindingBehavior<TControl> where TControl : BindableObject
 {
     // Used only for the Extension method in BindingHelper
-    private BindingBehavior() { }
+    internal BindingBehavior() { }
 }

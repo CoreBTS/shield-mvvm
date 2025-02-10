@@ -3,12 +3,8 @@ using MauiSample.Features.About.Cells;
 
 namespace MauiSample.Features.About;
 
-public partial class AboutPage : ContentPageBase<AboutPageViewModel>
+public partial class AboutPage(AboutPageViewModel viewModel) : ContentPageBase<AboutPageViewModel>(viewModel)
 {
-    public AboutPage(AboutPageViewModel viewModel) : base(viewModel)
-    {
-    }
-
     protected override void SetupBindings()
     {
         Binder.WithControl(Counter)
@@ -25,7 +21,7 @@ public partial class AboutPage : ContentPageBase<AboutPageViewModel>
             .For(c => c.BindCommand(), vm => vm.AddCommand);
 
         Binder.WithControl(List)
-            .ForTemplate(vm => vm.AboutItems, AboutCell.ItemTemplate)
+            .ForTemplate(vm => vm.AboutItems!, AboutCell.ItemTemplate)
             .ForSingleSelection(vm => vm.SelectedCommand);
     }
 }

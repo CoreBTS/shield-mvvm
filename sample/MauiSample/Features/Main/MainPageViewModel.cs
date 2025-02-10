@@ -16,9 +16,16 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
 
     public string ButtonText => $"Clicked {Counter} time{(Counter != 1 ? "s" : "")}";
 
-    [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(ButtonText))]
     private int _counter = 0;
+    public int Counter
+    {
+        get => _counter;
+        set
+        {
+            if (SetProperty(ref _counter, value))
+                RaisePropertyChanged(nameof(ButtonText));
+        }
+    }
 
     public MainPageViewModel(INavigationService navigationService) : base(navigationService)
     {
@@ -28,10 +35,12 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
     [RelayCommand]
     protected virtual void Click()
     {
-        GenerateBindingText();
-        GenerateBindingToolkitText();
-        GenerateBindingClickableControlText();
-        GenerateToolkitBindingClickableControlText();
+        //Commented out lines are for generating BindableProeprty extension methods for Maui/CommunitToolkit controls
+        //GenerateBindingText();
+        //GenerateBindingToolkitText();
+        //GenerateBindingClickableControlText();
+        //GenerateToolkitBindingClickableControlText();
+
         Counter++;
         RaisePropertyChanged(nameof(ButtonText));
         UpdateSecondary();
@@ -73,7 +82,7 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
             await NavigationService.ShowDialogPopupAsync<DialogPromptPageViewModel, DialogPromptPageArg, DialogPromptPageResult>(
                 new DialogPromptPageArg(Counter));
 
-        Counter = result.Counter;
+        Counter = result!.Counter;
         UpdateSecondary();
     }
 
@@ -123,24 +132,33 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
 
         foreach (var type in typeof(Popup).Assembly.GetTypes().OrderBy(a => a.Name))
         {
-            if (!type.IsPublic || !type.IsAssignableTo(typeof(BindableObject)) || !type.IsAssignableTo(typeof(IGestureRecognizers)) || type.ContainsGenericParameters || type.IsNotPublic)
-                continue;
+            try
+            {
 
-            var typeName = GetTypeName(type);
+                if (!type.IsPublic || !type.IsAssignableTo(typeof(BindableObject)) || !type.IsAssignableTo(typeof(IGestureRecognizers)) || type.ContainsGenericParameters || type.IsNotPublic)
+                    continue;
 
-            output.Add($@"    /// <summary>
+                var typeName = GetTypeName(type);
+
+                output.Add($@"    /// <summary>
     /// Allows binding to the CommandProperty as BindClick for the {typeName} control.
     /// </summary>
     /// <param name=""_"">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ICommand.</returns>");
 
-            if (type.GetCustomAttributes(true).FirstOrDefault(a => a is ObsoleteAttribute) is ObsoleteAttribute obsolete)
-            {
-                output.Add($"    [Obsolete(\"{obsolete.Message}\")]");
+                if (type.GetCustomAttributes(true).FirstOrDefault(a => a is ObsoleteAttribute) is ObsoleteAttribute obsolete)
+                {
+                    output.Add($"    [Obsolete(\"{obsolete.Message}\")]");
+                }
+
+                output.Add($"    public static Bindings.BindableProperty<ICommand> BindClick(this {typeName} _) => new(Controls.ClickableControl<{typeName}>.CommandProperty);");
+                output.Add("");
             }
 
-            output.Add($"    public static Bindings.BindableProperty<ICommand> BindClick(this {typeName} _) => new(Controls.ClickableControl<{typeName}>.CommandProperty);");
-            output.Add("");
+            catch
+            {
+                // Ignore
+            }
         }
         var text = string.Join(Environment.NewLine, output);
     }
@@ -151,52 +169,67 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
 
         var x = Button.CommandProperty;
         var output = new StringBuilder();
+
         foreach (var type in typeof(Popup).Assembly.GetTypes().OrderBy(a => a.Name))
         {
-            if (!type.IsAssignableTo(typeof(BindableObject)) || type.ContainsGenericParameters || type.IsNotPublic)
-                continue;
-
-            if (type == typeof(StatusBarBehavior)) // Version issues
-                continue;
-
-            var members = type.GetFields(System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public).OrderBy(a => a.Name);
-            if (!members.Any())
-                continue;
-
-            var typeName = GetTypeName(type);
-
-            var hasCreatedHeader = false;
-
-            foreach (var member in members)
+            try
             {
-                if (member.FieldType == bp)
+                if (!type.IsAssignableTo(typeof(BindableObject)) || type.ContainsGenericParameters || type.IsNotPublic)
+                    continue;
+
+                if (type == typeof(StatusBarBehavior)) // Version issues
+                    continue;
+
+                var members = type.GetFields(System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public).OrderBy(a => a.Name);
+                if (!members.Any())
+                    continue;
+
+                var typeName = GetTypeName(type);
+
+                var hasCreatedHeader = false;
+
+                foreach (var member in members)
                 {
-                    if (!hasCreatedHeader)
+                    if (member.FieldType == bp)
                     {
-                        output.AppendLine($"    // ***** {typeName} Bindings *****");
-                        output.AppendLine("");
-                        hasCreatedHeader = true;
-                    }
+                        if (!hasCreatedHeader)
+                        {
+                            output.AppendLine($"    // ***** {typeName} Bindings *****");
+                            output.AppendLine("");
+                            hasCreatedHeader = true;
+                        }
 
-                    var bpValue = member.GetValue(null) as BindableProperty;
-                    if (bpValue.ReturnType.IsNotPublic)
-                        continue;
-                    var genericType = GetProperTypeName(bpValue.ReturnType, bpValue.ReturnType.GenericTypeArguments);
-                    var bindableType = $"BindableProperty{genericType}";
+                        try
+                        {
+                            var bpValue = member.GetValue(null) as BindableProperty;
+                            if (bpValue!.ReturnType.IsNotPublic)
+                                continue;
+                            var genericType = GetProperTypeName(bpValue.ReturnType, bpValue.ReturnType.GenericTypeArguments);
+                            var bindableType = $"BindableProperty{genericType}";
 
-                    output.AppendLine($@"    /// <summary>
+                            output.AppendLine($@"    /// <summary>
     /// Allows binding to the {member.Name} as Bind{member.Name.Replace("Property", "")} for the {typeName} control.
     /// </summary>
     /// <param name=""_"">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type {typeName}.</returns>");
-                    
-                    if (type.GetCustomAttributes(true).FirstOrDefault(a => a is ObsoleteAttribute) is ObsoleteAttribute obsolete)
-                    {
-                        output.AppendLine($"    [Obsolete(\"{obsolete.Message}\")]");
+
+                            if (type.GetCustomAttributes(true).FirstOrDefault(a => a is ObsoleteAttribute) is ObsoleteAttribute obsolete)
+                            {
+                                output.AppendLine($"    [Obsolete(\"{obsolete.Message}\")]");
+                            }
+                            output.AppendLine($"    public static Bindings.{bindableType} Bind{member.Name.Replace("Property", "")}(this {typeName} _) => Bindings.{bindableType}.Create({typeName}.{member.Name});");
+                            output.AppendLine("");
+                        }
+                        catch
+                        {
+                            // Ignore
+                        }
                     }
-                    output.AppendLine($"    public static Bindings.{bindableType} Bind{member.Name.Replace("Property", "")}(this {typeName} _) => Bindings.{bindableType}.Create({typeName}.{member.Name});");
-                    output.AppendLine("");
                 }
+            }
+            catch
+            {
+                // Ignore
             }
         }
 
@@ -234,7 +267,7 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
                     }
 
                     var bpValue = member.GetValue(null) as BindableProperty;
-                    if (bpValue.ReturnType.IsNotPublic)
+                    if (bpValue!.ReturnType.IsNotPublic)
                         continue;
 
                     var genericType = GetProperTypeName(bpValue.ReturnType, bpValue.ReturnType.GenericTypeArguments);
@@ -262,7 +295,7 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
 
     private static string GetTypeName(Type type)
     {
-        if (type.FullName.Contains("Compatibility"))
+        if (type.FullName!.Contains("Compatibility"))
             return type.FullName.Trim();
 
         return type.Name;
@@ -270,7 +303,7 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
 
     private static string GetProperTypeName(Type val, Type[] genericTypes)
     {
-        var typeName = val.FullName.Contains("Compatibility") ? val.FullName.Trim() : val.Name;
+        var typeName = val.FullName!.Contains("Compatibility") ? val.FullName.Trim() : val.Name;
         var result = NameFix($"<{typeName}>");
 
         if (genericTypes == null || genericTypes.Length == 0)
@@ -306,14 +339,14 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
     }
 }
 
-public partial class SecondaryViewModel : BaseViewModelBase
+public partial class SecondaryViewModel(INavigationService navigationService) : BaseViewModelBase(navigationService)
 {
-    public SecondaryViewModel(INavigationService navigationService) : base(navigationService)
+    private string? _myLabel;
+    public string? MyLabel
     {
+        get => _myLabel;
+        set => SetProperty(ref _myLabel, value);
     }
-
-    [ObservableProperty]
-    private string _myLabel;
 
     public override Task InitializeAsync(CancellationToken token = default)
     {
