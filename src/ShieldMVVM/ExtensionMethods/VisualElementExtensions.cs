@@ -1,7 +1,9 @@
 ﻿using CommunityToolkit.Maui.Views;
 using System.Reflection;
 
+#pragma warning disable IDE0130 // Namespace does not match folder structure - Used for intellisense
 namespace CoreBTS.Maui.ShieldMVVM;
+#pragma warning restore IDE0130 // Namespace does not match folder structure
 
 /// <summary>
 /// This stores extension methods adding to VisualElement.

@@ -6,7 +6,7 @@ namespace MauiSample
 {
     public static class MauiProgram
     {
-        private static IServiceProvider ServiceProvider;
+        private static IServiceProvider? ServiceProvider;
 
         public static MauiApp CreateMauiApp()
         {
@@ -14,7 +14,7 @@ namespace MauiSample
             builder
                 .UseMauiCommunityToolkit()
                 .UseMauiApp<App>()
-                .UseShieldMVVM(t => ServiceProvider.GetService(t), typeof(MauiProgram).Assembly)
+                .UseShieldMVVM(t => ServiceProvider?.GetService(t), typeof(MauiProgram).Assembly)
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

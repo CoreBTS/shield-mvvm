@@ -4,6 +4,8 @@ public partial class MainPage : ContentPageBase<MainPageViewModel>
 {
     public MainPage(MainPageViewModel viewModel) : base(viewModel)
     {
+        NavigationPage.SetHasBackButton(this, false);
+        NavigationPage.SetHasNavigationBar(this, false);
     }
 
     protected override void SetupBindings()
@@ -16,7 +18,7 @@ public partial class MainPage : ContentPageBase<MainPageViewModel>
             .For(c => c.BindText(), vm => vm.Counter, c => c.ConvertToString());
 
         Binder.WithControl(SecondaryLabel)
-            .For(c => c.BindText(), vm => vm.Secondary.MyLabel);
+            .For(c => c.BindText(), vm => vm.Secondary.MyLabel, vm => vm.ConvertToNonNullString());
 
         Binder.WithControl(AboutPageButton)
             .Once(c => c.BindClick(), vm => vm.AboutPageCommand);

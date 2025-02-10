@@ -73,22 +73,16 @@ public class BindingHelper<TViewModel>
 /// </summary>
 /// <typeparam name="TViewModel">The type of ViewModel being bound to.</typeparam>
 /// <typeparam name="TControl">The type of control being bound to.</typeparam>
-public class BindingControl<TViewModel, TControl>
+/// <remarks>
+/// Creates a new instance of a type-safe BindingControl.
+/// </remarks>
+/// <param name="viewModel">The ViewModel being bound to.</param>
+/// <param name="controls">The control(s) being bound to.</param>
+public class BindingControl<TViewModel, TControl>(TViewModel viewModel, params TControl[] controls)
     where TControl : BindableObject
 {
-    private readonly TViewModel _viewModel;
-    private readonly TControl[] _controls;
-
-    /// <summary>
-    /// Creates a new instance of a type-safe BindingControl.
-    /// </summary>
-    /// <param name="viewModel">The ViewModel being bound to.</param>
-    /// <param name="controls">The control(s) being bound to.</param>
-    public BindingControl(TViewModel viewModel, params TControl[] controls)
-    {
-        _viewModel = viewModel;
-        _controls = controls;
-    }
+    private readonly TViewModel _viewModel = viewModel;
+    private readonly TControl[] _controls = controls;
 
     /// <summary>
     /// Binds a ViewModel property to a control's BindableProperty.
@@ -128,7 +122,7 @@ public class BindingControl<TViewModel, TControl>
     public BindingControl<TViewModel, TControl> For<TFrom, TTo>(
        Func<TControl, BindableProperty<TTo>> bindablePropertyExpression,
        Expression<Func<TViewModel, TFrom>> viewModelPropertyExpression,
-       Func<BindingConverter<TFrom, TTo>?, IValueConverter<TFrom, TTo>> converter)
+       Func<BindingConverter<TFrom, TTo>, IValueConverter<TFrom, TTo>> converter)
     {
         foreach (var control in _controls)
         {
@@ -138,7 +132,7 @@ public class BindingControl<TViewModel, TControl>
                 bpv,
                 new Binding(
                     GetPropertyPath(viewModelPropertyExpression),
-                    converter: converter(null), // Just used for extension method
+                    converter: converter(new BindingConverter<TFrom, TTo>()), // Just used for extension method
                     source: _viewModel)
                 );
         }
@@ -158,7 +152,7 @@ public class BindingControl<TViewModel, TControl>
     public BindingControl<TViewModel, TControl> For<TFrom, TTo>(
        Func<TControl, BindableProperty<TTo>> bindablePropertyExpression,
        Expression<Func<TViewModel, TFrom>> viewModelPropertyExpression,
-       Func<BindingConverter<TFrom, TTo>?, TViewModel, IValueConverter<TFrom, TTo>> converter)
+       Func<BindingConverter<TFrom, TTo>, TViewModel, IValueConverter<TFrom, TTo>> converter)
     {
         foreach (var control in _controls)
         {
@@ -168,7 +162,7 @@ public class BindingControl<TViewModel, TControl>
                 bpv,
                 new Binding(
                     GetPropertyPath(viewModelPropertyExpression),
-                    converter: converter(null, _viewModel), // Just used for extension method
+                    converter: converter(new BindingConverter<TFrom, TTo>(), _viewModel), // Just used for extension method
                     source: _viewModel)
                 );
         }
@@ -211,13 +205,13 @@ public class BindingControl<TViewModel, TControl>
     public BindingControl<TViewModel, TControl> Once<TFrom, TTo>(
        Func<TControl, BindableProperty<TTo>> bindablePropertyExpression,
        Func<TViewModel, TFrom> viewModelPropertyExpression,
-       Func<BindingConverter<TFrom, TTo>?, IValueConverter<TFrom, TTo>> converter)
+       Func<BindingConverter<TFrom, TTo>, IValueConverter<TFrom, TTo>> converter)
     {
         foreach (var control in _controls)
         {
             control.SetValue(
                 bindablePropertyExpression(control).BindablePropertyValue,
-                converter(null)
+                converter(new BindingConverter<TFrom, TTo>())
                     .Convert(
                         viewModelPropertyExpression(_viewModel), 
                         typeof(TTo),
@@ -241,13 +235,13 @@ public class BindingControl<TViewModel, TControl>
     public BindingControl<TViewModel, TControl> Once<TFrom, TTo>(
        Func<TControl, BindableProperty<TTo>> bindablePropertyExpression,
        Func<TViewModel, TFrom> viewModelPropertyExpression,
-       Func<BindingConverter<TFrom, TTo>?, TViewModel, IValueConverter<TFrom, TTo>> converter)
+       Func<BindingConverter<TFrom, TTo>, TViewModel, IValueConverter<TFrom, TTo>> converter)
     {
         foreach (var control in _controls)
         {
             control.SetValue(
                 bindablePropertyExpression(control).BindablePropertyValue,
-                converter(null, _viewModel)
+                converter(new BindingConverter<TFrom, TTo>(), _viewModel)
                     .Convert(
                         viewModelPropertyExpression(_viewModel), 
                         typeof(TTo),
@@ -265,12 +259,12 @@ public class BindingControl<TViewModel, TControl>
     /// <param name="behaviorExpression">The expression that sets up the behavior to add to the control</param>
     /// <returns>A reference to this instance to allow chaining.</returns>
     public BindingControl<TViewModel, TControl> Behavior(
-        Func<BindingBehavior<TControl>?, Behavior<TControl>> behaviorExpression)
+        Func<BindingBehavior<TControl>, Behavior<TControl>> behaviorExpression)
     {
         foreach (var control in _controls)
         {
             if (control is VisualElement ve)
-                ve.Behaviors.Add(behaviorExpression(null)); // Just used for extension method
+                ve.Behaviors.Add(behaviorExpression(new BindingBehavior<TControl>())); // Just used for extension method
         }
 
         return this;
@@ -282,12 +276,12 @@ public class BindingControl<TViewModel, TControl>
     /// <param name="behaviorExpression">The expression that sets up the behavior to add to the control</param>
     /// <returns>A reference to this instance to allow chaining.</returns>
     public BindingControl<TViewModel, TControl> Behavior(
-        Func<BindingBehavior<TControl>?, TViewModel, Behavior<TControl>> behaviorExpression)
+        Func<BindingBehavior<TControl>, TViewModel, Behavior<TControl>> behaviorExpression)
     {
         foreach (var control in _controls)
         {
             if (control is VisualElement ve)
-                ve.Behaviors.Add(behaviorExpression(null, _viewModel)); // Just used for extension method
+                ve.Behaviors.Add(behaviorExpression(new BindingBehavior<TControl>(), _viewModel)); // Just used for extension method
         }
 
         return this;

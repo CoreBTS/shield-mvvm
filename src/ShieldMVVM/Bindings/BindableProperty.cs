@@ -8,7 +8,11 @@ namespace CoreBTS.Maui.ShieldMVVM.Bindings;
 /// This class adds type safety to ensure the control property type matches the View Model property being bound from.
 /// </summary>
 /// <typeparam name="TPropertyType">The type of property being bound to.</typeparam>
-public class BindableProperty<TPropertyType>
+/// <remarks>
+/// Creates a new instance of the type-safe BindableProperty class.
+/// </remarks>
+/// <param name="bindablePropertyValue">The BindableProperty being wrapped.</param>
+public class BindableProperty<TPropertyType>(BindableProperty bindablePropertyValue)
 {
     private static readonly ConcurrentDictionary<BindableProperty, BindableProperty<TPropertyType>> cache = new();
 
@@ -29,16 +33,9 @@ public class BindableProperty<TPropertyType>
     }
 
     /// <summary>
-    /// Creates a new instance of the type-safe BindableProperty class.
-    /// </summary>
-    /// <param name="bindablePropertyValue">The BindableProperty being wrapped.</param>
-    public BindableProperty(BindableProperty bindablePropertyValue) =>
-        BindablePropertyValue = bindablePropertyValue;
-
-    /// <summary>
     /// Gets the wrapped BindableProperty.
     /// </summary>
-    public BindableProperty BindablePropertyValue { get; }
+    public BindableProperty BindablePropertyValue { get; } = bindablePropertyValue;
 
     /// <summary>
     /// Creates a new instance of the type-safe BindableProperty class.

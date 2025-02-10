@@ -27,7 +27,7 @@ public static class MauiAppBuilderExtensionMethods
     /// <returns>The same builder that was sent in for chaining.</returns>
     public static MauiAppBuilder UseShieldMVVM(
         this MauiAppBuilder builder, 
-        Func<Type, dynamic> typeResolverCallback, 
+        Func<Type, dynamic?> typeResolverCallback, 
         params Assembly[] assembliesToScan)
     {
         builder.Services.AddSingleton<INavigationService>(new NavigationService(typeResolverCallback));

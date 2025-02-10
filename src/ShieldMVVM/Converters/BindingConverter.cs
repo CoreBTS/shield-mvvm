@@ -8,5 +8,5 @@
 public class BindingConverter<TFrom, TTo>
 {
     // Used only for the Extension method in BindingHelper
-    private BindingConverter() { }
+    internal BindingConverter() { }
 }

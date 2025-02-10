@@ -1,5 +1,5 @@
 ﻿using CoreBTS.Maui.ShieldMVVM.Navigation;
-using MauiSample.Features.Main;
+using MauiSample.Features.Splash;
 
 namespace MauiSample;
 
@@ -12,15 +12,17 @@ public partial class App : Application
         _navigationService = navigation;
 
         InitializeComponent();
+    }
 
-        MainPage = new AppShell();
+    protected override Window CreateWindow(IActivationState? activationState)
+    {
+        return new Window(new AppShell());
     }
 
     protected override async void OnStart()
     {
         base.OnStart();
 
-        await _navigationService.NavigateToAsync<MainPageViewModel, MainPageArgs>(
-            new MainPageArgs(new Random().Next(1, 10)), mustClearNavigationStack: true);
+        await _navigationService.NavigateToAsync<SplashPageViewModel>(mustClearNavigationStack: true);
     }
 }

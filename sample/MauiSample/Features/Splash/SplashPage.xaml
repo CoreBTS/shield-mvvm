@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<base:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:base="clr-namespace:CoreBTS.Maui.ShieldMVVM.Pages;assembly=CoreBTS.Maui.ShieldMVVM"
+    x:Class="MauiSample.Features.Splash.SplashPage"
+    xmlns:vm="clr-namespace:MauiSample.Features.Splash"
+    x:TypeArguments="vm:SplashPageViewModel"
+    x:DataType="vm:SplashPageViewModel"
+    >
+    <Grid VerticalOptions="Fill" HorizontalOptions="Fill">
+
+    </Grid>
+</base:ContentPageBase>

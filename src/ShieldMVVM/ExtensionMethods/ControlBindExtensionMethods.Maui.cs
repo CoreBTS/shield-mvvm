@@ -14,6 +14,8 @@ namespace CoreBTS.Maui.ShieldMVVM;
 /// </summary>
 public static partial class ControlBindExtensionMethods
 {
+#pragma warning disable CS0618 // Type or member is obsolete - Generated against Microsoft DLLs
+
     // ***** Custom Bindings *****
 
     /// <summary>
@@ -37,6 +39,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ICommand.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.AbsoluteLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<ICommand> BindClick(this Microsoft.Maui.Controls.Compatibility.AbsoluteLayout _) => new(Controls.ClickableControl<Microsoft.Maui.Controls.Compatibility.AbsoluteLayout>.CommandProperty);
 
     /// <summary>
@@ -142,6 +145,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ICommand.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<ICommand> BindClick(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => new(Controls.ClickableControl<Microsoft.Maui.Controls.Compatibility.FlexLayout>.CommandProperty);
 
     /// <summary>
@@ -149,6 +153,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ICommand.</returns>
+    [Obsolete("Frame is obsolete as of .NET 9. Please use Border instead.")]
     public static Bindings.BindableProperty<ICommand> BindClick(this Frame _) => new(Controls.ClickableControl<Frame>.CommandProperty);
 
     /// <summary>
@@ -177,6 +182,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ICommand.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<ICommand> BindClick(this Microsoft.Maui.Controls.Compatibility.Grid _) => new(Controls.ClickableControl<Microsoft.Maui.Controls.Compatibility.Grid>.CommandProperty);
 
     /// <summary>
@@ -192,6 +198,13 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ICommand.</returns>
     public static Bindings.BindableProperty<ICommand> BindClick(this HorizontalStackLayout _) => new(Controls.ClickableControl<HorizontalStackLayout>.CommandProperty);
+
+    /// <summary>
+    /// Allows binding to the CommandProperty as BindClick for the HybridWebView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ICommand.</returns>
+    public static Bindings.BindableProperty<ICommand> BindClick(this HybridWebView _) => new(Controls.ClickableControl<HybridWebView>.CommandProperty);
 
     /// <summary>
     /// Allows binding to the CommandProperty as BindClick for the Image control.
@@ -247,6 +260,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ICommand.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Layout instead. For more information, see https://learn.microsoft.com/dotnet/maui/user-interface/layouts/custom")]
     public static Bindings.BindableProperty<ICommand> BindClick(this Microsoft.Maui.Controls.Compatibility.Layout _) => new(Controls.ClickableControl<Microsoft.Maui.Controls.Compatibility.Layout>.CommandProperty);
 
     /// <summary>
@@ -262,16 +276,6 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ICommand.</returns>
     public static Bindings.BindableProperty<ICommand> BindClick(this ListView _) => new(Controls.ClickableControl<ListView>.CommandProperty);
-
-#if NET7_0
-    /// <summary>
-    /// Allows binding to the CommandProperty as BindClick for the OpenGLView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type ICommand.</returns>
-    [Obsolete("OpenGLView is obsolete as of .NET 7. To enable this view you will need to call `builder.UseMauiCompatibility` but it is currently untested and unsupported.")]
-    public static Bindings.BindableProperty<ICommand> BindClick(this OpenGLView _) => new(Controls.ClickableControl<OpenGLView>.CommandProperty);
-#endif
 
     /// <summary>
     /// Allows binding to the CommandProperty as BindClick for the Path control.
@@ -411,6 +415,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ICommand.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.StackLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<ICommand> BindClick(this Microsoft.Maui.Controls.Compatibility.StackLayout _) => new(Controls.ClickableControl<Microsoft.Maui.Controls.Compatibility.StackLayout>.CommandProperty);
 
     /// <summary>
@@ -470,6 +475,13 @@ public static partial class ControlBindExtensionMethods
     public static Bindings.BindableProperty<ICommand> BindClick(this TimePicker _) => new(Controls.ClickableControl<TimePicker>.CommandProperty);
 
     /// <summary>
+    /// Allows binding to the CommandProperty as BindClick for the TitleBar control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ICommand.</returns>
+    public static Bindings.BindableProperty<ICommand> BindClick(this TitleBar _) => new(Controls.ClickableControl<TitleBar>.CommandProperty);
+
+    /// <summary>
     /// Allows binding to the CommandProperty as BindClick for the VerticalStackLayout control.
     /// </summary>
     /// <param name="_">Extension parameter.</param>
@@ -489,6 +501,8 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ICommand.</returns>
     public static Bindings.BindableProperty<ICommand> BindClick(this WebView _) => new(Controls.ClickableControl<WebView>.CommandProperty);
+
+    // ***** Start of Generated Bindings *****
 
     // ***** AbsoluteLayout Bindings *****
 
@@ -513,6 +527,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.AbsoluteLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.AbsoluteLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<Rect> BindLayoutBounds(this Microsoft.Maui.Controls.Compatibility.AbsoluteLayout _) => Bindings.BindableProperty<Rect>.Create(Microsoft.Maui.Controls.Compatibility.AbsoluteLayout.LayoutBoundsProperty);
 
     /// <summary>
@@ -520,6 +535,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.AbsoluteLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.AbsoluteLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<AbsoluteLayoutFlags> BindLayoutFlags(this Microsoft.Maui.Controls.Compatibility.AbsoluteLayout _) => Bindings.BindableProperty<AbsoluteLayoutFlags>.Create(Microsoft.Maui.Controls.Compatibility.AbsoluteLayout.LayoutFlagsProperty);
 
     // ***** ActivityIndicator Bindings *****
@@ -680,6 +696,13 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type BaseShellItem.</returns>
     public static Bindings.BindableProperty<ImageSource> BindFlyoutIcon(this BaseShellItem _) => Bindings.BindableProperty<ImageSource>.Create(BaseShellItem.FlyoutIconProperty);
+
+    /// <summary>
+    /// Allows binding to the FlyoutItemIsVisibleProperty as BindFlyoutItemIsVisible for the BaseShellItem control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type BaseShellItem.</returns>
+    public static Bindings.BindableProperty<bool> BindFlyoutItemIsVisible(this BaseShellItem _) => Bindings.BindableProperty<bool>.Create(BaseShellItem.FlyoutItemIsVisibleProperty);
 
     /// <summary>
     /// Allows binding to the IconProperty as BindIcon for the BaseShellItem control.
@@ -1103,9 +1126,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ClickGestureRecognizer.</returns>
-#if NET8_0
-  [Obsolete("ClickGestureRecognizer is obsolete. Please use TapGestureRecognizer or PointerGestureRecognizer instead.")]
-#endif
+    [Obsolete("The ClickGestureRecognizer is deprecated; please use TapGestureRecognizer or PointerGestureRecognizer instead.")]
     public static Bindings.BindableProperty<ButtonsMask> BindButtons(this ClickGestureRecognizer _) => Bindings.BindableProperty<ButtonsMask>.Create(ClickGestureRecognizer.ButtonsProperty);
 
     /// <summary>
@@ -1113,9 +1134,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ClickGestureRecognizer.</returns>
-#if NET8_0
-    [Obsolete("ClickGestureRecognizer is obsolete. Please use TapGestureRecognizer or PointerGestureRecognizer instead.")]
-#endif
+    [Obsolete("The ClickGestureRecognizer is deprecated; please use TapGestureRecognizer or PointerGestureRecognizer instead.")]
     public static Bindings.BindableProperty<object> BindCommandParameter(this ClickGestureRecognizer _) => Bindings.BindableProperty<object>.Create(ClickGestureRecognizer.CommandParameterProperty);
 
     /// <summary>
@@ -1123,9 +1142,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ClickGestureRecognizer.</returns>
-#if NET8_0
-    [Obsolete("ClickGestureRecognizer is obsolete. Please use TapGestureRecognizer or PointerGestureRecognizer instead.")]
-#endif
+    [Obsolete("The ClickGestureRecognizer is deprecated; please use TapGestureRecognizer or PointerGestureRecognizer instead.")]
     public static Bindings.BindableProperty<ICommand> BindCommand(this ClickGestureRecognizer _) => Bindings.BindableProperty<ICommand>.Create(ClickGestureRecognizer.CommandProperty);
 
     /// <summary>
@@ -1133,9 +1150,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ClickGestureRecognizer.</returns>
-#if NET8_0
-    [Obsolete("ClickGestureRecognizer is obsolete. Please use TapGestureRecognizer or PointerGestureRecognizer instead.")]
-#endif
+    [Obsolete("The ClickGestureRecognizer is deprecated; please use TapGestureRecognizer or PointerGestureRecognizer instead.")]
     public static Bindings.BindableProperty<int> BindNumberOfClicksRequired(this ClickGestureRecognizer _) => Bindings.BindableProperty<int>.Create(ClickGestureRecognizer.NumberOfClicksRequiredProperty);
 
     // ***** ColumnDefinition Bindings *****
@@ -1236,6 +1251,13 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ContentPage.</returns>
     public static Bindings.BindableProperty<View> BindContent(this ContentPage _) => Bindings.BindableProperty<View>.Create(ContentPage.ContentProperty);
+
+    /// <summary>
+    /// Allows binding to the HideSoftInputOnTappedProperty as BindHideSoftInputOnTapped for the ContentPage control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ContentPage.</returns>
+    public static Bindings.BindableProperty<bool> BindHideSoftInputOnTapped(this ContentPage _) => Bindings.BindableProperty<bool>.Create(ContentPage.HideSoftInputOnTappedProperty);
 
     // ***** ContentPresenter Bindings *****
 
@@ -1858,6 +1880,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<FlexAlignContent> BindAlignContent(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<FlexAlignContent>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.AlignContentProperty);
 
     /// <summary>
@@ -1865,6 +1888,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<FlexAlignItems> BindAlignItems(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<FlexAlignItems>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.AlignItemsProperty);
 
     /// <summary>
@@ -1872,6 +1896,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<FlexAlignSelf> BindAlignSelf(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<FlexAlignSelf>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.AlignSelfProperty);
 
     /// <summary>
@@ -1879,6 +1904,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<FlexBasis> BindBasis(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<FlexBasis>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.BasisProperty);
 
     /// <summary>
@@ -1886,6 +1912,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<FlexDirection> BindDirection(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<FlexDirection>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.DirectionProperty);
 
     /// <summary>
@@ -1893,6 +1920,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<float> BindGrow(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<float>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.GrowProperty);
 
     /// <summary>
@@ -1900,6 +1928,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<FlexJustify> BindJustifyContent(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<FlexJustify>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.JustifyContentProperty);
 
     /// <summary>
@@ -1907,6 +1936,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<int> BindOrder(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<int>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.OrderProperty);
 
     /// <summary>
@@ -1914,6 +1944,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<FlexPosition> BindPosition(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<FlexPosition>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.PositionProperty);
 
     /// <summary>
@@ -1921,6 +1952,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<float> BindShrink(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<float>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.ShrinkProperty);
 
     /// <summary>
@@ -1928,6 +1960,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<FlexWrap> BindWrap(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<FlexWrap>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.WrapProperty);
 
     // ***** FlyoutBase Bindings *****
@@ -2015,6 +2048,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Frame.</returns>
+    [Obsolete("Frame is obsolete as of .NET 9. Please use Border instead.")]
     public static Bindings.BindableProperty<Color> BindBorderColor(this Frame _) => Bindings.BindableProperty<Color>.Create(Frame.BorderColorProperty);
 
     /// <summary>
@@ -2022,6 +2056,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Frame.</returns>
+    [Obsolete("Frame is obsolete as of .NET 9. Please use Border instead.")]
     public static Bindings.BindableProperty<float> BindCornerRadius(this Frame _) => Bindings.BindableProperty<float>.Create(Frame.CornerRadiusProperty);
 
     /// <summary>
@@ -2029,6 +2064,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Frame.</returns>
+    [Obsolete("Frame is obsolete as of .NET 9. Please use Border instead.")]
     public static Bindings.BindableProperty<bool> BindHasShadow(this Frame _) => Bindings.BindableProperty<bool>.Create(Frame.HasShadowProperty);
 
     // ***** GeometryGroup Bindings *****
@@ -2146,6 +2182,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Grid.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<ColumnDefinitionCollection> BindColumnDefinitions(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<ColumnDefinitionCollection>.Create(Microsoft.Maui.Controls.Compatibility.Grid.ColumnDefinitionsProperty);
 
     /// <summary>
@@ -2153,6 +2190,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Grid.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<int> BindColumn(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<int>.Create(Microsoft.Maui.Controls.Compatibility.Grid.ColumnProperty);
 
     /// <summary>
@@ -2160,6 +2198,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Grid.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<double> BindColumnSpacing(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<double>.Create(Microsoft.Maui.Controls.Compatibility.Grid.ColumnSpacingProperty);
 
     /// <summary>
@@ -2167,6 +2206,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Grid.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<int> BindColumnSpan(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<int>.Create(Microsoft.Maui.Controls.Compatibility.Grid.ColumnSpanProperty);
 
     /// <summary>
@@ -2174,6 +2214,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Grid.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<RowDefinitionCollection> BindRowDefinitions(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<RowDefinitionCollection>.Create(Microsoft.Maui.Controls.Compatibility.Grid.RowDefinitionsProperty);
 
     /// <summary>
@@ -2181,6 +2222,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Grid.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<int> BindRow(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<int>.Create(Microsoft.Maui.Controls.Compatibility.Grid.RowProperty);
 
     /// <summary>
@@ -2188,6 +2230,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Grid.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<double> BindRowSpacing(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<double>.Create(Microsoft.Maui.Controls.Compatibility.Grid.RowSpacingProperty);
 
     /// <summary>
@@ -2195,6 +2238,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Grid.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<int> BindRowSpan(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<int>.Create(Microsoft.Maui.Controls.Compatibility.Grid.RowSpanProperty);
 
     // ***** GridItemsLayout Bindings *****
@@ -2258,6 +2302,22 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type HtmlWebViewSource.</returns>
     public static Bindings.BindableProperty<string> BindHtml(this HtmlWebViewSource _) => Bindings.BindableProperty<string>.Create(HtmlWebViewSource.HtmlProperty);
+
+    // ***** HybridWebView Bindings *****
+
+    /// <summary>
+    /// Allows binding to the DefaultFileProperty as BindDefaultFile for the HybridWebView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type HybridWebView.</returns>
+    public static Bindings.BindableProperty<string> BindDefaultFile(this HybridWebView _) => Bindings.BindableProperty<string>.Create(HybridWebView.DefaultFileProperty);
+
+    /// <summary>
+    /// Allows binding to the HybridRootProperty as BindHybridRoot for the HybridWebView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type HybridWebView.</returns>
+    public static Bindings.BindableProperty<string> BindHybridRoot(this HybridWebView _) => Bindings.BindableProperty<string>.Create(HybridWebView.HybridRootProperty);
 
     // ***** Image Bindings *****
 
@@ -2466,6 +2526,41 @@ public static partial class ControlBindExtensionMethods
     public static Bindings.BindableProperty<double> BindCharacterSpacing(this InputView _) => Bindings.BindableProperty<double>.Create(InputView.CharacterSpacingProperty);
 
     /// <summary>
+    /// Allows binding to the CursorPositionProperty as BindCursorPosition for the InputView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type InputView.</returns>
+    public static Bindings.BindableProperty<int> BindCursorPosition(this InputView _) => Bindings.BindableProperty<int>.Create(InputView.CursorPositionProperty);
+
+    /// <summary>
+    /// Allows binding to the FontAttributesProperty as BindFontAttributes for the InputView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type InputView.</returns>
+    public static Bindings.BindableProperty<FontAttributes> BindFontAttributes(this InputView _) => Bindings.BindableProperty<FontAttributes>.Create(InputView.FontAttributesProperty);
+
+    /// <summary>
+    /// Allows binding to the FontAutoScalingEnabledProperty as BindFontAutoScalingEnabled for the InputView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type InputView.</returns>
+    public static Bindings.BindableProperty<bool> BindFontAutoScalingEnabled(this InputView _) => Bindings.BindableProperty<bool>.Create(InputView.FontAutoScalingEnabledProperty);
+
+    /// <summary>
+    /// Allows binding to the FontFamilyProperty as BindFontFamily for the InputView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type InputView.</returns>
+    public static Bindings.BindableProperty<string> BindFontFamily(this InputView _) => Bindings.BindableProperty<string>.Create(InputView.FontFamilyProperty);
+
+    /// <summary>
+    /// Allows binding to the FontSizeProperty as BindFontSize for the InputView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type InputView.</returns>
+    public static Bindings.BindableProperty<double> BindFontSize(this InputView _) => Bindings.BindableProperty<double>.Create(InputView.FontSizeProperty);
+
+    /// <summary>
     /// Allows binding to the IsReadOnlyProperty as BindIsReadOnly for the InputView control.
     /// </summary>
     /// <param name="_">Extension parameter.</param>
@@ -2478,6 +2573,13 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type InputView.</returns>
     public static Bindings.BindableProperty<bool> BindIsSpellCheckEnabled(this InputView _) => Bindings.BindableProperty<bool>.Create(InputView.IsSpellCheckEnabledProperty);
+
+    /// <summary>
+    /// Allows binding to the IsTextPredictionEnabledProperty as BindIsTextPredictionEnabled for the InputView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type InputView.</returns>
+    public static Bindings.BindableProperty<bool> BindIsTextPredictionEnabled(this InputView _) => Bindings.BindableProperty<bool>.Create(InputView.IsTextPredictionEnabledProperty);
 
     /// <summary>
     /// Allows binding to the KeyboardProperty as BindKeyboard for the InputView control.
@@ -2506,6 +2608,13 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type InputView.</returns>
     public static Bindings.BindableProperty<string> BindPlaceholder(this InputView _) => Bindings.BindableProperty<string>.Create(InputView.PlaceholderProperty);
+
+    /// <summary>
+    /// Allows binding to the SelectionLengthProperty as BindSelectionLength for the InputView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type InputView.</returns>
+    public static Bindings.BindableProperty<int> BindSelectionLength(this InputView _) => Bindings.BindableProperty<int>.Create(InputView.SelectionLengthProperty);
 
     /// <summary>
     /// Allows binding to the TextColorProperty as BindTextColor for the InputView control.
@@ -2615,6 +2724,22 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ItemsView.</returns>
     public static Bindings.BindableProperty<ScrollBarVisibility> BindVerticalScrollBarVisibility(this ItemsView _) => Bindings.BindableProperty<ScrollBarVisibility>.Create(ItemsView.VerticalScrollBarVisibilityProperty);
+
+    // ***** KeyboardAccelerator Bindings *****
+
+    /// <summary>
+    /// Allows binding to the KeyProperty as BindKey for the KeyboardAccelerator control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type KeyboardAccelerator.</returns>
+    public static Bindings.BindableProperty<string> BindKey(this KeyboardAccelerator _) => Bindings.BindableProperty<string>.Create(KeyboardAccelerator.KeyProperty);
+
+    /// <summary>
+    /// Allows binding to the ModifiersProperty as BindModifiers for the KeyboardAccelerator control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type KeyboardAccelerator.</returns>
+    public static Bindings.BindableProperty<KeyboardAcceleratorModifiers> BindModifiers(this KeyboardAccelerator _) => Bindings.BindableProperty<KeyboardAcceleratorModifiers>.Create(KeyboardAccelerator.ModifiersProperty);
 
     // ***** Label Bindings *****
 
@@ -2767,6 +2892,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Layout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Layout instead. For more information, see https://learn.microsoft.com/dotnet/maui/user-interface/layouts/custom")]
     public static Bindings.BindableProperty<bool> BindCascadeInputTransparent(this Microsoft.Maui.Controls.Compatibility.Layout _) => Bindings.BindableProperty<bool>.Create(Microsoft.Maui.Controls.Compatibility.Layout.CascadeInputTransparentProperty);
 
     /// <summary>
@@ -2774,6 +2900,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Layout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Layout instead. For more information, see https://learn.microsoft.com/dotnet/maui/user-interface/layouts/custom")]
     public static Bindings.BindableProperty<bool> BindIsClippedToBounds(this Microsoft.Maui.Controls.Compatibility.Layout _) => Bindings.BindableProperty<bool>.Create(Microsoft.Maui.Controls.Compatibility.Layout.IsClippedToBoundsProperty);
 
     /// <summary>
@@ -2781,6 +2908,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Layout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Layout instead. For more information, see https://learn.microsoft.com/dotnet/maui/user-interface/layouts/custom")]
     public static Bindings.BindableProperty<Thickness> BindPadding(this Microsoft.Maui.Controls.Compatibility.Layout _) => Bindings.BindableProperty<Thickness>.Create(Microsoft.Maui.Controls.Compatibility.Layout.PaddingProperty);
 
     // ***** Line Bindings *****
@@ -3032,9 +3160,6 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type MenuItem.</returns>
-#if NET8_0
-    [Obsolete("Use KeyboardAccelerator instead.")]
-#endif
     public static Bindings.BindableProperty<Accelerator> BindAccelerator(this MenuItem _) => Bindings.BindableProperty<Accelerator>.Create(MenuItem.AcceleratorProperty);
 
     /// <summary>
@@ -3173,18 +3298,6 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type NavigationPage.</returns>
     public static Bindings.BindableProperty<View> BindTitleView(this NavigationPage _) => Bindings.BindableProperty<View>.Create(NavigationPage.TitleViewProperty);
-
-    // ***** OpenGLView Bindings *****
-
-#if NET7_0
-    /// <summary>
-    /// Allows binding to the HasRenderLoopProperty as BindHasRenderLoop for the OpenGLView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type OpenGLView.</returns>
-    [Obsolete("OpenGLView is obsolete as of .NET 7. To enable this view you will need to call `builder.UseMauiCompatibility` but it is currently untested and unsupported.")]
-    public static Bindings.BindableProperty<bool> BindHasRenderLoop(this OpenGLView _) => Bindings.BindableProperty<bool>.Create(OpenGLView.HasRenderLoopProperty);
-#endif
 
     // ***** OrientationStateTrigger Bindings *****
 
@@ -3439,6 +3552,34 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type PointerGestureRecognizer.</returns>
     public static Bindings.BindableProperty<ICommand> BindPointerMovedCommand(this PointerGestureRecognizer _) => Bindings.BindableProperty<ICommand>.Create(PointerGestureRecognizer.PointerMovedCommandProperty);
+
+    /// <summary>
+    /// Allows binding to the PointerPressedCommandParameterProperty as BindPointerPressedCommandParameter for the PointerGestureRecognizer control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type PointerGestureRecognizer.</returns>
+    public static Bindings.BindableProperty<object> BindPointerPressedCommandParameter(this PointerGestureRecognizer _) => Bindings.BindableProperty<object>.Create(PointerGestureRecognizer.PointerPressedCommandParameterProperty);
+
+    /// <summary>
+    /// Allows binding to the PointerPressedCommandProperty as BindPointerPressedCommand for the PointerGestureRecognizer control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type PointerGestureRecognizer.</returns>
+    public static Bindings.BindableProperty<ICommand> BindPointerPressedCommand(this PointerGestureRecognizer _) => Bindings.BindableProperty<ICommand>.Create(PointerGestureRecognizer.PointerPressedCommandProperty);
+
+    /// <summary>
+    /// Allows binding to the PointerReleasedCommandParameterProperty as BindPointerReleasedCommandParameter for the PointerGestureRecognizer control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type PointerGestureRecognizer.</returns>
+    public static Bindings.BindableProperty<object> BindPointerReleasedCommandParameter(this PointerGestureRecognizer _) => Bindings.BindableProperty<object>.Create(PointerGestureRecognizer.PointerReleasedCommandParameterProperty);
+
+    /// <summary>
+    /// Allows binding to the PointerReleasedCommandProperty as BindPointerReleasedCommand for the PointerGestureRecognizer control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type PointerGestureRecognizer.</returns>
+    public static Bindings.BindableProperty<ICommand> BindPointerReleasedCommand(this PointerGestureRecognizer _) => Bindings.BindableProperty<ICommand>.Create(PointerGestureRecognizer.PointerReleasedCommandProperty);
 
     // ***** PolyBezierSegment Bindings *****
 
@@ -4954,6 +5095,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.StackLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.StackLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<StackOrientation> BindOrientation(this Microsoft.Maui.Controls.Compatibility.StackLayout _) => Bindings.BindableProperty<StackOrientation>.Create(Microsoft.Maui.Controls.Compatibility.StackLayout.OrientationProperty);
 
     /// <summary>
@@ -4961,6 +5103,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.StackLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.StackLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
     public static Bindings.BindableProperty<double> BindSpacing(this Microsoft.Maui.Controls.Compatibility.StackLayout _) => Bindings.BindableProperty<double>.Create(Microsoft.Maui.Controls.Compatibility.StackLayout.SpacingProperty);
 
     // ***** StateTrigger Bindings *****
@@ -5054,6 +5197,15 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type StructuredItemsView.</returns>
     public static Bindings.BindableProperty<IItemsLayout> BindItemsLayout(this StructuredItemsView _) => Bindings.BindableProperty<IItemsLayout>.Create(StructuredItemsView.ItemsLayoutProperty);
+
+    // ***** StyleableElement Bindings *****
+
+    /// <summary>
+    /// Allows binding to the StyleProperty as BindStyle for the StyleableElement control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type StyleableElement.</returns>
+    public static Bindings.BindableProperty<Style> BindStyle(this StyleableElement _) => Bindings.BindableProperty<Style>.Create(StyleableElement.StyleProperty);
 
     // ***** SwipeGestureRecognizer Bindings *****
 
@@ -5435,6 +5587,57 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type TimePicker.</returns>
     public static Bindings.BindableProperty<TimeSpan> BindTime(this TimePicker _) => Bindings.BindableProperty<TimeSpan>.Create(TimePicker.TimeProperty);
 
+    // ***** TitleBar Bindings *****
+
+    /// <summary>
+    /// Allows binding to the ContentProperty as BindContent for the TitleBar control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TitleBar.</returns>
+    public static Bindings.BindableProperty<IView> BindContent(this TitleBar _) => Bindings.BindableProperty<IView>.Create(TitleBar.ContentProperty);
+
+    /// <summary>
+    /// Allows binding to the ForegroundColorProperty as BindForegroundColor for the TitleBar control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TitleBar.</returns>
+    public static Bindings.BindableProperty<Color> BindForegroundColor(this TitleBar _) => Bindings.BindableProperty<Color>.Create(TitleBar.ForegroundColorProperty);
+
+    /// <summary>
+    /// Allows binding to the IconProperty as BindIcon for the TitleBar control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TitleBar.</returns>
+    public static Bindings.BindableProperty<ImageSource> BindIcon(this TitleBar _) => Bindings.BindableProperty<ImageSource>.Create(TitleBar.IconProperty);
+
+    /// <summary>
+    /// Allows binding to the LeadingContentProperty as BindLeadingContent for the TitleBar control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TitleBar.</returns>
+    public static Bindings.BindableProperty<IView> BindLeadingContent(this TitleBar _) => Bindings.BindableProperty<IView>.Create(TitleBar.LeadingContentProperty);
+
+    /// <summary>
+    /// Allows binding to the SubtitleProperty as BindSubtitle for the TitleBar control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TitleBar.</returns>
+    public static Bindings.BindableProperty<string> BindSubtitle(this TitleBar _) => Bindings.BindableProperty<string>.Create(TitleBar.SubtitleProperty);
+
+    /// <summary>
+    /// Allows binding to the TitleProperty as BindTitle for the TitleBar control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TitleBar.</returns>
+    public static Bindings.BindableProperty<string> BindTitle(this TitleBar _) => Bindings.BindableProperty<string>.Create(TitleBar.TitleProperty);
+
+    /// <summary>
+    /// Allows binding to the TrailingContentProperty as BindTrailingContent for the TitleBar control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TitleBar.</returns>
+    public static Bindings.BindableProperty<IView> BindTrailingContent(this TitleBar _) => Bindings.BindableProperty<IView>.Create(TitleBar.TrailingContentProperty);
+
     // ***** Transform Bindings *****
 
     /// <summary>
@@ -5815,6 +6018,13 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type WebView.</returns>
     public static Bindings.BindableProperty<WebViewSource> BindSource(this WebView _) => Bindings.BindableProperty<WebViewSource>.Create(WebView.SourceProperty);
 
+    /// <summary>
+    /// Allows binding to the UserAgentProperty as BindUserAgent for the WebView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type WebView.</returns>
+    public static Bindings.BindableProperty<string> BindUserAgent(this WebView _) => Bindings.BindableProperty<string>.Create(WebView.UserAgentProperty);
+
     // ***** Window Bindings *****
 
     /// <summary>
@@ -5867,6 +6077,13 @@ public static partial class ControlBindExtensionMethods
     public static Bindings.BindableProperty<Page> BindPage(this Window _) => Bindings.BindableProperty<Page>.Create(Window.PageProperty);
 
     /// <summary>
+    /// Allows binding to the TitleBarProperty as BindTitleBar for the Window control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Window.</returns>
+    public static Bindings.BindableProperty<TitleBar> BindTitleBar(this Window _) => Bindings.BindableProperty<TitleBar>.Create(Window.TitleBarProperty);
+
+    /// <summary>
     /// Allows binding to the TitleProperty as BindTitle for the Window control.
     /// </summary>
     /// <param name="_">Extension parameter.</param>
@@ -5893,4 +6110,7 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Window.</returns>
     public static Bindings.BindableProperty<double> BindY(this Window _) => Bindings.BindableProperty<double>.Create(Window.YProperty);
+
+#pragma warning restore CS0618 // Type or member is obsolete
+
 }

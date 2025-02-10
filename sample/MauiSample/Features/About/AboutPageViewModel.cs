@@ -18,8 +18,12 @@ public partial class AboutPageViewModel : PageViewModelBase<AboutPageArgs, About
 
     public int Counter { get; protected set; }
 
-    [ObservableProperty]
-    private ObservableCollection<AboutItem> _aboutItems;
+    private ObservableCollection<AboutItem>? _aboutItems;
+    public ObservableCollection<AboutItem>? AboutItems
+    {
+        get => _aboutItems;
+        set => SetProperty(ref _aboutItems, value);
+    }
 
     public override void Prepare(AboutPageArgs parameters)
     {
@@ -28,13 +32,13 @@ public partial class AboutPageViewModel : PageViewModelBase<AboutPageArgs, About
 
     public override Task InitializeAsync(CancellationToken token = default)
     {
-        AboutItems = new ObservableCollection<AboutItem>
-        {
+        AboutItems =
+        [
             new() { Name = "Test1", Description = "Desc 1" },
             new() { Name = "Test2", Description = "Desc 2" },
             new() { Name = "Test3", Description = "Desc 3" },
             new() { Name = "Test4", Description = "Desc 4" },
-        };
+        ];
 
         return Task.CompletedTask;
     }
@@ -44,9 +48,9 @@ public partial class AboutPageViewModel : PageViewModelBase<AboutPageArgs, About
 
     [RelayCommand]
     private void Add() =>
-        AboutItems.Add(new() { Name = Guid.NewGuid().ToString(), Description = "Test" });
+        AboutItems?.Add(new() { Name = Guid.NewGuid().ToString(), Description = "Test" });
 
     [RelayCommand]
     private void Selected(AboutItem item) =>
-       AboutItems.Add(item);
+       AboutItems?.Add(item);
 }
