@@ -85,15 +85,16 @@
 		<PackageReference Include="CommunityToolkit.Maui.Core" Version="11.0.0" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.30" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\src\ShieldMVVM\CoreBTS.Maui.ShieldMVVM.csproj" />
+		<ProjectReference Include="..\..\src\ShieldMVVM\CoreBTS.Maui.ShieldMVVM.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<MauiXaml Update="Features\About\Cells\AboutCell.xaml">
-		  <Generator>MSBuild:Compile</Generator>
+			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
 		<MauiXaml Update="Features\Main\Dialog\DialogPage.xaml">
 			<Generator>MSBuild:Compile</Generator>
@@ -101,19 +102,15 @@
 		<MauiXaml Update="Features\Main\Dialog\DialogPromptPage.xaml">
 			<Generator>MSBuild:Compile</Generator>
 		</MauiXaml>
-	  <MauiXaml Update="Features\About\AboutPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Features\Main\MainPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Features\Splash\SplashPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <PackageReference Update="Microsoft.Maui.Controls" Version="9.0.30" />
+		<MauiXaml Update="Features\About\AboutPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Features\Main\MainPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
+		<MauiXaml Update="Features\Splash\SplashPage.xaml">
+			<Generator>MSBuild:Compile</Generator>
+		</MauiXaml>
 	</ItemGroup>
 
 </Project>

@@ -20,6 +20,7 @@ public partial class MainPage : ContentPageBase<MainPageViewModel>
             .For(c => c.BindText(), vm => vm.Counter, c => c.ConvertToString());
 
         Binder.WithControl(SecondaryLabel)
+            .Once(c => c.BindClick(), vm => vm.ClickCommand)
             .For(c => c.BindText(), vm => vm.Secondary.MyLabel, vm => vm.ConvertToNonNullString());
 
         Binder.WithControl(AboutPageButton)

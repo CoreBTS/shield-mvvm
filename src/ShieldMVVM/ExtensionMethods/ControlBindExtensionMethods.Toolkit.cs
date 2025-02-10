@@ -5,6 +5,7 @@ using CommunityToolkit.Maui.ImageSources;
 using CommunityToolkit.Maui.Layouts;
 using CommunityToolkit.Maui.Views;
 using System.Collections;
+using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
 using System.Windows.Input;
 
@@ -15,57 +16,6 @@ namespace CoreBTS.Maui.ShieldMVVM;
 /// </summary>
 public static partial class ControlBindExtensionMethods
 {
-    // ***** ClickableControl Bindings *****
-
-    /// <summary>
-    /// Allows binding to the CommandProperty as BindClick for the AvatarView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type ICommand.</returns>
-    public static Bindings.BindableProperty<ICommand> BindClick(this AvatarView _) => new(Controls.ClickableControl<AvatarView>.CommandProperty);
-
-    /// <summary>
-    /// Allows binding to the CommandProperty as BindClick for the DockLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type ICommand.</returns>
-    public static Bindings.BindableProperty<ICommand> BindClick(this DockLayout _) => new(Controls.ClickableControl<DockLayout>.CommandProperty);
-
-    /// <summary>
-    /// Allows binding to the CommandProperty as BindClick for the DrawingView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type ICommand.</returns>
-    public static Bindings.BindableProperty<ICommand> BindClick(this DrawingView _) => new(Controls.ClickableControl<DrawingView>.CommandProperty);
-
-    /// <summary>
-    /// Allows binding to the CommandProperty as BindClick for the Expander control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type ICommand.</returns>
-    public static Bindings.BindableProperty<ICommand> BindClick(this Expander _) => new(Controls.ClickableControl<Expander>.CommandProperty);
-
-    /// <summary>
-    /// Allows binding to the CommandProperty as BindClick for the LazyView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type ICommand.</returns>
-    public static Bindings.BindableProperty<ICommand> BindClick(this LazyView _) => new(Controls.ClickableControl<LazyView>.CommandProperty);
-
-    /// <summary>
-    /// Allows binding to the CommandProperty as BindClick for the SemanticOrderView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type ICommand.</returns>
-    public static Bindings.BindableProperty<ICommand> BindClick(this SemanticOrderView _) => new(Controls.ClickableControl<SemanticOrderView>.CommandProperty);
-
-    /// <summary>
-    /// Allows binding to the CommandProperty as BindClick for the UniformItemsLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type ICommand.</returns>
-    public static Bindings.BindableProperty<ICommand> BindClick(this UniformItemsLayout _) => new(Controls.ClickableControl<UniformItemsLayout>.CommandProperty);
-
     // ***** Start of Generated Bindings *****
 
     // ***** AnimationBehavior Bindings *****
@@ -75,7 +25,7 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type AnimationBehavior.</returns>
-    public static Bindings.BindableProperty<ICommand> BindAnimateCommand(this AnimationBehavior _) => Bindings.BindableProperty<ICommand>.Create(AnimationBehavior.AnimateCommandProperty);
+    public static Bindings.BindableProperty<Command<CancellationToken>> BindAnimateCommand(this AnimationBehavior _) => Bindings.BindableProperty<Command<CancellationToken>>.Create(AnimationBehavior.AnimateCommandProperty);
 
     /// <summary>
     /// Allows binding to the AnimationTypeProperty as BindAnimationType for the AnimationBehavior control.
@@ -218,6 +168,76 @@ public static partial class ControlBindExtensionMethods
 
     // ***** DrawingView Bindings *****
 
+    /// <summary>
+    /// Allows binding to the DrawActionProperty as BindDrawAction for the DrawingView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DrawingView.</returns>
+    public static Bindings.BindableProperty<Action<RectF>> BindDrawAction(this DrawingView _) => Bindings.BindableProperty<Action<RectF>>.Create(DrawingView.DrawActionProperty);
+
+    /// <summary>
+    /// Allows binding to the DrawingLineCancelledCommandProperty as BindDrawingLineCancelledCommand for the DrawingView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DrawingView.</returns>
+    public static Bindings.BindableProperty<ICommand> BindDrawingLineCancelledCommand(this DrawingView _) => Bindings.BindableProperty<ICommand>.Create(DrawingView.DrawingLineCancelledCommandProperty);
+
+    /// <summary>
+    /// Allows binding to the DrawingLineCompletedCommandProperty as BindDrawingLineCompletedCommand for the DrawingView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DrawingView.</returns>
+    public static Bindings.BindableProperty<ICommand> BindDrawingLineCompletedCommand(this DrawingView _) => Bindings.BindableProperty<ICommand>.Create(DrawingView.DrawingLineCompletedCommandProperty);
+
+    /// <summary>
+    /// Allows binding to the DrawingLineStartedCommandProperty as BindDrawingLineStartedCommand for the DrawingView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DrawingView.</returns>
+    public static Bindings.BindableProperty<ICommand> BindDrawingLineStartedCommand(this DrawingView _) => Bindings.BindableProperty<ICommand>.Create(DrawingView.DrawingLineStartedCommandProperty);
+
+    /// <summary>
+    /// Allows binding to the IsMultiLineModeEnabledProperty as BindIsMultiLineModeEnabled for the DrawingView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DrawingView.</returns>
+    public static Bindings.BindableProperty<bool> BindIsMultiLineModeEnabled(this DrawingView _) => Bindings.BindableProperty<bool>.Create(DrawingView.IsMultiLineModeEnabledProperty);
+
+    /// <summary>
+    /// Allows binding to the LineColorProperty as BindLineColor for the DrawingView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DrawingView.</returns>
+    public static Bindings.BindableProperty<Color> BindLineColor(this DrawingView _) => Bindings.BindableProperty<Color>.Create(DrawingView.LineColorProperty);
+
+    /// <summary>
+    /// Allows binding to the LinesProperty as BindLines for the DrawingView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DrawingView.</returns>
+    public static Bindings.BindableProperty<ObservableCollection<IDrawingLine>> BindLines(this DrawingView _) => Bindings.BindableProperty<ObservableCollection<IDrawingLine>>.Create(DrawingView.LinesProperty);
+
+    /// <summary>
+    /// Allows binding to the LineWidthProperty as BindLineWidth for the DrawingView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DrawingView.</returns>
+    public static Bindings.BindableProperty<float> BindLineWidth(this DrawingView _) => Bindings.BindableProperty<float>.Create(DrawingView.LineWidthProperty);
+
+    /// <summary>
+    /// Allows binding to the PointDrawnCommandProperty as BindPointDrawnCommand for the DrawingView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DrawingView.</returns>
+    public static Bindings.BindableProperty<ICommand> BindPointDrawnCommand(this DrawingView _) => Bindings.BindableProperty<ICommand>.Create(DrawingView.PointDrawnCommandProperty);
+
+    /// <summary>
+    /// Allows binding to the ShouldClearOnFinishProperty as BindShouldClearOnFinish for the DrawingView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DrawingView.</returns>
+    public static Bindings.BindableProperty<bool> BindShouldClearOnFinish(this DrawingView _) => Bindings.BindableProperty<bool>.Create(DrawingView.ShouldClearOnFinishProperty);
+
     // ***** EventToCommandBehavior Bindings *****
 
     /// <summary>
@@ -339,6 +359,57 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type IconTintColorBehavior.</returns>
     public static Bindings.BindableProperty<Color> BindTintColor(this IconTintColorBehavior _) => Bindings.BindableProperty<Color>.Create(IconTintColorBehavior.TintColorProperty);
+
+    // ***** ImageTouchBehavior Bindings *****
+
+    /// <summary>
+    /// Allows binding to the DefaultImageAspectProperty as BindDefaultImageAspect for the ImageTouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ImageTouchBehavior.</returns>
+    public static Bindings.BindableProperty<Aspect> BindDefaultImageAspect(this ImageTouchBehavior _) => Bindings.BindableProperty<Aspect>.Create(ImageTouchBehavior.DefaultImageAspectProperty);
+
+    /// <summary>
+    /// Allows binding to the DefaultImageSourceProperty as BindDefaultImageSource for the ImageTouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ImageTouchBehavior.</returns>
+    public static Bindings.BindableProperty<ImageSource> BindDefaultImageSource(this ImageTouchBehavior _) => Bindings.BindableProperty<ImageSource>.Create(ImageTouchBehavior.DefaultImageSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the HoveredBackgroundImageSourceProperty as BindHoveredBackgroundImageSource for the ImageTouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ImageTouchBehavior.</returns>
+    public static Bindings.BindableProperty<ImageSource> BindHoveredBackgroundImageSource(this ImageTouchBehavior _) => Bindings.BindableProperty<ImageSource>.Create(ImageTouchBehavior.HoveredBackgroundImageSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the HoveredImageAspectProperty as BindHoveredImageAspect for the ImageTouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ImageTouchBehavior.</returns>
+    public static Bindings.BindableProperty<Aspect> BindHoveredImageAspect(this ImageTouchBehavior _) => Bindings.BindableProperty<Aspect>.Create(ImageTouchBehavior.HoveredImageAspectProperty);
+
+    /// <summary>
+    /// Allows binding to the PressedBackgroundImageSourceProperty as BindPressedBackgroundImageSource for the ImageTouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ImageTouchBehavior.</returns>
+    public static Bindings.BindableProperty<ImageSource> BindPressedBackgroundImageSource(this ImageTouchBehavior _) => Bindings.BindableProperty<ImageSource>.Create(ImageTouchBehavior.PressedBackgroundImageSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the PressedImageAspectProperty as BindPressedImageAspect for the ImageTouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ImageTouchBehavior.</returns>
+    public static Bindings.BindableProperty<Aspect> BindPressedImageAspect(this ImageTouchBehavior _) => Bindings.BindableProperty<Aspect>.Create(ImageTouchBehavior.PressedImageAspectProperty);
+
+    /// <summary>
+    /// Allows binding to the ShouldSetImageOnAnimationEndProperty as BindShouldSetImageOnAnimationEnd for the ImageTouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ImageTouchBehavior.</returns>
+    public static Bindings.BindableProperty<bool> BindShouldSetImageOnAnimationEnd(this ImageTouchBehavior _) => Bindings.BindableProperty<bool>.Create(ImageTouchBehavior.ShouldSetImageOnAnimationEndProperty);
 
     // ***** LazyView Bindings *****
 
@@ -465,6 +536,13 @@ public static partial class ControlBindExtensionMethods
     public static Bindings.BindableProperty<Size> BindSize(this Popup _) => Bindings.BindableProperty<Size>.Create(Popup.SizeProperty);
 
     /// <summary>
+    /// Allows binding to the StyleProperty as BindStyle for the Popup control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Popup.</returns>
+    public static Bindings.BindableProperty<Style> BindStyle(this Popup _) => Bindings.BindableProperty<Style>.Create(Popup.StyleProperty);
+
+    /// <summary>
     /// Allows binding to the VerticalOptionsProperty as BindVerticalOptions for the Popup control.
     /// </summary>
     /// <param name="_">Extension parameter.</param>
@@ -564,6 +642,309 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type TextValidationBehavior.</returns>
     public static Bindings.BindableProperty<string> BindRegexPattern(this TextValidationBehavior _) => Bindings.BindableProperty<string>.Create(TextValidationBehavior.RegexPatternProperty);
+
+    // ***** TouchBehavior Bindings *****
+
+    /// <summary>
+    /// Allows binding to the CommandParameterProperty as BindCommandParameter for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<object> BindCommandParameter(this TouchBehavior _) => Bindings.BindableProperty<object>.Create(TouchBehavior.CommandParameterProperty);
+
+    /// <summary>
+    /// Allows binding to the CommandProperty as BindCommand for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<ICommand> BindCommand(this TouchBehavior _) => Bindings.BindableProperty<ICommand>.Create(TouchBehavior.CommandProperty);
+
+    /// <summary>
+    /// Allows binding to the CurrentHoverStateProperty as BindCurrentHoverState for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<HoverState> BindCurrentHoverState(this TouchBehavior _) => Bindings.BindableProperty<HoverState>.Create(TouchBehavior.CurrentHoverStateProperty);
+
+    /// <summary>
+    /// Allows binding to the CurrentHoverStatusProperty as BindCurrentHoverStatus for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<HoverStatus> BindCurrentHoverStatus(this TouchBehavior _) => Bindings.BindableProperty<HoverStatus>.Create(TouchBehavior.CurrentHoverStatusProperty);
+
+    /// <summary>
+    /// Allows binding to the CurrentInteractionStatusProperty as BindCurrentInteractionStatus for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<TouchInteractionStatus> BindCurrentInteractionStatus(this TouchBehavior _) => Bindings.BindableProperty<TouchInteractionStatus>.Create(TouchBehavior.CurrentInteractionStatusProperty);
+
+    /// <summary>
+    /// Allows binding to the CurrentTouchStateProperty as BindCurrentTouchState for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<TouchState> BindCurrentTouchState(this TouchBehavior _) => Bindings.BindableProperty<TouchState>.Create(TouchBehavior.CurrentTouchStateProperty);
+
+    /// <summary>
+    /// Allows binding to the CurrentTouchStatusProperty as BindCurrentTouchStatus for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<TouchStatus> BindCurrentTouchStatus(this TouchBehavior _) => Bindings.BindableProperty<TouchStatus>.Create(TouchBehavior.CurrentTouchStatusProperty);
+
+    /// <summary>
+    /// Allows binding to the DefaultAnimationDurationProperty as BindDefaultAnimationDuration for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<int> BindDefaultAnimationDuration(this TouchBehavior _) => Bindings.BindableProperty<int>.Create(TouchBehavior.DefaultAnimationDurationProperty);
+
+    /// <summary>
+    /// Allows binding to the DefaultAnimationEasingProperty as BindDefaultAnimationEasing for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<Easing> BindDefaultAnimationEasing(this TouchBehavior _) => Bindings.BindableProperty<Easing>.Create(TouchBehavior.DefaultAnimationEasingProperty);
+
+    /// <summary>
+    /// Allows binding to the DefaultBackgroundColorProperty as BindDefaultBackgroundColor for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<Color> BindDefaultBackgroundColor(this TouchBehavior _) => Bindings.BindableProperty<Color>.Create(TouchBehavior.DefaultBackgroundColorProperty);
+
+    /// <summary>
+    /// Allows binding to the DefaultOpacityProperty as BindDefaultOpacity for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<double> BindDefaultOpacity(this TouchBehavior _) => Bindings.BindableProperty<double>.Create(TouchBehavior.DefaultOpacityProperty);
+
+    /// <summary>
+    /// Allows binding to the DefaultRotationProperty as BindDefaultRotation for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<double> BindDefaultRotation(this TouchBehavior _) => Bindings.BindableProperty<double>.Create(TouchBehavior.DefaultRotationProperty);
+
+    /// <summary>
+    /// Allows binding to the DefaultRotationXProperty as BindDefaultRotationX for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<double> BindDefaultRotationX(this TouchBehavior _) => Bindings.BindableProperty<double>.Create(TouchBehavior.DefaultRotationXProperty);
+
+    /// <summary>
+    /// Allows binding to the DefaultRotationYProperty as BindDefaultRotationY for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<double> BindDefaultRotationY(this TouchBehavior _) => Bindings.BindableProperty<double>.Create(TouchBehavior.DefaultRotationYProperty);
+
+    /// <summary>
+    /// Allows binding to the DefaultScaleProperty as BindDefaultScale for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<double> BindDefaultScale(this TouchBehavior _) => Bindings.BindableProperty<double>.Create(TouchBehavior.DefaultScaleProperty);
+
+    /// <summary>
+    /// Allows binding to the DefaultTranslationXProperty as BindDefaultTranslationX for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<double> BindDefaultTranslationX(this TouchBehavior _) => Bindings.BindableProperty<double>.Create(TouchBehavior.DefaultTranslationXProperty);
+
+    /// <summary>
+    /// Allows binding to the DefaultTranslationYProperty as BindDefaultTranslationY for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<double> BindDefaultTranslationY(this TouchBehavior _) => Bindings.BindableProperty<double>.Create(TouchBehavior.DefaultTranslationYProperty);
+
+    /// <summary>
+    /// Allows binding to the DisallowTouchThresholdProperty as BindDisallowTouchThreshold for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<int> BindDisallowTouchThreshold(this TouchBehavior _) => Bindings.BindableProperty<int>.Create(TouchBehavior.DisallowTouchThresholdProperty);
+
+    /// <summary>
+    /// Allows binding to the HoveredAnimationDurationProperty as BindHoveredAnimationDuration for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<int> BindHoveredAnimationDuration(this TouchBehavior _) => Bindings.BindableProperty<int>.Create(TouchBehavior.HoveredAnimationDurationProperty);
+
+    /// <summary>
+    /// Allows binding to the HoveredAnimationEasingProperty as BindHoveredAnimationEasing for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<Easing> BindHoveredAnimationEasing(this TouchBehavior _) => Bindings.BindableProperty<Easing>.Create(TouchBehavior.HoveredAnimationEasingProperty);
+
+    /// <summary>
+    /// Allows binding to the HoveredBackgroundColorProperty as BindHoveredBackgroundColor for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<Color> BindHoveredBackgroundColor(this TouchBehavior _) => Bindings.BindableProperty<Color>.Create(TouchBehavior.HoveredBackgroundColorProperty);
+
+    /// <summary>
+    /// Allows binding to the HoveredOpacityProperty as BindHoveredOpacity for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<double> BindHoveredOpacity(this TouchBehavior _) => Bindings.BindableProperty<double>.Create(TouchBehavior.HoveredOpacityProperty);
+
+    /// <summary>
+    /// Allows binding to the HoveredRotationProperty as BindHoveredRotation for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<double> BindHoveredRotation(this TouchBehavior _) => Bindings.BindableProperty<double>.Create(TouchBehavior.HoveredRotationProperty);
+
+    /// <summary>
+    /// Allows binding to the HoveredRotationXProperty as BindHoveredRotationX for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<double> BindHoveredRotationX(this TouchBehavior _) => Bindings.BindableProperty<double>.Create(TouchBehavior.HoveredRotationXProperty);
+
+    /// <summary>
+    /// Allows binding to the HoveredRotationYProperty as BindHoveredRotationY for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<double> BindHoveredRotationY(this TouchBehavior _) => Bindings.BindableProperty<double>.Create(TouchBehavior.HoveredRotationYProperty);
+
+    /// <summary>
+    /// Allows binding to the HoveredScaleProperty as BindHoveredScale for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<double> BindHoveredScale(this TouchBehavior _) => Bindings.BindableProperty<double>.Create(TouchBehavior.HoveredScaleProperty);
+
+    /// <summary>
+    /// Allows binding to the HoveredTranslationXProperty as BindHoveredTranslationX for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<double> BindHoveredTranslationX(this TouchBehavior _) => Bindings.BindableProperty<double>.Create(TouchBehavior.HoveredTranslationXProperty);
+
+    /// <summary>
+    /// Allows binding to the HoveredTranslationYProperty as BindHoveredTranslationY for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<double> BindHoveredTranslationY(this TouchBehavior _) => Bindings.BindableProperty<double>.Create(TouchBehavior.HoveredTranslationYProperty);
+
+    /// <summary>
+    /// Allows binding to the IsEnabledProperty as BindIsEnabled for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<bool> BindIsEnabled(this TouchBehavior _) => Bindings.BindableProperty<bool>.Create(TouchBehavior.IsEnabledProperty);
+
+    /// <summary>
+    /// Allows binding to the LongPressCommandParameterProperty as BindLongPressCommandParameter for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<object> BindLongPressCommandParameter(this TouchBehavior _) => Bindings.BindableProperty<object>.Create(TouchBehavior.LongPressCommandParameterProperty);
+
+    /// <summary>
+    /// Allows binding to the LongPressCommandProperty as BindLongPressCommand for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<ICommand> BindLongPressCommand(this TouchBehavior _) => Bindings.BindableProperty<ICommand>.Create(TouchBehavior.LongPressCommandProperty);
+
+    /// <summary>
+    /// Allows binding to the LongPressDurationProperty as BindLongPressDuration for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<int> BindLongPressDuration(this TouchBehavior _) => Bindings.BindableProperty<int>.Create(TouchBehavior.LongPressDurationProperty);
+
+    /// <summary>
+    /// Allows binding to the PressedAnimationDurationProperty as BindPressedAnimationDuration for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<int> BindPressedAnimationDuration(this TouchBehavior _) => Bindings.BindableProperty<int>.Create(TouchBehavior.PressedAnimationDurationProperty);
+
+    /// <summary>
+    /// Allows binding to the PressedAnimationEasingProperty as BindPressedAnimationEasing for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<Easing> BindPressedAnimationEasing(this TouchBehavior _) => Bindings.BindableProperty<Easing>.Create(TouchBehavior.PressedAnimationEasingProperty);
+
+    /// <summary>
+    /// Allows binding to the PressedBackgroundColorProperty as BindPressedBackgroundColor for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<Color> BindPressedBackgroundColor(this TouchBehavior _) => Bindings.BindableProperty<Color>.Create(TouchBehavior.PressedBackgroundColorProperty);
+
+    /// <summary>
+    /// Allows binding to the PressedOpacityProperty as BindPressedOpacity for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<double> BindPressedOpacity(this TouchBehavior _) => Bindings.BindableProperty<double>.Create(TouchBehavior.PressedOpacityProperty);
+
+    /// <summary>
+    /// Allows binding to the PressedRotationProperty as BindPressedRotation for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<double> BindPressedRotation(this TouchBehavior _) => Bindings.BindableProperty<double>.Create(TouchBehavior.PressedRotationProperty);
+
+    /// <summary>
+    /// Allows binding to the PressedRotationXProperty as BindPressedRotationX for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<double> BindPressedRotationX(this TouchBehavior _) => Bindings.BindableProperty<double>.Create(TouchBehavior.PressedRotationXProperty);
+
+    /// <summary>
+    /// Allows binding to the PressedRotationYProperty as BindPressedRotationY for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<double> BindPressedRotationY(this TouchBehavior _) => Bindings.BindableProperty<double>.Create(TouchBehavior.PressedRotationYProperty);
+
+    /// <summary>
+    /// Allows binding to the PressedScaleProperty as BindPressedScale for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<double> BindPressedScale(this TouchBehavior _) => Bindings.BindableProperty<double>.Create(TouchBehavior.PressedScaleProperty);
+
+    /// <summary>
+    /// Allows binding to the PressedTranslationXProperty as BindPressedTranslationX for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<double> BindPressedTranslationX(this TouchBehavior _) => Bindings.BindableProperty<double>.Create(TouchBehavior.PressedTranslationXProperty);
+
+    /// <summary>
+    /// Allows binding to the PressedTranslationYProperty as BindPressedTranslationY for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<double> BindPressedTranslationY(this TouchBehavior _) => Bindings.BindableProperty<double>.Create(TouchBehavior.PressedTranslationYProperty);
+
+    /// <summary>
+    /// Allows binding to the ShouldMakeChildrenInputTransparentProperty as BindShouldMakeChildrenInputTransparent for the TouchBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
+    public static Bindings.BindableProperty<bool> BindShouldMakeChildrenInputTransparent(this TouchBehavior _) => Bindings.BindableProperty<bool>.Create(TouchBehavior.ShouldMakeChildrenInputTransparentProperty);
 
     // ***** UniformItemsLayout Bindings *****
 

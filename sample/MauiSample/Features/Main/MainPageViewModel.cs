@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Maui.Behaviors;
 using CommunityToolkit.Maui.Views;
-using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using CoreBTS.Maui.ShieldMVVM.Navigation;
 using CoreBTS.Maui.ShieldMVVM.ViewModel;

@@ -11,7 +11,7 @@
     <projectUrl>https://github.com/CoreBTS/shield-mvvm</projectUrl>
 	<description>Core BTS's ShieldMVVM is a .NET MAUI MVVM framework that provides type-safety for navigation, bindable properties, converters, behaviors, dialogs, data templates, and more in a way that enables developers to code faster, safer, and with less lines.</description>
     <releaseNotes>Initial release</releaseNotes>
-    <copyright>Copyright 2023 Core BTS. All Rights Reserved.</copyright>
+    <copyright>Copyright 2025 Core BTS. All Rights Reserved.</copyright>
     <tags>.NET MAUI MVVM</tags>
 	<dependencies>
 		<group targetFramework="net7.0">
@@ -20,9 +20,14 @@
 		  <dependency id="CommunityToolkit.Mvvm" version="[8.0,)" />
 		</group>
 		<group targetFramework="net8.0">
-		  <dependency id="CommunityToolkit.Maui" version="[7.0,)" />
-		  <dependency id="CommunityToolkit.Maui.Core" version="[7.0,)" />
-		  <dependency id="CommunityToolkit.Mvvm" version="[8.0,)" />
+		  <dependency id="CommunityToolkit.Maui" version="[11.0,)" />
+		  <dependency id="CommunityToolkit.Maui.Core" version="[11.0,)" />
+		  <dependency id="CommunityToolkit.Mvvm" version="[8.4,)" />
+		</group>
+		<group targetFramework="net9.0">
+			<dependency id="CommunityToolkit.Maui" version="[11.0,)" />
+			<dependency id="CommunityToolkit.Maui.Core" version="[11.0,)" />
+			<dependency id="CommunityToolkit.Mvvm" version="[8.4,)" />
 		</group>
     </dependencies>
   </metadata>
@@ -67,5 +72,23 @@
 	<file src="bin/Release/net8.0-maccatalyst/CoreBTS.Maui.ShieldMVVM.dll" target="lib/net8.0-maccatalyst/" />
 	<file src="bin/Release/net8.0-maccatalyst/CoreBTS.Maui.ShieldMVVM.pdb" target="lib/net8.0-maccatalyst/" />
 	<file src="bin/Release/net8.0-maccatalyst/CoreBTS.Maui.ShieldMVVM.xml" target="lib/net8.0-maccatalyst/" />
+
+	<file src="bin/Release/net9.0/CoreBTS.Maui.ShieldMVVM.dll" target="lib/net9.0/" />
+	<file src="bin/Release/net9.0/CoreBTS.Maui.ShieldMVVM.pdb" target="lib/net9.0/" />
+	<file src="bin/Release/net9.0/CoreBTS.Maui.ShieldMVVM.xml" target="lib/net9.0/" />
+	<file src="bin/Release/net9.0/CoreBTS.Maui.ShieldMVVM.deps.json" target="lib/net9.0/" />
+
+	<file src="bin/Release/net9.0-android/CoreBTS.Maui.ShieldMVVM.dll" target="lib/net9.0-android/" />
+	<file src="bin/Release/net9.0-android/CoreBTS.Maui.ShieldMVVM.pdb" target="lib/net9.0-android/" />
+	<file src="bin/Release/net9.0-android/CoreBTS.Maui.ShieldMVVM.xml" target="lib/net9.0-android/" />
+	<file src="bin/Release/net9.0-android/CoreBTS.Maui.ShieldMVVM.aar" target="lib/net9.0-android/" />
+
+	<file src="bin/Release/net9.0-ios/CoreBTS.Maui.ShieldMVVM.dll" target="lib/net9.0-ios/" />
+	<file src="bin/Release/net9.0-ios/CoreBTS.Maui.ShieldMVVM.pdb" target="lib/net9.0-ios/" />
+	<file src="bin/Release/net9.0-ios/CoreBTS.Maui.ShieldMVVM.xml" target="lib/net9.0-ios/" />
+
+	<file src="bin/Release/net9.0-maccatalyst/CoreBTS.Maui.ShieldMVVM.dll" target="lib/net9.0-maccatalyst/" />
+	<file src="bin/Release/net9.0-maccatalyst/CoreBTS.Maui.ShieldMVVM.pdb" target="lib/net9.0-maccatalyst/" />
+	<file src="bin/Release/net9.0-maccatalyst/CoreBTS.Maui.ShieldMVVM.xml" target="lib/net9.0-maccatalyst/" />
   </files>
 </package>
