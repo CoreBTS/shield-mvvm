@@ -12,9 +12,11 @@ public partial class MainPage : ContentPageBase<MainPageViewModel>
     {
         Binder.WithControl(CounterBtn)
             .For(c => c.BindText(), vm => vm.ButtonText)
-            .Once(c => c.BindClick(), vm => vm.ClickCommand);
+            .Once(c => c.BindClick(), vm => vm.ClickCommand)
+            .Once(c => c.BindSemanticHint(), vm => "Counts the number of times you click");
 
         Binder.WithControl(NumberCounter)
+            .Once(c => c.BindSemanticHeadingLevel(), vm => SemanticHeadingLevel.Level7)
             .For(c => c.BindText(), vm => vm.Counter, c => c.ConvertToString());
 
         Binder.WithControl(SecondaryLabel)

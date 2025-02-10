@@ -25,6 +25,13 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type ItemsView.</returns>
     public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this ItemsView _) => Bindings.BindableProperty<IEnumerable<T>>.Create(ItemsView.ItemsSourceProperty);
 
+    // ***** SemanticProperties Bindings *****
+
+    public static Bindings.BindableProperty<SemanticHeadingLevel> BindSemanticHeadingLevel(this BindableObject _) => Bindings.BindableProperty<SemanticHeadingLevel>.Create(SemanticProperties.HeadingLevelProperty);
+    public static Bindings.BindableProperty<String> BindSemanticDescription(this BindableObject _) => Bindings.BindableProperty<String>.Create(SemanticProperties.DescriptionProperty);
+    public static Bindings.BindableProperty<String> BindSemanticHint(this BindableObject _) => Bindings.BindableProperty<String>.Create(SemanticProperties.HintProperty);
+
+
     // ***** ClickableControl Bindings *****
 
     /// <summary>
