@@ -48,10 +48,38 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type BindableObject.</returns>
     public static Bindings.BindableProperty<String> BindSemanticHint<T>(this T _) where T : BindableObject => Bindings.BindableProperty<String>.Create(SemanticProperties.HintProperty);
 
-    // ***** ClickableControl Bindings *****
+    // ***** BindClick Bindings *****
 
     /// <summary>
-    /// Allows binding to the CommandProperty as BindClick for the AbsoluteLayout control.
+    /// Allows binding to the CommandProperty as BindClick for the Button control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ICommand.</returns>
+    public static Bindings.BindableProperty<ICommand> BindClick(this Button _) => new(Button.CommandProperty);
+
+    /// <summary>
+    /// Allows binding to the CommandProperty as BindClick for the ImageButton control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ICommand.</returns>
+    public static Bindings.BindableProperty<ICommand> BindClick(this ImageButton _) => new(ImageButton.CommandProperty);
+
+    /// <summary>
+    /// Allows binding to the CommandProperty as BindClick for the RefreshView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ICommand.</returns>
+    public static Bindings.BindableProperty<ICommand> BindClick(this RefreshView _) => new(RefreshView.CommandProperty);
+
+    /// <summary>
+    /// Allows binding to the CommandProperty as BindClick for the SwipeItemView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ICommand.</returns>
+    public static Bindings.BindableProperty<ICommand> BindClick(this SwipeItemView _) => new(SwipeItemView.CommandProperty);
+
+    /// <summary>
+    /// Allows binding to the CommandProperty as BindClick for BindableObject controls that implement IGestureRecognizers.
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ICommand.</returns>

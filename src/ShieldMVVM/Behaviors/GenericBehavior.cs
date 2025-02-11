@@ -7,7 +7,7 @@ namespace CoreBTS.Maui.ShieldMVVM.Behaviors;
 /// </summary>
 /// <typeparam name="TControl">The type of control the behavior applies to.</typeparam>
 /// <typeparam name="TEventHandler">The type of control the behavior applies to.</typeparam>
-public class GenericBehavior<TControl, TEventHandler> : Behavior<TControl>
+public partial class GenericBehavior<TControl, TEventHandler> : Behavior<TControl>
     where TControl : BindableObject
 {
     private readonly Func<TControl, TEventHandler?> _eventHandlerCallback;

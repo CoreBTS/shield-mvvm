@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Reflection;
+using System.Windows.Input;
 
 namespace CoreBTS.Maui.ShieldMVVM.Controls;
 
@@ -31,8 +32,14 @@ public class ClickableControl<T>
         var gestureRecognizer = new TapGestureRecognizer() { ClassId = classId };
         gestureRecognizer.Tapped += (s, e) =>
         {
-            if (command != null && command.CanExecute(null))
-                command.Execute(null);
+            // Try to get command parameter, if exists
+            // NOTE: This assumes property coming from ICommandElement (internal interface Microsoft didn't expose)
+            object? parameter = bindable.GetType().GetProperty("CommandParameter")?.GetValue(bindable, null);
+
+            if (command != null && command.CanExecute(parameter))
+            {
+                command.Execute(parameter);
+            }
         };
 
         foreach (var gesture in control.GestureRecognizers

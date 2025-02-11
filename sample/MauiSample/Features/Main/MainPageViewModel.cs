@@ -105,6 +105,9 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
             if (!type.IsPublic || !type.IsAssignableTo(typeof(BindableObject)) || !type.IsAssignableTo(typeof(IGestureRecognizers)) || type.ContainsGenericParameters || type.IsNotPublic)
                 continue;
 
+            if (type.GetProperty("CommandParameter", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance) == null)
+                continue;
+
             var typeName = GetTypeName(type);
 
             output.Add($@"    /// <summary>
@@ -118,7 +121,7 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
                 output.Add($"    [Obsolete(\"{obsolete.Message}\")]");
             }
 
-            output.Add($"    public static Bindings.BindableProperty<ICommand> BindClick(this {typeName} _) => new(Controls.ClickableControl<{typeName}>.CommandProperty);");
+            output.Add($"    public static Bindings.BindableProperty<ICommand> BindClick(this {typeName} _) => new({typeName}.CommandProperty);");
             output.Add("");
         }
         var text = string.Join(Environment.NewLine, output);
@@ -133,8 +136,10 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
         {
             try
             {
-
                 if (!type.IsPublic || !type.IsAssignableTo(typeof(BindableObject)) || !type.IsAssignableTo(typeof(IGestureRecognizers)) || type.ContainsGenericParameters || type.IsNotPublic)
+                    continue;
+
+                if (type.GetProperty("CommandParameter", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance) == null)
                     continue;
 
                 var typeName = GetTypeName(type);
@@ -150,7 +155,7 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
                     output.Add($"    [Obsolete(\"{obsolete.Message}\")]");
                 }
 
-                output.Add($"    public static Bindings.BindableProperty<ICommand> BindClick(this {typeName} _) => new(Controls.ClickableControl<{typeName}>.CommandProperty);");
+                output.Add($"    public static Bindings.BindableProperty<ICommand> BindClick(this {typeName} _) => new({typeName}.CommandProperty);");
                 output.Add("");
             }
 

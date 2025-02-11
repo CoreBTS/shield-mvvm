@@ -61,7 +61,7 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
         viewModel.Close += async (sender, e) => await popup.CloseAsync();
 
         if (Page != null)
-            await Page.ShowPopupAsync(popup);
+            await Page.ShowPopupAsync(popup, token);
 
         await viewModel.OnViewDestroying(token);
     }
@@ -95,7 +95,7 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
         viewModel.Close += async (sender, e) => await popup.CloseAsync();
 
         if (Page != null)
-            await Page.ShowPopupAsync(popup);
+            await Page.ShowPopupAsync(popup, token);
 
         await viewModel.OnViewDestroying(token);
     }
@@ -136,7 +136,7 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
         TResult? result = default;
         if (Page != null)
         {
-            var pageResult = await Page.ShowPopupAsync(popup);
+            var pageResult = await Page.ShowPopupAsync(popup, token);
             if (pageResult != null)
                 result = (TResult)pageResult;
         }

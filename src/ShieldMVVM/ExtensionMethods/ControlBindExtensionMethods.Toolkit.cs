@@ -16,6 +16,15 @@ namespace CoreBTS.Maui.ShieldMVVM;
 /// </summary>
 public static partial class ControlBindExtensionMethods
 {
+    // ***** BindClick Bindings *****
+
+    /// <summary>
+    /// Allows binding to the CommandProperty as BindClick for the Expander control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ICommand.</returns>
+    public static Bindings.BindableProperty<ICommand> BindClick(this Expander _) => new(Expander.CommandProperty);
+
     // ***** Start of Generated Bindings *****
 
     // ***** AnimationBehavior Bindings *****
