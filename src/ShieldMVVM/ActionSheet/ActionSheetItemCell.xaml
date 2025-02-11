@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<base:ViewCellBase
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CoreBTS.Maui.ShieldMVVM.ActionSheet.ActionSheetItemCell"
+    xmlns:base="clr-namespace:CoreBTS.Maui.ShieldMVVM.DataTemplates;assembly=CoreBTS.Maui.ShieldMVVM"
+    xmlns:m="clr-namespace:CoreBTS.Maui.ShieldMVVM.ActionSheet"
+    xmlns:self="clr-namespace:CoreBTS.Maui.ShieldMVVM.ActionSheet"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:TypeArguments="m:ActionSheetItem, self:ActionSheetItemCell"
+    x:DataType="m:ActionSheetItem"
+    >
+
+    <toolkit:Popup.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\..\Resources\Styles\ActionSheet.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </toolkit:Popup.Resources>
+
+    <Button
+        x:Name="ActionButton"
+        Style="{StaticResource ActionSheetButtonStyle}"
+        HeightRequest="50" />
+
+</base:ViewCellBase>

@@ -34,5 +34,8 @@ public partial class MainPage : ContentPageBase<MainPageViewModel>
 
         Binder.WithControl(Dialog2)
             .Once(c => c.BindClick(), vm => vm.Dialog2Command);
+
+        Binder.WithControl(ActionsButton)
+            .Once(c => c.BindClick(), vm => vm.ActionCommand);
     }
 }

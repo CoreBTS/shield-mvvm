@@ -31,4 +31,22 @@ public static partial class Converter
     public static IValueConverter<bool?, bool> ConvertToBool(this BindingConverter<bool?, bool> _, bool defaultValue = false) =>
         Create(_,
             value => value ?? defaultValue);
+
+    /// <summary>
+    /// A converter that converts the given string's length to a bool value.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>An IValueConverter.</returns>
+    public static IValueConverter<string?, bool> ConvertToNullableHasLength(this BindingConverter<string?, bool> _) =>
+        Create(_,
+            value => !string.IsNullOrEmpty(value));
+
+    /// <summary>
+    /// A converter that converts the given string's length to a bool value.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>An IValueConverter.</returns>
+    public static IValueConverter<string, bool> ConvertToHasLength(this BindingConverter<string, bool> _) =>
+        Create(_,
+            value => !string.IsNullOrEmpty(value));
 }

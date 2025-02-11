@@ -3,6 +3,7 @@ using CoreBTS.Maui.ShieldMVVM.Pages;
 using CoreBTS.Maui.ShieldMVVM.ViewModel;
 using System.Collections.Concurrent;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 
 namespace CoreBTS.Maui.ShieldMVVM.Configuration;
 
@@ -31,6 +32,15 @@ public static class MauiAppBuilderExtensionMethods
         params Assembly[] assembliesToScan)
     {
         builder.Services.AddSingleton<INavigationService>(new NavigationService(typeResolverCallback));
+
+        var assemblies = assembliesToScan.ToList();
+        var currentAssembly = typeof(MauiAppBuilderExtensionMethods).Assembly;
+
+        if (assemblies.Any(a => a != currentAssembly)) 
+        {
+            assemblies.Add(currentAssembly);
+            assembliesToScan = assemblies.ToArray();
+        }
 
         ConfigureViewModels(builder, assembliesToScan);
         ConfigurePages(builder, assembliesToScan);

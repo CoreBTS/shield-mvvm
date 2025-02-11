@@ -77,6 +77,15 @@
 
             </HorizontalStackLayout>
 
+            <HorizontalStackLayout >
+
+                <Button
+                    x:Name="ActionsButton"
+                    Text="Actions"
+                    />
+
+            </HorizontalStackLayout>
+
         </VerticalStackLayout>
         
     </ScrollView>

@@ -371,6 +371,25 @@ public static class BindingHelperExtensions
     /// <typeparam name="TCellModel">The model type the cell is bound to.</typeparam>
     /// <param name="self">Extension parameter.</param>
     /// <param name="dataPropertyExpression">An expression to the list being bound to.</param>
+    /// <param name="dataTemplate">The ItemTemplate to use.</param>
+    /// <returns>A reference to this instance to allow chaining.</returns>
+    public static BindingControl<TViewModel, TControl> ForTemplateLayout<TViewModel, TControl, TCellModel>(
+        this BindingControl<TViewModel, TControl> self,
+        Expression<Func<TViewModel, IEnumerable<TCellModel>>> dataPropertyExpression,
+        DataTemplate<TCellModel> dataTemplate
+        )
+        where TControl : BindableObject, IBindableLayout =>
+        self.For(c => c.BindItemsSource<TControl, TCellModel>(), dataPropertyExpression)
+            .Once(c => c.BindItemTemplate<TControl, DataTemplate<TCellModel>>(), vm => dataTemplate);
+
+    /// <summary>
+    /// Adds generic type-safety for binding to lists that bind to ViewCellBase.
+    /// </summary>
+    /// <typeparam name="TViewModel">The type of ViewModel being bound to.</typeparam>
+    /// <typeparam name="TControl">The type of control being bound to.</typeparam>
+    /// <typeparam name="TCellModel">The model type the cell is bound to.</typeparam>
+    /// <param name="self">Extension parameter.</param>
+    /// <param name="dataPropertyExpression">An expression to the list being bound to.</param>
     /// <param name="dataTemplateSelector">The DataTemplateSelector to use.</param>
     /// <returns>A reference to this instance to allow chaining.</returns>
     public static BindingControl<TViewModel, TControl> ForTemplate<TViewModel, TControl, TCellModel>(
@@ -381,6 +400,25 @@ public static class BindingHelperExtensions
        where TControl : ItemsView =>
        self.For(c => c.BindItemsSource<TCellModel>(), dataPropertyExpression)
            .Once(c => c.BindItemTemplate(), vm => dataTemplateSelector);
+
+    /// <summary>
+    /// Adds generic type-safety for binding to lists that bind to ViewCellBase.
+    /// </summary>
+    /// <typeparam name="TViewModel">The type of ViewModel being bound to.</typeparam>
+    /// <typeparam name="TControl">The type of control being bound to.</typeparam>
+    /// <typeparam name="TCellModel">The model type the cell is bound to.</typeparam>
+    /// <param name="self">Extension parameter.</param>
+    /// <param name="dataPropertyExpression">An expression to the list being bound to.</param>
+    /// <param name="dataTemplateSelector">The DataTemplateSelector to use.</param>
+    /// <returns>A reference to this instance to allow chaining.</returns>
+    public static BindingControl<TViewModel, TControl> ForTemplateLayout<TViewModel, TControl, TCellModel>(
+       this BindingControl<TViewModel, TControl> self,
+       Expression<Func<TViewModel, IEnumerable<TCellModel>>> dataPropertyExpression,
+       DataTemplateSelector dataTemplateSelector
+       )
+       where TControl : BindableObject, IBindableLayout =>
+       self.For(c => c.BindItemsSource<TControl,TCellModel>(), dataPropertyExpression)
+           .Once(c => c.BindItemTemplate<TControl, DataTemplateSelector>(), vm => dataTemplateSelector);
 
     /// <summary>
     /// Adds short-hand way to hookup Selection Changed events.

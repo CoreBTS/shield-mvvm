@@ -1,4 +1,5 @@
-﻿using CoreBTS.Maui.ShieldMVVM.ViewModel;
+﻿using CoreBTS.Maui.ShieldMVVM.ActionSheet;
+using CoreBTS.Maui.ShieldMVVM.ViewModel;
 
 namespace CoreBTS.Maui.ShieldMVVM.Navigation;
 
@@ -7,6 +8,23 @@ namespace CoreBTS.Maui.ShieldMVVM.Navigation;
 /// </summary>
 public interface INavigationService
 {
+    /// <summary>
+    /// Shows an action sheet to the user and returns the option selected.
+    /// </summary>
+    /// <param name="title">The title text to show.</param>
+    /// <param name="actions">The actions to allow the user to select.</param>
+    /// <returns>The chosen action; null if cancelled.</returns>
+    Task<ActionSheetItem?> ShowActionSheetAsync(string title, params ActionSheetItem[] actions);
+
+    /// <summary>
+    /// Shows an action sheet to the user and returns the option selected.
+    /// </summary>
+    /// <param name="title">The title text to show.</param>
+    /// <param name="message">The message text to show below the title.</param>
+    /// <param name="actions">The actions to allow the user to select.</param>
+    /// <returns>The chosen action; null if cancelled.</returns>
+    Task<ActionSheetItem?> ShowActionSheetAsync(string title, string message, params ActionSheetItem[] actions);
+
     /// <summary>
     /// Shows a popup dialog over the top of the current page without leaving.
     /// </summary>

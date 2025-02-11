@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui.Views;
+using CoreBTS.Maui.ShieldMVVM.ActionSheet;
 using CoreBTS.Maui.ShieldMVVM.Pages;
 using CoreBTS.Maui.ShieldMVVM.ViewModel;
 using System.Collections.Concurrent;
@@ -31,6 +32,25 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
     private readonly Func<Type, dynamic?> _typeResolverCallback = typeResolverCallback;
 
     private static readonly int LastWindowIndex = Application.Current?.Windows.Count - 1 ?? 0;
+
+    /// <summary>
+    /// Shows an action sheet to the user and returns the option selected.
+    /// </summary>
+    /// <param name="title">The title text to show.</param>
+    /// <param name="actions">The actions to allow the user to select.</param>
+    /// <returns>The chosen action; null if cancelled.</returns>
+    public Task<ActionSheetItem?> ShowActionSheetAsync(string title, params ActionSheetItem[] actions) => 
+        ShowActionSheetAsync(title, string.Empty, actions);
+
+    /// <summary>
+    /// Shows an action sheet to the user and returns the option selected.
+    /// </summary>
+    /// <param name="title">The title text to show.</param>
+    /// <param name="message">The message text to show below the title.</param>
+    /// <param name="actions">The actions to allow the user to select.</param>
+    /// <returns>The chosen action; null if cancelled.</returns>
+    public async Task<ActionSheetItem?> ShowActionSheetAsync(string title, string message, params ActionSheetItem[] actions) =>
+        await ShowDialogPopupAsync<ActionSheetViewModel, ActionSheetArg, ActionSheetItem>(new ActionSheetArg(title, message, actions?.ToList()));
 
     /// <summary>
     /// Shows a popup dialog over the top of the current page without leaving.

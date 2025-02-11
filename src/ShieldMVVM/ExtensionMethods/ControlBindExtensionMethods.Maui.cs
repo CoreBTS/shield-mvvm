@@ -25,6 +25,307 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type ItemsView.</returns>
     public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this ItemsView _) => Bindings.BindableProperty<IEnumerable<T>>.Create(ItemsView.ItemsSourceProperty);
 
+    // ***** IBindableLayout Bindings *****
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the IBindableLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    public static Bindings.BindableProperty<IEnumerable<TItem>> BindItemsSource<TControl, TItem>(this TControl _) where TControl : IBindableLayout => Bindings.BindableProperty<IEnumerable<TItem>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the AbsoluteLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<TItem> BindItemTemplate<TControl, TItem>(this TControl _) where TControl : IBindableLayout => Bindings.BindableProperty<TItem>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the AbsoluteLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this AbsoluteLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the AbsoluteLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this AbsoluteLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the AbsoluteLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this AbsoluteLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the Microsoft.Maui.Controls.Compatibility.AbsoluteLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.AbsoluteLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this Microsoft.Maui.Controls.Compatibility.AbsoluteLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the Microsoft.Maui.Controls.Compatibility.AbsoluteLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.AbsoluteLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this Microsoft.Maui.Controls.Compatibility.AbsoluteLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the Microsoft.Maui.Controls.Compatibility.AbsoluteLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.AbsoluteLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this Microsoft.Maui.Controls.Compatibility.AbsoluteLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this FlexLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this FlexLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this FlexLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this Grid _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this Grid _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this Grid _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the Microsoft.Maui.Controls.Compatibility.Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the Microsoft.Maui.Controls.Compatibility.Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this Microsoft.Maui.Controls.Compatibility.Grid _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the Microsoft.Maui.Controls.Compatibility.Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this Microsoft.Maui.Controls.Compatibility.Grid _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the HorizontalStackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this HorizontalStackLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the HorizontalStackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this HorizontalStackLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the HorizontalStackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this HorizontalStackLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the Layout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this Layout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the Layout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this Layout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the Layout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this Layout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the Microsoft.Maui.Controls.Compatibility.RelativeLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this Microsoft.Maui.Controls.Compatibility.RelativeLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the Microsoft.Maui.Controls.Compatibility.RelativeLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this Microsoft.Maui.Controls.Compatibility.RelativeLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the Microsoft.Maui.Controls.Compatibility.RelativeLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this Microsoft.Maui.Controls.Compatibility.RelativeLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the StackBase control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this StackBase _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the StackBase control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this StackBase _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the StackBase control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this StackBase _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the StackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this StackLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the StackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this StackLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the StackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this StackLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the Microsoft.Maui.Controls.Compatibility.StackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.StackLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this Microsoft.Maui.Controls.Compatibility.StackLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the Microsoft.Maui.Controls.Compatibility.StackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.StackLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this Microsoft.Maui.Controls.Compatibility.StackLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the Microsoft.Maui.Controls.Compatibility.StackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.StackLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this Microsoft.Maui.Controls.Compatibility.StackLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the VerticalStackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this VerticalStackLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the VerticalStackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this VerticalStackLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the VerticalStackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this VerticalStackLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
     // ***** SemanticProperties Bindings *****
 
     /// <summary>
@@ -55,35 +356,35 @@ public static partial class ControlBindExtensionMethods
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ICommand.</returns>
-    public static Bindings.BindableProperty<ICommand> BindClick(this Button _) => new(Button.CommandProperty);
+    public static Bindings.BindableProperty<ICommand> BindClick(this Button _) => Bindings.BindableProperty<ICommand>.Create(Button.CommandProperty);
 
     /// <summary>
     /// Allows binding to the CommandProperty as BindClick for the ImageButton control.
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ICommand.</returns>
-    public static Bindings.BindableProperty<ICommand> BindClick(this ImageButton _) => new(ImageButton.CommandProperty);
+    public static Bindings.BindableProperty<ICommand> BindClick(this ImageButton _) => Bindings.BindableProperty<ICommand>.Create(ImageButton.CommandProperty);
 
     /// <summary>
     /// Allows binding to the CommandProperty as BindClick for the RefreshView control.
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ICommand.</returns>
-    public static Bindings.BindableProperty<ICommand> BindClick(this RefreshView _) => new(RefreshView.CommandProperty);
+    public static Bindings.BindableProperty<ICommand> BindClick(this RefreshView _) => Bindings.BindableProperty<ICommand>.Create(RefreshView.CommandProperty);
 
     /// <summary>
     /// Allows binding to the CommandProperty as BindClick for the SwipeItemView control.
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ICommand.</returns>
-    public static Bindings.BindableProperty<ICommand> BindClick(this SwipeItemView _) => new(SwipeItemView.CommandProperty);
+    public static Bindings.BindableProperty<ICommand> BindClick(this SwipeItemView _) => Bindings.BindableProperty<ICommand>.Create(SwipeItemView.CommandProperty);
 
     /// <summary>
     /// Allows binding to the CommandProperty as BindClick for BindableObject controls that implement IGestureRecognizers.
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ICommand.</returns>
-    public static Bindings.BindableProperty<ICommand> BindClick<T>(this T _) where T : BindableObject, IGestureRecognizers => new (Controls.ClickableControl<T>.CommandProperty);
+    public static Bindings.BindableProperty<ICommand> BindClick<T>(this T _) where T : BindableObject, IGestureRecognizers => Bindings.BindableProperty<ICommand>.Create(Controls.ClickableControl<T>.CommandProperty);
 
     // ***** Start of Generated Bindings *****
 

@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Maui.Behaviors;
 using CommunityToolkit.Maui.Views;
 using CommunityToolkit.Mvvm.Input;
+using CoreBTS.Maui.ShieldMVVM.ActionSheet;
 using CoreBTS.Maui.ShieldMVVM.Navigation;
 using CoreBTS.Maui.ShieldMVVM.ViewModel;
 using MauiSample.Features.About;
@@ -39,6 +40,7 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
         //GenerateBindingToolkitText();
         //GenerateBindingClickableControlText();
         //GenerateToolkitBindingClickableControlText();
+        //GenerateIBindableLayout();
 
         Counter++;
         RaisePropertyChanged(nameof(ButtonText));
@@ -85,6 +87,24 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
         UpdateSecondary();
     }
 
+    [RelayCommand]
+    public async Task Action()
+    {
+        var result =
+            await NavigationService.ShowActionSheetAsync(
+                "My Title", 
+                "My message",
+                new ActionSheetItem("Item1", "Item 1"),
+                new ActionSheetItem("Item2", "Item 2"),
+                new ActionSheetItem("Item3", "Item 3"),
+                new ActionSheetItem("Item4", "Item 4", Colors.Red));
+
+        if (result != null)
+        {
+
+        }
+    }
+
     public override void Prepare(MainPageArgs parameters)
     {
         Counter = parameters.InitialCounter;
@@ -93,6 +113,66 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
     public override Task InitializeAsync(CancellationToken token = default)
     {
         return Task.CompletedTask;
+    }
+
+    public static void GenerateIBindableLayout()
+    {
+        var bp = typeof(IGestureRecognizers);
+        var output = new List<string>();
+
+        foreach (var type in typeof(Button).Assembly.GetTypes().OrderBy(a => a.Name))
+        {
+            if (!type.IsPublic || !type.IsAssignableTo(typeof(BindableObject)) || !type.IsAssignableTo(typeof(IBindableLayout)) || type.ContainsGenericParameters || type.IsNotPublic)
+                continue;
+
+            var typeName = GetTypeName(type);
+
+            output.Add($@"    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the {typeName} control.
+    /// </summary>
+    /// <param name=""_"">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>");
+
+            if (type.GetCustomAttributes(true).FirstOrDefault(a => a is ObsoleteAttribute) is ObsoleteAttribute obsolete)
+            {
+                output.Add($"    [Obsolete(\"{obsolete.Message}\")]");
+            }
+
+            output.Add($"    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this {typeName} _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);");
+            output.Add("");
+
+
+            output.Add($@"    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the {typeName} control.
+    /// </summary>
+    /// <param name=""_"">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>");
+
+            if (type.GetCustomAttributes(true).FirstOrDefault(a => a is ObsoleteAttribute) is ObsoleteAttribute obsolete2)
+            {
+                output.Add($"    [Obsolete(\"{obsolete2.Message}\")]");
+            }
+
+            output.Add($"    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this {typeName} _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);");
+            output.Add("");
+
+
+            output.Add($@"    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the {typeName} control.
+    /// </summary>
+    /// <param name=""_"">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>");
+
+            if (type.GetCustomAttributes(true).FirstOrDefault(a => a is ObsoleteAttribute) is ObsoleteAttribute obsolete3)
+            {
+                output.Add($"    [Obsolete(\"{obsolete3.Message}\")]");
+            }
+
+            output.Add($"    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this {typeName} _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);");
+            output.Add("");
+            
+        }
+        var text = string.Join(Environment.NewLine, output);
     }
 
     public static void GenerateBindingClickableControlText()

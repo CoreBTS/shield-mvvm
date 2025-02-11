@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<base:DialogPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:base="clr-namespace:CoreBTS.Maui.ShieldMVVM.Pages;assembly=CoreBTS.Maui.ShieldMVVM"
+    x:Class="CoreBTS.Maui.ShieldMVVM.ActionSheet.ActionSheetPage"
+    xmlns:vm="clr-namespace:CoreBTS.Maui.ShieldMVVM.ActionSheet"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:TypeArguments="vm:ActionSheetViewModel"
+    Color="{OnPlatform iOS=Transparent, Default={StaticResource Black60Pct}}"
+    HorizontalOptions="Fill"
+    VerticalOptions="Fill"
+    x:Name="popup"
+    >
+    
+    <toolkit:Popup.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\..\Resources\Styles\ActionSheet.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </toolkit:Popup.Resources>
+
+    <Grid HorizontalOptions="Fill" VerticalOptions="Fill" Padding="16">
+        
+        <Grid 
+            x:Name="InnerGrid"
+            RowSpacing="10" 
+            RowDefinitions="*,50" 
+            VerticalOptions="End"
+            >
+            
+            <Border Grid.Row="0"
+                Stroke="Transparent"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill"
+                BackgroundColor="{StaticResource Gray200}"
+                >
+                
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="10" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout 
+                    Spacing="0" 
+                    HorizontalOptions="Fill" 
+                    VerticalOptions="Fill"
+                    >
+                    
+                    <VerticalStackLayout Spacing="2" Margin="20,10">
+                        
+                        <Label
+                           x:Name="PageTitleLabel"
+                           Style="{StaticResource ActionSheetTitleLabelStyle}" />
+                        
+                        <Label 
+                            x:Name="MessageLabel"
+                            Style="{StaticResource ActionSheetMessageLabelStyle}" />
+                        
+                    </VerticalStackLayout>
+                    
+                    <BoxView
+                        HeightRequest="1" 
+                        HorizontalOptions="Fill"
+                        BackgroundColor="{StaticResource Gray300}" />
+
+                    <VerticalStackLayout
+                        x:Name="ButtonStackLayout"
+                        HorizontalOptions="Fill"
+                        VerticalOptions="Fill"
+                        BackgroundColor="{StaticResource Gray300}"
+                        Spacing="1" />
+
+                </VerticalStackLayout>
+            </Border>
+
+            <Button
+                x:Name="CancelButton"
+                Grid.Row="1"
+                CornerRadius="10"
+                Style="{StaticResource ActionSheetCancelButtonStyle}" />
+        </Grid>
+    </Grid>
+</base:DialogPageBase>
