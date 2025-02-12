@@ -3,7 +3,6 @@ using CoreBTS.Maui.ShieldMVVM.Pages;
 using CoreBTS.Maui.ShieldMVVM.ViewModel;
 using System.Collections.Concurrent;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 
 namespace CoreBTS.Maui.ShieldMVVM.Configuration;
 

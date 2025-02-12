@@ -16,7 +16,7 @@ public static partial class ControlBindExtensionMethods
 {
 #pragma warning disable CS0618 // Type or member is obsolete - Generated against Microsoft DLLs
 
-    // ***** Custom Bindings *****
+    // ********** Custom Bindings **********
 
     /// <summary>
     /// Allows binding to the ItemsSourceProperty as BindItemsSource for the ItemsView control.
@@ -24,8 +24,6 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ItemsView.</returns>
     public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this ItemsView _) => Bindings.BindableProperty<IEnumerable<T>>.Create(ItemsView.ItemsSourceProperty);
-
-    // ***** IBindableLayout Bindings *****
 
     /// <summary>
     /// Allows binding to the ItemsSourceProperty as BindItemsSource for the IBindableLayout control.
@@ -42,289 +40,11 @@ public static partial class ControlBindExtensionMethods
     public static Bindings.BindableProperty<TItem> BindItemTemplate<TControl, TItem>(this TControl _) where TControl : IBindableLayout => Bindings.BindableProperty<TItem>.Create(BindableLayout.ItemTemplateProperty);
 
     /// <summary>
-    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the AbsoluteLayout control.
+    /// Allows binding to the CommandProperty as BindClick for BindableObject controls that implement IGestureRecognizers.
     /// </summary>
     /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
-    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this AbsoluteLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the AbsoluteLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
-    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this AbsoluteLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the AbsoluteLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
-    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this AbsoluteLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the Microsoft.Maui.Controls.Compatibility.AbsoluteLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.AbsoluteLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this Microsoft.Maui.Controls.Compatibility.AbsoluteLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the Microsoft.Maui.Controls.Compatibility.AbsoluteLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.AbsoluteLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this Microsoft.Maui.Controls.Compatibility.AbsoluteLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the Microsoft.Maui.Controls.Compatibility.AbsoluteLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.AbsoluteLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this Microsoft.Maui.Controls.Compatibility.AbsoluteLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
-    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this FlexLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
-    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this FlexLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
-    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this FlexLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the Grid control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
-    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this Grid _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the Grid control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
-    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this Grid _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the Grid control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
-    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this Grid _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the Microsoft.Maui.Controls.Compatibility.Grid control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the Microsoft.Maui.Controls.Compatibility.Grid control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this Microsoft.Maui.Controls.Compatibility.Grid _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the Microsoft.Maui.Controls.Compatibility.Grid control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this Microsoft.Maui.Controls.Compatibility.Grid _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the HorizontalStackLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
-    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this HorizontalStackLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the HorizontalStackLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
-    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this HorizontalStackLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the HorizontalStackLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
-    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this HorizontalStackLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the Layout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
-    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this Layout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the Layout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
-    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this Layout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the Layout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
-    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this Layout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the Microsoft.Maui.Controls.Compatibility.RelativeLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
-    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this Microsoft.Maui.Controls.Compatibility.RelativeLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the Microsoft.Maui.Controls.Compatibility.RelativeLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
-    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this Microsoft.Maui.Controls.Compatibility.RelativeLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the Microsoft.Maui.Controls.Compatibility.RelativeLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
-    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this Microsoft.Maui.Controls.Compatibility.RelativeLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the StackBase control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
-    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this StackBase _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the StackBase control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
-    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this StackBase _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the StackBase control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
-    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this StackBase _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the StackLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
-    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this StackLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the StackLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
-    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this StackLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the StackLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
-    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this StackLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the Microsoft.Maui.Controls.Compatibility.StackLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.StackLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this Microsoft.Maui.Controls.Compatibility.StackLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the Microsoft.Maui.Controls.Compatibility.StackLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.StackLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this Microsoft.Maui.Controls.Compatibility.StackLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the Microsoft.Maui.Controls.Compatibility.StackLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.StackLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this Microsoft.Maui.Controls.Compatibility.StackLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the VerticalStackLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
-    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this VerticalStackLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the VerticalStackLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
-    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this VerticalStackLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the VerticalStackLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
-    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this VerticalStackLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+    /// <returns>Generic BindableProperty of type ICommand.</returns>
+    public static Bindings.BindableProperty<ICommand> BindClick<T>(this T _) where T : BindableObject, IGestureRecognizers => Bindings.BindableProperty<ICommand>.Create(Controls.ClickableControl<T>.CommandProperty);
 
     // ***** SemanticProperties Bindings *****
 
@@ -349,7 +69,484 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type BindableObject.</returns>
     public static Bindings.BindableProperty<String> BindSemanticHint<T>(this T _) where T : BindableObject => Bindings.BindableProperty<String>.Create(SemanticProperties.HintProperty);
 
-    // ***** BindClick Bindings *****
+    // ********** IBindableLayout Bindings **********
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the AbsoluteLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this AbsoluteLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this FlexLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this Grid _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the HorizontalStackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this HorizontalStackLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the Layout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this Layout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the StackBase control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this StackBase _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the StackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this StackLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the VerticalStackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this VerticalStackLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the Microsoft.Maui.Controls.Compatibility.AbsoluteLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.AbsoluteLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this Microsoft.Maui.Controls.Compatibility.AbsoluteLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the Microsoft.Maui.Controls.Compatibility.Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the Microsoft.Maui.Controls.Compatibility.RelativeLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this Microsoft.Maui.Controls.Compatibility.RelativeLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the Microsoft.Maui.Controls.Compatibility.StackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.StackLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this Microsoft.Maui.Controls.Compatibility.StackLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the AbsoluteLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this AbsoluteLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this FlexLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this Grid _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the HorizontalStackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this HorizontalStackLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the Layout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this Layout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the StackBase control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this StackBase _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the StackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this StackLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the VerticalStackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this VerticalStackLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the Microsoft.Maui.Controls.Compatibility.AbsoluteLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.AbsoluteLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this Microsoft.Maui.Controls.Compatibility.AbsoluteLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the Microsoft.Maui.Controls.Compatibility.Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this Microsoft.Maui.Controls.Compatibility.Grid _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the Microsoft.Maui.Controls.Compatibility.RelativeLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this Microsoft.Maui.Controls.Compatibility.RelativeLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the Microsoft.Maui.Controls.Compatibility.StackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.StackLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this Microsoft.Maui.Controls.Compatibility.StackLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the AbsoluteLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this AbsoluteLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this FlexLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this Grid _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the HorizontalStackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this HorizontalStackLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the Layout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this Layout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the StackBase control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this StackBase _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the StackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this StackLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the VerticalStackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this VerticalStackLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the Microsoft.Maui.Controls.Compatibility.AbsoluteLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.AbsoluteLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this Microsoft.Maui.Controls.Compatibility.AbsoluteLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the Microsoft.Maui.Controls.Compatibility.Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this Microsoft.Maui.Controls.Compatibility.Grid _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the Microsoft.Maui.Controls.Compatibility.RelativeLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this Microsoft.Maui.Controls.Compatibility.RelativeLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the Microsoft.Maui.Controls.Compatibility.StackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.StackLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this Microsoft.Maui.Controls.Compatibility.StackLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewProperty as BindEmptyView for the AbsoluteLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type object.</returns>
+    public static Bindings.BindableProperty<T> BindEmptyView<T>(this AbsoluteLayout _) => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewProperty as BindEmptyView for the FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type object.</returns>
+    public static Bindings.BindableProperty<T> BindEmptyView<T>(this FlexLayout _) => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewProperty as BindEmptyView for the Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type object.</returns>
+    public static Bindings.BindableProperty<T> BindEmptyView<T>(this Grid _) => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewProperty as BindEmptyView for the HorizontalStackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type object.</returns>
+    public static Bindings.BindableProperty<T> BindEmptyView<T>(this HorizontalStackLayout _) => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewProperty as BindEmptyView for the Layout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type object.</returns>
+    public static Bindings.BindableProperty<T> BindEmptyView<T>(this Layout _) => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewProperty as BindEmptyView for the StackBase control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type object.</returns>
+    public static Bindings.BindableProperty<T> BindEmptyView<T>(this StackBase _) => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewProperty as BindEmptyView for the StackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type object.</returns>
+    public static Bindings.BindableProperty<T> BindEmptyView<T>(this StackLayout _) => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewProperty as BindEmptyView for the VerticalStackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type object.</returns>
+    public static Bindings.BindableProperty<T> BindEmptyView<T>(this VerticalStackLayout _) => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewProperty as BindEmptyView for the Microsoft.Maui.Controls.Compatibility.AbsoluteLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type object.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.AbsoluteLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<T> BindEmptyView<T>(this Microsoft.Maui.Controls.Compatibility.AbsoluteLayout _) => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewProperty as BindEmptyView for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type object.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<T> BindEmptyView<T>(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewProperty as BindEmptyView for the Microsoft.Maui.Controls.Compatibility.Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type object.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<T> BindEmptyView<T>(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewProperty as BindEmptyView for the Microsoft.Maui.Controls.Compatibility.RelativeLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type object.</returns>
+    public static Bindings.BindableProperty<T> BindEmptyView<T>(this Microsoft.Maui.Controls.Compatibility.RelativeLayout _) => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewProperty as BindEmptyView for the Microsoft.Maui.Controls.Compatibility.StackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type object.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.StackLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<T> BindEmptyView<T>(this Microsoft.Maui.Controls.Compatibility.StackLayout _) => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewTemplateProperty as BindEmptyViewTemplate for the AbsoluteLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindEmptyViewTemplate<T>(this AbsoluteLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewTemplateProperty as BindEmptyViewTemplate for the FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindEmptyViewTemplate<T>(this FlexLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewTemplateProperty as BindEmptyViewTemplate for the Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindEmptyViewTemplate<T>(this Grid _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewTemplateProperty as BindEmptyViewTemplate for the HorizontalStackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindEmptyViewTemplate<T>(this HorizontalStackLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewTemplateProperty as BindEmptyViewTemplate for the Layout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindEmptyViewTemplate<T>(this Layout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewTemplateProperty as BindEmptyViewTemplate for the StackBase control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindEmptyViewTemplate<T>(this StackBase _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewTemplateProperty as BindEmptyViewTemplate for the StackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindEmptyViewTemplate<T>(this StackLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewTemplateProperty as BindEmptyViewTemplate for the VerticalStackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindEmptyViewTemplate<T>(this VerticalStackLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewTemplateProperty as BindEmptyViewTemplate for the Microsoft.Maui.Controls.Compatibility.AbsoluteLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.AbsoluteLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<T> BindEmptyViewTemplate<T>(this Microsoft.Maui.Controls.Compatibility.AbsoluteLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewTemplateProperty as BindEmptyViewTemplate for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<T> BindEmptyViewTemplate<T>(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewTemplateProperty as BindEmptyViewTemplate for the Microsoft.Maui.Controls.Compatibility.Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<T> BindEmptyViewTemplate<T>(this Microsoft.Maui.Controls.Compatibility.Grid _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewTemplateProperty as BindEmptyViewTemplate for the Microsoft.Maui.Controls.Compatibility.RelativeLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindEmptyViewTemplate<T>(this Microsoft.Maui.Controls.Compatibility.RelativeLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewTemplateProperty as BindEmptyViewTemplate for the Microsoft.Maui.Controls.Compatibility.StackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.StackLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<T> BindEmptyViewTemplate<T>(this Microsoft.Maui.Controls.Compatibility.StackLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewTemplateProperty);
+
+    // ********** IGestureRecognizers Bindings **********
 
     /// <summary>
     /// Allows binding to the CommandProperty as BindClick for the Button control.
@@ -379,48 +576,7 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type ICommand.</returns>
     public static Bindings.BindableProperty<ICommand> BindClick(this SwipeItemView _) => Bindings.BindableProperty<ICommand>.Create(SwipeItemView.CommandProperty);
 
-    /// <summary>
-    /// Allows binding to the CommandProperty as BindClick for BindableObject controls that implement IGestureRecognizers.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type ICommand.</returns>
-    public static Bindings.BindableProperty<ICommand> BindClick<T>(this T _) where T : BindableObject, IGestureRecognizers => Bindings.BindableProperty<ICommand>.Create(Controls.ClickableControl<T>.CommandProperty);
-
-    // ***** Start of Generated Bindings *****
-
-    // ***** AbsoluteLayout Bindings *****
-
-    /// <summary>
-    /// Allows binding to the LayoutBoundsProperty as BindLayoutBounds for the AbsoluteLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type AbsoluteLayout.</returns>
-    public static Bindings.BindableProperty<Rect> BindLayoutBounds(this AbsoluteLayout _) => Bindings.BindableProperty<Rect>.Create(AbsoluteLayout.LayoutBoundsProperty);
-
-    /// <summary>
-    /// Allows binding to the LayoutFlagsProperty as BindLayoutFlags for the AbsoluteLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type AbsoluteLayout.</returns>
-    public static Bindings.BindableProperty<AbsoluteLayoutFlags> BindLayoutFlags(this AbsoluteLayout _) => Bindings.BindableProperty<AbsoluteLayoutFlags>.Create(AbsoluteLayout.LayoutFlagsProperty);
-
-    // ***** Microsoft.Maui.Controls.Compatibility.AbsoluteLayout Bindings *****
-
-    /// <summary>
-    /// Allows binding to the LayoutBoundsProperty as BindLayoutBounds for the Microsoft.Maui.Controls.Compatibility.AbsoluteLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.AbsoluteLayout.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.AbsoluteLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<Rect> BindLayoutBounds(this Microsoft.Maui.Controls.Compatibility.AbsoluteLayout _) => Bindings.BindableProperty<Rect>.Create(Microsoft.Maui.Controls.Compatibility.AbsoluteLayout.LayoutBoundsProperty);
-
-    /// <summary>
-    /// Allows binding to the LayoutFlagsProperty as BindLayoutFlags for the Microsoft.Maui.Controls.Compatibility.AbsoluteLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.AbsoluteLayout.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.AbsoluteLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<AbsoluteLayoutFlags> BindLayoutFlags(this Microsoft.Maui.Controls.Compatibility.AbsoluteLayout _) => Bindings.BindableProperty<AbsoluteLayoutFlags>.Create(Microsoft.Maui.Controls.Compatibility.AbsoluteLayout.LayoutFlagsProperty);
+    // ********** Bindable Properties **********
 
     // ***** ActivityIndicator Bindings *****
 
@@ -490,168 +646,6 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type AppLinkEntry.</returns>
     public static Bindings.BindableProperty<string> BindTitle(this AppLinkEntry _) => Bindings.BindableProperty<string>.Create(AppLinkEntry.TitleProperty);
-    
-    // ***** ArcSegment Bindings *****
-
-    /// <summary>
-    /// Allows binding to the IsLargeArcProperty as BindIsLargeArc for the ArcSegment control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type ArcSegment.</returns>
-    public static Bindings.BindableProperty<bool> BindIsLargeArc(this ArcSegment _) => Bindings.BindableProperty<bool>.Create(ArcSegment.IsLargeArcProperty);
-
-    /// <summary>
-    /// Allows binding to the PointProperty as BindPoint for the ArcSegment control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type ArcSegment.</returns>
-    public static Bindings.BindableProperty<Point> BindPoint(this ArcSegment _) => Bindings.BindableProperty<Point>.Create(ArcSegment.PointProperty);
-
-    /// <summary>
-    /// Allows binding to the RotationAngleProperty as BindRotationAngle for the ArcSegment control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type ArcSegment.</returns>
-    public static Bindings.BindableProperty<double> BindRotationAngle(this ArcSegment _) => Bindings.BindableProperty<double>.Create(ArcSegment.RotationAngleProperty);
-
-    /// <summary>
-    /// Allows binding to the SizeProperty as BindSize for the ArcSegment control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type ArcSegment.</returns>
-    public static Bindings.BindableProperty<Size> BindSize(this ArcSegment _) => Bindings.BindableProperty<Size>.Create(ArcSegment.SizeProperty);
-
-    /// <summary>
-    /// Allows binding to the SweepDirectionProperty as BindSweepDirection for the ArcSegment control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type ArcSegment.</returns>
-    public static Bindings.BindableProperty<SweepDirection> BindSweepDirection(this ArcSegment _) => Bindings.BindableProperty<SweepDirection>.Create(ArcSegment.SweepDirectionProperty);
-
-    // ***** BackButtonBehavior Bindings *****
-
-    /// <summary>
-    /// Allows binding to the CommandParameterProperty as BindCommandParameter for the BackButtonBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type BackButtonBehavior.</returns>
-    public static Bindings.BindableProperty<object> BindCommandParameter(this BackButtonBehavior _) => Bindings.BindableProperty<object>.Create(BackButtonBehavior.CommandParameterProperty);
-
-    /// <summary>
-    /// Allows binding to the CommandProperty as BindCommand for the BackButtonBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type BackButtonBehavior.</returns>
-    public static Bindings.BindableProperty<ICommand> BindCommand(this BackButtonBehavior _) => Bindings.BindableProperty<ICommand>.Create(BackButtonBehavior.CommandProperty);
-
-    /// <summary>
-    /// Allows binding to the IconOverrideProperty as BindIconOverride for the BackButtonBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type BackButtonBehavior.</returns>
-    public static Bindings.BindableProperty<ImageSource> BindIconOverride(this BackButtonBehavior _) => Bindings.BindableProperty<ImageSource>.Create(BackButtonBehavior.IconOverrideProperty);
-
-    /// <summary>
-    /// Allows binding to the IsEnabledProperty as BindIsEnabled for the BackButtonBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type BackButtonBehavior.</returns>
-    public static Bindings.BindableProperty<bool> BindIsEnabled(this BackButtonBehavior _) => Bindings.BindableProperty<bool>.Create(BackButtonBehavior.IsEnabledProperty);
-
-    /// <summary>
-    /// Allows binding to the IsVisibleProperty as BindIsVisible for the BackButtonBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type BackButtonBehavior.</returns>
-    public static Bindings.BindableProperty<bool> BindIsVisible(this BackButtonBehavior _) => Bindings.BindableProperty<bool>.Create(BackButtonBehavior.IsVisibleProperty);
-
-    /// <summary>
-    /// Allows binding to the TextOverrideProperty as BindTextOverride for the BackButtonBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type BackButtonBehavior.</returns>
-    public static Bindings.BindableProperty<string> BindTextOverride(this BackButtonBehavior _) => Bindings.BindableProperty<string>.Create(BackButtonBehavior.TextOverrideProperty);
-
-    // ***** BaseShellItem Bindings *****
-
-    /// <summary>
-    /// Allows binding to the FlyoutIconProperty as BindFlyoutIcon for the BaseShellItem control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type BaseShellItem.</returns>
-    public static Bindings.BindableProperty<ImageSource> BindFlyoutIcon(this BaseShellItem _) => Bindings.BindableProperty<ImageSource>.Create(BaseShellItem.FlyoutIconProperty);
-
-    /// <summary>
-    /// Allows binding to the FlyoutItemIsVisibleProperty as BindFlyoutItemIsVisible for the BaseShellItem control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type BaseShellItem.</returns>
-    public static Bindings.BindableProperty<bool> BindFlyoutItemIsVisible(this BaseShellItem _) => Bindings.BindableProperty<bool>.Create(BaseShellItem.FlyoutItemIsVisibleProperty);
-
-    /// <summary>
-    /// Allows binding to the IconProperty as BindIcon for the BaseShellItem control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type BaseShellItem.</returns>
-    public static Bindings.BindableProperty<ImageSource> BindIcon(this BaseShellItem _) => Bindings.BindableProperty<ImageSource>.Create(BaseShellItem.IconProperty);
-
-    /// <summary>
-    /// Allows binding to the IsCheckedProperty as BindIsChecked for the BaseShellItem control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type BaseShellItem.</returns>
-    public static Bindings.BindableProperty<bool> BindIsChecked(this BaseShellItem _) => Bindings.BindableProperty<bool>.Create(BaseShellItem.IsCheckedProperty);
-
-    /// <summary>
-    /// Allows binding to the IsEnabledProperty as BindIsEnabled for the BaseShellItem control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type BaseShellItem.</returns>
-    public static Bindings.BindableProperty<bool> BindIsEnabled(this BaseShellItem _) => Bindings.BindableProperty<bool>.Create(BaseShellItem.IsEnabledProperty);
-
-    /// <summary>
-    /// Allows binding to the IsVisibleProperty as BindIsVisible for the BaseShellItem control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type BaseShellItem.</returns>
-    public static Bindings.BindableProperty<bool> BindIsVisible(this BaseShellItem _) => Bindings.BindableProperty<bool>.Create(BaseShellItem.IsVisibleProperty);
-
-    /// <summary>
-    /// Allows binding to the TitleProperty as BindTitle for the BaseShellItem control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type BaseShellItem.</returns>
-    public static Bindings.BindableProperty<string> BindTitle(this BaseShellItem _) => Bindings.BindableProperty<string>.Create(BaseShellItem.TitleProperty);
-
-    /// <summary>
-    /// Allows binding to the WindowProperty as BindWindow for the BaseShellItem control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type BaseShellItem.</returns>
-    public static Bindings.BindableProperty<Window> BindWindow(this BaseShellItem _) => Bindings.BindableProperty<Window>.Create(BaseShellItem.WindowProperty);
-
-    // ***** BezierSegment Bindings *****
-
-    /// <summary>
-    /// Allows binding to the Point1Property as BindPoint1 for the BezierSegment control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type BezierSegment.</returns>
-    public static Bindings.BindableProperty<Point> BindPoint1(this BezierSegment _) => Bindings.BindableProperty<Point>.Create(BezierSegment.Point1Property);
-
-    /// <summary>
-    /// Allows binding to the Point2Property as BindPoint2 for the BezierSegment control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type BezierSegment.</returns>
-    public static Bindings.BindableProperty<Point> BindPoint2(this BezierSegment _) => Bindings.BindableProperty<Point>.Create(BezierSegment.Point2Property);
-
-    /// <summary>
-    /// Allows binding to the Point3Property as BindPoint3 for the BezierSegment control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type BezierSegment.</returns>
-    public static Bindings.BindableProperty<Point> BindPoint3(this BezierSegment _) => Bindings.BindableProperty<Point>.Create(BezierSegment.Point3Property);
 
     // ***** BindableObject Bindings *****
 
@@ -878,106 +872,6 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type Button.</returns>
     public static Bindings.BindableProperty<TextTransform> BindTextTransform(this Button _) => Bindings.BindableProperty<TextTransform>.Create(Button.TextTransformProperty);
 
-    // ***** CarouselView Bindings *****
-
-    /// <summary>
-    /// Allows binding to the CurrentItemChangedCommandParameterProperty as BindCurrentItemChangedCommandParameter for the CarouselView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CarouselView.</returns>
-    public static Bindings.BindableProperty<object> BindCurrentItemChangedCommandParameter(this CarouselView _) => Bindings.BindableProperty<object>.Create(CarouselView.CurrentItemChangedCommandParameterProperty);
-
-    /// <summary>
-    /// Allows binding to the CurrentItemChangedCommandProperty as BindCurrentItemChangedCommand for the CarouselView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CarouselView.</returns>
-    public static Bindings.BindableProperty<ICommand> BindCurrentItemChangedCommand(this CarouselView _) => Bindings.BindableProperty<ICommand>.Create(CarouselView.CurrentItemChangedCommandProperty);
-
-    /// <summary>
-    /// Allows binding to the CurrentItemProperty as BindCurrentItem for the CarouselView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CarouselView.</returns>
-    public static Bindings.BindableProperty<object> BindCurrentItem(this CarouselView _) => Bindings.BindableProperty<object>.Create(CarouselView.CurrentItemProperty);
-
-    /// <summary>
-    /// Allows binding to the IsBounceEnabledProperty as BindIsBounceEnabled for the CarouselView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CarouselView.</returns>
-    public static Bindings.BindableProperty<bool> BindIsBounceEnabled(this CarouselView _) => Bindings.BindableProperty<bool>.Create(CarouselView.IsBounceEnabledProperty);
-
-    /// <summary>
-    /// Allows binding to the IsDraggingProperty as BindIsDragging for the CarouselView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CarouselView.</returns>
-    public static Bindings.BindableProperty<bool> BindIsDragging(this CarouselView _) => Bindings.BindableProperty<bool>.Create(CarouselView.IsDraggingProperty);
-
-    /// <summary>
-    /// Allows binding to the IsScrollAnimatedProperty as BindIsScrollAnimated for the CarouselView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CarouselView.</returns>
-    public static Bindings.BindableProperty<bool> BindIsScrollAnimated(this CarouselView _) => Bindings.BindableProperty<bool>.Create(CarouselView.IsScrollAnimatedProperty);
-
-    /// <summary>
-    /// Allows binding to the IsSwipeEnabledProperty as BindIsSwipeEnabled for the CarouselView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CarouselView.</returns>
-    public static Bindings.BindableProperty<bool> BindIsSwipeEnabled(this CarouselView _) => Bindings.BindableProperty<bool>.Create(CarouselView.IsSwipeEnabledProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemsLayoutProperty as BindItemsLayout for the CarouselView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CarouselView.</returns>
-    public static Bindings.BindableProperty<LinearItemsLayout> BindItemsLayout(this CarouselView _) => Bindings.BindableProperty<LinearItemsLayout>.Create(CarouselView.ItemsLayoutProperty);
-
-    /// <summary>
-    /// Allows binding to the LoopProperty as BindLoop for the CarouselView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CarouselView.</returns>
-    public static Bindings.BindableProperty<bool> BindLoop(this CarouselView _) => Bindings.BindableProperty<bool>.Create(CarouselView.LoopProperty);
-
-    /// <summary>
-    /// Allows binding to the PeekAreaInsetsProperty as BindPeekAreaInsets for the CarouselView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CarouselView.</returns>
-    public static Bindings.BindableProperty<Thickness> BindPeekAreaInsets(this CarouselView _) => Bindings.BindableProperty<Thickness>.Create(CarouselView.PeekAreaInsetsProperty);
-
-    /// <summary>
-    /// Allows binding to the PositionChangedCommandParameterProperty as BindPositionChangedCommandParameter for the CarouselView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CarouselView.</returns>
-    public static Bindings.BindableProperty<object> BindPositionChangedCommandParameter(this CarouselView _) => Bindings.BindableProperty<object>.Create(CarouselView.PositionChangedCommandParameterProperty);
-
-    /// <summary>
-    /// Allows binding to the PositionChangedCommandProperty as BindPositionChangedCommand for the CarouselView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CarouselView.</returns>
-    public static Bindings.BindableProperty<ICommand> BindPositionChangedCommand(this CarouselView _) => Bindings.BindableProperty<ICommand>.Create(CarouselView.PositionChangedCommandProperty);
-
-    /// <summary>
-    /// Allows binding to the PositionProperty as BindPosition for the CarouselView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CarouselView.</returns>
-    public static Bindings.BindableProperty<int> BindPosition(this CarouselView _) => Bindings.BindableProperty<int>.Create(CarouselView.PositionProperty);
-
-    /// <summary>
-    /// Allows binding to the VisibleViewsProperty as BindVisibleViews for the CarouselView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CarouselView.</returns>
-    public static Bindings.BindableProperty<ObservableCollection<View>> BindVisibleViews(this CarouselView _) => Bindings.BindableProperty<ObservableCollection<View>>.Create(CarouselView.VisibleViewsProperty);
-
     // ***** Cell Bindings *****
 
     /// <summary>
@@ -986,6 +880,133 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Cell.</returns>
     public static Bindings.BindableProperty<bool> BindIsEnabled(this Cell _) => Bindings.BindableProperty<bool>.Create(Cell.IsEnabledProperty);
+
+    // ***** EntryCell Bindings *****
+
+    /// <summary>
+    /// Allows binding to the HorizontalTextAlignmentProperty as BindHorizontalTextAlignment for the EntryCell control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type EntryCell.</returns>
+    public static Bindings.BindableProperty<TextAlignment> BindHorizontalTextAlignment(this EntryCell _) => Bindings.BindableProperty<TextAlignment>.Create(EntryCell.HorizontalTextAlignmentProperty);
+
+    /// <summary>
+    /// Allows binding to the KeyboardProperty as BindKeyboard for the EntryCell control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type EntryCell.</returns>
+    public static Bindings.BindableProperty<Keyboard> BindKeyboard(this EntryCell _) => Bindings.BindableProperty<Keyboard>.Create(EntryCell.KeyboardProperty);
+
+    /// <summary>
+    /// Allows binding to the LabelColorProperty as BindLabelColor for the EntryCell control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type EntryCell.</returns>
+    public static Bindings.BindableProperty<Color> BindLabelColor(this EntryCell _) => Bindings.BindableProperty<Color>.Create(EntryCell.LabelColorProperty);
+
+    /// <summary>
+    /// Allows binding to the LabelProperty as BindLabel for the EntryCell control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type EntryCell.</returns>
+    public static Bindings.BindableProperty<string> BindLabel(this EntryCell _) => Bindings.BindableProperty<string>.Create(EntryCell.LabelProperty);
+
+    /// <summary>
+    /// Allows binding to the PlaceholderProperty as BindPlaceholder for the EntryCell control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type EntryCell.</returns>
+    public static Bindings.BindableProperty<string> BindPlaceholder(this EntryCell _) => Bindings.BindableProperty<string>.Create(EntryCell.PlaceholderProperty);
+
+    /// <summary>
+    /// Allows binding to the TextProperty as BindText for the EntryCell control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type EntryCell.</returns>
+    public static Bindings.BindableProperty<string> BindText(this EntryCell _) => Bindings.BindableProperty<string>.Create(EntryCell.TextProperty);
+
+    /// <summary>
+    /// Allows binding to the VerticalTextAlignmentProperty as BindVerticalTextAlignment for the EntryCell control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type EntryCell.</returns>
+    public static Bindings.BindableProperty<TextAlignment> BindVerticalTextAlignment(this EntryCell _) => Bindings.BindableProperty<TextAlignment>.Create(EntryCell.VerticalTextAlignmentProperty);
+
+    // ***** ImageCell Bindings *****
+
+    /// <summary>
+    /// Allows binding to the ImageSourceProperty as BindImageSource for the ImageCell control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ImageCell.</returns>
+    public static Bindings.BindableProperty<ImageSource> BindImageSource(this ImageCell _) => Bindings.BindableProperty<ImageSource>.Create(ImageCell.ImageSourceProperty);
+
+    // ***** SwitchCell Bindings *****
+
+    /// <summary>
+    /// Allows binding to the OnColorProperty as BindOnColor for the SwitchCell control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type SwitchCell.</returns>
+    public static Bindings.BindableProperty<Color> BindOnColor(this SwitchCell _) => Bindings.BindableProperty<Color>.Create(SwitchCell.OnColorProperty);
+
+    /// <summary>
+    /// Allows binding to the OnProperty as BindOn for the SwitchCell control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type SwitchCell.</returns>
+    public static Bindings.BindableProperty<bool> BindOn(this SwitchCell _) => Bindings.BindableProperty<bool>.Create(SwitchCell.OnProperty);
+
+    /// <summary>
+    /// Allows binding to the TextProperty as BindText for the SwitchCell control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type SwitchCell.</returns>
+    public static Bindings.BindableProperty<string> BindText(this SwitchCell _) => Bindings.BindableProperty<string>.Create(SwitchCell.TextProperty);
+
+    // ***** TextCell Bindings *****
+
+    /// <summary>
+    /// Allows binding to the CommandParameterProperty as BindCommandParameter for the TextCell control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TextCell.</returns>
+    public static Bindings.BindableProperty<object> BindCommandParameter(this TextCell _) => Bindings.BindableProperty<object>.Create(TextCell.CommandParameterProperty);
+
+    /// <summary>
+    /// Allows binding to the CommandProperty as BindCommand for the TextCell control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TextCell.</returns>
+    public static Bindings.BindableProperty<ICommand> BindCommand(this TextCell _) => Bindings.BindableProperty<ICommand>.Create(TextCell.CommandProperty);
+
+    /// <summary>
+    /// Allows binding to the DetailColorProperty as BindDetailColor for the TextCell control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TextCell.</returns>
+    public static Bindings.BindableProperty<Color> BindDetailColor(this TextCell _) => Bindings.BindableProperty<Color>.Create(TextCell.DetailColorProperty);
+
+    /// <summary>
+    /// Allows binding to the DetailProperty as BindDetail for the TextCell control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TextCell.</returns>
+    public static Bindings.BindableProperty<string> BindDetail(this TextCell _) => Bindings.BindableProperty<string>.Create(TextCell.DetailProperty);
+
+    /// <summary>
+    /// Allows binding to the TextColorProperty as BindTextColor for the TextCell control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TextCell.</returns>
+    public static Bindings.BindableProperty<Color> BindTextColor(this TextCell _) => Bindings.BindableProperty<Color>.Create(TextCell.TextColorProperty);
+
+    /// <summary>
+    /// Allows binding to the TextProperty as BindText for the TextCell control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TextCell.</returns>
+    public static Bindings.BindableProperty<string> BindText(this TextCell _) => Bindings.BindableProperty<string>.Create(TextCell.TextProperty);
 
     // ***** CheckBox Bindings *****
 
@@ -1061,71 +1082,6 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type CompareStateTrigger.</returns>
     public static Bindings.BindableProperty<object> BindValue(this CompareStateTrigger _) => Bindings.BindableProperty<object>.Create(CompareStateTrigger.ValueProperty);
-
-    // ***** CompositeTransform Bindings *****
-
-    /// <summary>
-    /// Allows binding to the CenterXProperty as BindCenterX for the CompositeTransform control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CompositeTransform.</returns>
-    public static Bindings.BindableProperty<double> BindCenterX(this CompositeTransform _) => Bindings.BindableProperty<double>.Create(CompositeTransform.CenterXProperty);
-
-    /// <summary>
-    /// Allows binding to the CenterYProperty as BindCenterY for the CompositeTransform control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CompositeTransform.</returns>
-    public static Bindings.BindableProperty<double> BindCenterY(this CompositeTransform _) => Bindings.BindableProperty<double>.Create(CompositeTransform.CenterYProperty);
-
-    /// <summary>
-    /// Allows binding to the RotationProperty as BindRotation for the CompositeTransform control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CompositeTransform.</returns>
-    public static Bindings.BindableProperty<double> BindRotation(this CompositeTransform _) => Bindings.BindableProperty<double>.Create(CompositeTransform.RotationProperty);
-
-    /// <summary>
-    /// Allows binding to the ScaleXProperty as BindScaleX for the CompositeTransform control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CompositeTransform.</returns>
-    public static Bindings.BindableProperty<double> BindScaleX(this CompositeTransform _) => Bindings.BindableProperty<double>.Create(CompositeTransform.ScaleXProperty);
-
-    /// <summary>
-    /// Allows binding to the ScaleYProperty as BindScaleY for the CompositeTransform control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CompositeTransform.</returns>
-    public static Bindings.BindableProperty<double> BindScaleY(this CompositeTransform _) => Bindings.BindableProperty<double>.Create(CompositeTransform.ScaleYProperty);
-
-    /// <summary>
-    /// Allows binding to the SkewXProperty as BindSkewX for the CompositeTransform control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CompositeTransform.</returns>
-    public static Bindings.BindableProperty<double> BindSkewX(this CompositeTransform _) => Bindings.BindableProperty<double>.Create(CompositeTransform.SkewXProperty);
-
-    /// <summary>
-    /// Allows binding to the SkewYProperty as BindSkewY for the CompositeTransform control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CompositeTransform.</returns>
-    public static Bindings.BindableProperty<double> BindSkewY(this CompositeTransform _) => Bindings.BindableProperty<double>.Create(CompositeTransform.SkewYProperty);
-
-    /// <summary>
-    /// Allows binding to the TranslateXProperty as BindTranslateX for the CompositeTransform control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CompositeTransform.</returns>
-    public static Bindings.BindableProperty<double> BindTranslateX(this CompositeTransform _) => Bindings.BindableProperty<double>.Create(CompositeTransform.TranslateXProperty);
-
-    /// <summary>
-    /// Allows binding to the TranslateYProperty as BindTranslateY for the CompositeTransform control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CompositeTransform.</returns>
-    public static Bindings.BindableProperty<double> BindTranslateY(this CompositeTransform _) => Bindings.BindableProperty<double>.Create(CompositeTransform.TranslateYProperty);
 
     // ***** ContentPage Bindings *****
 
@@ -1453,29 +1409,6 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type Element.</returns>
     public static Bindings.BindableProperty<string> BindClassId(this Element _) => Bindings.BindableProperty<string>.Create(Element.ClassIdProperty);
 
-    // ***** EllipseGeometry Bindings *****
-
-    /// <summary>
-    /// Allows binding to the CenterProperty as BindCenter for the EllipseGeometry control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type EllipseGeometry.</returns>
-    public static Bindings.BindableProperty<Point> BindCenter(this EllipseGeometry _) => Bindings.BindableProperty<Point>.Create(EllipseGeometry.CenterProperty);
-
-    /// <summary>
-    /// Allows binding to the RadiusXProperty as BindRadiusX for the EllipseGeometry control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type EllipseGeometry.</returns>
-    public static Bindings.BindableProperty<double> BindRadiusX(this EllipseGeometry _) => Bindings.BindableProperty<double>.Create(EllipseGeometry.RadiusXProperty);
-
-    /// <summary>
-    /// Allows binding to the RadiusYProperty as BindRadiusY for the EllipseGeometry control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type EllipseGeometry.</returns>
-    public static Bindings.BindableProperty<double> BindRadiusY(this EllipseGeometry _) => Bindings.BindableProperty<double>.Create(EllipseGeometry.RadiusYProperty);
-
     // ***** Entry Bindings *****
 
     /// <summary>
@@ -1618,57 +1551,6 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type Entry.</returns>
     public static Bindings.BindableProperty<TextAlignment> BindVerticalTextAlignment(this Entry _) => Bindings.BindableProperty<TextAlignment>.Create(Entry.VerticalTextAlignmentProperty);
 
-    // ***** EntryCell Bindings *****
-
-    /// <summary>
-    /// Allows binding to the HorizontalTextAlignmentProperty as BindHorizontalTextAlignment for the EntryCell control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type EntryCell.</returns>
-    public static Bindings.BindableProperty<TextAlignment> BindHorizontalTextAlignment(this EntryCell _) => Bindings.BindableProperty<TextAlignment>.Create(EntryCell.HorizontalTextAlignmentProperty);
-
-    /// <summary>
-    /// Allows binding to the KeyboardProperty as BindKeyboard for the EntryCell control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type EntryCell.</returns>
-    public static Bindings.BindableProperty<Keyboard> BindKeyboard(this EntryCell _) => Bindings.BindableProperty<Keyboard>.Create(EntryCell.KeyboardProperty);
-
-    /// <summary>
-    /// Allows binding to the LabelColorProperty as BindLabelColor for the EntryCell control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type EntryCell.</returns>
-    public static Bindings.BindableProperty<Color> BindLabelColor(this EntryCell _) => Bindings.BindableProperty<Color>.Create(EntryCell.LabelColorProperty);
-
-    /// <summary>
-    /// Allows binding to the LabelProperty as BindLabel for the EntryCell control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type EntryCell.</returns>
-    public static Bindings.BindableProperty<string> BindLabel(this EntryCell _) => Bindings.BindableProperty<string>.Create(EntryCell.LabelProperty);
-
-    /// <summary>
-    /// Allows binding to the PlaceholderProperty as BindPlaceholder for the EntryCell control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type EntryCell.</returns>
-    public static Bindings.BindableProperty<string> BindPlaceholder(this EntryCell _) => Bindings.BindableProperty<string>.Create(EntryCell.PlaceholderProperty);
-
-    /// <summary>
-    /// Allows binding to the TextProperty as BindText for the EntryCell control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type EntryCell.</returns>
-    public static Bindings.BindableProperty<string> BindText(this EntryCell _) => Bindings.BindableProperty<string>.Create(EntryCell.TextProperty);
-
-    /// <summary>
-    /// Allows binding to the VerticalTextAlignmentProperty as BindVerticalTextAlignment for the EntryCell control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type EntryCell.</returns>
-    public static Bindings.BindableProperty<TextAlignment> BindVerticalTextAlignment(this EntryCell _) => Bindings.BindableProperty<TextAlignment>.Create(EntryCell.VerticalTextAlignmentProperty);
-
     // ***** FileImageSource Bindings *****
 
     /// <summary>
@@ -1677,193 +1559,6 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type FileImageSource.</returns>
     public static Bindings.BindableProperty<string> BindFile(this FileImageSource _) => Bindings.BindableProperty<string>.Create(FileImageSource.FileProperty);
-
-    // ***** FlexLayout Bindings *****
-
-    /// <summary>
-    /// Allows binding to the AlignContentProperty as BindAlignContent for the FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type FlexLayout.</returns>
-    public static Bindings.BindableProperty<FlexAlignContent> BindAlignContent(this FlexLayout _) => Bindings.BindableProperty<FlexAlignContent>.Create(FlexLayout.AlignContentProperty);
-
-    /// <summary>
-    /// Allows binding to the AlignItemsProperty as BindAlignItems for the FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type FlexLayout.</returns>
-    public static Bindings.BindableProperty<FlexAlignItems> BindAlignItems(this FlexLayout _) => Bindings.BindableProperty<FlexAlignItems>.Create(FlexLayout.AlignItemsProperty);
-
-    /// <summary>
-    /// Allows binding to the AlignSelfProperty as BindAlignSelf for the FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type FlexLayout.</returns>
-    public static Bindings.BindableProperty<FlexAlignSelf> BindAlignSelf(this FlexLayout _) => Bindings.BindableProperty<FlexAlignSelf>.Create(FlexLayout.AlignSelfProperty);
-
-    /// <summary>
-    /// Allows binding to the BasisProperty as BindBasis for the FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type FlexLayout.</returns>
-    public static Bindings.BindableProperty<FlexBasis> BindBasis(this FlexLayout _) => Bindings.BindableProperty<FlexBasis>.Create(FlexLayout.BasisProperty);
-
-    /// <summary>
-    /// Allows binding to the DirectionProperty as BindDirection for the FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type FlexLayout.</returns>
-    public static Bindings.BindableProperty<FlexDirection> BindDirection(this FlexLayout _) => Bindings.BindableProperty<FlexDirection>.Create(FlexLayout.DirectionProperty);
-
-    /// <summary>
-    /// Allows binding to the GrowProperty as BindGrow for the FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type FlexLayout.</returns>
-    public static Bindings.BindableProperty<float> BindGrow(this FlexLayout _) => Bindings.BindableProperty<float>.Create(FlexLayout.GrowProperty);
-
-    /// <summary>
-    /// Allows binding to the JustifyContentProperty as BindJustifyContent for the FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type FlexLayout.</returns>
-    public static Bindings.BindableProperty<FlexJustify> BindJustifyContent(this FlexLayout _) => Bindings.BindableProperty<FlexJustify>.Create(FlexLayout.JustifyContentProperty);
-
-    /// <summary>
-    /// Allows binding to the OrderProperty as BindOrder for the FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type FlexLayout.</returns>
-    public static Bindings.BindableProperty<int> BindOrder(this FlexLayout _) => Bindings.BindableProperty<int>.Create(FlexLayout.OrderProperty);
-
-    /// <summary>
-    /// Allows binding to the PositionProperty as BindPosition for the FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type FlexLayout.</returns>
-    public static Bindings.BindableProperty<FlexPosition> BindPosition(this FlexLayout _) => Bindings.BindableProperty<FlexPosition>.Create(FlexLayout.PositionProperty);
-
-    /// <summary>
-    /// Allows binding to the ShrinkProperty as BindShrink for the FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type FlexLayout.</returns>
-    public static Bindings.BindableProperty<float> BindShrink(this FlexLayout _) => Bindings.BindableProperty<float>.Create(FlexLayout.ShrinkProperty);
-
-    /// <summary>
-    /// Allows binding to the WrapProperty as BindWrap for the FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type FlexLayout.</returns>
-    public static Bindings.BindableProperty<FlexWrap> BindWrap(this FlexLayout _) => Bindings.BindableProperty<FlexWrap>.Create(FlexLayout.WrapProperty);
-
-    // ***** Microsoft.Maui.Controls.Compatibility.FlexLayout Bindings *****
-
-    /// <summary>
-    /// Allows binding to the AlignContentProperty as BindAlignContent for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<FlexAlignContent> BindAlignContent(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<FlexAlignContent>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.AlignContentProperty);
-
-    /// <summary>
-    /// Allows binding to the AlignItemsProperty as BindAlignItems for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<FlexAlignItems> BindAlignItems(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<FlexAlignItems>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.AlignItemsProperty);
-
-    /// <summary>
-    /// Allows binding to the AlignSelfProperty as BindAlignSelf for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<FlexAlignSelf> BindAlignSelf(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<FlexAlignSelf>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.AlignSelfProperty);
-
-    /// <summary>
-    /// Allows binding to the BasisProperty as BindBasis for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<FlexBasis> BindBasis(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<FlexBasis>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.BasisProperty);
-
-    /// <summary>
-    /// Allows binding to the DirectionProperty as BindDirection for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<FlexDirection> BindDirection(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<FlexDirection>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.DirectionProperty);
-
-    /// <summary>
-    /// Allows binding to the GrowProperty as BindGrow for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<float> BindGrow(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<float>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.GrowProperty);
-
-    /// <summary>
-    /// Allows binding to the JustifyContentProperty as BindJustifyContent for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<FlexJustify> BindJustifyContent(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<FlexJustify>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.JustifyContentProperty);
-
-    /// <summary>
-    /// Allows binding to the OrderProperty as BindOrder for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<int> BindOrder(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<int>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.OrderProperty);
-
-    /// <summary>
-    /// Allows binding to the PositionProperty as BindPosition for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<FlexPosition> BindPosition(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<FlexPosition>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.PositionProperty);
-
-    /// <summary>
-    /// Allows binding to the ShrinkProperty as BindShrink for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<float> BindShrink(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<float>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.ShrinkProperty);
-
-    /// <summary>
-    /// Allows binding to the WrapProperty as BindWrap for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<FlexWrap> BindWrap(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<FlexWrap>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.WrapProperty);
-
-    // ***** FlyoutBase Bindings *****
-
-    /// <summary>
-    /// Allows binding to the ContextFlyoutProperty as BindContextFlyout for the FlyoutBase control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type FlyoutBase.</returns>
-    public static Bindings.BindableProperty<FlyoutBase> BindContextFlyout(this FlyoutBase _) => Bindings.BindableProperty<FlyoutBase>.Create(FlyoutBase.ContextFlyoutProperty);
-
-    // ***** FlyoutItem Bindings *****
-
-    /// <summary>
-    /// Allows binding to the IsVisibleProperty as BindIsVisible for the FlyoutItem control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type FlyoutItem.</returns>
-    public static Bindings.BindableProperty<bool> BindIsVisible(this FlyoutItem _) => Bindings.BindableProperty<bool>.Create(FlyoutItem.IsVisibleProperty);
 
     // ***** FlyoutPage Bindings *****
 
@@ -1951,22 +1646,6 @@ public static partial class ControlBindExtensionMethods
     [Obsolete("Frame is obsolete as of .NET 9. Please use Border instead.")]
     public static Bindings.BindableProperty<bool> BindHasShadow(this Frame _) => Bindings.BindableProperty<bool>.Create(Frame.HasShadowProperty);
 
-    // ***** GeometryGroup Bindings *****
-
-    /// <summary>
-    /// Allows binding to the ChildrenProperty as BindChildren for the GeometryGroup control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type GeometryGroup.</returns>
-    public static Bindings.BindableProperty<GeometryCollection> BindChildren(this GeometryGroup _) => Bindings.BindableProperty<GeometryCollection>.Create(GeometryGroup.ChildrenProperty);
-
-    /// <summary>
-    /// Allows binding to the FillRuleProperty as BindFillRule for the GeometryGroup control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type GeometryGroup.</returns>
-    public static Bindings.BindableProperty<FillRule> BindFillRule(this GeometryGroup _) => Bindings.BindableProperty<FillRule>.Create(GeometryGroup.FillRuleProperty);
-
     // ***** GradientBrush Bindings *****
 
     /// <summary>
@@ -2001,176 +1680,6 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type GraphicsView.</returns>
     public static Bindings.BindableProperty<IDrawable> BindDrawable(this GraphicsView _) => Bindings.BindableProperty<IDrawable>.Create(GraphicsView.DrawableProperty);
 
-    // ***** Grid Bindings *****
-
-    /// <summary>
-    /// Allows binding to the ColumnDefinitionsProperty as BindColumnDefinitions for the Grid control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Grid.</returns>
-    public static Bindings.BindableProperty<ColumnDefinitionCollection> BindColumnDefinitions(this Grid _) => Bindings.BindableProperty<ColumnDefinitionCollection>.Create(Grid.ColumnDefinitionsProperty);
-
-    /// <summary>
-    /// Allows binding to the ColumnProperty as BindColumn for the Grid control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Grid.</returns>
-    public static Bindings.BindableProperty<int> BindColumn(this Grid _) => Bindings.BindableProperty<int>.Create(Grid.ColumnProperty);
-
-    /// <summary>
-    /// Allows binding to the ColumnSpacingProperty as BindColumnSpacing for the Grid control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Grid.</returns>
-    public static Bindings.BindableProperty<double> BindColumnSpacing(this Grid _) => Bindings.BindableProperty<double>.Create(Grid.ColumnSpacingProperty);
-
-    /// <summary>
-    /// Allows binding to the ColumnSpanProperty as BindColumnSpan for the Grid control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Grid.</returns>
-    public static Bindings.BindableProperty<int> BindColumnSpan(this Grid _) => Bindings.BindableProperty<int>.Create(Grid.ColumnSpanProperty);
-
-    /// <summary>
-    /// Allows binding to the RowDefinitionsProperty as BindRowDefinitions for the Grid control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Grid.</returns>
-    public static Bindings.BindableProperty<RowDefinitionCollection> BindRowDefinitions(this Grid _) => Bindings.BindableProperty<RowDefinitionCollection>.Create(Grid.RowDefinitionsProperty);
-
-    /// <summary>
-    /// Allows binding to the RowProperty as BindRow for the Grid control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Grid.</returns>
-    public static Bindings.BindableProperty<int> BindRow(this Grid _) => Bindings.BindableProperty<int>.Create(Grid.RowProperty);
-
-    /// <summary>
-    /// Allows binding to the RowSpacingProperty as BindRowSpacing for the Grid control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Grid.</returns>
-    public static Bindings.BindableProperty<double> BindRowSpacing(this Grid _) => Bindings.BindableProperty<double>.Create(Grid.RowSpacingProperty);
-
-    /// <summary>
-    /// Allows binding to the RowSpanProperty as BindRowSpan for the Grid control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Grid.</returns>
-    public static Bindings.BindableProperty<int> BindRowSpan(this Grid _) => Bindings.BindableProperty<int>.Create(Grid.RowSpanProperty);
-
-    // ***** Microsoft.Maui.Controls.Compatibility.Grid Bindings *****
-
-    /// <summary>
-    /// Allows binding to the ColumnDefinitionsProperty as BindColumnDefinitions for the Microsoft.Maui.Controls.Compatibility.Grid control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Grid.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<ColumnDefinitionCollection> BindColumnDefinitions(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<ColumnDefinitionCollection>.Create(Microsoft.Maui.Controls.Compatibility.Grid.ColumnDefinitionsProperty);
-
-    /// <summary>
-    /// Allows binding to the ColumnProperty as BindColumn for the Microsoft.Maui.Controls.Compatibility.Grid control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Grid.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<int> BindColumn(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<int>.Create(Microsoft.Maui.Controls.Compatibility.Grid.ColumnProperty);
-
-    /// <summary>
-    /// Allows binding to the ColumnSpacingProperty as BindColumnSpacing for the Microsoft.Maui.Controls.Compatibility.Grid control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Grid.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<double> BindColumnSpacing(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<double>.Create(Microsoft.Maui.Controls.Compatibility.Grid.ColumnSpacingProperty);
-
-    /// <summary>
-    /// Allows binding to the ColumnSpanProperty as BindColumnSpan for the Microsoft.Maui.Controls.Compatibility.Grid control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Grid.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<int> BindColumnSpan(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<int>.Create(Microsoft.Maui.Controls.Compatibility.Grid.ColumnSpanProperty);
-
-    /// <summary>
-    /// Allows binding to the RowDefinitionsProperty as BindRowDefinitions for the Microsoft.Maui.Controls.Compatibility.Grid control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Grid.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<RowDefinitionCollection> BindRowDefinitions(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<RowDefinitionCollection>.Create(Microsoft.Maui.Controls.Compatibility.Grid.RowDefinitionsProperty);
-
-    /// <summary>
-    /// Allows binding to the RowProperty as BindRow for the Microsoft.Maui.Controls.Compatibility.Grid control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Grid.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<int> BindRow(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<int>.Create(Microsoft.Maui.Controls.Compatibility.Grid.RowProperty);
-
-    /// <summary>
-    /// Allows binding to the RowSpacingProperty as BindRowSpacing for the Microsoft.Maui.Controls.Compatibility.Grid control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Grid.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<double> BindRowSpacing(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<double>.Create(Microsoft.Maui.Controls.Compatibility.Grid.RowSpacingProperty);
-
-    /// <summary>
-    /// Allows binding to the RowSpanProperty as BindRowSpan for the Microsoft.Maui.Controls.Compatibility.Grid control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Grid.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<int> BindRowSpan(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<int>.Create(Microsoft.Maui.Controls.Compatibility.Grid.RowSpanProperty);
-
-    // ***** GridItemsLayout Bindings *****
-
-    /// <summary>
-    /// Allows binding to the HorizontalItemSpacingProperty as BindHorizontalItemSpacing for the GridItemsLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type GridItemsLayout.</returns>
-    public static Bindings.BindableProperty<double> BindHorizontalItemSpacing(this GridItemsLayout _) => Bindings.BindableProperty<double>.Create(GridItemsLayout.HorizontalItemSpacingProperty);
-
-    /// <summary>
-    /// Allows binding to the SpanProperty as BindSpan for the GridItemsLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type GridItemsLayout.</returns>
-    public static Bindings.BindableProperty<int> BindSpan(this GridItemsLayout _) => Bindings.BindableProperty<int>.Create(GridItemsLayout.SpanProperty);
-
-    /// <summary>
-    /// Allows binding to the VerticalItemSpacingProperty as BindVerticalItemSpacing for the GridItemsLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type GridItemsLayout.</returns>
-    public static Bindings.BindableProperty<double> BindVerticalItemSpacing(this GridItemsLayout _) => Bindings.BindableProperty<double>.Create(GridItemsLayout.VerticalItemSpacingProperty);
-
-    // ***** GroupableItemsView Bindings *****
-
-    /// <summary>
-    /// Allows binding to the GroupFooterTemplateProperty as BindGroupFooterTemplate for the GroupableItemsView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type GroupableItemsView.</returns>
-    public static Bindings.BindableProperty<DataTemplate> BindGroupFooterTemplate(this GroupableItemsView _) => Bindings.BindableProperty<DataTemplate>.Create(GroupableItemsView.GroupFooterTemplateProperty);
-
-    /// <summary>
-    /// Allows binding to the GroupHeaderTemplateProperty as BindGroupHeaderTemplate for the GroupableItemsView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type GroupableItemsView.</returns>
-    public static Bindings.BindableProperty<DataTemplate> BindGroupHeaderTemplate(this GroupableItemsView _) => Bindings.BindableProperty<DataTemplate>.Create(GroupableItemsView.GroupHeaderTemplateProperty);
-
-    /// <summary>
-    /// Allows binding to the IsGroupedProperty as BindIsGrouped for the GroupableItemsView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type GroupableItemsView.</returns>
-    public static Bindings.BindableProperty<bool> BindIsGrouped(this GroupableItemsView _) => Bindings.BindableProperty<bool>.Create(GroupableItemsView.IsGroupedProperty);
-
     // ***** HtmlWebViewSource Bindings *****
 
     /// <summary>
@@ -2202,43 +1711,6 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type HybridWebView.</returns>
     public static Bindings.BindableProperty<string> BindHybridRoot(this HybridWebView _) => Bindings.BindableProperty<string>.Create(HybridWebView.HybridRootProperty);
-
-    // ***** Image Bindings *****
-
-    /// <summary>
-    /// Allows binding to the AspectProperty as BindAspect for the Image control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Image.</returns>
-    public static Bindings.BindableProperty<Aspect> BindAspect(this Image _) => Bindings.BindableProperty<Aspect>.Create(Image.AspectProperty);
-
-    /// <summary>
-    /// Allows binding to the IsAnimationPlayingProperty as BindIsAnimationPlaying for the Image control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Image.</returns>
-    public static Bindings.BindableProperty<bool> BindIsAnimationPlaying(this Image _) => Bindings.BindableProperty<bool>.Create(Image.IsAnimationPlayingProperty);
-
-    /// <summary>
-    /// Allows binding to the IsLoadingProperty as BindIsLoading for the Image control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Image.</returns>
-    public static Bindings.BindableProperty<bool> BindIsLoading(this Image _) => Bindings.BindableProperty<bool>.Create(Image.IsLoadingProperty);
-
-    /// <summary>
-    /// Allows binding to the IsOpaqueProperty as BindIsOpaque for the Image control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Image.</returns>
-    public static Bindings.BindableProperty<bool> BindIsOpaque(this Image _) => Bindings.BindableProperty<bool>.Create(Image.IsOpaqueProperty);
-
-    /// <summary>
-    /// Allows binding to the SourceProperty as BindSource for the Image control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Image.</returns>
-    public static Bindings.BindableProperty<ImageSource> BindSource(this Image _) => Bindings.BindableProperty<ImageSource>.Create(Image.SourceProperty);
 
     // ***** ImageButton Bindings *****
 
@@ -2319,14 +1791,74 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type ImageButton.</returns>
     public static Bindings.BindableProperty<ImageSource> BindSource(this ImageButton _) => Bindings.BindableProperty<ImageSource>.Create(ImageButton.SourceProperty);
 
-    // ***** ImageCell Bindings *****
+    // ***** Image Bindings *****
 
     /// <summary>
-    /// Allows binding to the ImageSourceProperty as BindImageSource for the ImageCell control.
+    /// Allows binding to the AspectProperty as BindAspect for the Image control.
     /// </summary>
     /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type ImageCell.</returns>
-    public static Bindings.BindableProperty<ImageSource> BindImageSource(this ImageCell _) => Bindings.BindableProperty<ImageSource>.Create(ImageCell.ImageSourceProperty);
+    /// <returns>Generic BindableProperty of type Image.</returns>
+    public static Bindings.BindableProperty<Aspect> BindAspect(this Image _) => Bindings.BindableProperty<Aspect>.Create(Image.AspectProperty);
+
+    /// <summary>
+    /// Allows binding to the IsAnimationPlayingProperty as BindIsAnimationPlaying for the Image control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Image.</returns>
+    public static Bindings.BindableProperty<bool> BindIsAnimationPlaying(this Image _) => Bindings.BindableProperty<bool>.Create(Image.IsAnimationPlayingProperty);
+
+    /// <summary>
+    /// Allows binding to the IsLoadingProperty as BindIsLoading for the Image control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Image.</returns>
+    public static Bindings.BindableProperty<bool> BindIsLoading(this Image _) => Bindings.BindableProperty<bool>.Create(Image.IsLoadingProperty);
+
+    /// <summary>
+    /// Allows binding to the IsOpaqueProperty as BindIsOpaque for the Image control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Image.</returns>
+    public static Bindings.BindableProperty<bool> BindIsOpaque(this Image _) => Bindings.BindableProperty<bool>.Create(Image.IsOpaqueProperty);
+
+    /// <summary>
+    /// Allows binding to the SourceProperty as BindSource for the Image control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Image.</returns>
+    public static Bindings.BindableProperty<ImageSource> BindSource(this Image _) => Bindings.BindableProperty<ImageSource>.Create(Image.SourceProperty);
+
+    // ***** StreamImageSource Bindings *****
+
+    /// <summary>
+    /// Allows binding to the StreamProperty as BindStream for the StreamImageSource control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type StreamImageSource.</returns>
+    public static Bindings.BindableProperty<Func<Task<Stream>>> BindStream(this StreamImageSource _) => Bindings.BindableProperty<Func<Task<Stream>>>.Create(StreamImageSource.StreamProperty);
+
+    // ***** UriImageSource Bindings *****
+
+    /// <summary>
+    /// Allows binding to the CacheValidityProperty as BindCacheValidity for the UriImageSource control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type UriImageSource.</returns>
+    public static Bindings.BindableProperty<TimeSpan> BindCacheValidity(this UriImageSource _) => Bindings.BindableProperty<TimeSpan>.Create(UriImageSource.CacheValidityProperty);
+
+    /// <summary>
+    /// Allows binding to the CachingEnabledProperty as BindCachingEnabled for the UriImageSource control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type UriImageSource.</returns>
+    public static Bindings.BindableProperty<bool> BindCachingEnabled(this UriImageSource _) => Bindings.BindableProperty<bool>.Create(UriImageSource.CachingEnabledProperty);
+
+    /// <summary>
+    /// Allows binding to the UriProperty as BindUri for the UriImageSource control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type UriImageSource.</returns>
+    public static Bindings.BindableProperty<Uri> BindUri(this UriImageSource _) => Bindings.BindableProperty<Uri>.Create(UriImageSource.UriProperty);
 
     // ***** IndicatorView Bindings *****
 
@@ -2521,6 +2053,152 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type InputView.</returns>
     public static Bindings.BindableProperty<TextTransform> BindTextTransform(this InputView _) => Bindings.BindableProperty<TextTransform>.Create(InputView.TextTransformProperty);
 
+    // ***** CarouselView Bindings *****
+
+    /// <summary>
+    /// Allows binding to the CurrentItemChangedCommandParameterProperty as BindCurrentItemChangedCommandParameter for the CarouselView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CarouselView.</returns>
+    public static Bindings.BindableProperty<object> BindCurrentItemChangedCommandParameter(this CarouselView _) => Bindings.BindableProperty<object>.Create(CarouselView.CurrentItemChangedCommandParameterProperty);
+
+    /// <summary>
+    /// Allows binding to the CurrentItemChangedCommandProperty as BindCurrentItemChangedCommand for the CarouselView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CarouselView.</returns>
+    public static Bindings.BindableProperty<ICommand> BindCurrentItemChangedCommand(this CarouselView _) => Bindings.BindableProperty<ICommand>.Create(CarouselView.CurrentItemChangedCommandProperty);
+
+    /// <summary>
+    /// Allows binding to the CurrentItemProperty as BindCurrentItem for the CarouselView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CarouselView.</returns>
+    public static Bindings.BindableProperty<object> BindCurrentItem(this CarouselView _) => Bindings.BindableProperty<object>.Create(CarouselView.CurrentItemProperty);
+
+    /// <summary>
+    /// Allows binding to the IsBounceEnabledProperty as BindIsBounceEnabled for the CarouselView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CarouselView.</returns>
+    public static Bindings.BindableProperty<bool> BindIsBounceEnabled(this CarouselView _) => Bindings.BindableProperty<bool>.Create(CarouselView.IsBounceEnabledProperty);
+
+    /// <summary>
+    /// Allows binding to the IsDraggingProperty as BindIsDragging for the CarouselView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CarouselView.</returns>
+    public static Bindings.BindableProperty<bool> BindIsDragging(this CarouselView _) => Bindings.BindableProperty<bool>.Create(CarouselView.IsDraggingProperty);
+
+    /// <summary>
+    /// Allows binding to the IsScrollAnimatedProperty as BindIsScrollAnimated for the CarouselView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CarouselView.</returns>
+    public static Bindings.BindableProperty<bool> BindIsScrollAnimated(this CarouselView _) => Bindings.BindableProperty<bool>.Create(CarouselView.IsScrollAnimatedProperty);
+
+    /// <summary>
+    /// Allows binding to the IsSwipeEnabledProperty as BindIsSwipeEnabled for the CarouselView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CarouselView.</returns>
+    public static Bindings.BindableProperty<bool> BindIsSwipeEnabled(this CarouselView _) => Bindings.BindableProperty<bool>.Create(CarouselView.IsSwipeEnabledProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsLayoutProperty as BindItemsLayout for the CarouselView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CarouselView.</returns>
+    public static Bindings.BindableProperty<LinearItemsLayout> BindItemsLayout(this CarouselView _) => Bindings.BindableProperty<LinearItemsLayout>.Create(CarouselView.ItemsLayoutProperty);
+
+    /// <summary>
+    /// Allows binding to the LoopProperty as BindLoop for the CarouselView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CarouselView.</returns>
+    public static Bindings.BindableProperty<bool> BindLoop(this CarouselView _) => Bindings.BindableProperty<bool>.Create(CarouselView.LoopProperty);
+
+    /// <summary>
+    /// Allows binding to the PeekAreaInsetsProperty as BindPeekAreaInsets for the CarouselView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CarouselView.</returns>
+    public static Bindings.BindableProperty<Thickness> BindPeekAreaInsets(this CarouselView _) => Bindings.BindableProperty<Thickness>.Create(CarouselView.PeekAreaInsetsProperty);
+
+    /// <summary>
+    /// Allows binding to the PositionChangedCommandParameterProperty as BindPositionChangedCommandParameter for the CarouselView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CarouselView.</returns>
+    public static Bindings.BindableProperty<object> BindPositionChangedCommandParameter(this CarouselView _) => Bindings.BindableProperty<object>.Create(CarouselView.PositionChangedCommandParameterProperty);
+
+    /// <summary>
+    /// Allows binding to the PositionChangedCommandProperty as BindPositionChangedCommand for the CarouselView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CarouselView.</returns>
+    public static Bindings.BindableProperty<ICommand> BindPositionChangedCommand(this CarouselView _) => Bindings.BindableProperty<ICommand>.Create(CarouselView.PositionChangedCommandProperty);
+
+    /// <summary>
+    /// Allows binding to the PositionProperty as BindPosition for the CarouselView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CarouselView.</returns>
+    public static Bindings.BindableProperty<int> BindPosition(this CarouselView _) => Bindings.BindableProperty<int>.Create(CarouselView.PositionProperty);
+
+    /// <summary>
+    /// Allows binding to the VisibleViewsProperty as BindVisibleViews for the CarouselView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CarouselView.</returns>
+    public static Bindings.BindableProperty<ObservableCollection<View>> BindVisibleViews(this CarouselView _) => Bindings.BindableProperty<ObservableCollection<View>>.Create(CarouselView.VisibleViewsProperty);
+
+    // ***** GridItemsLayout Bindings *****
+
+    /// <summary>
+    /// Allows binding to the HorizontalItemSpacingProperty as BindHorizontalItemSpacing for the GridItemsLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type GridItemsLayout.</returns>
+    public static Bindings.BindableProperty<double> BindHorizontalItemSpacing(this GridItemsLayout _) => Bindings.BindableProperty<double>.Create(GridItemsLayout.HorizontalItemSpacingProperty);
+
+    /// <summary>
+    /// Allows binding to the SpanProperty as BindSpan for the GridItemsLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type GridItemsLayout.</returns>
+    public static Bindings.BindableProperty<int> BindSpan(this GridItemsLayout _) => Bindings.BindableProperty<int>.Create(GridItemsLayout.SpanProperty);
+
+    /// <summary>
+    /// Allows binding to the VerticalItemSpacingProperty as BindVerticalItemSpacing for the GridItemsLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type GridItemsLayout.</returns>
+    public static Bindings.BindableProperty<double> BindVerticalItemSpacing(this GridItemsLayout _) => Bindings.BindableProperty<double>.Create(GridItemsLayout.VerticalItemSpacingProperty);
+
+    // ***** GroupableItemsView Bindings *****
+
+    /// <summary>
+    /// Allows binding to the GroupFooterTemplateProperty as BindGroupFooterTemplate for the GroupableItemsView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type GroupableItemsView.</returns>
+    public static Bindings.BindableProperty<DataTemplate> BindGroupFooterTemplate(this GroupableItemsView _) => Bindings.BindableProperty<DataTemplate>.Create(GroupableItemsView.GroupFooterTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the GroupHeaderTemplateProperty as BindGroupHeaderTemplate for the GroupableItemsView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type GroupableItemsView.</returns>
+    public static Bindings.BindableProperty<DataTemplate> BindGroupHeaderTemplate(this GroupableItemsView _) => Bindings.BindableProperty<DataTemplate>.Create(GroupableItemsView.GroupHeaderTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the IsGroupedProperty as BindIsGrouped for the GroupableItemsView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type GroupableItemsView.</returns>
+    public static Bindings.BindableProperty<bool> BindIsGrouped(this GroupableItemsView _) => Bindings.BindableProperty<bool>.Create(GroupableItemsView.IsGroupedProperty);
+
     // ***** ItemsLayout Bindings *****
 
     /// <summary>
@@ -2608,6 +2286,112 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ItemsView.</returns>
     public static Bindings.BindableProperty<ScrollBarVisibility> BindVerticalScrollBarVisibility(this ItemsView _) => Bindings.BindableProperty<ScrollBarVisibility>.Create(ItemsView.VerticalScrollBarVisibilityProperty);
+
+    // ***** LinearItemsLayout Bindings *****
+
+    /// <summary>
+    /// Allows binding to the ItemSpacingProperty as BindItemSpacing for the LinearItemsLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type LinearItemsLayout.</returns>
+    public static Bindings.BindableProperty<double> BindItemSpacing(this LinearItemsLayout _) => Bindings.BindableProperty<double>.Create(LinearItemsLayout.ItemSpacingProperty);
+
+    // ***** ReorderableItemsView Bindings *****
+
+    /// <summary>
+    /// Allows binding to the CanMixGroupsProperty as BindCanMixGroups for the ReorderableItemsView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ReorderableItemsView.</returns>
+    public static Bindings.BindableProperty<bool> BindCanMixGroups(this ReorderableItemsView _) => Bindings.BindableProperty<bool>.Create(ReorderableItemsView.CanMixGroupsProperty);
+
+    /// <summary>
+    /// Allows binding to the CanReorderItemsProperty as BindCanReorderItems for the ReorderableItemsView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ReorderableItemsView.</returns>
+    public static Bindings.BindableProperty<bool> BindCanReorderItems(this ReorderableItemsView _) => Bindings.BindableProperty<bool>.Create(ReorderableItemsView.CanReorderItemsProperty);
+
+    // ***** SelectableItemsView Bindings *****
+
+    /// <summary>
+    /// Allows binding to the SelectedItemProperty as BindSelectedItem for the SelectableItemsView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type SelectableItemsView.</returns>
+    public static Bindings.BindableProperty<object> BindSelectedItem(this SelectableItemsView _) => Bindings.BindableProperty<object>.Create(SelectableItemsView.SelectedItemProperty);
+
+    /// <summary>
+    /// Allows binding to the SelectedItemsProperty as BindSelectedItems for the SelectableItemsView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type SelectableItemsView.</returns>
+    public static Bindings.BindableProperty<IList<object>> BindSelectedItems(this SelectableItemsView _) => Bindings.BindableProperty<IList<object>>.Create(SelectableItemsView.SelectedItemsProperty);
+
+    /// <summary>
+    /// Allows binding to the SelectionChangedCommandParameterProperty as BindSelectionChangedCommandParameter for the SelectableItemsView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type SelectableItemsView.</returns>
+    public static Bindings.BindableProperty<object> BindSelectionChangedCommandParameter(this SelectableItemsView _) => Bindings.BindableProperty<object>.Create(SelectableItemsView.SelectionChangedCommandParameterProperty);
+
+    /// <summary>
+    /// Allows binding to the SelectionChangedCommandProperty as BindSelectionChangedCommand for the SelectableItemsView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type SelectableItemsView.</returns>
+    public static Bindings.BindableProperty<ICommand> BindSelectionChangedCommand(this SelectableItemsView _) => Bindings.BindableProperty<ICommand>.Create(SelectableItemsView.SelectionChangedCommandProperty);
+
+    /// <summary>
+    /// Allows binding to the SelectionModeProperty as BindSelectionMode for the SelectableItemsView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type SelectableItemsView.</returns>
+    public static Bindings.BindableProperty<SelectionMode> BindSelectionMode(this SelectableItemsView _) => Bindings.BindableProperty<SelectionMode>.Create(SelectableItemsView.SelectionModeProperty);
+
+    // ***** StructuredItemsView Bindings *****
+
+    /// <summary>
+    /// Allows binding to the FooterProperty as BindFooter for the StructuredItemsView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type StructuredItemsView.</returns>
+    public static Bindings.BindableProperty<object> BindFooter(this StructuredItemsView _) => Bindings.BindableProperty<object>.Create(StructuredItemsView.FooterProperty);
+
+    /// <summary>
+    /// Allows binding to the FooterTemplateProperty as BindFooterTemplate for the StructuredItemsView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type StructuredItemsView.</returns>
+    public static Bindings.BindableProperty<DataTemplate> BindFooterTemplate(this StructuredItemsView _) => Bindings.BindableProperty<DataTemplate>.Create(StructuredItemsView.FooterTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the HeaderProperty as BindHeader for the StructuredItemsView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type StructuredItemsView.</returns>
+    public static Bindings.BindableProperty<object> BindHeader(this StructuredItemsView _) => Bindings.BindableProperty<object>.Create(StructuredItemsView.HeaderProperty);
+
+    /// <summary>
+    /// Allows binding to the HeaderTemplateProperty as BindHeaderTemplate for the StructuredItemsView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type StructuredItemsView.</returns>
+    public static Bindings.BindableProperty<DataTemplate> BindHeaderTemplate(this StructuredItemsView _) => Bindings.BindableProperty<DataTemplate>.Create(StructuredItemsView.HeaderTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemSizingStrategyProperty as BindItemSizingStrategy for the StructuredItemsView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type StructuredItemsView.</returns>
+    public static Bindings.BindableProperty<ItemSizingStrategy> BindItemSizingStrategy(this StructuredItemsView _) => Bindings.BindableProperty<ItemSizingStrategy>.Create(StructuredItemsView.ItemSizingStrategyProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsLayoutProperty as BindItemsLayout for the StructuredItemsView control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type StructuredItemsView.</returns>
+    public static Bindings.BindableProperty<IItemsLayout> BindItemsLayout(this StructuredItemsView _) => Bindings.BindableProperty<IItemsLayout>.Create(StructuredItemsView.ItemsLayoutProperty);
 
     // ***** KeyboardAccelerator Bindings *****
 
@@ -2746,6 +2530,159 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type Label.</returns>
     public static Bindings.BindableProperty<TextAlignment> BindVerticalTextAlignment(this Label _) => Bindings.BindableProperty<TextAlignment>.Create(Label.VerticalTextAlignmentProperty);
 
+    // ***** AbsoluteLayout Bindings *****
+
+    /// <summary>
+    /// Allows binding to the LayoutBoundsProperty as BindLayoutBounds for the AbsoluteLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type AbsoluteLayout.</returns>
+    public static Bindings.BindableProperty<Rect> BindLayoutBounds(this AbsoluteLayout _) => Bindings.BindableProperty<Rect>.Create(AbsoluteLayout.LayoutBoundsProperty);
+
+    /// <summary>
+    /// Allows binding to the LayoutFlagsProperty as BindLayoutFlags for the AbsoluteLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type AbsoluteLayout.</returns>
+    public static Bindings.BindableProperty<AbsoluteLayoutFlags> BindLayoutFlags(this AbsoluteLayout _) => Bindings.BindableProperty<AbsoluteLayoutFlags>.Create(AbsoluteLayout.LayoutFlagsProperty);
+
+    // ***** FlexLayout Bindings *****
+
+    /// <summary>
+    /// Allows binding to the AlignContentProperty as BindAlignContent for the FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type FlexLayout.</returns>
+    public static Bindings.BindableProperty<FlexAlignContent> BindAlignContent(this FlexLayout _) => Bindings.BindableProperty<FlexAlignContent>.Create(FlexLayout.AlignContentProperty);
+
+    /// <summary>
+    /// Allows binding to the AlignItemsProperty as BindAlignItems for the FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type FlexLayout.</returns>
+    public static Bindings.BindableProperty<FlexAlignItems> BindAlignItems(this FlexLayout _) => Bindings.BindableProperty<FlexAlignItems>.Create(FlexLayout.AlignItemsProperty);
+
+    /// <summary>
+    /// Allows binding to the AlignSelfProperty as BindAlignSelf for the FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type FlexLayout.</returns>
+    public static Bindings.BindableProperty<FlexAlignSelf> BindAlignSelf(this FlexLayout _) => Bindings.BindableProperty<FlexAlignSelf>.Create(FlexLayout.AlignSelfProperty);
+
+    /// <summary>
+    /// Allows binding to the BasisProperty as BindBasis for the FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type FlexLayout.</returns>
+    public static Bindings.BindableProperty<FlexBasis> BindBasis(this FlexLayout _) => Bindings.BindableProperty<FlexBasis>.Create(FlexLayout.BasisProperty);
+
+    /// <summary>
+    /// Allows binding to the DirectionProperty as BindDirection for the FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type FlexLayout.</returns>
+    public static Bindings.BindableProperty<FlexDirection> BindDirection(this FlexLayout _) => Bindings.BindableProperty<FlexDirection>.Create(FlexLayout.DirectionProperty);
+
+    /// <summary>
+    /// Allows binding to the GrowProperty as BindGrow for the FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type FlexLayout.</returns>
+    public static Bindings.BindableProperty<float> BindGrow(this FlexLayout _) => Bindings.BindableProperty<float>.Create(FlexLayout.GrowProperty);
+
+    /// <summary>
+    /// Allows binding to the JustifyContentProperty as BindJustifyContent for the FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type FlexLayout.</returns>
+    public static Bindings.BindableProperty<FlexJustify> BindJustifyContent(this FlexLayout _) => Bindings.BindableProperty<FlexJustify>.Create(FlexLayout.JustifyContentProperty);
+
+    /// <summary>
+    /// Allows binding to the OrderProperty as BindOrder for the FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type FlexLayout.</returns>
+    public static Bindings.BindableProperty<int> BindOrder(this FlexLayout _) => Bindings.BindableProperty<int>.Create(FlexLayout.OrderProperty);
+
+    /// <summary>
+    /// Allows binding to the PositionProperty as BindPosition for the FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type FlexLayout.</returns>
+    public static Bindings.BindableProperty<FlexPosition> BindPosition(this FlexLayout _) => Bindings.BindableProperty<FlexPosition>.Create(FlexLayout.PositionProperty);
+
+    /// <summary>
+    /// Allows binding to the ShrinkProperty as BindShrink for the FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type FlexLayout.</returns>
+    public static Bindings.BindableProperty<float> BindShrink(this FlexLayout _) => Bindings.BindableProperty<float>.Create(FlexLayout.ShrinkProperty);
+
+    /// <summary>
+    /// Allows binding to the WrapProperty as BindWrap for the FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type FlexLayout.</returns>
+    public static Bindings.BindableProperty<FlexWrap> BindWrap(this FlexLayout _) => Bindings.BindableProperty<FlexWrap>.Create(FlexLayout.WrapProperty);
+
+    // ***** Grid Bindings *****
+
+    /// <summary>
+    /// Allows binding to the ColumnDefinitionsProperty as BindColumnDefinitions for the Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Grid.</returns>
+    public static Bindings.BindableProperty<ColumnDefinitionCollection> BindColumnDefinitions(this Grid _) => Bindings.BindableProperty<ColumnDefinitionCollection>.Create(Grid.ColumnDefinitionsProperty);
+
+    /// <summary>
+    /// Allows binding to the ColumnProperty as BindColumn for the Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Grid.</returns>
+    public static Bindings.BindableProperty<int> BindColumn(this Grid _) => Bindings.BindableProperty<int>.Create(Grid.ColumnProperty);
+
+    /// <summary>
+    /// Allows binding to the ColumnSpacingProperty as BindColumnSpacing for the Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Grid.</returns>
+    public static Bindings.BindableProperty<double> BindColumnSpacing(this Grid _) => Bindings.BindableProperty<double>.Create(Grid.ColumnSpacingProperty);
+
+    /// <summary>
+    /// Allows binding to the ColumnSpanProperty as BindColumnSpan for the Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Grid.</returns>
+    public static Bindings.BindableProperty<int> BindColumnSpan(this Grid _) => Bindings.BindableProperty<int>.Create(Grid.ColumnSpanProperty);
+
+    /// <summary>
+    /// Allows binding to the RowDefinitionsProperty as BindRowDefinitions for the Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Grid.</returns>
+    public static Bindings.BindableProperty<RowDefinitionCollection> BindRowDefinitions(this Grid _) => Bindings.BindableProperty<RowDefinitionCollection>.Create(Grid.RowDefinitionsProperty);
+
+    /// <summary>
+    /// Allows binding to the RowProperty as BindRow for the Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Grid.</returns>
+    public static Bindings.BindableProperty<int> BindRow(this Grid _) => Bindings.BindableProperty<int>.Create(Grid.RowProperty);
+
+    /// <summary>
+    /// Allows binding to the RowSpacingProperty as BindRowSpacing for the Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Grid.</returns>
+    public static Bindings.BindableProperty<double> BindRowSpacing(this Grid _) => Bindings.BindableProperty<double>.Create(Grid.RowSpacingProperty);
+
+    /// <summary>
+    /// Allows binding to the RowSpanProperty as BindRowSpan for the Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Grid.</returns>
+    public static Bindings.BindableProperty<int> BindRowSpan(this Grid _) => Bindings.BindableProperty<int>.Create(Grid.RowSpanProperty);
+
     // ***** Layout Bindings *****
 
     /// <summary>
@@ -2769,61 +2706,23 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type Layout.</returns>
     public static Bindings.BindableProperty<Thickness> BindPadding(this Layout _) => Bindings.BindableProperty<Thickness>.Create(Layout.PaddingProperty);
 
-    // ***** Microsoft.Maui.Controls.Compatibility.Layout Bindings *****
+    // ***** StackBase Bindings *****
 
     /// <summary>
-    /// Allows binding to the CascadeInputTransparentProperty as BindCascadeInputTransparent for the Microsoft.Maui.Controls.Compatibility.Layout control.
+    /// Allows binding to the SpacingProperty as BindSpacing for the StackBase control.
     /// </summary>
     /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Layout.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.Layout instead. For more information, see https://learn.microsoft.com/dotnet/maui/user-interface/layouts/custom")]
-    public static Bindings.BindableProperty<bool> BindCascadeInputTransparent(this Microsoft.Maui.Controls.Compatibility.Layout _) => Bindings.BindableProperty<bool>.Create(Microsoft.Maui.Controls.Compatibility.Layout.CascadeInputTransparentProperty);
+    /// <returns>Generic BindableProperty of type StackBase.</returns>
+    public static Bindings.BindableProperty<double> BindSpacing(this StackBase _) => Bindings.BindableProperty<double>.Create(StackBase.SpacingProperty);
+
+    // ***** StackLayout Bindings *****
 
     /// <summary>
-    /// Allows binding to the IsClippedToBoundsProperty as BindIsClippedToBounds for the Microsoft.Maui.Controls.Compatibility.Layout control.
+    /// Allows binding to the OrientationProperty as BindOrientation for the StackLayout control.
     /// </summary>
     /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Layout.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.Layout instead. For more information, see https://learn.microsoft.com/dotnet/maui/user-interface/layouts/custom")]
-    public static Bindings.BindableProperty<bool> BindIsClippedToBounds(this Microsoft.Maui.Controls.Compatibility.Layout _) => Bindings.BindableProperty<bool>.Create(Microsoft.Maui.Controls.Compatibility.Layout.IsClippedToBoundsProperty);
-
-    /// <summary>
-    /// Allows binding to the PaddingProperty as BindPadding for the Microsoft.Maui.Controls.Compatibility.Layout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Layout.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.Layout instead. For more information, see https://learn.microsoft.com/dotnet/maui/user-interface/layouts/custom")]
-    public static Bindings.BindableProperty<Thickness> BindPadding(this Microsoft.Maui.Controls.Compatibility.Layout _) => Bindings.BindableProperty<Thickness>.Create(Microsoft.Maui.Controls.Compatibility.Layout.PaddingProperty);
-
-    // ***** Line Bindings *****
-
-    /// <summary>
-    /// Allows binding to the X1Property as BindX1 for the Line control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Line.</returns>
-    public static Bindings.BindableProperty<double> BindX1(this Line _) => Bindings.BindableProperty<double>.Create(Line.X1Property);
-
-    /// <summary>
-    /// Allows binding to the X2Property as BindX2 for the Line control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Line.</returns>
-    public static Bindings.BindableProperty<double> BindX2(this Line _) => Bindings.BindableProperty<double>.Create(Line.X2Property);
-
-    /// <summary>
-    /// Allows binding to the Y1Property as BindY1 for the Line control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Line.</returns>
-    public static Bindings.BindableProperty<double> BindY1(this Line _) => Bindings.BindableProperty<double>.Create(Line.Y1Property);
-
-    /// <summary>
-    /// Allows binding to the Y2Property as BindY2 for the Line control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Line.</returns>
-    public static Bindings.BindableProperty<double> BindY2(this Line _) => Bindings.BindableProperty<double>.Create(Line.Y2Property);
+    /// <returns>Generic BindableProperty of type StackLayout.</returns>
+    public static Bindings.BindableProperty<StackOrientation> BindOrientation(this StackLayout _) => Bindings.BindableProperty<StackOrientation>.Create(StackLayout.OrientationProperty);
 
     // ***** LinearGradientBrush Bindings *****
 
@@ -2840,40 +2739,6 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type LinearGradientBrush.</returns>
     public static Bindings.BindableProperty<Point> BindStartPoint(this LinearGradientBrush _) => Bindings.BindableProperty<Point>.Create(LinearGradientBrush.StartPointProperty);
-
-    // ***** LinearItemsLayout Bindings *****
-
-    /// <summary>
-    /// Allows binding to the ItemSpacingProperty as BindItemSpacing for the LinearItemsLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type LinearItemsLayout.</returns>
-    public static Bindings.BindableProperty<double> BindItemSpacing(this LinearItemsLayout _) => Bindings.BindableProperty<double>.Create(LinearItemsLayout.ItemSpacingProperty);
-
-    // ***** LineGeometry Bindings *****
-
-    /// <summary>
-    /// Allows binding to the EndPointProperty as BindEndPoint for the LineGeometry control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type LineGeometry.</returns>
-    public static Bindings.BindableProperty<Point> BindEndPoint(this LineGeometry _) => Bindings.BindableProperty<Point>.Create(LineGeometry.EndPointProperty);
-
-    /// <summary>
-    /// Allows binding to the StartPointProperty as BindStartPoint for the LineGeometry control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type LineGeometry.</returns>
-    public static Bindings.BindableProperty<Point> BindStartPoint(this LineGeometry _) => Bindings.BindableProperty<Point>.Create(LineGeometry.StartPointProperty);
-
-    // ***** LineSegment Bindings *****
-
-    /// <summary>
-    /// Allows binding to the PointProperty as BindPoint for the LineSegment control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type LineSegment.</returns>
-    public static Bindings.BindableProperty<Point> BindPoint(this LineSegment _) => Bindings.BindableProperty<Point>.Create(LineSegment.PointProperty);
 
     // ***** ListView Bindings *****
 
@@ -3003,14 +2868,14 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type ListView.</returns>
     public static Bindings.BindableProperty<ScrollBarVisibility> BindVerticalScrollBarVisibility(this ListView _) => Bindings.BindableProperty<ScrollBarVisibility>.Create(ListView.VerticalScrollBarVisibilityProperty);
 
-    // ***** MatrixTransform Bindings *****
+    // ***** FlyoutBase Bindings *****
 
     /// <summary>
-    /// Allows binding to the MatrixProperty as BindMatrix for the MatrixTransform control.
+    /// Allows binding to the ContextFlyoutProperty as BindContextFlyout for the FlyoutBase control.
     /// </summary>
     /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type MatrixTransform.</returns>
-    public static Bindings.BindableProperty<Matrix> BindMatrix(this MatrixTransform _) => Bindings.BindableProperty<Matrix>.Create(MatrixTransform.MatrixProperty);
+    /// <returns>Generic BindableProperty of type FlyoutBase.</returns>
+    public static Bindings.BindableProperty<FlyoutBase> BindContextFlyout(this FlyoutBase _) => Bindings.BindableProperty<FlyoutBase>.Create(FlyoutBase.ContextFlyoutProperty);
 
     // ***** MenuBar Bindings *****
 
@@ -3238,68 +3103,6 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type PanGestureRecognizer.</returns>
     public static Bindings.BindableProperty<int> BindTouchPoints(this PanGestureRecognizer _) => Bindings.BindableProperty<int>.Create(PanGestureRecognizer.TouchPointsProperty);
 
-    // ***** Path Bindings *****
-
-    /// <summary>
-    /// Allows binding to the DataProperty as BindData for the Path control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Path.</returns>
-    public static Bindings.BindableProperty<Geometry> BindData(this Path _) => Bindings.BindableProperty<Geometry>.Create(Path.DataProperty);
-
-    /// <summary>
-    /// Allows binding to the RenderTransformProperty as BindRenderTransform for the Path control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Path.</returns>
-    public static Bindings.BindableProperty<Transform> BindRenderTransform(this Path _) => Bindings.BindableProperty<Transform>.Create(Path.RenderTransformProperty);
-
-    // ***** PathFigure Bindings *****
-
-    /// <summary>
-    /// Allows binding to the IsClosedProperty as BindIsClosed for the PathFigure control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type PathFigure.</returns>
-    public static Bindings.BindableProperty<bool> BindIsClosed(this PathFigure _) => Bindings.BindableProperty<bool>.Create(PathFigure.IsClosedProperty);
-
-    /// <summary>
-    /// Allows binding to the IsFilledProperty as BindIsFilled for the PathFigure control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type PathFigure.</returns>
-    public static Bindings.BindableProperty<bool> BindIsFilled(this PathFigure _) => Bindings.BindableProperty<bool>.Create(PathFigure.IsFilledProperty);
-
-    /// <summary>
-    /// Allows binding to the SegmentsProperty as BindSegments for the PathFigure control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type PathFigure.</returns>
-    public static Bindings.BindableProperty<PathSegmentCollection> BindSegments(this PathFigure _) => Bindings.BindableProperty<PathSegmentCollection>.Create(PathFigure.SegmentsProperty);
-
-    /// <summary>
-    /// Allows binding to the StartPointProperty as BindStartPoint for the PathFigure control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type PathFigure.</returns>
-    public static Bindings.BindableProperty<Point> BindStartPoint(this PathFigure _) => Bindings.BindableProperty<Point>.Create(PathFigure.StartPointProperty);
-
-    // ***** PathGeometry Bindings *****
-
-    /// <summary>
-    /// Allows binding to the FiguresProperty as BindFigures for the PathGeometry control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type PathGeometry.</returns>
-    public static Bindings.BindableProperty<PathFigureCollection> BindFigures(this PathGeometry _) => Bindings.BindableProperty<PathFigureCollection>.Create(PathGeometry.FiguresProperty);
-
-    /// <summary>
-    /// Allows binding to the FillRuleProperty as BindFillRule for the PathGeometry control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type PathGeometry.</returns>
-    public static Bindings.BindableProperty<FillRule> BindFillRule(this PathGeometry _) => Bindings.BindableProperty<FillRule>.Create(PathGeometry.FillRuleProperty);
-
     // ***** Picker Bindings *****
 
     /// <summary>
@@ -3465,65 +3268,6 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type PointerGestureRecognizer.</returns>
     public static Bindings.BindableProperty<ICommand> BindPointerReleasedCommand(this PointerGestureRecognizer _) => Bindings.BindableProperty<ICommand>.Create(PointerGestureRecognizer.PointerReleasedCommandProperty);
 
-    // ***** PolyBezierSegment Bindings *****
-
-    /// <summary>
-    /// Allows binding to the PointsProperty as BindPoints for the PolyBezierSegment control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type PolyBezierSegment.</returns>
-    public static Bindings.BindableProperty<PointCollection> BindPoints(this PolyBezierSegment _) => Bindings.BindableProperty<PointCollection>.Create(PolyBezierSegment.PointsProperty);
-
-    // ***** Polygon Bindings *****
-
-    /// <summary>
-    /// Allows binding to the FillRuleProperty as BindFillRule for the Polygon control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Polygon.</returns>
-    public static Bindings.BindableProperty<FillRule> BindFillRule(this Polygon _) => Bindings.BindableProperty<FillRule>.Create(Polygon.FillRuleProperty);
-
-    /// <summary>
-    /// Allows binding to the PointsProperty as BindPoints for the Polygon control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Polygon.</returns>
-    public static Bindings.BindableProperty<PointCollection> BindPoints(this Polygon _) => Bindings.BindableProperty<PointCollection>.Create(Polygon.PointsProperty);
-
-    // ***** Polyline Bindings *****
-
-    /// <summary>
-    /// Allows binding to the FillRuleProperty as BindFillRule for the Polyline control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Polyline.</returns>
-    public static Bindings.BindableProperty<FillRule> BindFillRule(this Polyline _) => Bindings.BindableProperty<FillRule>.Create(Polyline.FillRuleProperty);
-
-    /// <summary>
-    /// Allows binding to the PointsProperty as BindPoints for the Polyline control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Polyline.</returns>
-    public static Bindings.BindableProperty<PointCollection> BindPoints(this Polyline _) => Bindings.BindableProperty<PointCollection>.Create(Polyline.PointsProperty);
-
-    // ***** PolyLineSegment Bindings *****
-
-    /// <summary>
-    /// Allows binding to the PointsProperty as BindPoints for the PolyLineSegment control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type PolyLineSegment.</returns>
-    public static Bindings.BindableProperty<PointCollection> BindPoints(this PolyLineSegment _) => Bindings.BindableProperty<PointCollection>.Create(PolyLineSegment.PointsProperty);
-
-    // ***** PolyQuadraticBezierSegment Bindings *****
-
-    /// <summary>
-    /// Allows binding to the PointsProperty as BindPoints for the PolyQuadraticBezierSegment control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type PolyQuadraticBezierSegment.</returns>
-    public static Bindings.BindableProperty<PointCollection> BindPoints(this PolyQuadraticBezierSegment _) => Bindings.BindableProperty<PointCollection>.Create(PolyQuadraticBezierSegment.PointsProperty);
-
     // ***** ProgressBar Bindings *****
 
     /// <summary>
@@ -3539,22 +3283,6 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ProgressBar.</returns>
     public static Bindings.BindableProperty<double> BindProgress(this ProgressBar _) => Bindings.BindableProperty<double>.Create(ProgressBar.ProgressProperty);
-
-    // ***** QuadraticBezierSegment Bindings *****
-
-    /// <summary>
-    /// Allows binding to the Point1Property as BindPoint1 for the QuadraticBezierSegment control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type QuadraticBezierSegment.</returns>
-    public static Bindings.BindableProperty<Point> BindPoint1(this QuadraticBezierSegment _) => Bindings.BindableProperty<Point>.Create(QuadraticBezierSegment.Point1Property);
-
-    /// <summary>
-    /// Allows binding to the Point2Property as BindPoint2 for the QuadraticBezierSegment control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type QuadraticBezierSegment.</returns>
-    public static Bindings.BindableProperty<Point> BindPoint2(this QuadraticBezierSegment _) => Bindings.BindableProperty<Point>.Create(QuadraticBezierSegment.Point2Property);
 
     // ***** RadialGradientBrush Bindings *****
 
@@ -3672,31 +3400,6 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type RadioButton.</returns>
     public static Bindings.BindableProperty<object> BindValue(this RadioButton _) => Bindings.BindableProperty<object>.Create(RadioButton.ValueProperty);
 
-    // ***** Rectangle Bindings *****
-
-    /// <summary>
-    /// Allows binding to the RadiusXProperty as BindRadiusX for the Rectangle control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Rectangle.</returns>
-    public static Bindings.BindableProperty<double> BindRadiusX(this Rectangle _) => Bindings.BindableProperty<double>.Create(Rectangle.RadiusXProperty);
-
-    /// <summary>
-    /// Allows binding to the RadiusYProperty as BindRadiusY for the Rectangle control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Rectangle.</returns>
-    public static Bindings.BindableProperty<double> BindRadiusY(this Rectangle _) => Bindings.BindableProperty<double>.Create(Rectangle.RadiusYProperty);
-
-    // ***** RectangleGeometry Bindings *****
-
-    /// <summary>
-    /// Allows binding to the RectProperty as BindRect for the RectangleGeometry control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type RectangleGeometry.</returns>
-    public static Bindings.BindableProperty<Rect> BindRect(this RectangleGeometry _) => Bindings.BindableProperty<Rect>.Create(RectangleGeometry.RectProperty);
-
     // ***** RefreshView Bindings *****
 
     /// <summary>
@@ -3727,107 +3430,6 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type RefreshView.</returns>
     public static Bindings.BindableProperty<Color> BindRefreshColor(this RefreshView _) => Bindings.BindableProperty<Color>.Create(RefreshView.RefreshColorProperty);
 
-    // ***** Microsoft.Maui.Controls.Compatibility.RelativeLayout Bindings *****
-
-    /// <summary>
-    /// Allows binding to the BoundsConstraintProperty as BindBoundsConstraint for the Microsoft.Maui.Controls.Compatibility.RelativeLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.RelativeLayout.</returns>
-    public static Bindings.BindableProperty<BoundsConstraint> BindBoundsConstraint(this Microsoft.Maui.Controls.Compatibility.RelativeLayout _) => Bindings.BindableProperty<BoundsConstraint>.Create(Microsoft.Maui.Controls.Compatibility.RelativeLayout.BoundsConstraintProperty);
-
-    /// <summary>
-    /// Allows binding to the HeightConstraintProperty as BindHeightConstraint for the Microsoft.Maui.Controls.Compatibility.RelativeLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.RelativeLayout.</returns>
-    public static Bindings.BindableProperty<Microsoft.Maui.Controls.Compatibility.Constraint> BindHeightConstraint(this Microsoft.Maui.Controls.Compatibility.RelativeLayout _) => Bindings.BindableProperty<Microsoft.Maui.Controls.Compatibility.Constraint>.Create(Microsoft.Maui.Controls.Compatibility.RelativeLayout.HeightConstraintProperty);
-
-    /// <summary>
-    /// Allows binding to the WidthConstraintProperty as BindWidthConstraint for the Microsoft.Maui.Controls.Compatibility.RelativeLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.RelativeLayout.</returns>
-    public static Bindings.BindableProperty<Microsoft.Maui.Controls.Compatibility.Constraint> BindWidthConstraint(this Microsoft.Maui.Controls.Compatibility.RelativeLayout _) => Bindings.BindableProperty<Microsoft.Maui.Controls.Compatibility.Constraint>.Create(Microsoft.Maui.Controls.Compatibility.RelativeLayout.WidthConstraintProperty);
-
-    /// <summary>
-    /// Allows binding to the XConstraintProperty as BindXConstraint for the Microsoft.Maui.Controls.Compatibility.RelativeLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.RelativeLayout.</returns>
-    public static Bindings.BindableProperty<Microsoft.Maui.Controls.Compatibility.Constraint> BindXConstraint(this Microsoft.Maui.Controls.Compatibility.RelativeLayout _) => Bindings.BindableProperty<Microsoft.Maui.Controls.Compatibility.Constraint>.Create(Microsoft.Maui.Controls.Compatibility.RelativeLayout.XConstraintProperty);
-
-    /// <summary>
-    /// Allows binding to the YConstraintProperty as BindYConstraint for the Microsoft.Maui.Controls.Compatibility.RelativeLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.RelativeLayout.</returns>
-    public static Bindings.BindableProperty<Microsoft.Maui.Controls.Compatibility.Constraint> BindYConstraint(this Microsoft.Maui.Controls.Compatibility.RelativeLayout _) => Bindings.BindableProperty<Microsoft.Maui.Controls.Compatibility.Constraint>.Create(Microsoft.Maui.Controls.Compatibility.RelativeLayout.YConstraintProperty);
-
-    // ***** ReorderableItemsView Bindings *****
-
-    /// <summary>
-    /// Allows binding to the CanMixGroupsProperty as BindCanMixGroups for the ReorderableItemsView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type ReorderableItemsView.</returns>
-    public static Bindings.BindableProperty<bool> BindCanMixGroups(this ReorderableItemsView _) => Bindings.BindableProperty<bool>.Create(ReorderableItemsView.CanMixGroupsProperty);
-
-    /// <summary>
-    /// Allows binding to the CanReorderItemsProperty as BindCanReorderItems for the ReorderableItemsView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type ReorderableItemsView.</returns>
-    public static Bindings.BindableProperty<bool> BindCanReorderItems(this ReorderableItemsView _) => Bindings.BindableProperty<bool>.Create(ReorderableItemsView.CanReorderItemsProperty);
-
-    // ***** RotateTransform Bindings *****
-
-    /// <summary>
-    /// Allows binding to the AngleProperty as BindAngle for the RotateTransform control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type RotateTransform.</returns>
-    public static Bindings.BindableProperty<double> BindAngle(this RotateTransform _) => Bindings.BindableProperty<double>.Create(RotateTransform.AngleProperty);
-
-    /// <summary>
-    /// Allows binding to the CenterXProperty as BindCenterX for the RotateTransform control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type RotateTransform.</returns>
-    public static Bindings.BindableProperty<double> BindCenterX(this RotateTransform _) => Bindings.BindableProperty<double>.Create(RotateTransform.CenterXProperty);
-
-    /// <summary>
-    /// Allows binding to the CenterYProperty as BindCenterY for the RotateTransform control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type RotateTransform.</returns>
-    public static Bindings.BindableProperty<double> BindCenterY(this RotateTransform _) => Bindings.BindableProperty<double>.Create(RotateTransform.CenterYProperty);
-
-    // ***** RoundRectangle Bindings *****
-
-    /// <summary>
-    /// Allows binding to the CornerRadiusProperty as BindCornerRadius for the RoundRectangle control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type RoundRectangle.</returns>
-    public static Bindings.BindableProperty<CornerRadius> BindCornerRadius(this RoundRectangle _) => Bindings.BindableProperty<CornerRadius>.Create(RoundRectangle.CornerRadiusProperty);
-
-    // ***** RoundRectangleGeometry Bindings *****
-
-    /// <summary>
-    /// Allows binding to the CornerRadiusProperty as BindCornerRadius for the RoundRectangleGeometry control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type RoundRectangleGeometry.</returns>
-    public static Bindings.BindableProperty<CornerRadius> BindCornerRadius(this RoundRectangleGeometry _) => Bindings.BindableProperty<CornerRadius>.Create(RoundRectangleGeometry.CornerRadiusProperty);
-
-    /// <summary>
-    /// Allows binding to the RectProperty as BindRect for the RoundRectangleGeometry control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type RoundRectangleGeometry.</returns>
-    public static Bindings.BindableProperty<Rect> BindRect(this RoundRectangleGeometry _) => Bindings.BindableProperty<Rect>.Create(RoundRectangleGeometry.RectProperty);
-
     // ***** RowDefinition Bindings *****
 
     /// <summary>
@@ -3836,36 +3438,6 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type RowDefinition.</returns>
     public static Bindings.BindableProperty<GridLength> BindHeight(this RowDefinition _) => Bindings.BindableProperty<GridLength>.Create(RowDefinition.HeightProperty);
-
-    // ***** ScaleTransform Bindings *****
-
-    /// <summary>
-    /// Allows binding to the CenterXProperty as BindCenterX for the ScaleTransform control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type ScaleTransform.</returns>
-    public static Bindings.BindableProperty<double> BindCenterX(this ScaleTransform _) => Bindings.BindableProperty<double>.Create(ScaleTransform.CenterXProperty);
-
-    /// <summary>
-    /// Allows binding to the CenterYProperty as BindCenterY for the ScaleTransform control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type ScaleTransform.</returns>
-    public static Bindings.BindableProperty<double> BindCenterY(this ScaleTransform _) => Bindings.BindableProperty<double>.Create(ScaleTransform.CenterYProperty);
-
-    /// <summary>
-    /// Allows binding to the ScaleXProperty as BindScaleX for the ScaleTransform control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type ScaleTransform.</returns>
-    public static Bindings.BindableProperty<double> BindScaleX(this ScaleTransform _) => Bindings.BindableProperty<double>.Create(ScaleTransform.ScaleXProperty);
-
-    /// <summary>
-    /// Allows binding to the ScaleYProperty as BindScaleY for the ScaleTransform control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type ScaleTransform.</returns>
-    public static Bindings.BindableProperty<double> BindScaleY(this ScaleTransform _) => Bindings.BindableProperty<double>.Create(ScaleTransform.ScaleYProperty);
 
     // ***** ScrollView Bindings *****
 
@@ -4031,6 +3603,138 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type SearchBar.</returns>
     public static Bindings.BindableProperty<TextAlignment> BindVerticalTextAlignment(this SearchBar _) => Bindings.BindableProperty<TextAlignment>.Create(SearchBar.VerticalTextAlignmentProperty);
+
+    // ***** Shadow Bindings *****
+
+    /// <summary>
+    /// Allows binding to the BrushProperty as BindBrush for the Shadow control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Shadow.</returns>
+    public static Bindings.BindableProperty<Brush> BindBrush(this Shadow _) => Bindings.BindableProperty<Brush>.Create(Shadow.BrushProperty);
+
+    /// <summary>
+    /// Allows binding to the OffsetProperty as BindOffset for the Shadow control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Shadow.</returns>
+    public static Bindings.BindableProperty<Point> BindOffset(this Shadow _) => Bindings.BindableProperty<Point>.Create(Shadow.OffsetProperty);
+
+    /// <summary>
+    /// Allows binding to the OpacityProperty as BindOpacity for the Shadow control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Shadow.</returns>
+    public static Bindings.BindableProperty<float> BindOpacity(this Shadow _) => Bindings.BindableProperty<float>.Create(Shadow.OpacityProperty);
+
+    /// <summary>
+    /// Allows binding to the RadiusProperty as BindRadius for the Shadow control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Shadow.</returns>
+    public static Bindings.BindableProperty<float> BindRadius(this Shadow _) => Bindings.BindableProperty<float>.Create(Shadow.RadiusProperty);
+
+    // ***** BackButtonBehavior Bindings *****
+
+    /// <summary>
+    /// Allows binding to the CommandParameterProperty as BindCommandParameter for the BackButtonBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type BackButtonBehavior.</returns>
+    public static Bindings.BindableProperty<object> BindCommandParameter(this BackButtonBehavior _) => Bindings.BindableProperty<object>.Create(BackButtonBehavior.CommandParameterProperty);
+
+    /// <summary>
+    /// Allows binding to the CommandProperty as BindCommand for the BackButtonBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type BackButtonBehavior.</returns>
+    public static Bindings.BindableProperty<ICommand> BindCommand(this BackButtonBehavior _) => Bindings.BindableProperty<ICommand>.Create(BackButtonBehavior.CommandProperty);
+
+    /// <summary>
+    /// Allows binding to the IconOverrideProperty as BindIconOverride for the BackButtonBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type BackButtonBehavior.</returns>
+    public static Bindings.BindableProperty<ImageSource> BindIconOverride(this BackButtonBehavior _) => Bindings.BindableProperty<ImageSource>.Create(BackButtonBehavior.IconOverrideProperty);
+
+    /// <summary>
+    /// Allows binding to the IsEnabledProperty as BindIsEnabled for the BackButtonBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type BackButtonBehavior.</returns>
+    public static Bindings.BindableProperty<bool> BindIsEnabled(this BackButtonBehavior _) => Bindings.BindableProperty<bool>.Create(BackButtonBehavior.IsEnabledProperty);
+
+    /// <summary>
+    /// Allows binding to the IsVisibleProperty as BindIsVisible for the BackButtonBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type BackButtonBehavior.</returns>
+    public static Bindings.BindableProperty<bool> BindIsVisible(this BackButtonBehavior _) => Bindings.BindableProperty<bool>.Create(BackButtonBehavior.IsVisibleProperty);
+
+    /// <summary>
+    /// Allows binding to the TextOverrideProperty as BindTextOverride for the BackButtonBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type BackButtonBehavior.</returns>
+    public static Bindings.BindableProperty<string> BindTextOverride(this BackButtonBehavior _) => Bindings.BindableProperty<string>.Create(BackButtonBehavior.TextOverrideProperty);
+
+    // ***** BaseShellItem Bindings *****
+
+    /// <summary>
+    /// Allows binding to the FlyoutIconProperty as BindFlyoutIcon for the BaseShellItem control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type BaseShellItem.</returns>
+    public static Bindings.BindableProperty<ImageSource> BindFlyoutIcon(this BaseShellItem _) => Bindings.BindableProperty<ImageSource>.Create(BaseShellItem.FlyoutIconProperty);
+
+    /// <summary>
+    /// Allows binding to the FlyoutItemIsVisibleProperty as BindFlyoutItemIsVisible for the BaseShellItem control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type BaseShellItem.</returns>
+    public static Bindings.BindableProperty<bool> BindFlyoutItemIsVisible(this BaseShellItem _) => Bindings.BindableProperty<bool>.Create(BaseShellItem.FlyoutItemIsVisibleProperty);
+
+    /// <summary>
+    /// Allows binding to the IconProperty as BindIcon for the BaseShellItem control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type BaseShellItem.</returns>
+    public static Bindings.BindableProperty<ImageSource> BindIcon(this BaseShellItem _) => Bindings.BindableProperty<ImageSource>.Create(BaseShellItem.IconProperty);
+
+    /// <summary>
+    /// Allows binding to the IsCheckedProperty as BindIsChecked for the BaseShellItem control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type BaseShellItem.</returns>
+    public static Bindings.BindableProperty<bool> BindIsChecked(this BaseShellItem _) => Bindings.BindableProperty<bool>.Create(BaseShellItem.IsCheckedProperty);
+
+    /// <summary>
+    /// Allows binding to the IsEnabledProperty as BindIsEnabled for the BaseShellItem control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type BaseShellItem.</returns>
+    public static Bindings.BindableProperty<bool> BindIsEnabled(this BaseShellItem _) => Bindings.BindableProperty<bool>.Create(BaseShellItem.IsEnabledProperty);
+
+    /// <summary>
+    /// Allows binding to the IsVisibleProperty as BindIsVisible for the BaseShellItem control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type BaseShellItem.</returns>
+    public static Bindings.BindableProperty<bool> BindIsVisible(this BaseShellItem _) => Bindings.BindableProperty<bool>.Create(BaseShellItem.IsVisibleProperty);
+
+    /// <summary>
+    /// Allows binding to the TitleProperty as BindTitle for the BaseShellItem control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type BaseShellItem.</returns>
+    public static Bindings.BindableProperty<string> BindTitle(this BaseShellItem _) => Bindings.BindableProperty<string>.Create(BaseShellItem.TitleProperty);
+
+    /// <summary>
+    /// Allows binding to the WindowProperty as BindWindow for the BaseShellItem control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type BaseShellItem.</returns>
+    public static Bindings.BindableProperty<Window> BindWindow(this BaseShellItem _) => Bindings.BindableProperty<Window>.Create(BaseShellItem.WindowProperty);
 
     // ***** SearchHandler Bindings *****
 
@@ -4299,138 +4003,6 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type SearchHandler.</returns>
     public static Bindings.BindableProperty<TextAlignment> BindVerticalTextAlignment(this SearchHandler _) => Bindings.BindableProperty<TextAlignment>.Create(SearchHandler.VerticalTextAlignmentProperty);
-
-    // ***** SelectableItemsView Bindings *****
-
-    /// <summary>
-    /// Allows binding to the SelectedItemProperty as BindSelectedItem for the SelectableItemsView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type SelectableItemsView.</returns>
-    public static Bindings.BindableProperty<object> BindSelectedItem(this SelectableItemsView _) => Bindings.BindableProperty<object>.Create(SelectableItemsView.SelectedItemProperty);
-
-    /// <summary>
-    /// Allows binding to the SelectedItemsProperty as BindSelectedItems for the SelectableItemsView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type SelectableItemsView.</returns>
-    public static Bindings.BindableProperty<IList<object>> BindSelectedItems(this SelectableItemsView _) => Bindings.BindableProperty<IList<object>>.Create(SelectableItemsView.SelectedItemsProperty);
-
-    /// <summary>
-    /// Allows binding to the SelectionChangedCommandParameterProperty as BindSelectionChangedCommandParameter for the SelectableItemsView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type SelectableItemsView.</returns>
-    public static Bindings.BindableProperty<object> BindSelectionChangedCommandParameter(this SelectableItemsView _) => Bindings.BindableProperty<object>.Create(SelectableItemsView.SelectionChangedCommandParameterProperty);
-
-    /// <summary>
-    /// Allows binding to the SelectionChangedCommandProperty as BindSelectionChangedCommand for the SelectableItemsView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type SelectableItemsView.</returns>
-    public static Bindings.BindableProperty<ICommand> BindSelectionChangedCommand(this SelectableItemsView _) => Bindings.BindableProperty<ICommand>.Create(SelectableItemsView.SelectionChangedCommandProperty);
-
-    /// <summary>
-    /// Allows binding to the SelectionModeProperty as BindSelectionMode for the SelectableItemsView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type SelectableItemsView.</returns>
-    public static Bindings.BindableProperty<SelectionMode> BindSelectionMode(this SelectableItemsView _) => Bindings.BindableProperty<SelectionMode>.Create(SelectableItemsView.SelectionModeProperty);
-
-    // ***** Shadow Bindings *****
-
-    /// <summary>
-    /// Allows binding to the BrushProperty as BindBrush for the Shadow control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Shadow.</returns>
-    public static Bindings.BindableProperty<Brush> BindBrush(this Shadow _) => Bindings.BindableProperty<Brush>.Create(Shadow.BrushProperty);
-
-    /// <summary>
-    /// Allows binding to the OffsetProperty as BindOffset for the Shadow control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Shadow.</returns>
-    public static Bindings.BindableProperty<Point> BindOffset(this Shadow _) => Bindings.BindableProperty<Point>.Create(Shadow.OffsetProperty);
-
-    /// <summary>
-    /// Allows binding to the OpacityProperty as BindOpacity for the Shadow control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Shadow.</returns>
-    public static Bindings.BindableProperty<float> BindOpacity(this Shadow _) => Bindings.BindableProperty<float>.Create(Shadow.OpacityProperty);
-
-    /// <summary>
-    /// Allows binding to the RadiusProperty as BindRadius for the Shadow control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Shadow.</returns>
-    public static Bindings.BindableProperty<float> BindRadius(this Shadow _) => Bindings.BindableProperty<float>.Create(Shadow.RadiusProperty);
-
-    // ***** Shape Bindings *****
-
-    /// <summary>
-    /// Allows binding to the AspectProperty as BindAspect for the Shape control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Shape.</returns>
-    public static Bindings.BindableProperty<Stretch> BindAspect(this Shape _) => Bindings.BindableProperty<Stretch>.Create(Shape.AspectProperty);
-
-    /// <summary>
-    /// Allows binding to the FillProperty as BindFill for the Shape control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Shape.</returns>
-    public static Bindings.BindableProperty<Brush> BindFill(this Shape _) => Bindings.BindableProperty<Brush>.Create(Shape.FillProperty);
-
-    /// <summary>
-    /// Allows binding to the StrokeDashArrayProperty as BindStrokeDashArray for the Shape control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Shape.</returns>
-    public static Bindings.BindableProperty<DoubleCollection> BindStrokeDashArray(this Shape _) => Bindings.BindableProperty<DoubleCollection>.Create(Shape.StrokeDashArrayProperty);
-
-    /// <summary>
-    /// Allows binding to the StrokeDashOffsetProperty as BindStrokeDashOffset for the Shape control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Shape.</returns>
-    public static Bindings.BindableProperty<double> BindStrokeDashOffset(this Shape _) => Bindings.BindableProperty<double>.Create(Shape.StrokeDashOffsetProperty);
-
-    /// <summary>
-    /// Allows binding to the StrokeLineCapProperty as BindStrokeLineCap for the Shape control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Shape.</returns>
-    public static Bindings.BindableProperty<PenLineCap> BindStrokeLineCap(this Shape _) => Bindings.BindableProperty<PenLineCap>.Create(Shape.StrokeLineCapProperty);
-
-    /// <summary>
-    /// Allows binding to the StrokeLineJoinProperty as BindStrokeLineJoin for the Shape control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Shape.</returns>
-    public static Bindings.BindableProperty<PenLineJoin> BindStrokeLineJoin(this Shape _) => Bindings.BindableProperty<PenLineJoin>.Create(Shape.StrokeLineJoinProperty);
-
-    /// <summary>
-    /// Allows binding to the StrokeMiterLimitProperty as BindStrokeMiterLimit for the Shape control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Shape.</returns>
-    public static Bindings.BindableProperty<double> BindStrokeMiterLimit(this Shape _) => Bindings.BindableProperty<double>.Create(Shape.StrokeMiterLimitProperty);
-
-    /// <summary>
-    /// Allows binding to the StrokeProperty as BindStroke for the Shape control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Shape.</returns>
-    public static Bindings.BindableProperty<Brush> BindStroke(this Shape _) => Bindings.BindableProperty<Brush>.Create(Shape.StrokeProperty);
-
-    /// <summary>
-    /// Allows binding to the StrokeThicknessProperty as BindStrokeThickness for the Shape control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Shape.</returns>
-    public static Bindings.BindableProperty<double> BindStrokeThickness(this Shape _) => Bindings.BindableProperty<double>.Create(Shape.StrokeThicknessProperty);
 
     // ***** Shell Bindings *****
 
@@ -4746,6 +4318,15 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type ShellGroupItem.</returns>
     public static Bindings.BindableProperty<FlyoutDisplayOptions> BindFlyoutDisplayOptions(this ShellGroupItem _) => Bindings.BindableProperty<FlyoutDisplayOptions>.Create(ShellGroupItem.FlyoutDisplayOptionsProperty);
 
+    // ***** FlyoutItem Bindings *****
+
+    /// <summary>
+    /// Allows binding to the IsVisibleProperty as BindIsVisible for the FlyoutItem control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type FlyoutItem.</returns>
+    public static Bindings.BindableProperty<bool> BindIsVisible(this FlyoutItem _) => Bindings.BindableProperty<bool>.Create(FlyoutItem.IsVisibleProperty);
+
     // ***** ShellItem Bindings *****
 
     /// <summary>
@@ -4763,36 +4344,6 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ShellSection.</returns>
     public static Bindings.BindableProperty<ShellContent> BindCurrentItem(this ShellSection _) => Bindings.BindableProperty<ShellContent>.Create(ShellSection.CurrentItemProperty);
-
-    // ***** SkewTransform Bindings *****
-
-    /// <summary>
-    /// Allows binding to the AngleXProperty as BindAngleX for the SkewTransform control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type SkewTransform.</returns>
-    public static Bindings.BindableProperty<double> BindAngleX(this SkewTransform _) => Bindings.BindableProperty<double>.Create(SkewTransform.AngleXProperty);
-
-    /// <summary>
-    /// Allows binding to the AngleYProperty as BindAngleY for the SkewTransform control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type SkewTransform.</returns>
-    public static Bindings.BindableProperty<double> BindAngleY(this SkewTransform _) => Bindings.BindableProperty<double>.Create(SkewTransform.AngleYProperty);
-
-    /// <summary>
-    /// Allows binding to the CenterXProperty as BindCenterX for the SkewTransform control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type SkewTransform.</returns>
-    public static Bindings.BindableProperty<double> BindCenterX(this SkewTransform _) => Bindings.BindableProperty<double>.Create(SkewTransform.CenterXProperty);
-
-    /// <summary>
-    /// Allows binding to the CenterYProperty as BindCenterY for the SkewTransform control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type SkewTransform.</returns>
-    public static Bindings.BindableProperty<double> BindCenterY(this SkewTransform _) => Bindings.BindableProperty<double>.Create(SkewTransform.CenterYProperty);
 
     // ***** Slider Bindings *****
 
@@ -4954,42 +4505,6 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type Span.</returns>
     public static Bindings.BindableProperty<TextTransform> BindTextTransform(this Span _) => Bindings.BindableProperty<TextTransform>.Create(Span.TextTransformProperty);
 
-    // ***** StackBase Bindings *****
-
-    /// <summary>
-    /// Allows binding to the SpacingProperty as BindSpacing for the StackBase control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type StackBase.</returns>
-    public static Bindings.BindableProperty<double> BindSpacing(this StackBase _) => Bindings.BindableProperty<double>.Create(StackBase.SpacingProperty);
-
-    // ***** StackLayout Bindings *****
-
-    /// <summary>
-    /// Allows binding to the OrientationProperty as BindOrientation for the StackLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type StackLayout.</returns>
-    public static Bindings.BindableProperty<StackOrientation> BindOrientation(this StackLayout _) => Bindings.BindableProperty<StackOrientation>.Create(StackLayout.OrientationProperty);
-
-    // ***** Microsoft.Maui.Controls.Compatibility.StackLayout Bindings *****
-
-    /// <summary>
-    /// Allows binding to the OrientationProperty as BindOrientation for the Microsoft.Maui.Controls.Compatibility.StackLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.StackLayout.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.StackLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<StackOrientation> BindOrientation(this Microsoft.Maui.Controls.Compatibility.StackLayout _) => Bindings.BindableProperty<StackOrientation>.Create(Microsoft.Maui.Controls.Compatibility.StackLayout.OrientationProperty);
-
-    /// <summary>
-    /// Allows binding to the SpacingProperty as BindSpacing for the Microsoft.Maui.Controls.Compatibility.StackLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.StackLayout.</returns>
-    [Obsolete("Use Microsoft.Maui.Controls.StackLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
-    public static Bindings.BindableProperty<double> BindSpacing(this Microsoft.Maui.Controls.Compatibility.StackLayout _) => Bindings.BindableProperty<double>.Create(Microsoft.Maui.Controls.Compatibility.StackLayout.SpacingProperty);
-
     // ***** StateTrigger Bindings *****
 
     /// <summary>
@@ -5028,59 +4543,6 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Stepper.</returns>
     public static Bindings.BindableProperty<double> BindValue(this Stepper _) => Bindings.BindableProperty<double>.Create(Stepper.ValueProperty);
-
-    // ***** StreamImageSource Bindings *****
-
-    /// <summary>
-    /// Allows binding to the StreamProperty as BindStream for the StreamImageSource control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type StreamImageSource.</returns>
-    public static Bindings.BindableProperty<Func<Task<Stream>>> BindStream(this StreamImageSource _) => Bindings.BindableProperty<Func<Task<Stream>>>.Create(StreamImageSource.StreamProperty);
-
-    // ***** StructuredItemsView Bindings *****
-
-    /// <summary>
-    /// Allows binding to the FooterProperty as BindFooter for the StructuredItemsView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type StructuredItemsView.</returns>
-    public static Bindings.BindableProperty<object> BindFooter(this StructuredItemsView _) => Bindings.BindableProperty<object>.Create(StructuredItemsView.FooterProperty);
-
-    /// <summary>
-    /// Allows binding to the FooterTemplateProperty as BindFooterTemplate for the StructuredItemsView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type StructuredItemsView.</returns>
-    public static Bindings.BindableProperty<DataTemplate> BindFooterTemplate(this StructuredItemsView _) => Bindings.BindableProperty<DataTemplate>.Create(StructuredItemsView.FooterTemplateProperty);
-
-    /// <summary>
-    /// Allows binding to the HeaderProperty as BindHeader for the StructuredItemsView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type StructuredItemsView.</returns>
-    public static Bindings.BindableProperty<object> BindHeader(this StructuredItemsView _) => Bindings.BindableProperty<object>.Create(StructuredItemsView.HeaderProperty);
-
-    /// <summary>
-    /// Allows binding to the HeaderTemplateProperty as BindHeaderTemplate for the StructuredItemsView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type StructuredItemsView.</returns>
-    public static Bindings.BindableProperty<DataTemplate> BindHeaderTemplate(this StructuredItemsView _) => Bindings.BindableProperty<DataTemplate>.Create(StructuredItemsView.HeaderTemplateProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemSizingStrategyProperty as BindItemSizingStrategy for the StructuredItemsView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type StructuredItemsView.</returns>
-    public static Bindings.BindableProperty<ItemSizingStrategy> BindItemSizingStrategy(this StructuredItemsView _) => Bindings.BindableProperty<ItemSizingStrategy>.Create(StructuredItemsView.ItemSizingStrategyProperty);
-
-    /// <summary>
-    /// Allows binding to the ItemsLayoutProperty as BindItemsLayout for the StructuredItemsView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type StructuredItemsView.</returns>
-    public static Bindings.BindableProperty<IItemsLayout> BindItemsLayout(this StructuredItemsView _) => Bindings.BindableProperty<IItemsLayout>.Create(StructuredItemsView.ItemsLayoutProperty);
 
     // ***** StyleableElement Bindings *****
 
@@ -5229,29 +4691,6 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type Switch.</returns>
     public static Bindings.BindableProperty<Color> BindThumbColor(this Switch _) => Bindings.BindableProperty<Color>.Create(Switch.ThumbColorProperty);
 
-    // ***** SwitchCell Bindings *****
-
-    /// <summary>
-    /// Allows binding to the OnColorProperty as BindOnColor for the SwitchCell control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type SwitchCell.</returns>
-    public static Bindings.BindableProperty<Color> BindOnColor(this SwitchCell _) => Bindings.BindableProperty<Color>.Create(SwitchCell.OnColorProperty);
-
-    /// <summary>
-    /// Allows binding to the OnProperty as BindOn for the SwitchCell control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type SwitchCell.</returns>
-    public static Bindings.BindableProperty<bool> BindOn(this SwitchCell _) => Bindings.BindableProperty<bool>.Create(SwitchCell.OnProperty);
-
-    /// <summary>
-    /// Allows binding to the TextProperty as BindText for the SwitchCell control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type SwitchCell.</returns>
-    public static Bindings.BindableProperty<string> BindText(this SwitchCell _) => Bindings.BindableProperty<string>.Create(SwitchCell.TextProperty);
-
     // ***** TabbedPage Bindings *****
 
     /// <summary>
@@ -5369,50 +4808,6 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type TemplatedView.</returns>
     public static Bindings.BindableProperty<ControlTemplate> BindControlTemplate(this TemplatedView _) => Bindings.BindableProperty<ControlTemplate>.Create(TemplatedView.ControlTemplateProperty);
 
-    // ***** TextCell Bindings *****
-
-    /// <summary>
-    /// Allows binding to the CommandParameterProperty as BindCommandParameter for the TextCell control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type TextCell.</returns>
-    public static Bindings.BindableProperty<object> BindCommandParameter(this TextCell _) => Bindings.BindableProperty<object>.Create(TextCell.CommandParameterProperty);
-
-    /// <summary>
-    /// Allows binding to the CommandProperty as BindCommand for the TextCell control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type TextCell.</returns>
-    public static Bindings.BindableProperty<ICommand> BindCommand(this TextCell _) => Bindings.BindableProperty<ICommand>.Create(TextCell.CommandProperty);
-
-    /// <summary>
-    /// Allows binding to the DetailColorProperty as BindDetailColor for the TextCell control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type TextCell.</returns>
-    public static Bindings.BindableProperty<Color> BindDetailColor(this TextCell _) => Bindings.BindableProperty<Color>.Create(TextCell.DetailColorProperty);
-
-    /// <summary>
-    /// Allows binding to the DetailProperty as BindDetail for the TextCell control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type TextCell.</returns>
-    public static Bindings.BindableProperty<string> BindDetail(this TextCell _) => Bindings.BindableProperty<string>.Create(TextCell.DetailProperty);
-
-    /// <summary>
-    /// Allows binding to the TextColorProperty as BindTextColor for the TextCell control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type TextCell.</returns>
-    public static Bindings.BindableProperty<Color> BindTextColor(this TextCell _) => Bindings.BindableProperty<Color>.Create(TextCell.TextColorProperty);
-
-    /// <summary>
-    /// Allows binding to the TextProperty as BindText for the TextCell control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type TextCell.</returns>
-    public static Bindings.BindableProperty<string> BindText(this TextCell _) => Bindings.BindableProperty<string>.Create(TextCell.TextProperty);
-
     // ***** TimePicker Bindings *****
 
     /// <summary>
@@ -5521,63 +4916,6 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type TitleBar.</returns>
     public static Bindings.BindableProperty<IView> BindTrailingContent(this TitleBar _) => Bindings.BindableProperty<IView>.Create(TitleBar.TrailingContentProperty);
-
-    // ***** Transform Bindings *****
-
-    /// <summary>
-    /// Allows binding to the ValueProperty as BindValue for the Transform control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Transform.</returns>
-    public static Bindings.BindableProperty<Matrix> BindValue(this Transform _) => Bindings.BindableProperty<Matrix>.Create(Transform.ValueProperty);
-
-    // ***** TransformGroup Bindings *****
-
-    /// <summary>
-    /// Allows binding to the ChildrenProperty as BindChildren for the TransformGroup control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type TransformGroup.</returns>
-    public static Bindings.BindableProperty<TransformCollection> BindChildren(this TransformGroup _) => Bindings.BindableProperty<TransformCollection>.Create(TransformGroup.ChildrenProperty);
-
-    // ***** TranslateTransform Bindings *****
-
-    /// <summary>
-    /// Allows binding to the XProperty as BindX for the TranslateTransform control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type TranslateTransform.</returns>
-    public static Bindings.BindableProperty<double> BindX(this TranslateTransform _) => Bindings.BindableProperty<double>.Create(TranslateTransform.XProperty);
-
-    /// <summary>
-    /// Allows binding to the YProperty as BindY for the TranslateTransform control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type TranslateTransform.</returns>
-    public static Bindings.BindableProperty<double> BindY(this TranslateTransform _) => Bindings.BindableProperty<double>.Create(TranslateTransform.YProperty);
-
-    // ***** UriImageSource Bindings *****
-
-    /// <summary>
-    /// Allows binding to the CacheValidityProperty as BindCacheValidity for the UriImageSource control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type UriImageSource.</returns>
-    public static Bindings.BindableProperty<TimeSpan> BindCacheValidity(this UriImageSource _) => Bindings.BindableProperty<TimeSpan>.Create(UriImageSource.CacheValidityProperty);
-
-    /// <summary>
-    /// Allows binding to the CachingEnabledProperty as BindCachingEnabled for the UriImageSource control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type UriImageSource.</returns>
-    public static Bindings.BindableProperty<bool> BindCachingEnabled(this UriImageSource _) => Bindings.BindableProperty<bool>.Create(UriImageSource.CachingEnabledProperty);
-
-    /// <summary>
-    /// Allows binding to the UriProperty as BindUri for the UriImageSource control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type UriImageSource.</returns>
-    public static Bindings.BindableProperty<Uri> BindUri(this UriImageSource _) => Bindings.BindableProperty<Uri>.Create(UriImageSource.UriProperty);
 
     // ***** UrlWebViewSource Bindings *****
 
@@ -5994,6 +5332,858 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type Window.</returns>
     public static Bindings.BindableProperty<double> BindY(this Window _) => Bindings.BindableProperty<double>.Create(Window.YProperty);
+
+    // ***** ArcSegment Bindings *****
+
+    /// <summary>
+    /// Allows binding to the IsLargeArcProperty as BindIsLargeArc for the ArcSegment control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ArcSegment.</returns>
+    public static Bindings.BindableProperty<bool> BindIsLargeArc(this ArcSegment _) => Bindings.BindableProperty<bool>.Create(ArcSegment.IsLargeArcProperty);
+
+    /// <summary>
+    /// Allows binding to the PointProperty as BindPoint for the ArcSegment control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ArcSegment.</returns>
+    public static Bindings.BindableProperty<Point> BindPoint(this ArcSegment _) => Bindings.BindableProperty<Point>.Create(ArcSegment.PointProperty);
+
+    /// <summary>
+    /// Allows binding to the RotationAngleProperty as BindRotationAngle for the ArcSegment control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ArcSegment.</returns>
+    public static Bindings.BindableProperty<double> BindRotationAngle(this ArcSegment _) => Bindings.BindableProperty<double>.Create(ArcSegment.RotationAngleProperty);
+
+    /// <summary>
+    /// Allows binding to the SizeProperty as BindSize for the ArcSegment control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ArcSegment.</returns>
+    public static Bindings.BindableProperty<Size> BindSize(this ArcSegment _) => Bindings.BindableProperty<Size>.Create(ArcSegment.SizeProperty);
+
+    /// <summary>
+    /// Allows binding to the SweepDirectionProperty as BindSweepDirection for the ArcSegment control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ArcSegment.</returns>
+    public static Bindings.BindableProperty<SweepDirection> BindSweepDirection(this ArcSegment _) => Bindings.BindableProperty<SweepDirection>.Create(ArcSegment.SweepDirectionProperty);
+
+    // ***** BezierSegment Bindings *****
+
+    /// <summary>
+    /// Allows binding to the Point1Property as BindPoint1 for the BezierSegment control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type BezierSegment.</returns>
+    public static Bindings.BindableProperty<Point> BindPoint1(this BezierSegment _) => Bindings.BindableProperty<Point>.Create(BezierSegment.Point1Property);
+
+    /// <summary>
+    /// Allows binding to the Point2Property as BindPoint2 for the BezierSegment control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type BezierSegment.</returns>
+    public static Bindings.BindableProperty<Point> BindPoint2(this BezierSegment _) => Bindings.BindableProperty<Point>.Create(BezierSegment.Point2Property);
+
+    /// <summary>
+    /// Allows binding to the Point3Property as BindPoint3 for the BezierSegment control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type BezierSegment.</returns>
+    public static Bindings.BindableProperty<Point> BindPoint3(this BezierSegment _) => Bindings.BindableProperty<Point>.Create(BezierSegment.Point3Property);
+
+    // ***** CompositeTransform Bindings *****
+
+    /// <summary>
+    /// Allows binding to the CenterXProperty as BindCenterX for the CompositeTransform control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CompositeTransform.</returns>
+    public static Bindings.BindableProperty<double> BindCenterX(this CompositeTransform _) => Bindings.BindableProperty<double>.Create(CompositeTransform.CenterXProperty);
+
+    /// <summary>
+    /// Allows binding to the CenterYProperty as BindCenterY for the CompositeTransform control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CompositeTransform.</returns>
+    public static Bindings.BindableProperty<double> BindCenterY(this CompositeTransform _) => Bindings.BindableProperty<double>.Create(CompositeTransform.CenterYProperty);
+
+    /// <summary>
+    /// Allows binding to the RotationProperty as BindRotation for the CompositeTransform control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CompositeTransform.</returns>
+    public static Bindings.BindableProperty<double> BindRotation(this CompositeTransform _) => Bindings.BindableProperty<double>.Create(CompositeTransform.RotationProperty);
+
+    /// <summary>
+    /// Allows binding to the ScaleXProperty as BindScaleX for the CompositeTransform control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CompositeTransform.</returns>
+    public static Bindings.BindableProperty<double> BindScaleX(this CompositeTransform _) => Bindings.BindableProperty<double>.Create(CompositeTransform.ScaleXProperty);
+
+    /// <summary>
+    /// Allows binding to the ScaleYProperty as BindScaleY for the CompositeTransform control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CompositeTransform.</returns>
+    public static Bindings.BindableProperty<double> BindScaleY(this CompositeTransform _) => Bindings.BindableProperty<double>.Create(CompositeTransform.ScaleYProperty);
+
+    /// <summary>
+    /// Allows binding to the SkewXProperty as BindSkewX for the CompositeTransform control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CompositeTransform.</returns>
+    public static Bindings.BindableProperty<double> BindSkewX(this CompositeTransform _) => Bindings.BindableProperty<double>.Create(CompositeTransform.SkewXProperty);
+
+    /// <summary>
+    /// Allows binding to the SkewYProperty as BindSkewY for the CompositeTransform control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CompositeTransform.</returns>
+    public static Bindings.BindableProperty<double> BindSkewY(this CompositeTransform _) => Bindings.BindableProperty<double>.Create(CompositeTransform.SkewYProperty);
+
+    /// <summary>
+    /// Allows binding to the TranslateXProperty as BindTranslateX for the CompositeTransform control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CompositeTransform.</returns>
+    public static Bindings.BindableProperty<double> BindTranslateX(this CompositeTransform _) => Bindings.BindableProperty<double>.Create(CompositeTransform.TranslateXProperty);
+
+    /// <summary>
+    /// Allows binding to the TranslateYProperty as BindTranslateY for the CompositeTransform control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CompositeTransform.</returns>
+    public static Bindings.BindableProperty<double> BindTranslateY(this CompositeTransform _) => Bindings.BindableProperty<double>.Create(CompositeTransform.TranslateYProperty);
+
+    // ***** EllipseGeometry Bindings *****
+
+    /// <summary>
+    /// Allows binding to the CenterProperty as BindCenter for the EllipseGeometry control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type EllipseGeometry.</returns>
+    public static Bindings.BindableProperty<Point> BindCenter(this EllipseGeometry _) => Bindings.BindableProperty<Point>.Create(EllipseGeometry.CenterProperty);
+
+    /// <summary>
+    /// Allows binding to the RadiusXProperty as BindRadiusX for the EllipseGeometry control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type EllipseGeometry.</returns>
+    public static Bindings.BindableProperty<double> BindRadiusX(this EllipseGeometry _) => Bindings.BindableProperty<double>.Create(EllipseGeometry.RadiusXProperty);
+
+    /// <summary>
+    /// Allows binding to the RadiusYProperty as BindRadiusY for the EllipseGeometry control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type EllipseGeometry.</returns>
+    public static Bindings.BindableProperty<double> BindRadiusY(this EllipseGeometry _) => Bindings.BindableProperty<double>.Create(EllipseGeometry.RadiusYProperty);
+
+    // ***** GeometryGroup Bindings *****
+
+    /// <summary>
+    /// Allows binding to the ChildrenProperty as BindChildren for the GeometryGroup control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type GeometryGroup.</returns>
+    public static Bindings.BindableProperty<GeometryCollection> BindChildren(this GeometryGroup _) => Bindings.BindableProperty<GeometryCollection>.Create(GeometryGroup.ChildrenProperty);
+
+    /// <summary>
+    /// Allows binding to the FillRuleProperty as BindFillRule for the GeometryGroup control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type GeometryGroup.</returns>
+    public static Bindings.BindableProperty<FillRule> BindFillRule(this GeometryGroup _) => Bindings.BindableProperty<FillRule>.Create(GeometryGroup.FillRuleProperty);
+
+    // ***** Line Bindings *****
+
+    /// <summary>
+    /// Allows binding to the X1Property as BindX1 for the Line control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Line.</returns>
+    public static Bindings.BindableProperty<double> BindX1(this Line _) => Bindings.BindableProperty<double>.Create(Line.X1Property);
+
+    /// <summary>
+    /// Allows binding to the X2Property as BindX2 for the Line control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Line.</returns>
+    public static Bindings.BindableProperty<double> BindX2(this Line _) => Bindings.BindableProperty<double>.Create(Line.X2Property);
+
+    /// <summary>
+    /// Allows binding to the Y1Property as BindY1 for the Line control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Line.</returns>
+    public static Bindings.BindableProperty<double> BindY1(this Line _) => Bindings.BindableProperty<double>.Create(Line.Y1Property);
+
+    /// <summary>
+    /// Allows binding to the Y2Property as BindY2 for the Line control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Line.</returns>
+    public static Bindings.BindableProperty<double> BindY2(this Line _) => Bindings.BindableProperty<double>.Create(Line.Y2Property);
+
+    // ***** LineGeometry Bindings *****
+
+    /// <summary>
+    /// Allows binding to the EndPointProperty as BindEndPoint for the LineGeometry control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type LineGeometry.</returns>
+    public static Bindings.BindableProperty<Point> BindEndPoint(this LineGeometry _) => Bindings.BindableProperty<Point>.Create(LineGeometry.EndPointProperty);
+
+    /// <summary>
+    /// Allows binding to the StartPointProperty as BindStartPoint for the LineGeometry control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type LineGeometry.</returns>
+    public static Bindings.BindableProperty<Point> BindStartPoint(this LineGeometry _) => Bindings.BindableProperty<Point>.Create(LineGeometry.StartPointProperty);
+
+    // ***** LineSegment Bindings *****
+
+    /// <summary>
+    /// Allows binding to the PointProperty as BindPoint for the LineSegment control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type LineSegment.</returns>
+    public static Bindings.BindableProperty<Point> BindPoint(this LineSegment _) => Bindings.BindableProperty<Point>.Create(LineSegment.PointProperty);
+
+    // ***** MatrixTransform Bindings *****
+
+    /// <summary>
+    /// Allows binding to the MatrixProperty as BindMatrix for the MatrixTransform control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type MatrixTransform.</returns>
+    public static Bindings.BindableProperty<Matrix> BindMatrix(this MatrixTransform _) => Bindings.BindableProperty<Matrix>.Create(MatrixTransform.MatrixProperty);
+
+    // ***** Path Bindings *****
+
+    /// <summary>
+    /// Allows binding to the DataProperty as BindData for the Path control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Path.</returns>
+    public static Bindings.BindableProperty<Geometry> BindData(this Path _) => Bindings.BindableProperty<Geometry>.Create(Path.DataProperty);
+
+    /// <summary>
+    /// Allows binding to the RenderTransformProperty as BindRenderTransform for the Path control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Path.</returns>
+    public static Bindings.BindableProperty<Transform> BindRenderTransform(this Path _) => Bindings.BindableProperty<Transform>.Create(Path.RenderTransformProperty);
+
+    // ***** PathFigure Bindings *****
+
+    /// <summary>
+    /// Allows binding to the IsClosedProperty as BindIsClosed for the PathFigure control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type PathFigure.</returns>
+    public static Bindings.BindableProperty<bool> BindIsClosed(this PathFigure _) => Bindings.BindableProperty<bool>.Create(PathFigure.IsClosedProperty);
+
+    /// <summary>
+    /// Allows binding to the IsFilledProperty as BindIsFilled for the PathFigure control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type PathFigure.</returns>
+    public static Bindings.BindableProperty<bool> BindIsFilled(this PathFigure _) => Bindings.BindableProperty<bool>.Create(PathFigure.IsFilledProperty);
+
+    /// <summary>
+    /// Allows binding to the SegmentsProperty as BindSegments for the PathFigure control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type PathFigure.</returns>
+    public static Bindings.BindableProperty<PathSegmentCollection> BindSegments(this PathFigure _) => Bindings.BindableProperty<PathSegmentCollection>.Create(PathFigure.SegmentsProperty);
+
+    /// <summary>
+    /// Allows binding to the StartPointProperty as BindStartPoint for the PathFigure control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type PathFigure.</returns>
+    public static Bindings.BindableProperty<Point> BindStartPoint(this PathFigure _) => Bindings.BindableProperty<Point>.Create(PathFigure.StartPointProperty);
+
+    // ***** PathGeometry Bindings *****
+
+    /// <summary>
+    /// Allows binding to the FiguresProperty as BindFigures for the PathGeometry control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type PathGeometry.</returns>
+    public static Bindings.BindableProperty<PathFigureCollection> BindFigures(this PathGeometry _) => Bindings.BindableProperty<PathFigureCollection>.Create(PathGeometry.FiguresProperty);
+
+    /// <summary>
+    /// Allows binding to the FillRuleProperty as BindFillRule for the PathGeometry control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type PathGeometry.</returns>
+    public static Bindings.BindableProperty<FillRule> BindFillRule(this PathGeometry _) => Bindings.BindableProperty<FillRule>.Create(PathGeometry.FillRuleProperty);
+
+    // ***** PolyBezierSegment Bindings *****
+
+    /// <summary>
+    /// Allows binding to the PointsProperty as BindPoints for the PolyBezierSegment control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type PolyBezierSegment.</returns>
+    public static Bindings.BindableProperty<PointCollection> BindPoints(this PolyBezierSegment _) => Bindings.BindableProperty<PointCollection>.Create(PolyBezierSegment.PointsProperty);
+
+    // ***** Polygon Bindings *****
+
+    /// <summary>
+    /// Allows binding to the FillRuleProperty as BindFillRule for the Polygon control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Polygon.</returns>
+    public static Bindings.BindableProperty<FillRule> BindFillRule(this Polygon _) => Bindings.BindableProperty<FillRule>.Create(Polygon.FillRuleProperty);
+
+    /// <summary>
+    /// Allows binding to the PointsProperty as BindPoints for the Polygon control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Polygon.</returns>
+    public static Bindings.BindableProperty<PointCollection> BindPoints(this Polygon _) => Bindings.BindableProperty<PointCollection>.Create(Polygon.PointsProperty);
+
+    // ***** Polyline Bindings *****
+
+    /// <summary>
+    /// Allows binding to the FillRuleProperty as BindFillRule for the Polyline control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Polyline.</returns>
+    public static Bindings.BindableProperty<FillRule> BindFillRule(this Polyline _) => Bindings.BindableProperty<FillRule>.Create(Polyline.FillRuleProperty);
+
+    /// <summary>
+    /// Allows binding to the PointsProperty as BindPoints for the Polyline control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Polyline.</returns>
+    public static Bindings.BindableProperty<PointCollection> BindPoints(this Polyline _) => Bindings.BindableProperty<PointCollection>.Create(Polyline.PointsProperty);
+
+    // ***** PolyLineSegment Bindings *****
+
+    /// <summary>
+    /// Allows binding to the PointsProperty as BindPoints for the PolyLineSegment control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type PolyLineSegment.</returns>
+    public static Bindings.BindableProperty<PointCollection> BindPoints(this PolyLineSegment _) => Bindings.BindableProperty<PointCollection>.Create(PolyLineSegment.PointsProperty);
+
+    // ***** PolyQuadraticBezierSegment Bindings *****
+
+    /// <summary>
+    /// Allows binding to the PointsProperty as BindPoints for the PolyQuadraticBezierSegment control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type PolyQuadraticBezierSegment.</returns>
+    public static Bindings.BindableProperty<PointCollection> BindPoints(this PolyQuadraticBezierSegment _) => Bindings.BindableProperty<PointCollection>.Create(PolyQuadraticBezierSegment.PointsProperty);
+
+    // ***** QuadraticBezierSegment Bindings *****
+
+    /// <summary>
+    /// Allows binding to the Point1Property as BindPoint1 for the QuadraticBezierSegment control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type QuadraticBezierSegment.</returns>
+    public static Bindings.BindableProperty<Point> BindPoint1(this QuadraticBezierSegment _) => Bindings.BindableProperty<Point>.Create(QuadraticBezierSegment.Point1Property);
+
+    /// <summary>
+    /// Allows binding to the Point2Property as BindPoint2 for the QuadraticBezierSegment control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type QuadraticBezierSegment.</returns>
+    public static Bindings.BindableProperty<Point> BindPoint2(this QuadraticBezierSegment _) => Bindings.BindableProperty<Point>.Create(QuadraticBezierSegment.Point2Property);
+
+    // ***** Rectangle Bindings *****
+
+    /// <summary>
+    /// Allows binding to the RadiusXProperty as BindRadiusX for the Rectangle control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Rectangle.</returns>
+    public static Bindings.BindableProperty<double> BindRadiusX(this Rectangle _) => Bindings.BindableProperty<double>.Create(Rectangle.RadiusXProperty);
+
+    /// <summary>
+    /// Allows binding to the RadiusYProperty as BindRadiusY for the Rectangle control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Rectangle.</returns>
+    public static Bindings.BindableProperty<double> BindRadiusY(this Rectangle _) => Bindings.BindableProperty<double>.Create(Rectangle.RadiusYProperty);
+
+    // ***** RectangleGeometry Bindings *****
+
+    /// <summary>
+    /// Allows binding to the RectProperty as BindRect for the RectangleGeometry control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type RectangleGeometry.</returns>
+    public static Bindings.BindableProperty<Rect> BindRect(this RectangleGeometry _) => Bindings.BindableProperty<Rect>.Create(RectangleGeometry.RectProperty);
+
+    // ***** RotateTransform Bindings *****
+
+    /// <summary>
+    /// Allows binding to the AngleProperty as BindAngle for the RotateTransform control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type RotateTransform.</returns>
+    public static Bindings.BindableProperty<double> BindAngle(this RotateTransform _) => Bindings.BindableProperty<double>.Create(RotateTransform.AngleProperty);
+
+    /// <summary>
+    /// Allows binding to the CenterXProperty as BindCenterX for the RotateTransform control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type RotateTransform.</returns>
+    public static Bindings.BindableProperty<double> BindCenterX(this RotateTransform _) => Bindings.BindableProperty<double>.Create(RotateTransform.CenterXProperty);
+
+    /// <summary>
+    /// Allows binding to the CenterYProperty as BindCenterY for the RotateTransform control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type RotateTransform.</returns>
+    public static Bindings.BindableProperty<double> BindCenterY(this RotateTransform _) => Bindings.BindableProperty<double>.Create(RotateTransform.CenterYProperty);
+
+    // ***** RoundRectangle Bindings *****
+
+    /// <summary>
+    /// Allows binding to the CornerRadiusProperty as BindCornerRadius for the RoundRectangle control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type RoundRectangle.</returns>
+    public static Bindings.BindableProperty<CornerRadius> BindCornerRadius(this RoundRectangle _) => Bindings.BindableProperty<CornerRadius>.Create(RoundRectangle.CornerRadiusProperty);
+
+    // ***** RoundRectangleGeometry Bindings *****
+
+    /// <summary>
+    /// Allows binding to the CornerRadiusProperty as BindCornerRadius for the RoundRectangleGeometry control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type RoundRectangleGeometry.</returns>
+    public static Bindings.BindableProperty<CornerRadius> BindCornerRadius(this RoundRectangleGeometry _) => Bindings.BindableProperty<CornerRadius>.Create(RoundRectangleGeometry.CornerRadiusProperty);
+
+    /// <summary>
+    /// Allows binding to the RectProperty as BindRect for the RoundRectangleGeometry control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type RoundRectangleGeometry.</returns>
+    public static Bindings.BindableProperty<Rect> BindRect(this RoundRectangleGeometry _) => Bindings.BindableProperty<Rect>.Create(RoundRectangleGeometry.RectProperty);
+
+    // ***** ScaleTransform Bindings *****
+
+    /// <summary>
+    /// Allows binding to the CenterXProperty as BindCenterX for the ScaleTransform control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ScaleTransform.</returns>
+    public static Bindings.BindableProperty<double> BindCenterX(this ScaleTransform _) => Bindings.BindableProperty<double>.Create(ScaleTransform.CenterXProperty);
+
+    /// <summary>
+    /// Allows binding to the CenterYProperty as BindCenterY for the ScaleTransform control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ScaleTransform.</returns>
+    public static Bindings.BindableProperty<double> BindCenterY(this ScaleTransform _) => Bindings.BindableProperty<double>.Create(ScaleTransform.CenterYProperty);
+
+    /// <summary>
+    /// Allows binding to the ScaleXProperty as BindScaleX for the ScaleTransform control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ScaleTransform.</returns>
+    public static Bindings.BindableProperty<double> BindScaleX(this ScaleTransform _) => Bindings.BindableProperty<double>.Create(ScaleTransform.ScaleXProperty);
+
+    /// <summary>
+    /// Allows binding to the ScaleYProperty as BindScaleY for the ScaleTransform control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type ScaleTransform.</returns>
+    public static Bindings.BindableProperty<double> BindScaleY(this ScaleTransform _) => Bindings.BindableProperty<double>.Create(ScaleTransform.ScaleYProperty);
+
+    // ***** Shape Bindings *****
+
+    /// <summary>
+    /// Allows binding to the AspectProperty as BindAspect for the Shape control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Shape.</returns>
+    public static Bindings.BindableProperty<Stretch> BindAspect(this Shape _) => Bindings.BindableProperty<Stretch>.Create(Shape.AspectProperty);
+
+    /// <summary>
+    /// Allows binding to the FillProperty as BindFill for the Shape control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Shape.</returns>
+    public static Bindings.BindableProperty<Brush> BindFill(this Shape _) => Bindings.BindableProperty<Brush>.Create(Shape.FillProperty);
+
+    /// <summary>
+    /// Allows binding to the StrokeDashArrayProperty as BindStrokeDashArray for the Shape control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Shape.</returns>
+    public static Bindings.BindableProperty<DoubleCollection> BindStrokeDashArray(this Shape _) => Bindings.BindableProperty<DoubleCollection>.Create(Shape.StrokeDashArrayProperty);
+
+    /// <summary>
+    /// Allows binding to the StrokeDashOffsetProperty as BindStrokeDashOffset for the Shape control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Shape.</returns>
+    public static Bindings.BindableProperty<double> BindStrokeDashOffset(this Shape _) => Bindings.BindableProperty<double>.Create(Shape.StrokeDashOffsetProperty);
+
+    /// <summary>
+    /// Allows binding to the StrokeLineCapProperty as BindStrokeLineCap for the Shape control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Shape.</returns>
+    public static Bindings.BindableProperty<PenLineCap> BindStrokeLineCap(this Shape _) => Bindings.BindableProperty<PenLineCap>.Create(Shape.StrokeLineCapProperty);
+
+    /// <summary>
+    /// Allows binding to the StrokeLineJoinProperty as BindStrokeLineJoin for the Shape control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Shape.</returns>
+    public static Bindings.BindableProperty<PenLineJoin> BindStrokeLineJoin(this Shape _) => Bindings.BindableProperty<PenLineJoin>.Create(Shape.StrokeLineJoinProperty);
+
+    /// <summary>
+    /// Allows binding to the StrokeMiterLimitProperty as BindStrokeMiterLimit for the Shape control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Shape.</returns>
+    public static Bindings.BindableProperty<double> BindStrokeMiterLimit(this Shape _) => Bindings.BindableProperty<double>.Create(Shape.StrokeMiterLimitProperty);
+
+    /// <summary>
+    /// Allows binding to the StrokeProperty as BindStroke for the Shape control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Shape.</returns>
+    public static Bindings.BindableProperty<Brush> BindStroke(this Shape _) => Bindings.BindableProperty<Brush>.Create(Shape.StrokeProperty);
+
+    /// <summary>
+    /// Allows binding to the StrokeThicknessProperty as BindStrokeThickness for the Shape control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Shape.</returns>
+    public static Bindings.BindableProperty<double> BindStrokeThickness(this Shape _) => Bindings.BindableProperty<double>.Create(Shape.StrokeThicknessProperty);
+
+    // ***** SkewTransform Bindings *****
+
+    /// <summary>
+    /// Allows binding to the AngleXProperty as BindAngleX for the SkewTransform control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type SkewTransform.</returns>
+    public static Bindings.BindableProperty<double> BindAngleX(this SkewTransform _) => Bindings.BindableProperty<double>.Create(SkewTransform.AngleXProperty);
+
+    /// <summary>
+    /// Allows binding to the AngleYProperty as BindAngleY for the SkewTransform control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type SkewTransform.</returns>
+    public static Bindings.BindableProperty<double> BindAngleY(this SkewTransform _) => Bindings.BindableProperty<double>.Create(SkewTransform.AngleYProperty);
+
+    /// <summary>
+    /// Allows binding to the CenterXProperty as BindCenterX for the SkewTransform control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type SkewTransform.</returns>
+    public static Bindings.BindableProperty<double> BindCenterX(this SkewTransform _) => Bindings.BindableProperty<double>.Create(SkewTransform.CenterXProperty);
+
+    /// <summary>
+    /// Allows binding to the CenterYProperty as BindCenterY for the SkewTransform control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type SkewTransform.</returns>
+    public static Bindings.BindableProperty<double> BindCenterY(this SkewTransform _) => Bindings.BindableProperty<double>.Create(SkewTransform.CenterYProperty);
+
+    // ***** Transform Bindings *****
+
+    /// <summary>
+    /// Allows binding to the ValueProperty as BindValue for the Transform control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Transform.</returns>
+    public static Bindings.BindableProperty<Matrix> BindValue(this Transform _) => Bindings.BindableProperty<Matrix>.Create(Transform.ValueProperty);
+
+    // ***** TransformGroup Bindings *****
+
+    /// <summary>
+    /// Allows binding to the ChildrenProperty as BindChildren for the TransformGroup control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TransformGroup.</returns>
+    public static Bindings.BindableProperty<TransformCollection> BindChildren(this TransformGroup _) => Bindings.BindableProperty<TransformCollection>.Create(TransformGroup.ChildrenProperty);
+
+    // ***** TranslateTransform Bindings *****
+
+    /// <summary>
+    /// Allows binding to the XProperty as BindX for the TranslateTransform control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TranslateTransform.</returns>
+    public static Bindings.BindableProperty<double> BindX(this TranslateTransform _) => Bindings.BindableProperty<double>.Create(TranslateTransform.XProperty);
+
+    /// <summary>
+    /// Allows binding to the YProperty as BindY for the TranslateTransform control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TranslateTransform.</returns>
+    public static Bindings.BindableProperty<double> BindY(this TranslateTransform _) => Bindings.BindableProperty<double>.Create(TranslateTransform.YProperty);
+
+    // ***** Microsoft.Maui.Controls.Compatibility.AbsoluteLayout Bindings *****
+
+    /// <summary>
+    /// Allows binding to the LayoutBoundsProperty as BindLayoutBounds for the Microsoft.Maui.Controls.Compatibility.AbsoluteLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.AbsoluteLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.AbsoluteLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<Rect> BindLayoutBounds(this Microsoft.Maui.Controls.Compatibility.AbsoluteLayout _) => Bindings.BindableProperty<Rect>.Create(Microsoft.Maui.Controls.Compatibility.AbsoluteLayout.LayoutBoundsProperty);
+
+    /// <summary>
+    /// Allows binding to the LayoutFlagsProperty as BindLayoutFlags for the Microsoft.Maui.Controls.Compatibility.AbsoluteLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.AbsoluteLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.AbsoluteLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<AbsoluteLayoutFlags> BindLayoutFlags(this Microsoft.Maui.Controls.Compatibility.AbsoluteLayout _) => Bindings.BindableProperty<AbsoluteLayoutFlags>.Create(Microsoft.Maui.Controls.Compatibility.AbsoluteLayout.LayoutFlagsProperty);
+
+    // ***** Microsoft.Maui.Controls.Compatibility.FlexLayout Bindings *****
+
+    /// <summary>
+    /// Allows binding to the AlignContentProperty as BindAlignContent for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<FlexAlignContent> BindAlignContent(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<FlexAlignContent>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.AlignContentProperty);
+
+    /// <summary>
+    /// Allows binding to the AlignItemsProperty as BindAlignItems for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<FlexAlignItems> BindAlignItems(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<FlexAlignItems>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.AlignItemsProperty);
+
+    /// <summary>
+    /// Allows binding to the AlignSelfProperty as BindAlignSelf for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<FlexAlignSelf> BindAlignSelf(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<FlexAlignSelf>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.AlignSelfProperty);
+
+    /// <summary>
+    /// Allows binding to the BasisProperty as BindBasis for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<FlexBasis> BindBasis(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<FlexBasis>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.BasisProperty);
+
+    /// <summary>
+    /// Allows binding to the DirectionProperty as BindDirection for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<FlexDirection> BindDirection(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<FlexDirection>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.DirectionProperty);
+
+    /// <summary>
+    /// Allows binding to the GrowProperty as BindGrow for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<float> BindGrow(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<float>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.GrowProperty);
+
+    /// <summary>
+    /// Allows binding to the JustifyContentProperty as BindJustifyContent for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<FlexJustify> BindJustifyContent(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<FlexJustify>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.JustifyContentProperty);
+
+    /// <summary>
+    /// Allows binding to the OrderProperty as BindOrder for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<int> BindOrder(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<int>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.OrderProperty);
+
+    /// <summary>
+    /// Allows binding to the PositionProperty as BindPosition for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<FlexPosition> BindPosition(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<FlexPosition>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.PositionProperty);
+
+    /// <summary>
+    /// Allows binding to the ShrinkProperty as BindShrink for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<float> BindShrink(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<float>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.ShrinkProperty);
+
+    /// <summary>
+    /// Allows binding to the WrapProperty as BindWrap for the Microsoft.Maui.Controls.Compatibility.FlexLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.FlexLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.FlexLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<FlexWrap> BindWrap(this Microsoft.Maui.Controls.Compatibility.FlexLayout _) => Bindings.BindableProperty<FlexWrap>.Create(Microsoft.Maui.Controls.Compatibility.FlexLayout.WrapProperty);
+
+    // ***** Microsoft.Maui.Controls.Compatibility.Grid Bindings *****
+
+    /// <summary>
+    /// Allows binding to the ColumnDefinitionsProperty as BindColumnDefinitions for the Microsoft.Maui.Controls.Compatibility.Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Grid.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<ColumnDefinitionCollection> BindColumnDefinitions(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<ColumnDefinitionCollection>.Create(Microsoft.Maui.Controls.Compatibility.Grid.ColumnDefinitionsProperty);
+
+    /// <summary>
+    /// Allows binding to the ColumnProperty as BindColumn for the Microsoft.Maui.Controls.Compatibility.Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Grid.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<int> BindColumn(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<int>.Create(Microsoft.Maui.Controls.Compatibility.Grid.ColumnProperty);
+
+    /// <summary>
+    /// Allows binding to the ColumnSpacingProperty as BindColumnSpacing for the Microsoft.Maui.Controls.Compatibility.Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Grid.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<double> BindColumnSpacing(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<double>.Create(Microsoft.Maui.Controls.Compatibility.Grid.ColumnSpacingProperty);
+
+    /// <summary>
+    /// Allows binding to the ColumnSpanProperty as BindColumnSpan for the Microsoft.Maui.Controls.Compatibility.Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Grid.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<int> BindColumnSpan(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<int>.Create(Microsoft.Maui.Controls.Compatibility.Grid.ColumnSpanProperty);
+
+    /// <summary>
+    /// Allows binding to the RowDefinitionsProperty as BindRowDefinitions for the Microsoft.Maui.Controls.Compatibility.Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Grid.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<RowDefinitionCollection> BindRowDefinitions(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<RowDefinitionCollection>.Create(Microsoft.Maui.Controls.Compatibility.Grid.RowDefinitionsProperty);
+
+    /// <summary>
+    /// Allows binding to the RowProperty as BindRow for the Microsoft.Maui.Controls.Compatibility.Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Grid.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<int> BindRow(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<int>.Create(Microsoft.Maui.Controls.Compatibility.Grid.RowProperty);
+
+    /// <summary>
+    /// Allows binding to the RowSpacingProperty as BindRowSpacing for the Microsoft.Maui.Controls.Compatibility.Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Grid.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<double> BindRowSpacing(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<double>.Create(Microsoft.Maui.Controls.Compatibility.Grid.RowSpacingProperty);
+
+    /// <summary>
+    /// Allows binding to the RowSpanProperty as BindRowSpan for the Microsoft.Maui.Controls.Compatibility.Grid control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Grid.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Grid instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<int> BindRowSpan(this Microsoft.Maui.Controls.Compatibility.Grid _) => Bindings.BindableProperty<int>.Create(Microsoft.Maui.Controls.Compatibility.Grid.RowSpanProperty);
+
+    // ***** Microsoft.Maui.Controls.Compatibility.Layout Bindings *****
+
+    /// <summary>
+    /// Allows binding to the CascadeInputTransparentProperty as BindCascadeInputTransparent for the Microsoft.Maui.Controls.Compatibility.Layout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Layout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Layout instead. For more information, see https://learn.microsoft.com/dotnet/maui/user-interface/layouts/custom")]
+    public static Bindings.BindableProperty<bool> BindCascadeInputTransparent(this Microsoft.Maui.Controls.Compatibility.Layout _) => Bindings.BindableProperty<bool>.Create(Microsoft.Maui.Controls.Compatibility.Layout.CascadeInputTransparentProperty);
+
+    /// <summary>
+    /// Allows binding to the IsClippedToBoundsProperty as BindIsClippedToBounds for the Microsoft.Maui.Controls.Compatibility.Layout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Layout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Layout instead. For more information, see https://learn.microsoft.com/dotnet/maui/user-interface/layouts/custom")]
+    public static Bindings.BindableProperty<bool> BindIsClippedToBounds(this Microsoft.Maui.Controls.Compatibility.Layout _) => Bindings.BindableProperty<bool>.Create(Microsoft.Maui.Controls.Compatibility.Layout.IsClippedToBoundsProperty);
+
+    /// <summary>
+    /// Allows binding to the PaddingProperty as BindPadding for the Microsoft.Maui.Controls.Compatibility.Layout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.Layout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.Layout instead. For more information, see https://learn.microsoft.com/dotnet/maui/user-interface/layouts/custom")]
+    public static Bindings.BindableProperty<Thickness> BindPadding(this Microsoft.Maui.Controls.Compatibility.Layout _) => Bindings.BindableProperty<Thickness>.Create(Microsoft.Maui.Controls.Compatibility.Layout.PaddingProperty);
+
+    // ***** Microsoft.Maui.Controls.Compatibility.RelativeLayout Bindings *****
+
+    /// <summary>
+    /// Allows binding to the BoundsConstraintProperty as BindBoundsConstraint for the Microsoft.Maui.Controls.Compatibility.RelativeLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.RelativeLayout.</returns>
+    public static Bindings.BindableProperty<BoundsConstraint> BindBoundsConstraint(this Microsoft.Maui.Controls.Compatibility.RelativeLayout _) => Bindings.BindableProperty<BoundsConstraint>.Create(Microsoft.Maui.Controls.Compatibility.RelativeLayout.BoundsConstraintProperty);
+
+    /// <summary>
+    /// Allows binding to the HeightConstraintProperty as BindHeightConstraint for the Microsoft.Maui.Controls.Compatibility.RelativeLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.RelativeLayout.</returns>
+    public static Bindings.BindableProperty<Microsoft.Maui.Controls.Compatibility.Constraint> BindHeightConstraint(this Microsoft.Maui.Controls.Compatibility.RelativeLayout _) => Bindings.BindableProperty<Microsoft.Maui.Controls.Compatibility.Constraint>.Create(Microsoft.Maui.Controls.Compatibility.RelativeLayout.HeightConstraintProperty);
+
+    /// <summary>
+    /// Allows binding to the WidthConstraintProperty as BindWidthConstraint for the Microsoft.Maui.Controls.Compatibility.RelativeLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.RelativeLayout.</returns>
+    public static Bindings.BindableProperty<Microsoft.Maui.Controls.Compatibility.Constraint> BindWidthConstraint(this Microsoft.Maui.Controls.Compatibility.RelativeLayout _) => Bindings.BindableProperty<Microsoft.Maui.Controls.Compatibility.Constraint>.Create(Microsoft.Maui.Controls.Compatibility.RelativeLayout.WidthConstraintProperty);
+
+    /// <summary>
+    /// Allows binding to the XConstraintProperty as BindXConstraint for the Microsoft.Maui.Controls.Compatibility.RelativeLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.RelativeLayout.</returns>
+    public static Bindings.BindableProperty<Microsoft.Maui.Controls.Compatibility.Constraint> BindXConstraint(this Microsoft.Maui.Controls.Compatibility.RelativeLayout _) => Bindings.BindableProperty<Microsoft.Maui.Controls.Compatibility.Constraint>.Create(Microsoft.Maui.Controls.Compatibility.RelativeLayout.XConstraintProperty);
+
+    /// <summary>
+    /// Allows binding to the YConstraintProperty as BindYConstraint for the Microsoft.Maui.Controls.Compatibility.RelativeLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.RelativeLayout.</returns>
+    public static Bindings.BindableProperty<Microsoft.Maui.Controls.Compatibility.Constraint> BindYConstraint(this Microsoft.Maui.Controls.Compatibility.RelativeLayout _) => Bindings.BindableProperty<Microsoft.Maui.Controls.Compatibility.Constraint>.Create(Microsoft.Maui.Controls.Compatibility.RelativeLayout.YConstraintProperty);
+
+    // ***** Microsoft.Maui.Controls.Compatibility.StackLayout Bindings *****
+
+    /// <summary>
+    /// Allows binding to the OrientationProperty as BindOrientation for the Microsoft.Maui.Controls.Compatibility.StackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.StackLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.StackLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<StackOrientation> BindOrientation(this Microsoft.Maui.Controls.Compatibility.StackLayout _) => Bindings.BindableProperty<StackOrientation>.Create(Microsoft.Maui.Controls.Compatibility.StackLayout.OrientationProperty);
+
+    /// <summary>
+    /// Allows binding to the SpacingProperty as BindSpacing for the Microsoft.Maui.Controls.Compatibility.StackLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Microsoft.Maui.Controls.Compatibility.StackLayout.</returns>
+    [Obsolete("Use Microsoft.Maui.Controls.StackLayout instead. For more information, see https://learn.microsoft.com/dotnet/maui/migration/layouts")]
+    public static Bindings.BindableProperty<double> BindSpacing(this Microsoft.Maui.Controls.Compatibility.StackLayout _) => Bindings.BindableProperty<double>.Create(Microsoft.Maui.Controls.Compatibility.StackLayout.SpacingProperty);
 
 #pragma warning restore CS0618 // Type or member is obsolete
 

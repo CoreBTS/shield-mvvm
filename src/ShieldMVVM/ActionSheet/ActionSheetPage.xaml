@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<base:DialogPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<base:DialogPageBase 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:base="clr-namespace:CoreBTS.Maui.ShieldMVVM.Pages;assembly=CoreBTS.Maui.ShieldMVVM"
     x:Class="CoreBTS.Maui.ShieldMVVM.ActionSheet.ActionSheetPage"
@@ -9,7 +10,6 @@
     Color="{OnPlatform iOS=Transparent, Default={StaticResource Black60Pct}}"
     HorizontalOptions="Fill"
     VerticalOptions="Fill"
-    x:Name="popup"
     >
     
     <toolkit:Popup.Resources>
@@ -78,6 +78,9 @@
                 Grid.Row="1"
                 CornerRadius="10"
                 Style="{StaticResource ActionSheetCancelButtonStyle}" />
+            
         </Grid>
+        
     </Grid>
+    
 </base:DialogPageBase>

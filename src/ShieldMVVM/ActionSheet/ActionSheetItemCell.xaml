@@ -2,8 +2,8 @@
 <base:ViewCellBase
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="CoreBTS.Maui.ShieldMVVM.ActionSheet.ActionSheetItemCell"
     xmlns:base="clr-namespace:CoreBTS.Maui.ShieldMVVM.DataTemplates;assembly=CoreBTS.Maui.ShieldMVVM"
+    x:Class="CoreBTS.Maui.ShieldMVVM.ActionSheet.ActionSheetItemCell"
     xmlns:m="clr-namespace:CoreBTS.Maui.ShieldMVVM.ActionSheet"
     xmlns:self="clr-namespace:CoreBTS.Maui.ShieldMVVM.ActionSheet"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
@@ -18,7 +18,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </toolkit:Popup.Resources>
-
+    
     <Button
         x:Name="ActionButton"
         Style="{StaticResource ActionSheetButtonStyle}"

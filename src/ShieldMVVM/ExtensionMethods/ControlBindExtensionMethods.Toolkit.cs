@@ -16,32 +16,217 @@ namespace CoreBTS.Maui.ShieldMVVM;
 /// </summary>
 public static partial class ControlBindExtensionMethods
 {
-    // ***** BindClick Bindings *****
+    // ********** Generated Code **********
+
+    // ********** IBindableLayout Bindings **********
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the DockLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this DockLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemsSourceProperty as BindItemsSource for the UniformItemsLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type IEnumerable.</returns>
+    public static Bindings.BindableProperty<IEnumerable<T>> BindItemsSource<T>(this UniformItemsLayout _) => Bindings.BindableProperty<IEnumerable<T>>.Create(BindableLayout.ItemsSourceProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the DockLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this DockLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateProperty as BindItemTemplate for the UniformItemsLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplate<T>(this UniformItemsLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the DockLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this DockLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplateSelector for the UniformItemsLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplateSelector.</returns>
+    public static Bindings.BindableProperty<T> BindItemTemplateSelector<T>(this UniformItemsLayout _) where T : DataTemplateSelector => Bindings.BindableProperty<T>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewProperty as BindEmptyView for the DockLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type object.</returns>
+    public static Bindings.BindableProperty<T> BindEmptyView<T>(this DockLayout _) => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewProperty as BindEmptyView for the UniformItemsLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type object.</returns>
+    public static Bindings.BindableProperty<T> BindEmptyView<T>(this UniformItemsLayout _) => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewTemplateProperty as BindEmptyViewTemplate for the DockLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindEmptyViewTemplate<T>(this DockLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewTemplateProperty);
+
+    /// <summary>
+    /// Allows binding to the EmptyViewTemplateProperty as BindEmptyViewTemplate for the UniformItemsLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<T> BindEmptyViewTemplate<T>(this UniformItemsLayout _) where T : DataTemplate => Bindings.BindableProperty<T>.Create(BindableLayout.EmptyViewTemplateProperty);
+
+    // ********** IGestureRecognizers Bindings **********
 
     /// <summary>
     /// Allows binding to the CommandProperty as BindClick for the Expander control.
     /// </summary>
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ICommand.</returns>
-    public static Bindings.BindableProperty<ICommand> BindClick(this Expander _) => new(Expander.CommandProperty);
+    public static Bindings.BindableProperty<ICommand> BindClick(this Expander _) => Bindings.BindableProperty<ICommand>.Create(Expander.CommandProperty);
 
-    // ***** Start of Generated Bindings *****
+    // ********** Bindable Properties **********
 
-    // ***** AnimationBehavior Bindings *****
-
-    /// <summary>
-    /// Allows binding to the AnimateCommandProperty as BindAnimateCommand for the AnimationBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type AnimationBehavior.</returns>
-    public static Bindings.BindableProperty<Command<CancellationToken>> BindAnimateCommand(this AnimationBehavior _) => Bindings.BindableProperty<Command<CancellationToken>>.Create(AnimationBehavior.AnimateCommandProperty);
+    // ***** DockLayout Bindings *****
 
     /// <summary>
-    /// Allows binding to the AnimationTypeProperty as BindAnimationType for the AnimationBehavior control.
+    /// Allows binding to the DockPositionProperty as BindDockPosition for the DockLayout control.
     /// </summary>
     /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type AnimationBehavior.</returns>
-    public static Bindings.BindableProperty<BaseAnimation> BindAnimationType(this AnimationBehavior _) => Bindings.BindableProperty<BaseAnimation>.Create(AnimationBehavior.AnimationTypeProperty);
+    /// <returns>Generic BindableProperty of type DockLayout.</returns>
+    public static Bindings.BindableProperty<DockPosition> BindDockPosition(this DockLayout _) => Bindings.BindableProperty<DockPosition>.Create(DockLayout.DockPositionProperty);
+
+    /// <summary>
+    /// Allows binding to the HorizontalSpacingProperty as BindHorizontalSpacing for the DockLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DockLayout.</returns>
+    public static Bindings.BindableProperty<double> BindHorizontalSpacing(this DockLayout _) => Bindings.BindableProperty<double>.Create(DockLayout.HorizontalSpacingProperty);
+
+    /// <summary>
+    /// Allows binding to the ShouldExpandLastChildProperty as BindShouldExpandLastChild for the DockLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DockLayout.</returns>
+    public static Bindings.BindableProperty<bool> BindShouldExpandLastChild(this DockLayout _) => Bindings.BindableProperty<bool>.Create(DockLayout.ShouldExpandLastChildProperty);
+
+    /// <summary>
+    /// Allows binding to the VerticalSpacingProperty as BindVerticalSpacing for the DockLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DockLayout.</returns>
+    public static Bindings.BindableProperty<double> BindVerticalSpacing(this DockLayout _) => Bindings.BindableProperty<double>.Create(DockLayout.VerticalSpacingProperty);
+
+    // ***** UniformItemsLayout Bindings *****
+
+    /// <summary>
+    /// Allows binding to the MaxColumnsProperty as BindMaxColumns for the UniformItemsLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type UniformItemsLayout.</returns>
+    public static Bindings.BindableProperty<int> BindMaxColumns(this UniformItemsLayout _) => Bindings.BindableProperty<int>.Create(UniformItemsLayout.MaxColumnsProperty);
+
+    /// <summary>
+    /// Allows binding to the MaxRowsProperty as BindMaxRows for the UniformItemsLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type UniformItemsLayout.</returns>
+    public static Bindings.BindableProperty<int> BindMaxRows(this UniformItemsLayout _) => Bindings.BindableProperty<int>.Create(UniformItemsLayout.MaxRowsProperty);
+
+    // ***** GravatarImageSource Bindings *****
+
+    /// <summary>
+    /// Allows binding to the CacheValidityProperty as BindCacheValidity for the GravatarImageSource control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type GravatarImageSource.</returns>
+    public static Bindings.BindableProperty<TimeSpan> BindCacheValidity(this GravatarImageSource _) => Bindings.BindableProperty<TimeSpan>.Create(GravatarImageSource.CacheValidityProperty);
+
+    /// <summary>
+    /// Allows binding to the CachingEnabledProperty as BindCachingEnabled for the GravatarImageSource control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type GravatarImageSource.</returns>
+    public static Bindings.BindableProperty<bool> BindCachingEnabled(this GravatarImageSource _) => Bindings.BindableProperty<bool>.Create(GravatarImageSource.CachingEnabledProperty);
+
+    /// <summary>
+    /// Allows binding to the EmailProperty as BindEmail for the GravatarImageSource control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type GravatarImageSource.</returns>
+    public static Bindings.BindableProperty<string> BindEmail(this GravatarImageSource _) => Bindings.BindableProperty<string>.Create(GravatarImageSource.EmailProperty);
+
+    /// <summary>
+    /// Allows binding to the ImageProperty as BindImage for the GravatarImageSource control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type GravatarImageSource.</returns>
+    public static Bindings.BindableProperty<DefaultImage> BindImage(this GravatarImageSource _) => Bindings.BindableProperty<DefaultImage>.Create(GravatarImageSource.ImageProperty);
+
+    // ***** Popup Bindings *****
+
+    /// <summary>
+    /// Allows binding to the CanBeDismissedByTappingOutsideOfPopupProperty as BindCanBeDismissedByTappingOutsideOfPopup for the Popup control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Popup.</returns>
+    public static Bindings.BindableProperty<bool> BindCanBeDismissedByTappingOutsideOfPopup(this Popup _) => Bindings.BindableProperty<bool>.Create(Popup.CanBeDismissedByTappingOutsideOfPopupProperty);
+
+    /// <summary>
+    /// Allows binding to the ColorProperty as BindColor for the Popup control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Popup.</returns>
+    public static Bindings.BindableProperty<Color> BindColor(this Popup _) => Bindings.BindableProperty<Color>.Create(Popup.ColorProperty);
+
+    /// <summary>
+    /// Allows binding to the ContentProperty as BindContent for the Popup control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Popup.</returns>
+    public static Bindings.BindableProperty<View> BindContent(this Popup _) => Bindings.BindableProperty<View>.Create(Popup.ContentProperty);
+
+    /// <summary>
+    /// Allows binding to the HorizontalOptionsProperty as BindHorizontalOptions for the Popup control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Popup.</returns>
+    public static Bindings.BindableProperty<LayoutAlignment> BindHorizontalOptions(this Popup _) => Bindings.BindableProperty<LayoutAlignment>.Create(Popup.HorizontalOptionsProperty);
+
+    /// <summary>
+    /// Allows binding to the SizeProperty as BindSize for the Popup control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Popup.</returns>
+    public static Bindings.BindableProperty<Size> BindSize(this Popup _) => Bindings.BindableProperty<Size>.Create(Popup.SizeProperty);
+
+    /// <summary>
+    /// Allows binding to the StyleProperty as BindStyle for the Popup control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Popup.</returns>
+    public static Bindings.BindableProperty<Style> BindStyle(this Popup _) => Bindings.BindableProperty<Style>.Create(Popup.StyleProperty);
+
+    /// <summary>
+    /// Allows binding to the VerticalOptionsProperty as BindVerticalOptions for the Popup control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type Popup.</returns>
+    public static Bindings.BindableProperty<LayoutAlignment> BindVerticalOptions(this Popup _) => Bindings.BindableProperty<LayoutAlignment>.Create(Popup.VerticalOptionsProperty);
 
     // ***** AvatarView Bindings *****
 
@@ -122,59 +307,6 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type AvatarView.</returns>
     public static Bindings.BindableProperty<TextTransform> BindTextTransform(this AvatarView _) => Bindings.BindableProperty<TextTransform>.Create(AvatarView.TextTransformProperty);
 
-    // ***** CharactersValidationBehavior Bindings *****
-
-    /// <summary>
-    /// Allows binding to the CharacterTypeProperty as BindCharacterType for the CharactersValidationBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CharactersValidationBehavior.</returns>
-    public static Bindings.BindableProperty<CharacterType> BindCharacterType(this CharactersValidationBehavior _) => Bindings.BindableProperty<CharacterType>.Create(CharactersValidationBehavior.CharacterTypeProperty);
-
-    /// <summary>
-    /// Allows binding to the MaximumCharacterTypeCountProperty as BindMaximumCharacterTypeCount for the CharactersValidationBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CharactersValidationBehavior.</returns>
-    public static Bindings.BindableProperty<int> BindMaximumCharacterTypeCount(this CharactersValidationBehavior _) => Bindings.BindableProperty<int>.Create(CharactersValidationBehavior.MaximumCharacterTypeCountProperty);
-
-    /// <summary>
-    /// Allows binding to the MinimumCharacterTypeCountProperty as BindMinimumCharacterTypeCount for the CharactersValidationBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type CharactersValidationBehavior.</returns>
-    public static Bindings.BindableProperty<int> BindMinimumCharacterTypeCount(this CharactersValidationBehavior _) => Bindings.BindableProperty<int>.Create(CharactersValidationBehavior.MinimumCharacterTypeCountProperty);
-
-    // ***** DockLayout Bindings *****
-
-    /// <summary>
-    /// Allows binding to the DockPositionProperty as BindDockPosition for the DockLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DockLayout.</returns>
-    public static Bindings.BindableProperty<DockPosition> BindDockPosition(this DockLayout _) => Bindings.BindableProperty<DockPosition>.Create(DockLayout.DockPositionProperty);
-
-    /// <summary>
-    /// Allows binding to the HorizontalSpacingProperty as BindHorizontalSpacing for the DockLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DockLayout.</returns>
-    public static Bindings.BindableProperty<double> BindHorizontalSpacing(this DockLayout _) => Bindings.BindableProperty<double>.Create(DockLayout.HorizontalSpacingProperty);
-
-    /// <summary>
-    /// Allows binding to the ShouldExpandLastChildProperty as BindShouldExpandLastChild for the DockLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DockLayout.</returns>
-    public static Bindings.BindableProperty<bool> BindShouldExpandLastChild(this DockLayout _) => Bindings.BindableProperty<bool>.Create(DockLayout.ShouldExpandLastChildProperty);
-
-    /// <summary>
-    /// Allows binding to the VerticalSpacingProperty as BindVerticalSpacing for the DockLayout control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type DockLayout.</returns>
-    public static Bindings.BindableProperty<double> BindVerticalSpacing(this DockLayout _) => Bindings.BindableProperty<double>.Create(DockLayout.VerticalSpacingProperty);
-
     // ***** DrawingView Bindings *****
 
     /// <summary>
@@ -247,36 +379,6 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type DrawingView.</returns>
     public static Bindings.BindableProperty<bool> BindShouldClearOnFinish(this DrawingView _) => Bindings.BindableProperty<bool>.Create(DrawingView.ShouldClearOnFinishProperty);
 
-    // ***** EventToCommandBehavior Bindings *****
-
-    /// <summary>
-    /// Allows binding to the CommandParameterProperty as BindCommandParameter for the EventToCommandBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type EventToCommandBehavior.</returns>
-    public static Bindings.BindableProperty<object> BindCommandParameter(this EventToCommandBehavior _) => Bindings.BindableProperty<object>.Create(EventToCommandBehavior.CommandParameterProperty);
-
-    /// <summary>
-    /// Allows binding to the CommandProperty as BindCommand for the EventToCommandBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type EventToCommandBehavior.</returns>
-    public static Bindings.BindableProperty<ICommand> BindCommand(this EventToCommandBehavior _) => Bindings.BindableProperty<ICommand>.Create(EventToCommandBehavior.CommandProperty);
-
-    /// <summary>
-    /// Allows binding to the EventArgsConverterProperty as BindEventArgsConverter for the EventToCommandBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type EventToCommandBehavior.</returns>
-    public static Bindings.BindableProperty<IValueConverter> BindEventArgsConverter(this EventToCommandBehavior _) => Bindings.BindableProperty<IValueConverter>.Create(EventToCommandBehavior.EventArgsConverterProperty);
-
-    /// <summary>
-    /// Allows binding to the EventNameProperty as BindEventName for the EventToCommandBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type EventToCommandBehavior.</returns>
-    public static Bindings.BindableProperty<string> BindEventName(this EventToCommandBehavior _) => Bindings.BindableProperty<string>.Create(EventToCommandBehavior.EventNameProperty);
-
     // ***** Expander Bindings *****
 
     /// <summary>
@@ -321,44 +423,110 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type Expander.</returns>
     public static Bindings.BindableProperty<bool> BindIsExpanded(this Expander _) => Bindings.BindableProperty<bool>.Create(Expander.IsExpandedProperty);
 
-    // ***** FadeAnimation Bindings *****
+    // ***** LazyView Bindings *****
 
     /// <summary>
-    /// Allows binding to the OpacityProperty as BindOpacity for the FadeAnimation control.
+    /// Allows binding to the HasLazyViewLoadedProperty as BindHasLazyViewLoaded for the LazyView control.
     /// </summary>
     /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type FadeAnimation.</returns>
-    public static Bindings.BindableProperty<double> BindOpacity(this FadeAnimation _) => Bindings.BindableProperty<double>.Create(FadeAnimation.OpacityProperty);
+    /// <returns>Generic BindableProperty of type LazyView.</returns>
+    public static Bindings.BindableProperty<bool> BindHasLazyViewLoaded(this LazyView _) => Bindings.BindableProperty<bool>.Create(LazyView.HasLazyViewLoadedProperty);
 
-    // ***** GravatarImageSource Bindings *****
-
-    /// <summary>
-    /// Allows binding to the CacheValidityProperty as BindCacheValidity for the GravatarImageSource control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type GravatarImageSource.</returns>
-    public static Bindings.BindableProperty<TimeSpan> BindCacheValidity(this GravatarImageSource _) => Bindings.BindableProperty<TimeSpan>.Create(GravatarImageSource.CacheValidityProperty);
+    // ***** SemanticOrderView Bindings *****
 
     /// <summary>
-    /// Allows binding to the CachingEnabledProperty as BindCachingEnabled for the GravatarImageSource control.
+    /// Allows binding to the ViewOrderProperty as BindViewOrder for the SemanticOrderView control.
     /// </summary>
     /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type GravatarImageSource.</returns>
-    public static Bindings.BindableProperty<bool> BindCachingEnabled(this GravatarImageSource _) => Bindings.BindableProperty<bool>.Create(GravatarImageSource.CachingEnabledProperty);
+    /// <returns>Generic BindableProperty of type SemanticOrderView.</returns>
+    public static Bindings.BindableProperty<IEnumerable> BindViewOrder(this SemanticOrderView _) => Bindings.BindableProperty<IEnumerable>.Create(SemanticOrderView.ViewOrderProperty);
+
+    // ***** AnimationBehavior Bindings *****
 
     /// <summary>
-    /// Allows binding to the EmailProperty as BindEmail for the GravatarImageSource control.
+    /// Allows binding to the AnimateCommandProperty as BindAnimateCommand for the AnimationBehavior control.
     /// </summary>
     /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type GravatarImageSource.</returns>
-    public static Bindings.BindableProperty<string> BindEmail(this GravatarImageSource _) => Bindings.BindableProperty<string>.Create(GravatarImageSource.EmailProperty);
+    /// <returns>Generic BindableProperty of type AnimationBehavior.</returns>
+    public static Bindings.BindableProperty<Command<CancellationToken>> BindAnimateCommand(this AnimationBehavior _) => Bindings.BindableProperty<Command<CancellationToken>>.Create(AnimationBehavior.AnimateCommandProperty);
 
     /// <summary>
-    /// Allows binding to the ImageProperty as BindImage for the GravatarImageSource control.
+    /// Allows binding to the AnimationTypeProperty as BindAnimationType for the AnimationBehavior control.
     /// </summary>
     /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type GravatarImageSource.</returns>
-    public static Bindings.BindableProperty<DefaultImage> BindImage(this GravatarImageSource _) => Bindings.BindableProperty<DefaultImage>.Create(GravatarImageSource.ImageProperty);
+    /// <returns>Generic BindableProperty of type AnimationBehavior.</returns>
+    public static Bindings.BindableProperty<BaseAnimation> BindAnimationType(this AnimationBehavior _) => Bindings.BindableProperty<BaseAnimation>.Create(AnimationBehavior.AnimationTypeProperty);
+
+    // ***** SetFocusOnEntryCompletedBehavior Bindings *****
+
+    /// <summary>
+    /// Allows binding to the NextElementProperty as BindNextElement for the SetFocusOnEntryCompletedBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type SetFocusOnEntryCompletedBehavior.</returns>
+    public static Bindings.BindableProperty<VisualElement> BindNextElement(this SetFocusOnEntryCompletedBehavior _) => Bindings.BindableProperty<VisualElement>.Create(SetFocusOnEntryCompletedBehavior.NextElementProperty);
+
+    // ***** EventToCommandBehavior Bindings *****
+
+    /// <summary>
+    /// Allows binding to the CommandParameterProperty as BindCommandParameter for the EventToCommandBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type EventToCommandBehavior.</returns>
+    public static Bindings.BindableProperty<object> BindCommandParameter(this EventToCommandBehavior _) => Bindings.BindableProperty<object>.Create(EventToCommandBehavior.CommandParameterProperty);
+
+    /// <summary>
+    /// Allows binding to the CommandProperty as BindCommand for the EventToCommandBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type EventToCommandBehavior.</returns>
+    public static Bindings.BindableProperty<ICommand> BindCommand(this EventToCommandBehavior _) => Bindings.BindableProperty<ICommand>.Create(EventToCommandBehavior.CommandProperty);
+
+    /// <summary>
+    /// Allows binding to the EventArgsConverterProperty as BindEventArgsConverter for the EventToCommandBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type EventToCommandBehavior.</returns>
+    public static Bindings.BindableProperty<IValueConverter> BindEventArgsConverter(this EventToCommandBehavior _) => Bindings.BindableProperty<IValueConverter>.Create(EventToCommandBehavior.EventArgsConverterProperty);
+
+    /// <summary>
+    /// Allows binding to the EventNameProperty as BindEventName for the EventToCommandBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type EventToCommandBehavior.</returns>
+    public static Bindings.BindableProperty<string> BindEventName(this EventToCommandBehavior _) => Bindings.BindableProperty<string>.Create(EventToCommandBehavior.EventNameProperty);
+
+    // ***** MaskedBehavior Bindings *****
+
+    /// <summary>
+    /// Allows binding to the MaskProperty as BindMask for the MaskedBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type MaskedBehavior.</returns>
+    public static Bindings.BindableProperty<string> BindMask(this MaskedBehavior _) => Bindings.BindableProperty<string>.Create(MaskedBehavior.MaskProperty);
+
+    /// <summary>
+    /// Allows binding to the UnmaskedCharacterProperty as BindUnmaskedCharacter for the MaskedBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type MaskedBehavior.</returns>
+    public static Bindings.BindableProperty<Char> BindUnmaskedCharacter(this MaskedBehavior _) => Bindings.BindableProperty<Char>.Create(MaskedBehavior.UnmaskedCharacterProperty);
+
+    // ***** MaxLengthReachedBehavior Bindings *****
+
+    /// <summary>
+    /// Allows binding to the CommandProperty as BindCommand for the MaxLengthReachedBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type MaxLengthReachedBehavior.</returns>
+    public static Bindings.BindableProperty<ICommand> BindCommand(this MaxLengthReachedBehavior _) => Bindings.BindableProperty<ICommand>.Create(MaxLengthReachedBehavior.CommandProperty);
+
+    /// <summary>
+    /// Allows binding to the ShouldDismissKeyboardAutomaticallyProperty as BindShouldDismissKeyboardAutomatically for the MaxLengthReachedBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type MaxLengthReachedBehavior.</returns>
+    public static Bindings.BindableProperty<bool> BindShouldDismissKeyboardAutomatically(this MaxLengthReachedBehavior _) => Bindings.BindableProperty<bool>.Create(MaxLengthReachedBehavior.ShouldDismissKeyboardAutomaticallyProperty);
 
     // ***** IconTintColorBehavior Bindings *****
 
@@ -419,238 +587,6 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ImageTouchBehavior.</returns>
     public static Bindings.BindableProperty<bool> BindShouldSetImageOnAnimationEnd(this ImageTouchBehavior _) => Bindings.BindableProperty<bool>.Create(ImageTouchBehavior.ShouldSetImageOnAnimationEndProperty);
-
-    // ***** LazyView Bindings *****
-
-    /// <summary>
-    /// Allows binding to the HasLazyViewLoadedProperty as BindHasLazyViewLoaded for the LazyView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type LazyView.</returns>
-    public static Bindings.BindableProperty<bool> BindHasLazyViewLoaded(this LazyView _) => Bindings.BindableProperty<bool>.Create(LazyView.HasLazyViewLoadedProperty);
-
-    // ***** MaskedBehavior Bindings *****
-
-    /// <summary>
-    /// Allows binding to the MaskProperty as BindMask for the MaskedBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type MaskedBehavior.</returns>
-    public static Bindings.BindableProperty<string> BindMask(this MaskedBehavior _) => Bindings.BindableProperty<string>.Create(MaskedBehavior.MaskProperty);
-
-    /// <summary>
-    /// Allows binding to the UnmaskedCharacterProperty as BindUnmaskedCharacter for the MaskedBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type MaskedBehavior.</returns>
-    public static Bindings.BindableProperty<Char> BindUnmaskedCharacter(this MaskedBehavior _) => Bindings.BindableProperty<Char>.Create(MaskedBehavior.UnmaskedCharacterProperty);
-
-    // ***** MaxLengthReachedBehavior Bindings *****
-
-    /// <summary>
-    /// Allows binding to the CommandProperty as BindCommand for the MaxLengthReachedBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type MaxLengthReachedBehavior.</returns>
-    public static Bindings.BindableProperty<ICommand> BindCommand(this MaxLengthReachedBehavior _) => Bindings.BindableProperty<ICommand>.Create(MaxLengthReachedBehavior.CommandProperty);
-
-    /// <summary>
-    /// Allows binding to the ShouldDismissKeyboardAutomaticallyProperty as BindShouldDismissKeyboardAutomatically for the MaxLengthReachedBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type MaxLengthReachedBehavior.</returns>
-    public static Bindings.BindableProperty<bool> BindShouldDismissKeyboardAutomatically(this MaxLengthReachedBehavior _) => Bindings.BindableProperty<bool>.Create(MaxLengthReachedBehavior.ShouldDismissKeyboardAutomaticallyProperty);
-
-    // ***** MultiValidationBehavior Bindings *****
-
-    /// <summary>
-    /// Allows binding to the ErrorProperty as BindError for the MultiValidationBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type MultiValidationBehavior.</returns>
-    public static Bindings.BindableProperty<object> BindError(this MultiValidationBehavior _) => Bindings.BindableProperty<object>.Create(MultiValidationBehavior.ErrorProperty);
-
-    /// <summary>
-    /// Allows binding to the ErrorsProperty as BindErrors for the MultiValidationBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type MultiValidationBehavior.</returns>
-    public static Bindings.BindableProperty<List<object>> BindErrors(this MultiValidationBehavior _) => Bindings.BindableProperty<List<object>>.Create(MultiValidationBehavior.ErrorsProperty);
-
-    // ***** NumericValidationBehavior Bindings *****
-
-    /// <summary>
-    /// Allows binding to the MaximumDecimalPlacesProperty as BindMaximumDecimalPlaces for the NumericValidationBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type NumericValidationBehavior.</returns>
-    public static Bindings.BindableProperty<int> BindMaximumDecimalPlaces(this NumericValidationBehavior _) => Bindings.BindableProperty<int>.Create(NumericValidationBehavior.MaximumDecimalPlacesProperty);
-
-    /// <summary>
-    /// Allows binding to the MaximumValueProperty as BindMaximumValue for the NumericValidationBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type NumericValidationBehavior.</returns>
-    public static Bindings.BindableProperty<double> BindMaximumValue(this NumericValidationBehavior _) => Bindings.BindableProperty<double>.Create(NumericValidationBehavior.MaximumValueProperty);
-
-    /// <summary>
-    /// Allows binding to the MinimumDecimalPlacesProperty as BindMinimumDecimalPlaces for the NumericValidationBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type NumericValidationBehavior.</returns>
-    public static Bindings.BindableProperty<int> BindMinimumDecimalPlaces(this NumericValidationBehavior _) => Bindings.BindableProperty<int>.Create(NumericValidationBehavior.MinimumDecimalPlacesProperty);
-
-    /// <summary>
-    /// Allows binding to the MinimumValueProperty as BindMinimumValue for the NumericValidationBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type NumericValidationBehavior.</returns>
-    public static Bindings.BindableProperty<double> BindMinimumValue(this NumericValidationBehavior _) => Bindings.BindableProperty<double>.Create(NumericValidationBehavior.MinimumValueProperty);
-
-    // ***** Popup Bindings *****
-
-    /// <summary>
-    /// Allows binding to the CanBeDismissedByTappingOutsideOfPopupProperty as BindCanBeDismissedByTappingOutsideOfPopup for the Popup control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Popup.</returns>
-    public static Bindings.BindableProperty<bool> BindCanBeDismissedByTappingOutsideOfPopup(this Popup _) => Bindings.BindableProperty<bool>.Create(Popup.CanBeDismissedByTappingOutsideOfPopupProperty);
-
-    /// <summary>
-    /// Allows binding to the ColorProperty as BindColor for the Popup control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Popup.</returns>
-    public static Bindings.BindableProperty<Color> BindColor(this Popup _) => Bindings.BindableProperty<Color>.Create(Popup.ColorProperty);
-
-    /// <summary>
-    /// Allows binding to the ContentProperty as BindContent for the Popup control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Popup.</returns>
-    public static Bindings.BindableProperty<View> BindContent(this Popup _) => Bindings.BindableProperty<View>.Create(Popup.ContentProperty);
-
-    /// <summary>
-    /// Allows binding to the HorizontalOptionsProperty as BindHorizontalOptions for the Popup control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Popup.</returns>
-    public static Bindings.BindableProperty<LayoutAlignment> BindHorizontalOptions(this Popup _) => Bindings.BindableProperty<LayoutAlignment>.Create(Popup.HorizontalOptionsProperty);
-
-    /// <summary>
-    /// Allows binding to the SizeProperty as BindSize for the Popup control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Popup.</returns>
-    public static Bindings.BindableProperty<Size> BindSize(this Popup _) => Bindings.BindableProperty<Size>.Create(Popup.SizeProperty);
-
-    /// <summary>
-    /// Allows binding to the StyleProperty as BindStyle for the Popup control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Popup.</returns>
-    public static Bindings.BindableProperty<Style> BindStyle(this Popup _) => Bindings.BindableProperty<Style>.Create(Popup.StyleProperty);
-
-    /// <summary>
-    /// Allows binding to the VerticalOptionsProperty as BindVerticalOptions for the Popup control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type Popup.</returns>
-    public static Bindings.BindableProperty<LayoutAlignment> BindVerticalOptions(this Popup _) => Bindings.BindableProperty<LayoutAlignment>.Create(Popup.VerticalOptionsProperty);
-
-    // ***** ProgressBarAnimationBehavior Bindings *****
-
-    /// <summary>
-    /// Allows binding to the EasingProperty as BindEasing for the ProgressBarAnimationBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type ProgressBarAnimationBehavior.</returns>
-    public static Bindings.BindableProperty<Easing> BindEasing(this ProgressBarAnimationBehavior _) => Bindings.BindableProperty<Easing>.Create(ProgressBarAnimationBehavior.EasingProperty);
-
-    /// <summary>
-    /// Allows binding to the LengthProperty as BindLength for the ProgressBarAnimationBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type ProgressBarAnimationBehavior.</returns>
-    public static Bindings.BindableProperty<UInt32> BindLength(this ProgressBarAnimationBehavior _) => Bindings.BindableProperty<UInt32>.Create(ProgressBarAnimationBehavior.LengthProperty);
-
-    /// <summary>
-    /// Allows binding to the ProgressProperty as BindProgress for the ProgressBarAnimationBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type ProgressBarAnimationBehavior.</returns>
-    public static Bindings.BindableProperty<double> BindProgress(this ProgressBarAnimationBehavior _) => Bindings.BindableProperty<double>.Create(ProgressBarAnimationBehavior.ProgressProperty);
-
-    // ***** RequiredStringValidationBehavior Bindings *****
-
-    /// <summary>
-    /// Allows binding to the ExactMatchProperty as BindExactMatch for the RequiredStringValidationBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type RequiredStringValidationBehavior.</returns>
-    public static Bindings.BindableProperty<bool> BindExactMatch(this RequiredStringValidationBehavior _) => Bindings.BindableProperty<bool>.Create(RequiredStringValidationBehavior.ExactMatchProperty);
-
-    /// <summary>
-    /// Allows binding to the RequiredStringProperty as BindRequiredString for the RequiredStringValidationBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type RequiredStringValidationBehavior.</returns>
-    public static Bindings.BindableProperty<string> BindRequiredString(this RequiredStringValidationBehavior _) => Bindings.BindableProperty<string>.Create(RequiredStringValidationBehavior.RequiredStringProperty);
-
-    // ***** SemanticOrderView Bindings *****
-
-    /// <summary>
-    /// Allows binding to the ViewOrderProperty as BindViewOrder for the SemanticOrderView control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type SemanticOrderView.</returns>
-    public static Bindings.BindableProperty<IEnumerable> BindViewOrder(this SemanticOrderView _) => Bindings.BindableProperty<IEnumerable>.Create(SemanticOrderView.ViewOrderProperty);
-
-    // ***** SetFocusOnEntryCompletedBehavior Bindings *****
-
-    /// <summary>
-    /// Allows binding to the NextElementProperty as BindNextElement for the SetFocusOnEntryCompletedBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type SetFocusOnEntryCompletedBehavior.</returns>
-    public static Bindings.BindableProperty<VisualElement> BindNextElement(this SetFocusOnEntryCompletedBehavior _) => Bindings.BindableProperty<VisualElement>.Create(SetFocusOnEntryCompletedBehavior.NextElementProperty);
-
-    // ***** TextValidationBehavior Bindings *****
-
-    /// <summary>
-    /// Allows binding to the DecorationFlagsProperty as BindDecorationFlags for the TextValidationBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type TextValidationBehavior.</returns>
-    public static Bindings.BindableProperty<TextDecorationFlags> BindDecorationFlags(this TextValidationBehavior _) => Bindings.BindableProperty<TextDecorationFlags>.Create(TextValidationBehavior.DecorationFlagsProperty);
-
-    /// <summary>
-    /// Allows binding to the MaximumLengthProperty as BindMaximumLength for the TextValidationBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type TextValidationBehavior.</returns>
-    public static Bindings.BindableProperty<int> BindMaximumLength(this TextValidationBehavior _) => Bindings.BindableProperty<int>.Create(TextValidationBehavior.MaximumLengthProperty);
-
-    /// <summary>
-    /// Allows binding to the MinimumLengthProperty as BindMinimumLength for the TextValidationBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type TextValidationBehavior.</returns>
-    public static Bindings.BindableProperty<int> BindMinimumLength(this TextValidationBehavior _) => Bindings.BindableProperty<int>.Create(TextValidationBehavior.MinimumLengthProperty);
-
-    /// <summary>
-    /// Allows binding to the RegexOptionsProperty as BindRegexOptions for the TextValidationBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type TextValidationBehavior.</returns>
-    public static Bindings.BindableProperty<RegexOptions> BindRegexOptions(this TextValidationBehavior _) => Bindings.BindableProperty<RegexOptions>.Create(TextValidationBehavior.RegexOptionsProperty);
-
-    /// <summary>
-    /// Allows binding to the RegexPatternProperty as BindRegexPattern for the TextValidationBehavior control.
-    /// </summary>
-    /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type TextValidationBehavior.</returns>
-    public static Bindings.BindableProperty<string> BindRegexPattern(this TextValidationBehavior _) => Bindings.BindableProperty<string>.Create(TextValidationBehavior.RegexPatternProperty);
 
     // ***** TouchBehavior Bindings *****
 
@@ -955,30 +891,28 @@ public static partial class ControlBindExtensionMethods
     /// <returns>Generic BindableProperty of type TouchBehavior.</returns>
     public static Bindings.BindableProperty<bool> BindShouldMakeChildrenInputTransparent(this TouchBehavior _) => Bindings.BindableProperty<bool>.Create(TouchBehavior.ShouldMakeChildrenInputTransparentProperty);
 
-    // ***** UniformItemsLayout Bindings *****
+    // ***** ProgressBarAnimationBehavior Bindings *****
 
     /// <summary>
-    /// Allows binding to the MaxColumnsProperty as BindMaxColumns for the UniformItemsLayout control.
+    /// Allows binding to the EasingProperty as BindEasing for the ProgressBarAnimationBehavior control.
     /// </summary>
     /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type UniformItemsLayout.</returns>
-    public static Bindings.BindableProperty<int> BindMaxColumns(this UniformItemsLayout _) => Bindings.BindableProperty<int>.Create(UniformItemsLayout.MaxColumnsProperty);
+    /// <returns>Generic BindableProperty of type ProgressBarAnimationBehavior.</returns>
+    public static Bindings.BindableProperty<Easing> BindEasing(this ProgressBarAnimationBehavior _) => Bindings.BindableProperty<Easing>.Create(ProgressBarAnimationBehavior.EasingProperty);
 
     /// <summary>
-    /// Allows binding to the MaxRowsProperty as BindMaxRows for the UniformItemsLayout control.
+    /// Allows binding to the LengthProperty as BindLength for the ProgressBarAnimationBehavior control.
     /// </summary>
     /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type UniformItemsLayout.</returns>
-    public static Bindings.BindableProperty<int> BindMaxRows(this UniformItemsLayout _) => Bindings.BindableProperty<int>.Create(UniformItemsLayout.MaxRowsProperty);
-
-    // ***** UriValidationBehavior Bindings *****
+    /// <returns>Generic BindableProperty of type ProgressBarAnimationBehavior.</returns>
+    public static Bindings.BindableProperty<UInt32> BindLength(this ProgressBarAnimationBehavior _) => Bindings.BindableProperty<UInt32>.Create(ProgressBarAnimationBehavior.LengthProperty);
 
     /// <summary>
-    /// Allows binding to the UriKindProperty as BindUriKind for the UriValidationBehavior control.
+    /// Allows binding to the ProgressProperty as BindProgress for the ProgressBarAnimationBehavior control.
     /// </summary>
     /// <param name="_">Extension parameter.</param>
-    /// <returns>Generic BindableProperty of type UriValidationBehavior.</returns>
-    public static Bindings.BindableProperty<UriKind> BindUriKind(this UriValidationBehavior _) => Bindings.BindableProperty<UriKind>.Create(UriValidationBehavior.UriKindProperty);
+    /// <returns>Generic BindableProperty of type ProgressBarAnimationBehavior.</returns>
+    public static Bindings.BindableProperty<double> BindProgress(this ProgressBarAnimationBehavior _) => Bindings.BindableProperty<double>.Create(ProgressBarAnimationBehavior.ProgressProperty);
 
     // ***** UserStoppedTypingBehavior Bindings *****
 
@@ -1016,6 +950,137 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type UserStoppedTypingBehavior.</returns>
     public static Bindings.BindableProperty<int> BindStoppedTypingTimeThreshold(this UserStoppedTypingBehavior _) => Bindings.BindableProperty<int>.Create(UserStoppedTypingBehavior.StoppedTypingTimeThresholdProperty);
+
+    // ***** CharactersValidationBehavior Bindings *****
+
+    /// <summary>
+    /// Allows binding to the CharacterTypeProperty as BindCharacterType for the CharactersValidationBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CharactersValidationBehavior.</returns>
+    public static Bindings.BindableProperty<CharacterType> BindCharacterType(this CharactersValidationBehavior _) => Bindings.BindableProperty<CharacterType>.Create(CharactersValidationBehavior.CharacterTypeProperty);
+
+    /// <summary>
+    /// Allows binding to the MaximumCharacterTypeCountProperty as BindMaximumCharacterTypeCount for the CharactersValidationBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CharactersValidationBehavior.</returns>
+    public static Bindings.BindableProperty<int> BindMaximumCharacterTypeCount(this CharactersValidationBehavior _) => Bindings.BindableProperty<int>.Create(CharactersValidationBehavior.MaximumCharacterTypeCountProperty);
+
+    /// <summary>
+    /// Allows binding to the MinimumCharacterTypeCountProperty as BindMinimumCharacterTypeCount for the CharactersValidationBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type CharactersValidationBehavior.</returns>
+    public static Bindings.BindableProperty<int> BindMinimumCharacterTypeCount(this CharactersValidationBehavior _) => Bindings.BindableProperty<int>.Create(CharactersValidationBehavior.MinimumCharacterTypeCountProperty);
+
+    // ***** MultiValidationBehavior Bindings *****
+
+    /// <summary>
+    /// Allows binding to the ErrorProperty as BindError for the MultiValidationBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type MultiValidationBehavior.</returns>
+    public static Bindings.BindableProperty<object> BindError(this MultiValidationBehavior _) => Bindings.BindableProperty<object>.Create(MultiValidationBehavior.ErrorProperty);
+
+    /// <summary>
+    /// Allows binding to the ErrorsProperty as BindErrors for the MultiValidationBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type MultiValidationBehavior.</returns>
+    public static Bindings.BindableProperty<List<object>> BindErrors(this MultiValidationBehavior _) => Bindings.BindableProperty<List<object>>.Create(MultiValidationBehavior.ErrorsProperty);
+
+    // ***** NumericValidationBehavior Bindings *****
+
+    /// <summary>
+    /// Allows binding to the MaximumDecimalPlacesProperty as BindMaximumDecimalPlaces for the NumericValidationBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type NumericValidationBehavior.</returns>
+    public static Bindings.BindableProperty<int> BindMaximumDecimalPlaces(this NumericValidationBehavior _) => Bindings.BindableProperty<int>.Create(NumericValidationBehavior.MaximumDecimalPlacesProperty);
+
+    /// <summary>
+    /// Allows binding to the MaximumValueProperty as BindMaximumValue for the NumericValidationBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type NumericValidationBehavior.</returns>
+    public static Bindings.BindableProperty<double> BindMaximumValue(this NumericValidationBehavior _) => Bindings.BindableProperty<double>.Create(NumericValidationBehavior.MaximumValueProperty);
+
+    /// <summary>
+    /// Allows binding to the MinimumDecimalPlacesProperty as BindMinimumDecimalPlaces for the NumericValidationBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type NumericValidationBehavior.</returns>
+    public static Bindings.BindableProperty<int> BindMinimumDecimalPlaces(this NumericValidationBehavior _) => Bindings.BindableProperty<int>.Create(NumericValidationBehavior.MinimumDecimalPlacesProperty);
+
+    /// <summary>
+    /// Allows binding to the MinimumValueProperty as BindMinimumValue for the NumericValidationBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type NumericValidationBehavior.</returns>
+    public static Bindings.BindableProperty<double> BindMinimumValue(this NumericValidationBehavior _) => Bindings.BindableProperty<double>.Create(NumericValidationBehavior.MinimumValueProperty);
+
+    // ***** RequiredStringValidationBehavior Bindings *****
+
+    /// <summary>
+    /// Allows binding to the ExactMatchProperty as BindExactMatch for the RequiredStringValidationBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type RequiredStringValidationBehavior.</returns>
+    public static Bindings.BindableProperty<bool> BindExactMatch(this RequiredStringValidationBehavior _) => Bindings.BindableProperty<bool>.Create(RequiredStringValidationBehavior.ExactMatchProperty);
+
+    /// <summary>
+    /// Allows binding to the RequiredStringProperty as BindRequiredString for the RequiredStringValidationBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type RequiredStringValidationBehavior.</returns>
+    public static Bindings.BindableProperty<string> BindRequiredString(this RequiredStringValidationBehavior _) => Bindings.BindableProperty<string>.Create(RequiredStringValidationBehavior.RequiredStringProperty);
+
+    // ***** TextValidationBehavior Bindings *****
+
+    /// <summary>
+    /// Allows binding to the DecorationFlagsProperty as BindDecorationFlags for the TextValidationBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TextValidationBehavior.</returns>
+    public static Bindings.BindableProperty<TextDecorationFlags> BindDecorationFlags(this TextValidationBehavior _) => Bindings.BindableProperty<TextDecorationFlags>.Create(TextValidationBehavior.DecorationFlagsProperty);
+
+    /// <summary>
+    /// Allows binding to the MaximumLengthProperty as BindMaximumLength for the TextValidationBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TextValidationBehavior.</returns>
+    public static Bindings.BindableProperty<int> BindMaximumLength(this TextValidationBehavior _) => Bindings.BindableProperty<int>.Create(TextValidationBehavior.MaximumLengthProperty);
+
+    /// <summary>
+    /// Allows binding to the MinimumLengthProperty as BindMinimumLength for the TextValidationBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TextValidationBehavior.</returns>
+    public static Bindings.BindableProperty<int> BindMinimumLength(this TextValidationBehavior _) => Bindings.BindableProperty<int>.Create(TextValidationBehavior.MinimumLengthProperty);
+
+    /// <summary>
+    /// Allows binding to the RegexOptionsProperty as BindRegexOptions for the TextValidationBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TextValidationBehavior.</returns>
+    public static Bindings.BindableProperty<RegexOptions> BindRegexOptions(this TextValidationBehavior _) => Bindings.BindableProperty<RegexOptions>.Create(TextValidationBehavior.RegexOptionsProperty);
+
+    /// <summary>
+    /// Allows binding to the RegexPatternProperty as BindRegexPattern for the TextValidationBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type TextValidationBehavior.</returns>
+    public static Bindings.BindableProperty<string> BindRegexPattern(this TextValidationBehavior _) => Bindings.BindableProperty<string>.Create(TextValidationBehavior.RegexPatternProperty);
+
+    // ***** UriValidationBehavior Bindings *****
+
+    /// <summary>
+    /// Allows binding to the UriKindProperty as BindUriKind for the UriValidationBehavior control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type UriValidationBehavior.</returns>
+    public static Bindings.BindableProperty<UriKind> BindUriKind(this UriValidationBehavior _) => Bindings.BindableProperty<UriKind>.Create(UriValidationBehavior.UriKindProperty);
 
     // ***** ValidationBehavior Bindings *****
 
@@ -1081,4 +1146,14 @@ public static partial class ControlBindExtensionMethods
     /// <param name="_">Extension parameter.</param>
     /// <returns>Generic BindableProperty of type ValidationBehavior.</returns>
     public static Bindings.BindableProperty<string> BindValueName(this ValidationBehavior _) => Bindings.BindableProperty<string>.Create(ValidationBehavior.ValuePropertyNameProperty);
+
+    // ***** FadeAnimation Bindings *****
+
+    /// <summary>
+    /// Allows binding to the OpacityProperty as BindOpacity for the FadeAnimation control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type FadeAnimation.</returns>
+    public static Bindings.BindableProperty<double> BindOpacity(this FadeAnimation _) => Bindings.BindableProperty<double>.Create(FadeAnimation.OpacityProperty);
+
 }

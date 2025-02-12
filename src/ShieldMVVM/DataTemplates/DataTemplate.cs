@@ -7,7 +7,7 @@
 public class DataTemplate<TModel> : DataTemplate
 {
     /// <summary>
-    /// Constructor tht takes the type of cell being bound to.
+    /// Constructor that takes the type of cell being bound to.
     /// </summary>
     /// <param name="cellType">The type of cell being bound to.</param>
     public DataTemplate(Type cellType): base(cellType)
