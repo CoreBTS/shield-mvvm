@@ -195,7 +195,7 @@ public interface INavigationService
     void ClearNavigation();
 
     /// <summary>
-    /// Navigates entire window to another ViewModel with no parameters/results.
+    /// Navigates without menu to another ViewModel with no parameters/results.
     /// </summary>
     /// <typeparam name="TViewModel">The type of ViewModel being navigated to.</typeparam>
     /// <param name="isAnimated">True if the transition is animated; false otherwise.</param>
@@ -206,14 +206,14 @@ public interface INavigationService
     /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
     /// </param>
     /// <returns>An awaitable task with the created ViewModel.</returns>
-    Task NavigateWindowToAsync<TViewModel>(
+    Task NavigateModalToAsync<TViewModel>(
        bool isAnimated = true,
        bool mustClearNavigationStack = false,
        CancellationToken token = default)
        where TViewModel : IPageViewModel;
 
     /// <summary>
-    /// Navigates entire window to another ViewModel with setup parameters and no result.
+    /// Navigates without menu to another ViewModel with setup parameters and no result.
     /// </summary>
     /// <typeparam name="TViewModel">The type of ViewModel being navigated to.</typeparam>
     /// <typeparam name="TParameter">The type of setup parameter being sent.</typeparam>
@@ -226,7 +226,7 @@ public interface INavigationService
     /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
     /// </param>
     /// <returns>An awaitable task with the created ViewModel.</returns>
-    Task NavigateWindowToAsync<TViewModel, TParameter>(
+    Task NavigateModalToAsync<TViewModel, TParameter>(
         TParameter parameter,
         bool isAnimated = true,
         bool mustClearNavigationStack = false,
@@ -234,7 +234,7 @@ public interface INavigationService
         where TViewModel : IPageViewModel<TParameter>;
 
     /// <summary>
-    /// Navigates entire window to another ViewModel with setup parameters and expecting a result.
+    /// Navigates without menu to another ViewModel with setup parameters and expecting a result.
     /// </summary>
     /// <typeparam name="TViewModel">The type of ViewModel being navigated to.</typeparam>
     /// <typeparam name="TParameter">The type of setup parameter being sent.</typeparam>
@@ -248,7 +248,7 @@ public interface INavigationService
     /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
     /// </param>
     /// <returns>An awaitable task that returns the view model and result of the page.</returns>
-    Task<TResult> NavigateWindowToAsync<TViewModel, TParameter, TResult>(
+    Task<TResult> NavigateModalToAsync<TViewModel, TParameter, TResult>(
         TParameter parameter,
         bool isAnimated = true,
         bool mustClearNavigationStack = false,
@@ -256,7 +256,7 @@ public interface INavigationService
         where TViewModel : IPageViewModel<TParameter, TResult>;
 
     /// <summary>
-    /// Navigates entire window to the previous page and returns the page navigated from.
+    /// Navigates without menu to the previous page and returns the page navigated from.
     /// </summary>
     /// <param name="viewModel">The ViewModel of the page navigating from.</param>
     /// <param name="isAnimated">True if the transition is animated; false otherwise.</param>
@@ -264,13 +264,13 @@ public interface INavigationService
     /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
     /// </param>
     /// <returns>An awaitable task.</returns>
-    Task NavigateWindowBackAsync(
+    Task NavigateModalBackAsync(
         IPageViewModel viewModel,
         bool isAnimated = true,
         CancellationToken token = default);
 
     /// <summary>
-    /// Navigates entire window to the previous page and returns the page navigated from.
+    /// Navigates without menu to the previous page and returns the page navigated from.
     /// </summary>
     /// <typeparam name="TParameter">The type of setup parameter being sent.</typeparam>
     /// <param name="viewModel">The ViewModel of the page navigating from.</param>
@@ -279,13 +279,13 @@ public interface INavigationService
     /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
     /// </param>
     /// <returns>An awaitable task.</returns>
-    Task NavigateWindowBackAsync<TParameter>(
+    Task NavigateModalBackAsync<TParameter>(
         IPageViewModel<TParameter> viewModel,
         bool isAnimated = true,
         CancellationToken token = default);
 
     /// <summary>
-    /// Navigates entire window to the previous page and returns the page navigated from.
+    /// Navigates without menu to the previous page and returns the page navigated from.
     /// </summary>
     /// <typeparam name="TParameter">The type of setup parameter being sent.</typeparam>
     /// <typeparam name="TResult">The type of result being returned.</typeparam>
@@ -296,14 +296,14 @@ public interface INavigationService
     /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
     /// </param>
     /// <returns>An awaitable task.</returns>
-    Task NavigateWindowBackAsync<TParameter, TResult>(
+    Task NavigateModalBackAsync<TParameter, TResult>(
         IPageViewModel<TParameter, TResult> viewModel,
         TResult result,
         bool isAnimated = true,
         CancellationToken token = default);
 
     /// <summary>
-    /// Clears the entire window navigation stack.
+    /// Clears the without menu navigation stack.
     /// </summary>
-    void ClearWindowNavigation();
+    void ClearModalNavigation();
 }

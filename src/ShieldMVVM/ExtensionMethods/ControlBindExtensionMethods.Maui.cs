@@ -40,6 +40,13 @@ public static partial class ControlBindExtensionMethods
     public static Bindings.BindableProperty<TItem> BindItemTemplate<TControl, TItem>(this TControl _) where TControl : IBindableLayout => Bindings.BindableProperty<TItem>.Create(BindableLayout.ItemTemplateProperty);
 
     /// <summary>
+    /// Allows binding to the ItemTemplateSelectorProperty as BindItemTemplate for the AbsoluteLayout control.
+    /// </summary>
+    /// <param name="_">Extension parameter.</param>
+    /// <returns>Generic BindableProperty of type DataTemplate.</returns>
+    public static Bindings.BindableProperty<TItem> BindItemTemplateSelector<TControl, TItem>(this TControl _) where TControl : IBindableLayout => Bindings.BindableProperty<TItem>.Create(BindableLayout.ItemTemplateSelectorProperty);
+
+    /// <summary>
     /// Allows binding to the CommandProperty as BindClick for BindableObject controls that implement IGestureRecognizers.
     /// </summary>
     /// <param name="_">Extension parameter.</param>

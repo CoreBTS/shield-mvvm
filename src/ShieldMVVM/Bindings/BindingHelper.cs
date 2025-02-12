@@ -418,7 +418,7 @@ public static class BindingHelperExtensions
        )
        where TControl : BindableObject, IBindableLayout =>
        self.For(c => c.BindItemsSource<TControl,TCellModel>(), dataPropertyExpression)
-           .Once(c => c.BindItemTemplate<TControl, DataTemplateSelector>(), vm => dataTemplateSelector);
+           .Once(c => c.BindItemTemplateSelector<TControl, DataTemplateSelector>(), vm => dataTemplateSelector);
 
     /// <summary>
     /// Adds short-hand way to hookup Selection Changed events.

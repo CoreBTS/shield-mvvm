@@ -53,4 +53,10 @@ public class ActionSheetItem
         if (CallbackAction != null)
             await CallbackAction.Invoke(key);
     }
+
+    /// <summary>
+    /// Returns a string that represents the current object.
+    /// </summary>
+    /// <returns>A string that represents the current object.</returns>
+    public override string ToString() => Text;
 };

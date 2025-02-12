@@ -216,7 +216,7 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
             ClearNavigation();
 
         if (Navigation != null)
-            await Navigation.PushModalAsync(page, isAnimated);
+            await Navigation.PushAsync(page, isAnimated);
 
         if (!viewModel.IsInitializeCalledBeforePageIsCreated)
             await InitializeViewModel(viewModel, token);
@@ -259,7 +259,7 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
             ClearNavigation();
 
         if (Navigation != null)
-            await Navigation.PushModalAsync(page, isAnimated);
+            await Navigation.PushAsync(page, isAnimated);
 
         if (!viewModel.IsInitializeCalledBeforePageIsCreated)
             await InitializeViewModel(viewModel, token);
@@ -303,7 +303,7 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
             ClearNavigation();
 
         if (Navigation != null)
-            await Navigation.PushModalAsync(page, isAnimated);
+            await Navigation.PushAsync(page, isAnimated);
 
         if (!viewModel.IsInitializeCalledBeforePageIsCreated)
             await InitializeViewModel(viewModel, token);
@@ -328,7 +328,7 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
        CancellationToken token = default)
     {
         if (Navigation != null)
-            await Navigation.PopModalAsync(isAnimated);
+            await Navigation.PopAsync(isAnimated);
 
         await viewModel.OnViewDestroying(token);
     }
@@ -349,7 +349,7 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
        CancellationToken token = default)
     {
         if (Navigation != null)
-            await Navigation.PopModalAsync(isAnimated);
+            await Navigation.PopAsync(isAnimated);
 
         await viewModel.OnViewDestroying(token);
     }
@@ -373,7 +373,7 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
         CancellationToken token = default)
     {
         if (Navigation != null)
-            await Navigation.PopModalAsync(isAnimated);
+            await Navigation.PopAsync(isAnimated);
 
         if (!viewModel.TaskCompletionSource.TrySetResult(result))
             viewModel.TaskCompletionSource.SetCanceled(token);
@@ -389,9 +389,9 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
         if (Navigation == null)
             return;
 
-        for (var i = Navigation.ModalStack.Count - 1; i >= 0; i--)
+        for (var i = Navigation.NavigationStack.Count - 1; i >= 0; i--)
         {
-            var page = Navigation.ModalStack[i];
+            var page = Navigation.NavigationStack[i];
             if (page == null)
                 break;
             
@@ -400,7 +400,7 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
     }
 
     /// <summary>
-    /// Navigates entire window to another ViewModel with no parameters/results.
+    /// Navigates without menu to another ViewModel with no parameters/results.
     /// </summary>
     /// <typeparam name="TViewModel">The type of ViewModel being navigated to.</typeparam>
     /// <param name="isAnimated">True if the transition is animated; false otherwise.</param>
@@ -411,7 +411,7 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
     /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
     /// </param>
     /// <returns>An awaitable task with the created ViewModel.</returns>
-    public async Task NavigateWindowToAsync<TViewModel>(
+    public async Task NavigateModalToAsync<TViewModel>(
         bool isAnimated = true,
         bool mustClearNavigationStack = false,
         CancellationToken token = default)
@@ -431,14 +431,14 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
             ClearNavigation();
 
         if (Navigation != null)
-            await Navigation.PushAsync(page, isAnimated);
+            await Navigation.PushModalAsync(page, isAnimated);
 
         if (!viewModel.IsInitializeCalledBeforePageIsCreated)
             await InitializeViewModel(viewModel, token);
     }
 
     /// <summary>
-    /// Navigates entire window to another ViewModel with setup parameters and no result.
+    /// Navigates without menu to another ViewModel with setup parameters and no result.
     /// </summary>
     /// <typeparam name="TViewModel">The type of ViewModel being navigated to.</typeparam>
     /// <typeparam name="TParameter">The type of setup parameter being sent.</typeparam>
@@ -451,7 +451,7 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
     /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
     /// </param>
     /// <returns>An awaitable task with the created ViewModel.</returns>
-    public async Task NavigateWindowToAsync<TViewModel, TParameter>(
+    public async Task NavigateModalToAsync<TViewModel, TParameter>(
         TParameter parameter,
         bool isAnimated = true,
         bool mustClearNavigationStack = false,
@@ -474,14 +474,14 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
             ClearNavigation();
 
         if (Navigation != null)
-            await Navigation.PushAsync(page, isAnimated);
+            await Navigation.PushModalAsync(page, isAnimated);
 
         if (!viewModel.IsInitializeCalledBeforePageIsCreated)
             await InitializeViewModel(viewModel, token);
     }
 
     /// <summary>
-    /// Navigates entire window to another ViewModel with setup parameters and expecting a result.
+    /// Navigates without menu to another ViewModel with setup parameters and expecting a result.
     /// </summary>
     /// <typeparam name="TViewModel">The type of ViewModel being navigated to.</typeparam>
     /// <typeparam name="TParameter">The type of setup parameter being sent.</typeparam>
@@ -495,7 +495,7 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
     /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
     /// </param>
     /// <returns>An awaitable task that returns the view model and result of the page.</returns>
-    public async Task<TResult> NavigateWindowToAsync<TViewModel, TParameter, TResult>(
+    public async Task<TResult> NavigateModalToAsync<TViewModel, TParameter, TResult>(
         TParameter parameter,
         bool isAnimated = true,
         bool mustClearNavigationStack = false,
@@ -518,7 +518,7 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
             ClearNavigation();
 
         if (Navigation != null)
-            await Navigation.PushAsync(page, isAnimated);
+            await Navigation.PushModalAsync(page, isAnimated);
 
         if (!viewModel.IsInitializeCalledBeforePageIsCreated)
             await InitializeViewModel(viewModel, token);
@@ -529,7 +529,7 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
     }
 
     /// <summary>
-    /// Navigates entire window to the previous page and returns the page navigated from.
+    /// Navigates without menu to the previous page and returns the page navigated from.
     /// </summary>
     /// <param name="viewModel">The ViewModel of the page navigating from.</param>
     /// <param name="isAnimated">True if the transition is animated; false otherwise.</param>
@@ -537,19 +537,19 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
     /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
     /// </param>
     /// <returns>An awaitable task that returns the page navigated from.</returns>
-    public async Task NavigateWindowBackAsync(
+    public async Task NavigateModalBackAsync(
        IPageViewModel viewModel,
        bool isAnimated = true,
        CancellationToken token = default)
     {
         if (Navigation != null)
-            await Navigation.PopAsync(isAnimated);
-
+            await Navigation.PopModalAsync(isAnimated);
+        
         await viewModel.OnViewDestroying(token);
     }
 
     /// <summary>
-    /// Navigates entire window to the previous page and returns the page navigated from.
+    /// Navigates without menu to the previous page and returns the page navigated from.
     /// </summary>
     /// <typeparam name="TParameter">The type of setup parameter being sent.</typeparam>
     /// <param name="viewModel">The ViewModel of the page navigating from.</param>
@@ -558,19 +558,19 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
     /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
     /// </param>
     /// <returns>An awaitable task that returns the page navigated from.</returns>
-    public async Task NavigateWindowBackAsync<TParameter>(
+    public async Task NavigateModalBackAsync<TParameter>(
        IPageViewModel<TParameter> viewModel,
        bool isAnimated = true,
        CancellationToken token = default)
     {
         if (Navigation != null)
-            await Navigation.PopAsync(isAnimated);
+            await Navigation.PopModalAsync(isAnimated);
 
         await viewModel.OnViewDestroying(token);
     }
 
     /// <summary>
-    /// Navigates entire window to the previous page and returns the page navigated from.
+    /// Navigates without menu to the previous page and returns the page navigated from.
     /// </summary>
     /// <typeparam name="TParameter">The type of setup parameter being sent.</typeparam>
     /// <typeparam name="TResult">The type of result being returned.</typeparam>
@@ -581,14 +581,14 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
     /// A System.Threading.CancellationToken to observe while waiting for the task to complete.
     /// </param>
     /// <returns>An awaitable task that returns the page navigated from.</returns>
-    public async Task NavigateWindowBackAsync<TParameter, TResult>(
+    public async Task NavigateModalBackAsync<TParameter, TResult>(
         IPageViewModel<TParameter, TResult> viewModel,
         TResult result,
         bool isAnimated = true,
         CancellationToken token = default)
     {
         if (Navigation != null)
-            await Navigation.PopAsync(isAnimated);
+            await Navigation.PopModalAsync(isAnimated);
 
         if (!viewModel.TaskCompletionSource.TrySetResult(result))
             viewModel.TaskCompletionSource.SetCanceled(token);
@@ -597,16 +597,16 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
     }
 
     /// <summary>
-    /// Clears the entire window navigation stack.
+    /// Clears the without menu navigation stack.
     /// </summary>
-    public virtual void ClearWindowNavigation()
+    public virtual void ClearModalNavigation()
     {
         if (Navigation == null)
             return;
 
-        for (var i = Navigation.NavigationStack.Count - 1; i >= 0; i--)
+        for (var i = Navigation.ModalStack.Count - 1; i >= 0; i--)
         {
-            var page = Navigation.NavigationStack[i];
+            var page = Navigation.ModalStack[i];
             if (page == null)
                 break;
 
