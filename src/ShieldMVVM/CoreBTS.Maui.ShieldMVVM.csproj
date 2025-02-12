@@ -32,7 +32,7 @@
 		<PackageTags>MAUI;MVVM;FrameWork</PackageTags>
 		<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
 		<IncludeContentInPack>true</IncludeContentInPack>
-		<Version>2.0.0.10</Version>
+		<Version>2.0.0.0</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
