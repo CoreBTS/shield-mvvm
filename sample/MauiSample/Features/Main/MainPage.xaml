@@ -84,6 +84,11 @@
                     Text="Actions"
                     />
 
+                <Button
+                    x:Name="AlertButton"
+                    Text="Alert"
+                    />
+
             </HorizontalStackLayout>
 
         </VerticalStackLayout>

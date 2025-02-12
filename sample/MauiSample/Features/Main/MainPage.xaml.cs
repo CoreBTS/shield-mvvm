@@ -37,5 +37,8 @@ public partial class MainPage : ContentPageBase<MainPageViewModel>
 
         Binder.WithControl(ActionsButton)
             .Once(c => c.BindClick(), vm => vm.ActionCommand);
+
+        Binder.WithControl(AlertButton)
+            .Once(c => c.BindClick(), vm => vm.AlertCommand);
     }
 }

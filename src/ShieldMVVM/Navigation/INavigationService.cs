@@ -9,6 +9,17 @@ namespace CoreBTS.Maui.ShieldMVVM.Navigation;
 public interface INavigationService
 {
     /// <summary>
+    /// Displays an alert message on the screen.
+    /// </summary>
+    /// <param name="message">Message to show the user.</param>
+    /// <param name="title">Title of the message.</param>
+    /// <param name="acceptButtonText">Text of the accept button to show.</param>
+    /// <param name="cancelButtonText">Text of the cancel button to show.</param>
+    /// <param name="flowDirection">The flow direction to be used by the alert.</param>
+    /// <returns>An awaitable task where if true then the user accepted the alert; false otherwise.</returns>
+    Task<bool> ShowAlertAsync(string message, string? title = null, string? acceptButtonText = null, string? cancelButtonText = null, FlowDirection? flowDirection = null);
+
+    /// <summary>
     /// Shows an action sheet to the user and returns the option selected.
     /// </summary>
     /// <param name="title">The title text to show.</param>

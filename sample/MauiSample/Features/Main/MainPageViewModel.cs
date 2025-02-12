@@ -198,6 +198,12 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
         }
     }
 
+    [RelayCommand]
+    public async Task Alert()
+    {
+        await NavigationService.ShowAlertAsync("Alert message", "Alert Title");
+    }
+
     public override void Prepare(MainPageArgs parameters)
     {
         Counter = parameters.InitialCounter;
