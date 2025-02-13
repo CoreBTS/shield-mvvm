@@ -1,9 +1,6 @@
 ﻿namespace MauiSample.Features.Main.Dialog;
 
-public class DialogPromptPageArg
+public class DialogPromptPageArg(int counter)
 {
-    public DialogPromptPageArg(int counter) =>
-        Counter = counter;
-
-    public int Counter { get; }
+    public int Counter { get; } = counter;
 }

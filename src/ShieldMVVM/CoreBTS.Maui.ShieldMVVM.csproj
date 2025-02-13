@@ -24,12 +24,12 @@
 		<Company>Core BTS</Company>
 		<Description>Core BTS's ShieldMVVM is a .NET MAUI MVVM framework that provides type-safety for navigation, bindable properties, converters, behaviors, dialogs, data templates, and more in a way that enables developers to code faster, safer, and with less lines.</Description>
 		<PackageProjectUrl>https://github.com/CoreBTS/shield-mvvm</PackageProjectUrl>
-		<Copyright>Copyright 2023 Core BTS. All Rights Reserved.</Copyright>
+		<Copyright>Copyright 2025 Core BTS. All Rights Reserved.</Copyright>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/CoreBTS/shield-mvvm</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<PackageTags>MAUI;MVVM;FrameWork</PackageTags>
+		<PackageTags>MAUI;MVVM;Framework</PackageTags>
 		<PackageLicenseFile>LICENSE.md</PackageLicenseFile>
 		<IncludeContentInPack>true</IncludeContentInPack>
 		<Version>2.0.0.0</Version>

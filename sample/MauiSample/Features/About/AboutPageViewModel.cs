@@ -1,5 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.Input;
 using CoreBTS.Maui.ShieldMVVM.Navigation;
 using CoreBTS.Maui.ShieldMVVM.ViewModel;
 using MauiSample.Features.About.Cells;

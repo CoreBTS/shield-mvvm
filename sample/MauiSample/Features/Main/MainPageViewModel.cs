@@ -7,9 +7,7 @@ using CoreBTS.Maui.ShieldMVVM.ViewModel;
 using MauiSample.Features.About;
 using MauiSample.Features.Main.Dialog;
 using System.Reflection;
-using System.Reflection.Metadata;
 using System.Text;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace MauiSample.Features.Main;
 
@@ -33,6 +31,80 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
     public MainPageViewModel(INavigationService navigationService) : base(navigationService)
     {
         Secondary = new SecondaryViewModel(NavigationService) { MyLabel = "Secondary Test" };
+    }
+
+    public override void Prepare(MainPageArgs parameters)
+    {
+        Counter = parameters.InitialCounter;
+    }
+
+    public override Task InitializeAsync(CancellationToken token = default)
+    {
+        return Task.CompletedTask;
+    }
+
+    private void UpdateSecondary() =>
+        Secondary.MyLabel = $"Secondary {Counter}";
+
+    [RelayCommand]
+    protected virtual async Task AboutPage()
+    {
+        var result = 
+            await NavigationService.NavigateToAsync<AboutPageViewModel, AboutPageArgs, AboutPageResult>(
+                new AboutPageArgs(Counter));
+
+        Counter = result.Counter;
+        UpdateSecondary();
+    }
+
+    [RelayCommand]
+    protected virtual async Task AboutAlternatePage()
+    {
+        var result = 
+            await NavigationService.NavigateToAsync<AlternateAboutPageViewModel, AboutPageArgs, AboutPageResult>(
+                new AboutPageArgs(Counter));
+
+        Counter = result.Counter;
+        UpdateSecondary();
+    }
+
+    [RelayCommand]
+    public async Task Dialog1() =>
+        await NavigationService.ShowDialogPopupAsync<DialogPageViewModel>();
+
+    [RelayCommand]
+    public async Task Dialog2()
+    {
+        var result = 
+            await NavigationService.ShowDialogPopupAsync<DialogPromptPageViewModel, DialogPromptPageArg, DialogPromptPageResult>(
+                new DialogPromptPageArg(Counter));
+
+        Counter = result!.Counter;
+        UpdateSecondary();
+    }
+
+    [RelayCommand]
+    public async Task Action()
+    {
+        var result =
+            await NavigationService.ShowActionSheetAsync(
+                "My Title", 
+                "My message",
+                new ActionSheetItem("Item1", "Item 1"),
+                new ActionSheetItem("Item2", "Item 2"),
+                new ActionSheetItem("Item3", "Item 3"),
+                new ActionSheetItem("Item4", "Item 4", Colors.Red));
+
+        if (result != null)
+        {
+            await NavigationService.ShowAlertAsync(result.Text, "You Chose:");
+        }
+    }
+
+    [RelayCommand]
+    public async Task Alert()
+    {
+        await NavigationService.ShowAlertAsync("Alert message", "Alert Title");
     }
 
     [RelayCommand]
@@ -138,80 +210,6 @@ public partial class MainPageViewModel : PageViewModelBase<MainPageArgs>
 
             string result = string.Join(Environment.NewLine, output);
         }
-    }
-
-    private void UpdateSecondary() =>
-        Secondary.MyLabel = $"Secondary {Counter}";
-
-    [RelayCommand]
-    protected virtual async Task AboutPage()
-    {
-        var result = 
-            await NavigationService.NavigateToAsync<AboutPageViewModel, AboutPageArgs, AboutPageResult>(
-                new AboutPageArgs(Counter));
-
-        Counter = result.Counter;
-        UpdateSecondary();
-    }
-
-    [RelayCommand]
-    protected virtual async Task AboutAlternatePage()
-    {
-        var result = 
-            await NavigationService.NavigateToAsync<AlternateAboutPageViewModel, AboutPageArgs, AboutPageResult>(
-                new AboutPageArgs(Counter));
-
-        Counter = result.Counter;
-        UpdateSecondary();
-    }
-
-    [RelayCommand]
-    public async Task Dialog1() =>
-        await NavigationService.ShowDialogPopupAsync<DialogPageViewModel>();
-
-    [RelayCommand]
-    public async Task Dialog2()
-    {
-        var result = 
-            await NavigationService.ShowDialogPopupAsync<DialogPromptPageViewModel, DialogPromptPageArg, DialogPromptPageResult>(
-                new DialogPromptPageArg(Counter));
-
-        Counter = result!.Counter;
-        UpdateSecondary();
-    }
-
-    [RelayCommand]
-    public async Task Action()
-    {
-        var result =
-            await NavigationService.ShowActionSheetAsync(
-                "My Title", 
-                "My message",
-                new ActionSheetItem("Item1", "Item 1"),
-                new ActionSheetItem("Item2", "Item 2"),
-                new ActionSheetItem("Item3", "Item 3"),
-                new ActionSheetItem("Item4", "Item 4", Colors.Red));
-
-        if (result != null)
-        {
-
-        }
-    }
-
-    [RelayCommand]
-    public async Task Alert()
-    {
-        await NavigationService.ShowAlertAsync("Alert message", "Alert Title");
-    }
-
-    public override void Prepare(MainPageArgs parameters)
-    {
-        Counter = parameters.InitialCounter;
-    }
-
-    public override Task InitializeAsync(CancellationToken token = default)
-    {
-        return Task.CompletedTask;
     }
 
     private static string GenerateCodeSnippet(

@@ -3,12 +3,8 @@ using CoreBTS.Maui.ShieldMVVM.ViewModel;
 
 namespace MauiSample.Features.Main.Dialog;
 
-public class DialogPageViewModel : DialogViewModelBase
+public partial class DialogPageViewModel(INavigationService navigationService) : DialogViewModelBase(navigationService)
 {
-    public DialogPageViewModel(INavigationService navigationService) : base(navigationService)
-    {
-    }
-
     public virtual string MyLabel => "This is my dialog label";
 
     public override Task InitializeAsync(CancellationToken token = default) =>

@@ -19,6 +19,8 @@ public partial class ActionSheetViewModel: DialogViewModelBase<ActionSheetArg, A
         CancelLabel = "Cancel";
         CancelTextColor = Colors.Black;
     }
+#pragma warning disable IDE0079 // Not unnecessary
+#pragma warning disable MVVMTK0045 // Issues with [ObservableProperty] via a partial property
 
     /// <summary>
     /// Gets or sets the page title of the action sheet.
@@ -49,6 +51,9 @@ public partial class ActionSheetViewModel: DialogViewModelBase<ActionSheetArg, A
     /// </summary>
     [ObservableProperty]
     public string _cancelLabel;
+
+#pragma warning restore MVVMTK0045
+#pragma warning restore IDE0079
 
     /// <summary>
     /// Gets the actions the user can take on the action sheet.

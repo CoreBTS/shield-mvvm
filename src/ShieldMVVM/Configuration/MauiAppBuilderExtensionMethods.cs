@@ -38,7 +38,7 @@ public static class MauiAppBuilderExtensionMethods
         if (assemblies.Any(a => a != currentAssembly)) 
         {
             assemblies.Add(currentAssembly);
-            assembliesToScan = assemblies.ToArray();
+            assembliesToScan = [.. assemblies];
         }
 
         ConfigureViewModels(builder, assembliesToScan);

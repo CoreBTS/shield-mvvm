@@ -1,9 +1,6 @@
 ﻿namespace MauiSample.Features.About;
 
-public class AboutPageResult
+public class AboutPageResult(int counter)
 {
-    public int Counter { get; }
-
-    public AboutPageResult(int counter) =>
-        Counter = counter;
+    public int Counter { get; } = counter;
 }

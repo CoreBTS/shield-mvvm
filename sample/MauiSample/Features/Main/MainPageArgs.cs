@@ -1,9 +1,6 @@
 ﻿namespace MauiSample.Features.Main;
 
-public class MainPageArgs
+public class MainPageArgs(int initialCounter)
 {
-    public int InitialCounter { get; }
-
-    public MainPageArgs(int initialCounter) =>
-        InitialCounter = initialCounter;
+    public int InitialCounter { get; } = initialCounter;
 }
