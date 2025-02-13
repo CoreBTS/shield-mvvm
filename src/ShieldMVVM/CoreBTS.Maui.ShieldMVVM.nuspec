@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>CoreBTS.Maui.ShieldMVVM</id>
-    <version>1.0</version>
+    <version>2.0</version>
     <title>CoreBTS MAUI Shield MVVM</title>
     <authors>Daniel Lorenz, Joshua Rhodes, Chris Pearson</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -10,7 +10,7 @@
     <icon>icon.png</icon>
     <projectUrl>https://github.com/CoreBTS/shield-mvvm</projectUrl>
 	<description>Core BTS's ShieldMVVM is a .NET MAUI MVVM framework that provides type-safety for navigation, bindable properties, converters, behaviors, dialogs, data templates, and more in a way that enables developers to code faster, safer, and with less lines.</description>
-    <releaseNotes>Initial release</releaseNotes>
+    <releaseNotes>Adds support for .NET 9;Adds custom Action Sheet implementation</releaseNotes>
     <copyright>Copyright 2025 Core BTS. All Rights Reserved.</copyright>
     <tags>.NET MAUI MVVM</tags>
 	<dependencies>
