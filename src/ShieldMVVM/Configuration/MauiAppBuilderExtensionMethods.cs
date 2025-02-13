@@ -26,8 +26,25 @@ public static class MauiAppBuilderExtensionMethods
     /// </param>
     /// <returns>The same builder that was sent in for chaining.</returns>
     public static MauiAppBuilder UseShieldMVVM(
+        this MauiAppBuilder builder,
+        Func<Type, dynamic?> typeResolverCallback,
+        params Assembly[] assembliesToScan) => UseShieldMVVM(builder, typeResolverCallback, null, assembliesToScan);
+
+    /// <summary>
+    /// Configures the built in INavigationService to navigate between pages via a ViewModel and
+    /// registers all ViewModels, ContentPageBase, and DialogPageBase types.
+    /// </summary>
+    /// <param name="builder">A builder for .NET MAUI cross-platform applications and services.</param>
+    /// <param name="typeResolverCallback">The callback to an IoC container to return the resolved type.</param>
+    /// <param name="typesToMakeSingleton">An optional list of types to be added as Singleton instead of Transient.</param>
+    /// <param name="assembliesToScan">
+    /// The list of assemblies to scan for IViewModelBase, ContentPageBase, and DialogPageBase types.
+    /// </param>
+    /// <returns>The same builder that was sent in for chaining.</returns>
+    public static MauiAppBuilder UseShieldMVVM(
         this MauiAppBuilder builder, 
         Func<Type, dynamic?> typeResolverCallback, 
+        HashSet<Type>? typesToMakeSingleton,
         params Assembly[] assembliesToScan)
     {
         builder.Services.AddSingleton<INavigationService>(new NavigationService(typeResolverCallback));
@@ -41,9 +58,9 @@ public static class MauiAppBuilderExtensionMethods
             assembliesToScan = [.. assemblies];
         }
 
-        ConfigureViewModels(builder, assembliesToScan);
-        ConfigurePages(builder, assembliesToScan);
-        ConfigureDialogs(builder, assembliesToScan);
+        ConfigureViewModels(builder, typesToMakeSingleton, assembliesToScan);
+        ConfigurePages(builder, typesToMakeSingleton, assembliesToScan);
+        ConfigureDialogs(builder, typesToMakeSingleton, assembliesToScan);
 
         return builder;
     }
@@ -59,11 +76,26 @@ public static class MauiAppBuilderExtensionMethods
     /// <returns>The same builder that was sent in for chaining.</returns>
     public static MauiAppBuilder UseShieldMVVMNoNavigation(
         this MauiAppBuilder builder,
+        params Assembly[] assembliesToScan) => UseShieldMVVMNoNavigation(builder, null, assembliesToScan);
+
+    /// <summary>
+    /// Does NOT configure the built in INavigationService to navigate between pages. Only registers 
+    /// ViewModels, ContentPageBase, and DialogPageBase types.
+    /// </summary>
+    /// <param name="builder">A builder for .NET MAUI cross-platform applications and services.</param>
+    /// <param name="typesToMakeSingleton">An optional list of types to be added as Singleton instead of Transient.</param>
+    /// <param name="assembliesToScan">
+    /// The list of assemblies to scan for IViewModelBase, ContentPageBase, and DialogPageBase types.
+    /// </param>
+    /// <returns>The same builder that was sent in for chaining.</returns>
+    public static MauiAppBuilder UseShieldMVVMNoNavigation(
+        this MauiAppBuilder builder,
+        HashSet<Type>? typesToMakeSingleton,
         params Assembly[] assembliesToScan)
     {
-        ConfigureViewModels(builder, assembliesToScan);
-        ConfigurePages(builder, assembliesToScan);
-        ConfigureDialogs(builder, assembliesToScan);
+        ConfigureViewModels(builder, typesToMakeSingleton, assembliesToScan);
+        ConfigurePages(builder, typesToMakeSingleton, assembliesToScan);
+        ConfigureDialogs(builder, typesToMakeSingleton, assembliesToScan);
 
         return builder;
     }
@@ -73,16 +105,17 @@ public static class MauiAppBuilderExtensionMethods
     /// the Services IoC container.
     /// </summary>
     /// <param name="builder">A builder for .NET MAUI cross-platform applications and services.</param>
+    /// <param name="typesToMakeSingleton">An optional list of types to be added as Singleton instead of Transient.</param>
     /// <param name="assembliesToScan">The list of assemblies to scan for IViewModelBase types.</param>
     /// <returns>The same builder that was sent in for chaining.</returns>
-    private static MauiAppBuilder ConfigureViewModels(MauiAppBuilder builder, params Assembly[] assembliesToScan)
+    private static MauiAppBuilder ConfigureViewModels(MauiAppBuilder builder, HashSet<Type>? typesToMakeSingleton, params Assembly[] assembliesToScan)
     {
         if (assembliesToScan == null)
             return builder;
 
         foreach (var assembly in assembliesToScan)
         {
-            RegisterViewModelsInAssembly(builder, assembly);
+            RegisterViewModelsInAssembly(builder, typesToMakeSingleton, assembly);
         }
 
         return builder;
@@ -93,16 +126,17 @@ public static class MauiAppBuilderExtensionMethods
     /// and registers them with the Services IoC container.
     /// </summary>
     /// <param name="builder">A builder for .NET MAUI cross-platform applications and services.</param>
+    /// <param name="typesToMakeSingleton">An optional list of types to be added as Singleton instead of Transient.</param>
     /// <param name="assembliesToScan">The list of assemblies to scan for ContentPageBase&lt;&gt; types.</param>
     /// <returns>The same builder that was sent in for chaining.</returns>
-    private static MauiAppBuilder ConfigurePages(MauiAppBuilder builder, params Assembly[] assembliesToScan)
+    private static MauiAppBuilder ConfigurePages(MauiAppBuilder builder, HashSet<Type>? typesToMakeSingleton, params Assembly[] assembliesToScan)
     {
         if (assembliesToScan == null)
             return builder;
 
         foreach (var assembly in assembliesToScan)
         {
-            RegisterPagesInAssembly(builder, assembly);
+            RegisterPagesInAssembly(builder, typesToMakeSingleton, assembly);
         }
 
         return builder;
@@ -113,33 +147,37 @@ public static class MauiAppBuilderExtensionMethods
     /// and registers them with the Services IoC container.
     /// </summary>
     /// <param name="builder">A builder for .NET MAUI cross-platform applications and services.</param>
+    /// <param name="typesToMakeSingleton">An optional list of types to be added as Singleton instead of Transient.</param>
     /// <param name="assembliesToScan">The list of assemblies to scan for ContentPageBase&lt;&gt; types.</param>
     /// <returns>The same builder that was sent in for chaining.</returns>
-    private static MauiAppBuilder ConfigureDialogs(MauiAppBuilder builder, params Assembly[] assembliesToScan)
+    private static MauiAppBuilder ConfigureDialogs(MauiAppBuilder builder, HashSet<Type>? typesToMakeSingleton, params Assembly[] assembliesToScan)
     {
         if (assembliesToScan == null)
             return builder;
 
         foreach (var assembly in assembliesToScan)
         {
-            RegisterDialogsInAssembly(builder, assembly);
+            RegisterDialogsInAssembly(builder, typesToMakeSingleton, assembly);
         }
 
         return builder;
     }
 
-    private static void RegisterViewModelsInAssembly(MauiAppBuilder builder, Assembly assembly)
+    private static void RegisterViewModelsInAssembly(MauiAppBuilder builder, HashSet<Type>? typesToMakeSingleton, Assembly assembly)
     {
         foreach (var type in assembly.GetTypes())
         {
             if (type.IsAbstract || type.IsInterface || !type.IsAssignableTo(_vmType))
                 continue;
 
-            builder.Services.AddTransient(type);
+            if (typesToMakeSingleton?.Contains(type) == true)
+                builder.Services.AddSingleton(type);
+            else
+                builder.Services.AddTransient(type);
         }
     }
 
-    private static void RegisterPagesInAssembly(MauiAppBuilder builder, Assembly assembly)
+    private static void RegisterPagesInAssembly(MauiAppBuilder builder, HashSet<Type>? typesToMakeSingleton, Assembly assembly)
     {
         var types = assembly.GetTypes();
         foreach (var pageType in types)
@@ -150,13 +188,19 @@ public static class MauiAppBuilderExtensionMethods
             var vmType = GetPageGenericType(pageType);
 
             NavigationService.ViewModelPageLookup.TryAdd(vmType, pageType);
-            builder.Services.AddTransient(_pageType.MakeGenericType(vmType), pageType);
 
-            RegisterParentTypes(builder, NavigationService.ViewModelPageLookup, _pageType, types, pageType, vmType);
+            Type genericType = _pageType.MakeGenericType(vmType);
+
+            if (typesToMakeSingleton?.Contains(genericType) == true)
+                builder.Services.AddSingleton(genericType, pageType);
+            else
+                builder.Services.AddTransient(genericType, pageType);
+
+            RegisterParentTypes(builder, NavigationService.ViewModelPageLookup, _pageType, types, pageType, vmType, typesToMakeSingleton);
         }
     }
 
-    private static void RegisterDialogsInAssembly(MauiAppBuilder builder, Assembly assembly)
+    private static void RegisterDialogsInAssembly(MauiAppBuilder builder, HashSet<Type>? typesToMakeSingleton, Assembly assembly)
     {
         var types = assembly.GetTypes();
         foreach (var pageType in types)
@@ -167,9 +211,15 @@ public static class MauiAppBuilderExtensionMethods
             var vmType = GetPageGenericType(pageType);
 
             NavigationService.ViewModelDialogPageLookup.TryAdd(vmType, pageType);
-            builder.Services.AddTransient(_dialogPageType.MakeGenericType(vmType), pageType);
 
-            RegisterParentTypes(builder, NavigationService.ViewModelDialogPageLookup, _dialogPageType, types, pageType, vmType);
+            Type genericType = _dialogPageType.MakeGenericType(vmType);
+
+            if (typesToMakeSingleton?.Contains(genericType) == true)
+                builder.Services.AddSingleton(genericType, pageType);
+            else
+                builder.Services.AddTransient(_dialogPageType.MakeGenericType(vmType), pageType);
+
+            RegisterParentTypes(builder, NavigationService.ViewModelDialogPageLookup, _dialogPageType, types, pageType, vmType, typesToMakeSingleton);
         }
     }
 
@@ -179,7 +229,8 @@ public static class MauiAppBuilderExtensionMethods
         Type genericType, 
         Type[] types, 
         Type pageType, 
-        Type baseViewModelType)
+        Type baseViewModelType,
+        HashSet<Type>? typesToMakeSingleton)
     {
        foreach (var vmType in types)
         {
@@ -187,9 +238,15 @@ public static class MauiAppBuilderExtensionMethods
                 continue;
 
             lookup.TryAdd(vmType, pageType);
-            builder.Services.AddTransient(genericType.MakeGenericType(vmType), pageType);
 
-            RegisterParentTypes(builder, lookup, genericType, types, pageType, vmType);
+            Type subGenericType = genericType.MakeGenericType(vmType);
+
+            if (typesToMakeSingleton?.Contains(subGenericType) == true)
+                builder.Services.AddSingleton(subGenericType, pageType);
+            else
+                builder.Services.AddTransient(subGenericType, pageType);
+
+            RegisterParentTypes(builder, lookup, genericType, types, pageType, vmType, typesToMakeSingleton);
         }
     }
 

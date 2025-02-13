@@ -40,6 +40,14 @@ public abstract class BaseDialogViewModelBase : BaseViewModelBase
 public abstract class DialogViewModelBase : BaseDialogViewModelBase, IDialogViewModel
 {
     /// <summary>
+    /// Gets or sets whether Initialize has been called.
+    /// </summary>
+    /// <remarks>
+    /// Only needed if the ViewModel was marked as Singleton.
+    /// </remarks>
+    bool IViewModelBase.HasBeenInitialized { get; set; }
+
+    /// <summary>
     /// Constructor that takes the NavigationService in order to navigate between View Models.
     /// </summary>
     /// <param name="navigationService">The service used for navigation.</param>
@@ -54,6 +62,14 @@ public abstract class DialogViewModelBase : BaseDialogViewModelBase, IDialogView
 /// <typeparam name="TParameter">The type of parameter the ViewModel uses to set itself up.</typeparam>
 public abstract class DialogViewModelBase<TParameter> : BaseDialogViewModelBase, IDialogViewModel<TParameter>
 {
+    /// <summary>
+    /// Gets or sets whether Initialize has been called.
+    /// </summary>
+    /// <remarks>
+    /// Only needed if the ViewModel was marked as Singleton.
+    /// </remarks>
+    bool IViewModelBase.HasBeenInitialized { get; set; }
+
     /// <summary>
     /// Constructor that takes the NavigationService in order to navigate between View Models.
     /// </summary>
@@ -76,6 +92,14 @@ public abstract class DialogViewModelBase<TParameter> : BaseDialogViewModelBase,
 /// <typeparam name="TResult">The type of result the ViewModel returns.</typeparam>
 public abstract class DialogViewModelBase<TParameter, TResult> : BaseDialogViewModelBase, IDialogViewModel<TParameter, TResult>
 {
+    /// <summary>
+    /// Gets or sets whether Initialize has been called.
+    /// </summary>
+    /// <remarks>
+    /// Only needed if the ViewModel was marked as Singleton.
+    /// </remarks>
+    bool IViewModelBase.HasBeenInitialized { get; set; }
+
     /// <summary>
     /// Constructor that takes the NavigationService in order to navigate between View Models.
     /// </summary>

@@ -59,7 +59,7 @@ public interface IPageViewModel<in TParameter, TResult> : IPageViewModelBase
     /// <summary>
     /// Gets a TaskCompletionSource that allows a Navigation call to return a result.
     /// </summary>
-    TaskCompletionSource<TResult> TaskCompletionSource { get; }
+    internal TaskCompletionSource<TResult> TaskCompletionSource { get; set; }
 
     /// <summary>
     /// A method that only fires once and sets up any initial data the ViewModel requires to function.

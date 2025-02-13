@@ -47,6 +47,14 @@ public abstract class BasePageViewModelBase : BaseViewModelBase
 public abstract class PageViewModelBase : BasePageViewModelBase, IPageViewModel
 {
     /// <summary>
+    /// Gets or sets whether Initialize has been called.
+    /// </summary>
+    /// <remarks>
+    /// Only needed if the ViewModel was marked as Singleton.
+    /// </remarks>
+    bool IViewModelBase.HasBeenInitialized { get; set; }
+
+    /// <summary>
     /// Constructor that takes the NavigationService in order to navigate between View Models.
     /// </summary>
     /// <param name="navigationService">The service used for navigation.</param>
@@ -71,6 +79,14 @@ public abstract class PageViewModelBase : BasePageViewModelBase, IPageViewModel
 /// <typeparam name="TParameter">The type of parameter the ViewModel uses to set itself up.</typeparam>
 public abstract class PageViewModelBase<TParameter> : BasePageViewModelBase, IPageViewModel<TParameter>
 {
+    /// <summary>
+    /// Gets or sets whether Initialize has been called.
+    /// </summary>
+    /// <remarks>
+    /// Only needed if the ViewModel was marked as Singleton.
+    /// </remarks>
+    bool IViewModelBase.HasBeenInitialized { get; set; }
+
     /// <summary>
     /// Constructor that takes the NavigationService in order to navigate between View Models.
     /// </summary>
@@ -104,16 +120,24 @@ public abstract class PageViewModelBase<TParameter> : BasePageViewModelBase, IPa
 public abstract class PageViewModelBase<TParameter, TResult> : BasePageViewModelBase, IPageViewModel<TParameter, TResult>
 {
     /// <summary>
+    /// Gets or sets whether Initialize has been called.
+    /// </summary>
+    /// <remarks>
+    /// Only needed if the ViewModel was marked as Singleton.
+    /// </remarks>
+    bool IViewModelBase.HasBeenInitialized { get; set; }
+
+    /// <summary>
     /// Constructor that takes the NavigationService in order to navigate between View Models.
     /// </summary>
     /// <param name="navigationService">The service used for navigation.</param>
     protected PageViewModelBase(INavigationService navigationService) : base(navigationService) =>
-        TaskCompletionSource = new TaskCompletionSource<TResult>();
+        ((IPageViewModel<TParameter, TResult>)this).TaskCompletionSource = new TaskCompletionSource<TResult>();
 
     /// <summary>
     /// Gets a TaskCompletionSource that allows a Navigation call to return a result.
     /// </summary>
-    public TaskCompletionSource<TResult> TaskCompletionSource { get; }
+    TaskCompletionSource<TResult> IPageViewModel<TParameter, TResult>.TaskCompletionSource { get; set; }
 
     /// <summary>
     /// A method that only fires once and sets up any initial data the ViewModel requires to function.

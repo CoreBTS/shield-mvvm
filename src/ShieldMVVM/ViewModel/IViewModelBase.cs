@@ -38,4 +38,12 @@ public interface IViewModelBase : INotifyPropertyChanging, INotifyPropertyChange
     /// </param>
     /// <returns>An awaitable task.</returns>
     Task OnViewDestroying(CancellationToken token = default);
+
+    /// <summary>
+    /// Gets or sets whether Initialize has been called.
+    /// </summary>
+    /// <remarks>
+    /// Only needed if the ViewModel was marked as Singleton.
+    /// </remarks>
+    internal bool HasBeenInitialized { get; set; }
 }

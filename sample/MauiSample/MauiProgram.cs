@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Maui;
 using CoreBTS.Maui.ShieldMVVM.Configuration;
+using MauiSample.Features.About;
 using Microsoft.Extensions.Logging;
 
 namespace MauiSample
@@ -14,7 +15,11 @@ namespace MauiSample
             builder
                 .UseMauiCommunityToolkit()
                 .UseMauiApp<App>()
-                .UseShieldMVVM(t => ServiceProvider?.GetService(t), typeof(MauiProgram).Assembly)
+                .UseShieldMVVM(t => ServiceProvider?.GetService(t),
+                    [
+                        typeof(AboutPageViewModel)
+                    ],
+                    typeof(MauiProgram).Assembly)
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

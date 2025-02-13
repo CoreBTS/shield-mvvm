@@ -123,7 +123,7 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
             (TViewModel)Convert.ChangeType(_typeResolverCallback(typeof(TViewModel)), typeof(TViewModel));
 
         viewModel.Prepare(parameter);
-
+      
         await InitializeViewModel(viewModel, token);
 
         var popup = CreateDialogPage(typeof(TViewModel), viewModel);
@@ -158,6 +158,10 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
             (TViewModel)Convert.ChangeType(_typeResolverCallback(typeof(TViewModel)), typeof(TViewModel));
 
         viewModel.Prepare(parameter);
+
+        // Reset the result if the ViewModel was already initialized (VM is Singleton)
+        if (viewModel.HasBeenInitialized)
+            viewModel.Result = default;
 
         await InitializeViewModel(viewModel, token);
 
@@ -291,6 +295,10 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
             (TViewModel)Convert.ChangeType(_typeResolverCallback(typeof(TViewModel)), typeof(TViewModel));
 
         viewModel.Prepare(parameter);
+
+        // Reset the result if the ViewModel was initialized (VM is Singleton)
+        if (viewModel.HasBeenInitialized)
+            viewModel.TaskCompletionSource = new TaskCompletionSource<TResult>();
 
         if (viewModel.IsInitializeCalledBeforePageIsCreated)
             await InitializeViewModel(viewModel, token);
@@ -507,6 +515,10 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
 
         viewModel.Prepare(parameter);
 
+        // Reset the result if the ViewModel was initialized (VM is Singleton)
+        if (viewModel.HasBeenInitialized)
+            viewModel.TaskCompletionSource = new TaskCompletionSource<TResult>();
+
         if (viewModel.IsInitializeCalledBeforePageIsCreated)
             await InitializeViewModel(viewModel, token);
 
@@ -624,10 +636,14 @@ public class NavigationService(Func<Type, dynamic?> typeResolverCallback) : INav
     /// <returns>An awaitable task.</returns>
     private static async Task InitializeViewModel(IViewModelBase viewModel, CancellationToken token = default)
     {
+        if (viewModel.HasBeenInitialized)
+            return;
+
         try
         {
             viewModel.IsBusy = true;
             await viewModel.InitializeAsync(token);
+            viewModel.HasBeenInitialized = true;
         }
         finally
         {
