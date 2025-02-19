@@ -6,7 +6,7 @@ Core BTS's Shield MVVM is a .NET MAUI MVVM framework that provides type-safety f
 _Make sure to check out the wiki for more details!_
 
 ### Type-Safety
-In order to add type-safety everywhere, the bindings/converters must be defined in the code-behind instead of the XAML. There are many advantages to this approach, but it is different than what is normally done. Shield MVVM is done in a way to ensure the code-behind will not have any UI logic defined in the code-behind, so the code will look clean and consistant throughout all the pages/dialogs.
+In order to add type-safety everywhere, the bindings/converters must be defined in the code-behind instead of the XAML. There are many advantages to this approach, but it is different than what is normally done. Shield MVVM is done in a way to ensure the code-behind will not have any UI logic defined in the code-behind, so the code will look clean and consistant throughout all the pages/dialogs. However, you aren't required to use the code-behinds if you don't want to. It won't be type-safe, but you can still put everything in the XAML and just use the Navigation features.
 
 ### Navigation
 By wrapping Microsoft MAUI's navigation, developers can do ViewModel-to-ViewModel navigation. Developers can also pass typed arguments to send data to the next ViewModel and even a typed result back when the user navigates back. The code can await where the navigation took place and the result will come back to that spot in code.
